@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewData["Title"] = "ListUsers";
+    var User = ViewBag.User;
+}
+<div style="font-family:Arial;background-color:white" class="content-wrapper" id="cmsImagenes">
+    <section class="container">
+        <div class="container-fluid">
+            <br />
+            <h2>List Users</h2>
+            <!-- ./row -->
+            <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    UserName
+                                </th>
+                                <th>
+                                    Email
+                                </th>
+                                <th>
+                                    Email Conf
+                                </th>
+                                <th>
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ViewBag.User)
+                            {
+                                <tr>
+                                    <td>
+                                        @item.FistName
+                                    </td>
+                                    <td>
+                                        @item.UserName
+                                    </td>
+                                    <td>
+                                        @item.Email
+                                    </td>
+                                    <td>
+                                        <input type="checkbox"   value="@item.EmailConfirmed" checked="@item.EmailConfirmed" disabled style="width:20px;height:20px" />
+                                        
+                                    </td>
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                                        <form method="post" asp-action="DeleteUser" asp-route-id="@item.Id" style="display: contents;">
+                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete user : @item.UserName')">Delete</button>
+                                        </form>
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+

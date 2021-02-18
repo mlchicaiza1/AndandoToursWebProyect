@@ -1,0 +1,297 @@
+﻿@{
+    var islands = ViewBag.Island;
+    var ItemDaily = ViewBag.GetContenidoVista;
+    var imgDaily = ViewBag.GetContenidoMult;
+    var titulo = new List<string>();
+    Dictionary<string, int> uniqueStore = new Dictionary<string, int>();
+
+    foreach (var item in ViewBag.GetContenidoVista)
+    {
+
+        if (!uniqueStore.ContainsKey(item.Titulo))
+        {
+            uniqueStore.Add(item.Titulo, 0);
+            titulo.Add(item.Titulo);
+        }
+    }
+
+}
+<div class="container--full-width" style="overflow-x:hidden;overflow:hidden; width:100%">
+    <div class="item active imgen-carousel">
+        <div class="fondos-imagen" style="background-image:url(../../images/Home/slide.jpg);">
+            <img alt="@imgDaily[0].NombreImagen" class="fondos-imagen" style=" background-image:url('@imgDaily[0].UrlImagen'); position:center; height:100%; width:100%;" />
+        </div>
+        <div class="caption" style="text-align:center; padding-bottom:40px" role="option">
+            <h1 class="font-x2 font-brush font-carousel" style="text-shadow:1px 1px 1px rgba(0, 0, 0, 0.5)">
+                <strong>@titulo[0]</strong>
+            </h1>
+            <p class="font-x2 " style="font-size:18px;margin-top:0; font-family:'BentonSans',sans-serif">
+                @Html.Raw(ItemDaily[0].Parrafo)
+            </p>
+            <p>
+                <a class="btn h5button" href="#DailyTourSelec" id="help_me_plan" style="padding: 6px 14px;">Daily Tours<i class="fas fa-angle-down" style="padding-left:10px"></i></a>
+            </p>
+        </div>
+    </div>
+    <!--================================SUB MENU=========================-->
+    <nav class="navbar  navbarsubmenu page-nav-home" data-toggle="sticky-onscroll" id="navpagina" style="border: 1px solid rgba(0,0,0,.1);">
+        <div class="limit">
+            <nav class="page-nav-anchors" style="text-transform:none; " id="sub-menu-cruises">
+                <ul>
+                    <li>
+                        <a href="#whatConsider"><span>What to consider</span> </a>
+                    </li>
+                    <li>
+                        <a href="#DailyTourSelec"><span>Best Option</span></a>
+                    </li>
+                    <li>
+                        <a style="width: 300px" href="#AndandoTouch"><span>Andando Touch</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+    <nav class="page-nav page-nav-home" data-toggle="sticky-onscroll" id="navmovil">
+        <div class="limit" style="width:100%">
+            <nav class="page-nav-anchors">
+                <ul style="width:100%">
+                    <li class="activities">
+                        <a class="" href="#whatConsider"><span>What to consider</span></a>
+                    </li>
+                    <li class="prepare" style="margin-left: 20px;">
+                        <a href="#DailyTourSelec"><span>Best Option</span></a>
+                    </li>
+                    <li class="itineraries" style="margin-left: 10px;">
+                        <a href="#AndandoTouch"> <span>Andando Touch</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+    <div class="container" id="whatConsider">
+        <div class="row f-15 text-justify textoinfo parrafoDailyTour" style="font-family:Arial;padding: .4em 1em; background:white;">
+            <ol class="breadcrumb" style="" itemscope itemtype="http://schema.org/BreadcrumbList">
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a itemprop="item" style="color:#0077ba" href="../../">
+                        <span itemprop="name">Home</span>
+                    </a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span itemprop="name">Galapagos Daily Tours</span>
+                    <meta itemprop="position" content="2" />
+                </li>
+            </ol>
+            <h2 class="formato-titulo" style="margin-top:0;margin-bottom:30px"><b>@titulo[1]</b></h2>
+            @{
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[1])
+                    {
+                        <span>@Html.Raw(item.Parrafo)</span>
+                    }
+                }
+            }<div id="DailyTourSelec"></div>
+            <p class="formato-parrafo" style="font-size:18px;margin-bottom:0">
+                Want to make your own itinerary with tours and activities? <a class="btn h5button dailyTour-boton" id="help_me_plan" style="font-size:15px;padding-top:6px;padding-bottom:6px" data-toggle="modal" data-target="#ModalInquire" href="/form_taylorMade/form_taylorMade">Create it</a>
+            </p>
+        </div>
+    </div>
+    <!--================================SECCION  Detalles  Isla=========================-->
+    <div class="container">
+        <div class="row f-15 text-justify textoinfo" style="padding:0 1em; background:white;">
+            <h2 class="formato-titulo" style="margin-top:0"><b>@titulo[2]</b></h2>
+        </div>
+    </div>
+    <div id="island">
+        <section class="SelectIsland" style="font-family:'BentonSans-Regular'; background:none;padding:0 0;">
+            <div class="item active imgen-section">
+                <div class="fondos-imagen img-responsive" style="background-image:url('@imgDaily[1].UrlImagen')" id="imgDaily" v-if="Selectisland=='Select an island'">
+                </div>
+                <div v-else class="fondos-imagen img-responsive" :style="{ backgroundImage: 'url(' + imgIsland + ')' }">
+                </div>
+                <div class="selectdiv">
+                    <div class="dropdown" id="dropdownIsland">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="menuIsland" data-toggle="dropdown">
+                            <p v-html="Selectisland"> </p> <i class="fas fa-angle-down" style="padding-left: 50px;"></i>
+                        </button>
+                        <ul id="menuIslandItem" class="dropdown-menu" role="menu" aria-labelledby="menu1" style="width:100%; font-size:18px; border:solid 1px grey;cursor: pointer;">
+                            @{
+                                foreach (var island in islands)
+                                {
+                                    if (island.MostrarIsland == true)
+                                    {
+                                        <li>
+                                            <a role="menuitem" tabindex="-1" class="applyIsland" :id="'@island.IdIsland'" :value=" '@island.NombreIsland' " v-on:click="onClickIsland($event)">
+                                                <span>@island.NombreIsland</span>
+                                            </a>
+                                        </li>
+                                    }
+
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="selectdiv" style="margin-top:10px">
+                    <div class="dropdown" id="dropdownIsland">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="menuDailytours" data-toggle="dropdown" v-bind:style="{color:colorDailyTour}" disabled>
+                            <p v-html=" SelectTour"></p>  <i class="fas fa-angle-down"></i>
+                        </button>
+                        <ul id="menu" class="dropdown-menu" role="menu" aria-labelledby="menu1" style="width:100%;overflow-x:auto; font-size:18px; border:solid 1px grey;cursor: pointer;">
+                            <li v-for="dailytour in  dailyTour" role="presentation">
+                                <a role="menuitem" tabindex="-1" class="applyDailyTours" :id="dailytour.nombreDailyTour" :value="dailytour.nombreDailyTour" v-on:click="onClickDailyTours($event)">
+                                    <span>{{dailytour.nombreDailyTour}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="boxdiv descripDailyTour" v-bind:style="{display: displayIsland}">
+                    <p id="parrafoIsabela" v-bind:style="{display: displayIsabela}">
+                        @islands[0].DescripcionIsland
+                    </p>
+                    <p id="parrafoSanCristobal" v-bind:style="{display: displaySanCristobal}">
+                        @islands[1].DescripcionIsland
+                    </p>
+                    <p id="parrafoSantaCruz" v-bind:style="{display: displaySantaCruz}">
+                        @islands[2].DescripcionIsland
+                    </p>
+                    <a class="btn h5button" target="_blank" v-bind:style="{display: displayIsabela}" style="margin-top: 20px;" href="@islands[0].LinkIsland">Island Details</a>
+                    <a class="btn h5button" target="_blank" v-bind:style="{display: displaySanCristobal}" style="margin-top: 20px;" href="@islands[1].LinkIsland">Island Details</a>
+                    <a class="btn h5button" target="_blank" v-bind:style="{display: displaySantaCruz}" style="margin-top: 20px;" href="@islands[2].LinkIsland">Island Details</a>
+                </div>
+                <div class="boxdiv" v-bind:style="{display: displayDailyTours}">
+                    <p id="parrafoIsabela">
+                        {{parrafoIsland}}
+                    </p>
+                    <a class="btn h5button" target="_blank" style="margin-top: 20px;" v-bind:href="linkIsland"><span v-html="btnTextTour"></span></a>
+                </div>
+            </div>
+        </section>
+        <section style="background:none;padding: 30px 25px 0">
+            <div class="boxdivMobile">
+                <p class="formato-parrafo" style="text-align: justify" id="textIslandDaily">
+                    <span v-html="parrafoIsland"></span>
+                </p>
+                <a class="btn h5button" style="margin-bottom: 10px" v-bind:href="linkIsland"><span v-html="btnTextTour"></span></a>
+            </div><div id="AndandoTouch"></div>
+        </section>
+    </div>
+    <div class="container">
+        <div class="row f-15 text-justify textoinfo parrafoDailyTour" style="font-family:Arial;padding: .5em 1em; color: #747475  !important; line-height:2; background:white; margin:0">
+            <h2 class="formato-titulo" style="margin-bottom:30px;margin-top:0"> <b>@titulo[3] </b></h2>
+            @{
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[3])
+                    {
+                        @Html.Raw(item.Parrafo)
+                    }
+                }
+            }
+        </div>
+    </div>
+    <!--================================SECCION IMG INF========================-->
+    <div class="container seccionItinerario seccionItinerarioImg" style="padding-bottom:0">
+        <div class="row">
+            <div class="col-md-6 " style="padding-left: 10px">
+                <img class="img-responsive lazyload" data-src="@imgDaily[2].UrlImagen" alt="@imgDaily[2].NombreImagen"  style="margin:0;width:100%" />
+                <div class="caption ">
+                </div>
+            </div>
+            <div class="col-md-6 itinerarioDaily">
+                <div class="row f-15 text-justify textoinfo parrafoDailyTour" style="font-family:Arial;padding: 0 1em; color:#747475  !important; margin-top:-5px;line-height:2;">
+                    <h2 class="formato-titulo"> <b>@titulo[4]</b></h2>
+                    @{
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[4])
+                            {
+                                @Html.Raw(item.Parrafo)
+                            }
+                        }
+                    }
+                    <table style="margin-left:-13px;width: 110%">
+                        <tr>
+                            <td style="border:none">
+                                <div class="boxdiv1">
+                                    <a class="btn h5button daily-boton" href="../tours/island-hopping" style="margin-right:10px;color:white; background:#398AC9">
+                                        Island Hopping Tours
+                                    </a>
+                                    <a class="btn h5button daily-boton" href="/contact" style="color:#398AC9; background:#fff; border-color:#398AC9;border: 1px solid #398AC9;">
+                                        Contact Us
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="text-align:justify">
+        <div class="row f-15 text-justify textoinfo parrafo" style="font-family:Arial;padding: .4em 1em; background:white;">
+            <div class="row">
+                <div class="col-md-12 textDailyTours parrafoDailyTour">
+                    <h2 class="formato-titulo" style="margin-bottom:30px"> <b>@titulo[5]</b></h2>
+                    @{
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[5])
+                            {
+                                @Html.Raw(item.Parrafo)
+                            }
+                        }
+                    }
+                </div>
+            </div>
+            <div class="row textDailyToursOp" style="padding-bottom:20px">
+                <div class="col-md-6">
+                    <div class="box textoDerecha parrafoDailyTour">
+                        <h3 class="formato-titulo" style="margin-bottom:30px"> <b>@titulo[6]</b></h3>
+                        @{
+                            foreach (var item in ViewBag.GetContenidoVista)
+                            {
+                                if (item.Titulo == titulo[6])
+                                {
+                                    @Html.Raw(item.Parrafo)
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="box textoIzquierda parrafoDailyTour">
+                        <h3 class="formato-titulo" style="margin-bottom:30px"> <b>@titulo[7]</b></h3>
+                        @{
+                            foreach (var item in ViewBag.GetContenidoVista)
+                            {
+                                if (item.Titulo == titulo[7])
+                                {
+                                    @Html.Raw(item.Parrafo)
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bs-example">
+    <!-- Modal Galeria HTML -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+
+    <script src="~/lib/vue/DailyTours.js"></script>
+}
+
+

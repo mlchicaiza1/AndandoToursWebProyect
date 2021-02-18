@@ -1,0 +1,117 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    /*padding-top: 50px;*/
+    /*    padding-bottom: 20px;*/
+    padding-top: 50px;
+    width: 100%;
+    padding-bottom: 20px;
+}
+.style-scroll::-webkit-scrollbar {
+    width: 10px;
+}
+.style-scroll::-webkit-scrollbar-track {
+    border: 1px solid;
+    border-color: #707070;
+    border-radius: 10px;
+}
+/* Handle */
+.style-scroll::-webkit-scrollbar-thumb {
+    background: #8E8C8D;
+    border: 1.5px solid;
+    border-color: #707070;
+    border-radius: 10px;
+}
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    /*padding-left: 15px;
+    padding-right: 15px;*/
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+aside.desAct {
+    display: none;
+}
+
+nav.desAct {
+    display: none;
+}
+.close-form {
+    background: rgba(20,104,164,.7);
+    color: #fff;
+    border-radius: 50%;
+    font-weight: 900;
+    line-height: 20px;
+}
+
+    .close-form:hover {
+        background: #fff;
+        color: rgba(20,104,164,.7);
+        border: 1px solid rgba(20,104,164,.7)
+    }
+.h5button {
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    border-style: solid;
+    border-width: 0px;
+    border-color: #FFFFFF;
+    box-shadow: 0px 0px 0px 0px #000000;
+    -o-box-shadow: 0px 0px 0px 0px #000000;
+    -webkit-box-shadow: 0px 0px 0px 0px #000000;
+    -moz-box-shadow: 0px 0px 0px 0px #000000;
+    -ms-box-shadow: 0px 0px 0px 0px #000000;
+    font-size: 14px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: #0077ba;
+    -webkit-border-top-left-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-topright: 10px;
+    border-top-right-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    border-bottom-left-radius: 10px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+    .h5button.hover,
+    .h5button:hover {
+        background-color: #179fec;
+        color: #ffffff;
+        text-decoration: none;
+    }

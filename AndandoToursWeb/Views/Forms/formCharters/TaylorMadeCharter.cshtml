@@ -1,0 +1,61 @@
+﻿<div id="TailorMadeCharter" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" >
+                @*<button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>*@
+                <div class=" col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-md-10 col-sm-10 col-xs-9 ">
+                        <h5 class="formato-titulo modal-title" style="text-align:left;font-size:20px; color:#0077ba;top:6%"><b>Start planning your trip</b></h5>
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-xs-3 ">
+                        <a class="close icon-times-circle" v-on:click="closeTailorMadeCharter" id="close_modal1"  data-dismiss="modal" style="color:#0077ba;font-size:30px;margin-top: 2px;" href="#"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div style="margin:10px">
+                        <div class="row">
+                            @*<div class=" col-md-12 col-sm-12 col-xs-12">
+                                <div style="background:#c3bfbf;height:1.5px;width:100%"></div>
+                                <br />
+                            </div>*@
+                            <div style="font-size:15px" class=" col-md-6 col-sm-12 col-xs-12">
+                                <p> <b>E-mail adress <span style="color:red;font-weight:900"> *</span></b></p>
+                                <input v-on:click="writeTextValidacionEmail" style="font-family:Arial" class="form-control" type="email" placeholder="Email@email.com" id="emailCharter" name="email" />
+                                <p style="margin-bottom: 0;font-size: 12px;font-weight: 600;" v-bind:style="{color:colorEmailVal}" v-html="email"></p>
+                            </div>
+                            <div style="font-size:15px" class=" col-md-6 col-sm-12 col-xs-12">
+                                <p>
+                                    <b>Name <span style="color:red;font-weight:900"> *</span></b>
+                                </p>
+                                <input class="form-control" v-on:click="writeTextValidacionName" placeholder="Your Name" autocomplete="off" type="text" id="nameCharter" name="nombre" />
+                                @*<input type="text" id="taylor" class="form-control" name="taylor" style="display:none" value="Taylor Made" />*@
+
+                            </div>
+                            <div style="font-size:15px;margin-top: 20px;" class=" col-md-12 col-sm-12 col-xs-12">
+                                <p>    <b>More details:</b></p>
+                                <p>
+                                    <textarea style=" max-height:100px" class="form-control textarea-taylor" placeholder="Tell us something more we need to know about your dreamer trip" type="text" id="obserCharter" name="obser"></textarea>
+                                </p>
+                            </div>
+                        </div>
+                        <br />
+                        <center>
+                            <input id="Button1" style="font-family: Arial;font-size: 16px;padding: 5px 15px" class="btn h5button  BottonAndan" type="button" v-on:click="SendleadBoat" value="Submit request" />
+
+                        </center>
+
+                    </div>
+
+                </form>
+            </div>
+            @*<div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>*@
+        </div>
+
+    </div>
+</div>

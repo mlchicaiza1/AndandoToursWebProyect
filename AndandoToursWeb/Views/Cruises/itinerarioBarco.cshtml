@@ -1,0 +1,98 @@
+﻿@{
+    Layout = null;
+    @model List<AndandoToursWeb.Models.ItinerarioBarco>
+    var GetItinerarios = ViewBag.GetDias;
+    var GetFiltroAm = ViewBag.GetFiltroAm;
+    var GetFiltroPm = ViewBag.GetFiltroPm;
+}
+<div class="container">
+    <div id="myCarousel5" class="owl-carousel" style="background-color:white; height:100%;">
+        @{ var cont = 0;
+            foreach (var itinera in GetItinerarios)
+            {
+                <div class="item" style="height:100%;">
+                    @{
+                        if (cont == 0)
+                        {
+                            <div class="row parrafo">
+                                <div class="col-md-6" style="padding:0 1em;">
+                                    <a class="align-content-center">
+                                        <img class="lazyload" style="margin: 0.5px; width:800px; height:368px" src="@itinera.ItiCompLinkImagen" />
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row f-15 text-justify" style="margin:0; padding: 2em 1em 0; " id="experience_text">
+                                        <h3 style="text-align:left;"><span style=" color:#398AC9"><b>@GetItinerarios[1].DescripcionEn</b><br /><br /></span><span style="color:black"><b>Itinerary Map</b></span></h3>
+                                        <div class="style-scroll" style="overflow-y:scroll;padding-top:5px;height:200px">
+                                            <div style="margin-right:17px">
+                                                <p>@itinera.ItiCompDescripcionDescriptivoEn</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="row">
+                                <div class="col-md-6" style="padding: 0 13px;">
+                                    <a id="btn-galeria-iti-mob" class=" align-content-center" style="font-family:'BentonSans',sans-serif">
+                                        <img  class="lazyload" style="margin: 0.5px; width:800px; height:335px" data-src="@itinera.ItiCompLinkImagen" />
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row f-15 text-justify" style="margin:0; padding: 2em 1em 0; " id="experience_text">
+                                        <h3><p style=" text-align:left; color:#398AC9"><b>@itinera.DescripcionEn</b><br /><br /><span style="color:black"><b>Day @itinera.DiaNumero</b></span></p></h3>
+                                        <div class="style-scroll" style="overflow-y:scroll;padding-top:5px;height:200px">
+                                            <div style="margin-right:17px">
+                                                @{
+                                                    foreach (var filtrosAm in GetFiltroAm)
+                                                    {
+                                                        @if (@filtrosAm.DiaNumero == cont)
+                                                        {
+                                                            <div style="margin-bottom:10px;">
+                                                                <p style="text-align: left;margin-bottom:0;line-height:1;font-size:18px">
+                                                                    <b>AM:</b><a href="../../form_taylorMade/visitor_site_modal?idItiner=@filtrosAm.IDItinerarioDetallado" data-toggle="modal" data-target="#visitorModal" style=" text-align: left;margin-bottom:10px;color:#0077ba;  font-size:16px">
+                                                                        @filtrosAm.ItiCompTituloEn<i aria-hidden="true" class="icon-fa-info-circle"></i>
+                                                                    </a><br><span>@Html.Raw(@filtrosAm.ItiCompDescripcionVoucherEn)</span>
+                                                                </p>
+                                                            </div>
+                                                        }
+                                                    }
+                                                    foreach (var filtrosPm in GetFiltroPm)
+                                                    {
+                                                        @if (@filtrosPm.DiaNumero == cont)
+                                                        {
+                                                            <div>
+                                                                <p style=" text-align: left;margin-bottom:0;line-height:1;font-size:18px">
+                                                                    <b>PM:</b>
+                                                                    <a href="../../form_taylorMade/visitor_site_modal?idItiner=@filtrosPm.IDItinerarioDetallado" style=" text-align: left;margin-bottom:10px;color:#0077ba;  font-size:18px">
+                                                                        @filtrosPm.ItiCompTituloEn<i aria-hidden="true" class="icon-fa-info-circle"></i>
+                                                                    </a><br><span> @Html.Raw(@filtrosPm.ItiCompDescripcionVoucherEn)</span>
+                                                                </p>
+                                                            </div>
+                                                        }
+                                                    }
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+                cont++;
+            }
+        }
+    </div>
+    <div class="owl-nav">
+        <button type="button" role="presentation" class="owl-prev tamañoBtnDer">
+            <span aria-label="Previous">‹</span>
+        </button>
+        <button type="button" role="presentation" class="owl-next tamañoBtnIzq">
+            <span aria-label="Next">›</span>
+        </button>
+    </div>
+</div>
+<script src="~/js/owl.carousel.js"></script>

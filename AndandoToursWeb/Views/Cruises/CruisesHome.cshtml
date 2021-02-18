@@ -1,0 +1,506 @@
+﻿@{
+    @*@model List<AndandoTour3_0Core.Models.BarcoWeb>*@
+    var item1 = ViewBag.GetContenidoVista;
+    var imgItem = ViewBag.GetContenidoMult;
+    var titulo = new List<string>();
+    Dictionary<string, int> uniqueStore = new Dictionary<string, int>();
+    foreach (var item in ViewBag.GetContenidoVista)
+    {
+        if (!uniqueStore.ContainsKey(item.Titulo))
+        {
+            uniqueStore.Add(item.Titulo, 0);
+            titulo.Add(item.Titulo);
+        }
+    }
+
+    var i = 0;
+    //var barcos = new List<AndandoTour3_0Core.Models.BarcoWeb>(Model);
+
+    var barcos = ViewBag.CardsCruises;
+
+}
+<div class="container--full-width" style="overflow-x:hidden; width:100%" id="CruisesCategoria">
+    <div class="item active imgen-carousel">
+        <div class="fondos-imagen">
+            <img alt="@imgItem[0].NombreImagen" class="fondos-imagen" style="background-image: url('@imgItem[0].UrlImagen');position:center; height:100%; width:100%;" />
+        </div>
+        <div class="caption texHeader" style="text-align:center; padding-bottom:40px" role="option">
+            <h1 class="font-x2 font-brush font-carousel" style="text-shadow:1px 1px 1px rgba(0, 0, 0, 0.5)">
+                <strong>@titulo[0]</strong>
+            </h1>
+            <p class="font-x2 " style="font-size:18px;margin-top:0;">
+                <span>@Html.Raw(item1[0].Parrafo)</span>
+            </p>
+            <p>
+                <a class="btn h5button" href="#Availability" id="help_me_plan" style="padding: 6px 14px;">Find your cruise <i class="fas fa-angle-down" style="padding-left:10px"></i></a>
+            </p>
+            <p>
+                <a href="#Galapagoscruises">
+                    <img class="read-more" src="~/images/read-more.png" />
+                </a>
+            </p>
+        </div>
+    </div>
+    <div id="Galapagoscruises"></div>
+    <!--================================SUB MENU=========================-->
+    <nav class="navbar navbarsubmenu page-nav-home" data-toggle="sticky-onscroll" id="navpagina" style="border: 1px solid rgba(0,0,0,.1);">
+        <div class="limit">
+            <nav class="page-nav-anchors" style="text-transform:none; " id="sub-menu-cruises">
+                <ul>
+                    <li>
+                        <a href="#ShipTypes"><span v-html="submenu[0]"></span> </a>
+                    </li>
+                    <li>
+                        <a href="#Availability"><span v-html="submenu[1]"></span> </a>
+                    </li>
+                    <li>
+                        <a style="width: 300px" href="#Cruise_Info"><span v-html="submenu[2]"></span> </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+    <nav class="page-nav page-nav-home" data-toggle="sticky-onscroll" id="navmovil">
+        <div class="limit" style="width:100%">
+            <nav class="page-nav-anchors">
+                <ul style="width:100%">
+                    <li class="activities">
+                        <a class="" href="#ShipTypesMov"><span v-html="submenu[0]"></span></a>
+                    </li>
+                    <li class="prepare" style="margin-left: 20px;">
+                        <a href="#cruisesbest"><span v-html="submenu[1]"></span></a>
+                    </li>
+                    <li class="itineraries" >
+                        <a href="#Cruise_Info"> <span v-html="submenu[2]"></span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+    <div class="container">
+        <ol class="breadcrumb" style="" itemscope itemtype="http://schema.org/BreadcrumbList">
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a itemprop="item" style="color:#0077ba" href="../../">
+                    <span itemprop="name">Home</span>
+                </a>
+                <meta itemprop="position" content="1" />
+            </li>
+            <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <span itemprop="name">Galapagos Cruises</span>
+                <meta itemprop="position" content="2" />
+            </li>
+        </ol>
+        <div class="row f-15 text-justify textoinfo parrafo" style="font-family:Arial;padding: .4em 1em; background:white;">
+            <h2 class="formato-titulo" style="margin-top:0;margin-bottom:30px"> <b> <span>@titulo[1]</span></b></h2>
+            @{ 
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[1])
+                    {
+                        
+                        <p class="formato-parrafo">
+                            <span id="ShipTypes">@Html.Raw(item.Parrafo)</span>
+                        </p>
+                    }
+                }
+            }
+            <div id="ShipTypesMov"></div>
+            <p style="margin-top:35px;margin-bottom:0">
+                <a class="btn h5button" id="help_me_plan" style="padding-top:6px;padding-bottom:6px " data-toggle="modal" href="../form_taylorMade/form_taylorMade" data-target="#taylorMade-Modal">Connect with an expert </a>
+            </p>
+        </div>
+    </div>
+    <!--================================FILTROS PRODUCTOS=========================-->
+    <div class="container f-15 text-justify" style="padding:4em 1em 1em; color: #656b6f !important; line-height:2; background:white; text-decoration:none">
+        <div class="mainland-wrapper ">
+            <div class="mainland">
+                <div class="row" style="width: 1145px; margin-left: 4px;">
+                    <div class="col-lg-12 col-sm-12">
+                        <h2 class="formato-titulo" style="text-align:justify;margin-bottom: 35px;"> <b><span>@titulo[2]</span></b> </h2>
+                    </div>
+                    <div id="cruisesFiltersDesktop">
+                        <div class="col-lg-3 col-sm-12" style="padding-left: 15px;padding-bottom:20px">
+                            <div class="categories-item">
+                                <a href="../galapagos-luxury-cruise" id="item_1">
+                                    <img class="lazyload " data-src="@imgItem[1].UrlImagen" title="My Passion" alt="@imgItem[1].NombreImagen">
+                                    <p style=" font-family: 'BentonSans-Regular'"><b>Luxury</b></p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-12" style="padding-bottom:20px">
+                            <div class="categories-item">
+                                <a href="../sailing-cruises" id="item_2">
+                                    <img class="lazyload " data-src="@imgItem[2].UrlImagen" title="Ocean Spray" alt="@imgItem[2].NombreImagen">
+                                    <p style=" font-family: 'BentonSans-Regular'"><b>Sailing </b></p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-12" style="padding-bottom:20px">
+                            <div class="categories-item">
+                                <a href="../galapagos-cruises/galapagos-catamarans" id="item_3">
+                                    <img class="lazyload " data-src="@imgItem[3].UrlImagen" title="Theory" alt="@imgItem[3].NombreImagen">
+                                    <p style=" font-family: 'BentonSans-Regular';"><b>Catamarans</b></p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-12" style="padding-bottom:20px">
+                            <div class="categories-item">
+                                <a href="../galapagos-cruises/galapagos-yachts" id="item_4">
+                                    <img class="lazyload " data-src="@imgItem[4].UrlImagen" title="Theory" alt="@imgItem[4].NombreImagen">
+                                    <p style=" font-family: 'BentonSans-Regular';"><b>Mono-hull yachts</b></p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Availability"></div>
+            </div>
+        </div>
+    </div>
+    <!--Mobile-->
+    <div class="container" id="cruisesFiltersMobile">
+        <div class="row f-15 text-justify textoinfo parrafo" style="font-family:Arial;padding: .4em .6em; background:white;margin-top:-15px;">
+            <div class="mainland-wrapper container-fluid" style="width: 100%;padding-right:0;margin-top:0">
+                <div class="mainland">
+                    <div class="row" style="height:auto">
+                        <table style="border:none;font-family: 'BentonSans-Regular';">
+                            <tr style="border:none;">
+                                <td class="filterIcon" style="width:auto; border:none">
+                                    <a href="../galapagos-luxury-cruise" id="item_1">
+                                        <img class="lazyload " data-src="@imgItem[1].UrlImagen" title="My Passion" alt="@imgItem[1].NombreImagen" style="border-radius:10px; width:120px;height:90px ;margin-left:-8px;text-align:right">
+                                        <p> <b>Luxury </b></p>
+                                    </a>
+                                </td>
+                                <td class="filterIcon" style="width:auto;border:none">
+                                    <a href="../sailing-cruises" id="item_2">
+                                        <img class="lazyload " data-src="@imgItem[2].UrlImagen" title="My Passion" alt="@imgItem[2].NombreImagen" style="border-radius:10px; width:120px;height:90px ;margin-left:-8px;text-align:right">
+                                        <p> <b>Sailing</b></p>
+                                    </a>
+                                </td>
+                                <td class="filterIcon" style="width:auto;border:none">
+                                    <a href="../galapagos-cruises/galapagos-catamarans" id="item_3">
+                                        <img class="lazyload " data-src="@imgItem[3].UrlImagen" title="My Passion" alt="@imgItem[3].NombreImagen" style="border-radius:10px; width:120px;height:90px ;margin-left:-8px;text-align:right">
+                                        <p><b>Catamarans</b></p>
+                                    </a>
+                                </td>
+                                <td style="width:auto;border:none">
+                                    <a href="../galapagos-cruises/galapagos-yachts" id="item_4">
+                                        <img class="lazyload " data-src="@imgItem[4].UrlImagen" title="My Passion" alt="@imgItem[4].NombreImagen" style="border-radius:10px; width:120px;height:90px ;margin-left:-8px;text-align:right">
+                                        <p><b>Mono-hull yachts</b></p>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>   <div id="cruisesbest"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row f-15 text-justify textoinfo parrafo" style="font-family:Arial;padding: .4em 1em; background:white;margin-top:-18px">
+            @{
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[2])
+                    {
+                        <p class="formato-parrafo">
+                            <span>@Html.Raw(item.Parrafo)</span>
+                        </p>
+                    }
+                }
+            }
+            <a href="../blog/galapagos-cruise-categories" style="color: #398AC9;font-size:16px;text-decoration:none; font-family: 'BentonSans-Regular'"> Difference between categories >> </a>
+        </div>
+    </div>
+    <!--================================CARD CRUCEROS=========================-->
+    <div class="container">
+        <div class="row f-15 text-justify textoinfo parrafo" style="font-family:Arial;padding: .4em 1em; background:white;">
+            <h2 class="formato-titulo" style="margin-top:0;margin-bottom:30px"> <b>@titulo[3]</b></h2>
+            @{
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[3])
+                    {
+                        <p class="formato-parrafo">
+                            <span>@Html.Raw(item.Parrafo)</span>
+                        </p>
+                    }
+                }
+            }
+        </div>
+    </div>
+    <div class="container f-15 text-justify" style="padding: .5em 1em; background:white; text-decoration:none;margin-top: 15px;">
+        <div class="mainland-wrapper ">
+            <div class="mainland">
+                <div class="row  f-15 text-justify textoinfo parrafo" style="font-family:Arial; color: #656b6f !important; line-height:2; background:white;">
+                    @{ i = 0;
+                        foreach (var barco in barcos)
+                        {
+                            <div class="col-xs-12 col-sm-6  col-md-4 cardsAndando">
+                                <div class="contenido-app" :id="@barco.IdBarco" v-on:click="select($event)">
+                                    <a href="@barco.BarcoURL" target="_blank" style="text-decoration:none" class="anc-card">
+                                        <div class="mainland-item @(@barco.BarcoEco == true ? "cardEco": "eco")" style="overflow:hidden;text-overflow:ellipsis">
+                                            <div class="mainland-image">
+                                                <img class="lazyload img-portada " data-src="@barco.BarcoImagen" alt="@barco.BarcoNombre">
+                                                <div class=" @(@barco.BarcoEco == true ? "wildAid": "hide")">
+                                                    <h5>@barco.BarcoEcoDescripcion</h5>
+                                                </div>
+                                                <div class=" @(@barco.BarcoEco == true ? "cruise-detailsEco" : "cruise-details")">
+                                                    <span>Category: @barco.BarcoCategoriaTipoNombreEn</span>
+                                                </div>
+                                            </div>
+                                            <div class="cruise-info">
+                                                <h3 style="font-family:'Berlin Sans FB'">@barco.BarcoNombre</h3>
+                                                <p>
+                                                    @Regex.Replace(barco.BarcoDescripcionCortaEn, "<.*?>", String.Empty)
+                                                </p>
+                                                <div class="rest-info">
+                                                    <span class="price" style="margin-left:10px; font-family:Arial">Price from: $@barco.BarcoPrecioMin  (@barco.BarcoDiasItinerario Days).</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div> i++;
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--================================BLOQUES GRANDES IMAGENES=========================-->
+    <section id="related_prod" class="related" style="background-color:white;padding-top:0">
+        <div class="container">
+            <div class="contenedorHome row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em;margin-bottom: 0;margin-top:0; background:white;">
+                <h2 class="section-header-title formato-titulo" style="text-align:left;" id="gallery"><strong>@titulo[4]</strong></h2>
+                @{
+                    foreach (var item in ViewBag.GetContenidoVista)
+                    {
+                        if (item.Titulo == titulo[4])
+                        {
+                            <p class="formato-parrafo">
+                                <span>@Html.Raw(item.Parrafo)</span>
+                            </p>
+                        }
+                    }
+                }
+                <div id="tabs" class="content content-twocolumns" style="margin:0">
+                    <div class="col-md-4 columnsCruises" style="margin-bottom:15px;padding-left: 0;">
+                        <article class="article-event article-loaded" id="tabs_1">
+                            <div class="article-image">
+                                <img class="lazyload attachment-400x300x1 size-400x300x1 wp-post-image img-loaded" data-src="@imgItem[5].UrlImagen" title="Theory" alt="@imgItem[5].NombreImagen" class="attachment-400x300x1 size-400x300x1 wp-post-image img-loaded">
+                            </div>
+                            <div class="article-main">
+                                <div class="article-date" style="width:auto; height:31px;">
+                                    <div style="padding:5px; font-size:8px; margin-top:-30px; padding-left:10px; padding-right:10px">
+                                        <strong>@titulo[5]</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="article-body" style="color:black">
+                                @{
+                                    foreach (var item in ViewBag.GetContenidoVista)
+                                    {
+                                        if (item.Titulo == titulo[5])
+                                        {
+                                            <p class="formato-parrafo" style="height:100%;margin-bottom:0">
+                                                <span>@Html.Raw(item.Parrafo)</span>
+                                            </p>
+                                        }
+                                    }
+                                }
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-4 columnsCruises" style="margin-bottom:15px">
+                        <article class="article-event article-loaded" id="tabs_1">
+                            <div class="article-image">
+                                <img class="lazyload attachment-400x300x1 size-400x300x1 wp-post-image img-loaded" data-src="@imgItem[6].UrlImagen" title="Theory" alt="@imgItem[6].NombreImagen">
+                            </div>
+                            <div class="article-main">
+                                <div class="article-date" style="width:auto; height:31px">
+                                    <div style="padding:5px; font-size:8px; margin-top:-30px; padding-left:10px; padding-right:10px">
+                                        <strong>@titulo[6]</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="article-body" style="color:black">
+                                @{
+                                    foreach (var item in ViewBag.GetContenidoVista)
+                                    {
+                                        if (item.Titulo == titulo[6])
+                                        {
+                                            <p class="formato-parrafo" style="margin:0">
+                                                <span>@Html.Raw(item.Parrafo)</span>
+                                            </p>
+                                        }
+                                    }
+                                }
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-4 columnsCruises">
+                        <article class="article-event article-loaded" id="tabs_1">
+                            <div class="article-image">
+                                <img class="attachment-400x300x1 size-400x300x1 wp-post-image img-loaded lazyload " data-src="@imgItem[7].UrlImagen" title="Theory" alt="@imgItem[7].NombreImagen">
+                            </div>
+                            <div class="article-main">
+                                <div class="article-date" style="width:auto; height:31px">
+                                    <div style="padding:5px; font-size:8px; margin-top:-30px; padding-left:10px; padding-right:10px">
+                                        <strong>@titulo[7]</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="article-body" style="color:black">
+                                @{
+                                    foreach (var item in ViewBag.GetContenidoVista)
+                                    {
+                                        if (item.Titulo == titulo[7])
+                                        {
+                                            <p class="formato-parrafo" style="margin:0">
+                                                <span>@Html.Raw(item.Parrafo)</span>
+                                            </p>
+                                        }
+                                    }
+                                }
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Cruise_Info"></div>
+        <br />
+    </section>
+    <!--================================INFO CRUCEROS =========================-->
+    <div class="container" style="overflow:hidden;margin-bottom:10px;margin-top:0">
+        <div class="row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em;margin-bottom: 0;margin-top:0; background:white;">
+            <h2 class="formato-titulo"> <b>@titulo[8]</b></h2>
+            @{
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[8])
+                    {
+                        <p class="formato-parrafo" style="margin:0">
+                            <span>@Html.Raw(item.Parrafo)</span>
+                        </p>
+                    }
+                }
+            }
+            <p style="margin-top:20px;margin-bottom:15px">
+                <a class="btn h5button downloadCruises" style="padding-top:6px;padding-bottom:6px;color: #fff; " data-toggle="modal" href="https://www.visitgalapagos.travel/back/cruises/cruising_guide.html" data-target="#taylorMade-Modal">DOWNLOAD OUR CRUISING GUIDE</a>
+            </p>
+        </div>
+        <div class=" row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em; background:white;margin-top:0;margin-bottom:0">
+            <div class="col-md-6" style="padding: 0px 0;">
+                <div class="box" id="textoDerecha">
+                    <h3 class="formato-titulo" style="margin-top:0;margin-bottom:30px;"><b>@titulo[9]</b></h3>
+                    @{
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[9])
+                            {
+                                <p class="formato-parrafo" style="margin:0">
+                                    <span>@Html.Raw(item.Parrafo)</span>
+                                </p>
+                            }
+                        }
+                    }
+                    <h3 class="formato-titulo" style="margin-top: 30px;margin-bottom: 30px;"> <b>@titulo[11]</b></h3>
+                    @{
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[11])
+                            {
+                                <p class="formato-parrafo" style="margin:0">
+                                    <span>@Html.Raw(item.Parrafo)</span>
+                                </p>
+                            }
+                        }
+                    }
+                    <h3 class="formato-titulo" style="margin-top: 30px;margin-bottom: 30px;"> <b>@titulo[13]</b></h3>
+                    @{
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[13])
+                            {
+                                <p class="formato-parrafo" style="margin:0">
+                                    <span>@Html.Raw(item.Parrafo)</span>
+                                </p>
+                            }
+                        }
+                    }
+                </div>
+            </div>
+            <div class="col-md-6" style="padding: 0px 0;">
+                <div class="box">
+                    <h3 class="formato-titulo" style="margin-top:0;margin-bottom: 30px;"> <b>@titulo[10]</b></h3>
+                    @{
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[10])
+                            {
+                                <p class="formato-parrafo" style="margin:0">
+                                    <span>@Html.Raw(item.Parrafo)</span>
+                                </p>
+                            }
+                        }
+                    }
+                    <h3 class="formato-titulo" style="margin-top: 30px;margin-bottom: 30px;"> <b>@titulo[12]</b></h3>
+                    @{
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[12])
+                            {
+                                <p class="formato-parrafo" style="margin:0">
+                                    <span>@Html.Raw(item.Parrafo)</span>
+                                </p>
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em;margin-bottom: 0;margin-top:0; background:white;">
+            <h2 class="formato-titulo"> <b>@titulo[14]</b></h2>
+            @{
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[14])
+                    {
+                        <p class="formato-parrafo" style="margin:0">
+                            <span>@Html.Raw(item.Parrafo)</span>
+                        </p>
+                    }
+                }
+            }
+            <p style="margin-top:15px;margin-bottom:30px">
+                <a class="btn h5button downloadCruises" style="padding-top:6px;padding-bottom:6px;color: #fff; " data-toggle="modal" href="https://www.visitgalapagos.travel/back/cruises/cruising_guide.html" data-target="#taylorMade-Modal">DOWNLOAD</a>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="bs-example" style="padding:0">
+    <!-- Modal Help me Plan HTML -->
+    <div class="modal fade" id="taylorMade-Modal" style="max-width:100%;overflow-y:hidden; padding:0 " tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content" style="width:100%; height:100%">
+                <div class="modal-header" style="height:60px">
+                    <img src="~/images/logos/andando-tours-png-azul-horizontal.png" style="width:100px; height:50px; margin-top:-10px; margin-left:0px" />
+                    @*<h4  style="color:rgba(20,104,164,.8);margin-top: -34px;text-align: center;font-family: Arial">Download our Cruising Guide</h4>*@
+                    <button type="button" class="close-form pull-right" data-dismiss="modal" style="margin-top:-40px" onclick="clean();">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @*<iframe id="lf-iframe-embed-code-74271" style="min-width: 100% !important;width: 100px !important;*width: 100% !important; border:none;min-height: 429px;" src="http://eepurl.com/gEpvqP" scrolling="no" frameborder="0"></iframe>*@
+                    <iframe id="lf-iframe-embed-code-74271" style="min-width: 100% !important;width: 100px !important;*width: 100% !important; border:none;min-height: 600px;" src="https://visitgalapagos.us15.list-manage.com/subscribe?u=13bcb03659759e8410a67809d&amp;id=e1516c534e" scrolling="no" frameborder="0"></iframe>
+                    <script type="text/javascript">var ifr = document.getElementById("lf-iframe-embed-code-74271"); if (window.location.href && window.location.href.indexOf('?') > -1) { var get = window.location.href.substr(window.location.href.indexOf('?') + 1); if (ifr && get.length > 0) { var src = ifr.src; src = src.indexOf('?') > -1 ? src + '&' + get : src + '?' + get; ifr.src = src; } } var iframePosition = function (e) { var n = ifr.getBoundingClientRect().top + pageYOffset; ifr.contentWindow.postMessage(JSON.stringify({ type: 'iframeTop', value1: n }), '*'); }, onTestScroll = function (e) { window.pageYOffset || document.documentElement.scrollTop; var n = ifr.getBoundingClientRect(); ifr.contentWindow.postMessage(JSON.stringify({ type: 'windowTop', value2: n.y || n.top, value3: window.innerHeight }), '*'); }; window.addEventListener ? (window.addEventListener('scroll', onTestScroll, !1), window.addEventListener('load', onTestScroll, !1), window.addEventListener('scroll', iframePosition, !1), window.addEventListener('load', iframePosition, !1), window.addEventListener('DOMContentLoaded', iframePosition, !1)) : window.attachEvent && (window.addEventListener('DOMContentLoaded', iframePosition), window.attachEvent('scroll', onTestScroll), window.addEventListener('load', onTestScroll)); window.handleIFrameMessage = function (e) { if (e.data.length > 0) { try { var args = JSON.parse(e.data); var iframe = document.getElementById("lf-iframe-embed-code-74271"); var formIds = ["74271"]; if (formIds.indexOf(args.formID) !== -1) { switch (args.case) { case 'redirectTo': window.open(decodeURI(args.redirectToURL), '_self'); ifr.src = ifr.src; break; case 'resizeIframe': iframe.width = args.scrollWidth + 'px', iframe.height = args.scrollHeight + 'px'; break; case 'stepChanged': var elCoords = getCoords(ifr), isFormOnScreen = isOnScreen(ifr, false); if (!isFormOnScreen) { window.scrollTo(0, elCoords.top); } break; case 'scrollTo': window.scrollTo({ top: args.scrollToPosition }); break; } } if ('contentWindow' in iframe && 'postMessage' in iframe.contentWindow) { var urls = { 'docurl': encodeURIComponent(document.URL), 'referrer': encodeURIComponent(document.referrer), }; iframe.contentWindow.postMessage(JSON.stringify({ 'type': 'urls', 'value': urls }), '*'); } } catch (e) { } } }; if (window.addEventListener) { window.addEventListener('message', handleIFrameMessage, false); } else if (window.attachEvent) { window.attachEvent('onmessage', handleIFrameMessage); } var getCoords = function (elem) { var box = elem.getBoundingClientRect(); var body = document.body; var docEl = document.documentElement; var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop; var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft; var clientTop = docEl.clientTop || body.clientTop || 0; var clientLeft = docEl.clientLeft || body.clientLeft || 0; var top = box.top + scrollTop - clientTop; var left = box.left + scrollLeft - clientLeft; return { top: Math.round(top), left: Math.round(left) }; }; var isOnScreen = function (_this, partial) { var t = _this; var box = t.getBoundingClientRect(); var win = { h: window.innerHeight, w: window.innerWidth }; var topEdgeInRange = box.top >= 0 && box.top <= win.h; var bottomEdgeInRange = box.bottom >= 0 && box.bottom <= win.h; var leftEdgeInRange = box.left >= 0 && box.left <= win.w; var rightEdgeInRange = box.right >= 0 && box.right <= win.w; var coverScreenHorizontally = (box.left <= 0 ^ box.right >= win.w); var coverScreenVertically = (box.top <= 0 ^ box.bottom >= win.h); var topEdgeInScreen = topEdgeInRange && (leftEdgeInRange || rightEdgeInRange || coverScreenHorizontally); var bottomEdgeInScreen = bottomEdgeInRange && (leftEdgeInRange || rightEdgeInRange || coverScreenHorizontally); var leftEdgeInScreen = leftEdgeInRange && (topEdgeInRange || bottomEdgeInRange || coverScreenVertically); var rightEdgeInScreen = rightEdgeInRange && (topEdgeInRange || bottomEdgeInRange || coverScreenVertically); var isPartiallyOnScreen = topEdgeInScreen || bottomEdgeInScreen || leftEdgeInScreen || rightEdgeInScreen; var isEntirelyOnScreen = topEdgeInScreen && bottomEdgeInScreen && leftEdgeInScreen && rightEdgeInScreen; return partial ? isPartiallyOnScreen : isEntirelyOnScreen; };</script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+    <script src="~/lib/vue/CruisesHome-Category.js"></script>
+}

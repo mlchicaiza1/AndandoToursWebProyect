@@ -1,0 +1,53 @@
+﻿<div class="modal fade" id="galeEcModal" style="padding-right:0" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+       <div class="modal-content">
+            <div class="modal-header" style="height:60px">
+                <img class="lazyload" src="~/images/logos/andando-tours-png-azul-horizontal.png" style="width:100px; height:50px; margin-top:-10px; margin-left:0px" />
+                <button type="button" class="close-form pull-right" v-on:click="closeModalgaleEc" data-dismiss="modal" style="margin-top:-40px" onclick="clean();">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+                <div class="modal-body style-scroll" style="overflow-y:scroll">
+
+                    <img :src="mapaGale[0].foto1" :alt="mapaGale[0].nombreHotel" class="img-fluid lazyload" style="margin:0; width:100%;" />
+                    <div class="row formato-parrafo text-justify textoinfo parrafo" id="text_map" style="font-family:Arial;padding: .1em 1em; margin-top:5% ;color: black !important; background:white;">
+
+
+
+                            <p><h4 style="color:#5299D0"><b id="nameVisitor">{{mapaGale[0].nombreHotel}}</b></h4></p>
+                            <p><h4 style="color:black"><b>About this Hotel</b></h4></p>
+                            <p>{{mapaGale[0].descripcionHotel}}</p>
+
+                    </div>
+                        <div id="image_team" class="row formato-parrafo text-justify" style="margin-top:-20px;padding: 0em 1em; color: black !important; background:white;margin-left:-15px;">
+
+                            <div class="col-md-6 " style="padding-left:15px;margin-top:10px;padding-right:0">
+
+                                <img :src="mapaGale[0].foto1" :alt="mapaGale[0].nombreHotel" class="img-responsive lazyload" style="margin:0;width:98%" />
+
+                            </div>
+                            <div class="col-md-6 " style="padding-left:15px;margin-top:10px;padding-right:0">
+
+                                <img :src="mapaGale[0].foto2" :alt="mapaGale[0].nombreHotel" class="img-responsive lazyload" style="margin:0;width:98%" />
+
+                            </div>
+
+                        </div>
+                        <div id="image_team" class="row formato-parrafo text-justify" style="padding: 0em 1em; color: black !important; background:white;margin-left:-15px;">
+
+                            <div class="col-md-6 " style="padding-left:15px;margin-top:10px;padding-right:0">
+
+                                <img :src="mapaGale[0].foto3" :alt="mapaGale[0].nombreHotel" class="img-responsive lazyload" style="margin:0;width:98%" />
+
+                            </div>
+                            <div class="col-md-6 " style="padding-left:15px;margin-top:10px;padding-right:0">
+
+                                <img :src="mapaGale[0].foto4" :alt="mapaGale[0].nombreHotel" class="img-responsive lazyload" style="margin:0;width:98%" />
+
+                            </div>
+
+                        </div>
+                </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,711 @@
+﻿@{
+    Layout = "_Layout";
+    var itinBtnEc = ViewBag.GetBtnItinerarios;
+    var itinTodosEc = ViewBag.ItinerariosEc;
+
+    var contenido = ViewBag.GetContenidoVista;
+    var imagenItem = ViewBag.GetContenidoMult;
+    var itinerarioDia = new List<AndandoToursWeb.Models.ItinEcuadorDeta>();
+    Dictionary<int, int> uniqueStoreIti = new Dictionary<int, int>();
+    var textoCms = "";
+    var textoCms2 = "";
+    var textoCms3 = "";
+    var textoCmsSelect = "";
+    var textoCms2Select = "";
+    string[] textRecomendado;
+    string[] textRecomendado2;
+    string[] textRecomendado3;
+    string[] textRecomendadoSelect;
+    string[] textRecomendado2Select;
+    var prodRecomendadas = new List<string>();
+    var prodRecomendadas2 = new List<string>();
+    var prodRecomendadas3 = new List<string>();
+    var prodRecomendadasSelect = new List<string>();
+    var prodRecomendadas2Select = new List<string>();
+    foreach (var item in ViewBag.ItinerariosEc)
+    {
+
+        if (!uniqueStoreIti.ContainsKey(item.DiaNumero))
+        {
+            uniqueStoreIti.Add(item.DiaNumero, 0);
+            itinerarioDia.Add(item);
+        }
+    }
+    var titulo = new List<string>();
+    Dictionary<string, int> uniqueStore = new Dictionary<string, int>();
+    foreach (var item in ViewBag.GetContenidoVista)
+    {
+
+        if (!uniqueStore.ContainsKey(item.Titulo))
+        {
+            uniqueStore.Add(item.Titulo, 0);
+            titulo.Add(item.Titulo);
+        }
+    }
+    //price
+    //tags de SELECT
+    textoCmsSelect = contenido[10].Parrafo;
+    textRecomendadoSelect = textoCmsSelect.Split('*');
+    textoCms2Select = contenido[11].Parrafo;
+    textRecomendado2Select = textoCms2Select.Split('*');
+    foreach (var item in textRecomendadoSelect)
+    {
+        prodRecomendadasSelect.Add(Regex.Replace(item, "<.*?>", String.Empty).Replace("\n", "").Replace("&nbsp;", "").Replace("&ndash;", ""));
+    }
+    foreach (var item in textRecomendado2Select)
+    {
+        prodRecomendadas2Select.Add(Regex.Replace(item, "<.*?>", String.Empty).Replace("\n", "").Replace("&nbsp;", "").Replace("&ndash;", ""));
+    }
+    //BREADCRU,BS
+    var Breadcrumbitem = "";
+    if (itinBtnEc[0].IdVista == 2051)
+    {
+        Breadcrumbitem = "Ecuador Cloud Forest";
+        //QUITAR TAGS
+        textoCms = contenido[14].Parrafo;
+        textRecomendado = textoCms.Split('*');
+        textoCms2 = contenido[15].Parrafo;
+        textRecomendado2 = textoCms2.Split('*');
+        textoCms3 = contenido[16].Parrafo;
+        textRecomendado3 = textoCms3.Split('*');
+        foreach (var item in textRecomendado)
+        {
+            prodRecomendadas.Add(Regex.Replace(item, "<.*?>", String.Empty).Replace("\n", "").Replace("&nbsp;", "").Replace("&ndash;", ""));
+        }
+        foreach (var item in textRecomendado2)
+        {
+            prodRecomendadas2.Add(Regex.Replace(item, "<.*?>", String.Empty).Replace("\n", "").Replace("&nbsp;", "").Replace("&ndash;", ""));
+        }
+        foreach (var item in textRecomendado3)
+        {
+            prodRecomendadas3.Add(Regex.Replace(item, "<.*?>", String.Empty).Replace("\n", "").Replace("&nbsp;", "").Replace("&ndash;", ""));
+        }
+    }
+}
+<script src="~/lib/jquery-ajax-unobtrusive-master/dist/jquery.unobtrusive-ajax.js"></script>
+<div id="datosSelect" style="overflow-x:hidden;font-family:Arial">
+    <div style="overflow:hidden">
+        <div class="item active imgen-carousel">
+            <div class="fondos-imagen" style="background-image:url(@imagenItem[0].UrlImagen);">
+                <img alt="@imagenItem[0].NombreImagen" class="fondos-imagen" style=" background-image:url('@imagenItem[0].UrlImagen'); position:center; height:100%; width:100%;" />
+            </div>
+            <div class="caption" style="text-align:center; padding-bottom:40px" role="option">
+                <h1 class="font-x2 font-brush font-carousel" style="text-shadow:1px 1px 1px rgba(0, 0, 0, 0.5);margin-bottom:25px">
+                    <strong>@titulo[0]</strong>
+                </h1>
+                <p class="font-x2 " style="font-size:18px;margin-top:0; font-family:'BentonSans',sans-serif">
+                    @Html.Raw(contenido[0].Parrafo)
+                </p>
+                <p>
+                    <a class="btn h5button" v-on:click="onClickCategoriaForm1(@contenido[0].idVista)" id="help_me_plan" style="padding: 6px 14px;">Book Now<i class="fas fa-angle-down" style="padding-left:10px"></i></a>
+                </p>
+            </div>
+        </div>
+        <!--======================== FIXED SUBMENU=====================-->
+        <nav class="navbar  navbarsubmenu page-nav-home" data-toggle="sticky-onscroll" id="navpagina" style="background-color:white; font-family: Arial; border: 1px solid rgba(0,0,0,.1);border-top:0px;">
+            <div class="limit" style="max-width:100%">
+                <nav class="page-nav-anchors" style="text-transform:none;margin:0" id="sub-menu-productos">
+                    <table class="submenu">
+                        <tr>
+                            <td style="border:none;width:100px; margin:0 0;">
+                                <a id="sub-menu-product" class="nav-item nav-link " style="text-decoration:none; color:#0077ba; width:100px; font-size:15px" href="#Overview"><span>Overview</span> </a>
+                            </td>
+                            <td style="border:none;width:100px;margin:0 0;">
+                                <a id="sub-menu-product" class="nav-item nav-link  " style="text-decoration:none; color:#0077ba; width:100px; font-size:15px " href="#Itineraries"><span>Itineraries</span></a>
+                            </td>
+                            <td style="border:none;width:100px;margin:0 0;">
+                                <a id="sub-menu-product" class="nav-item nav-link  " style="text-decoration:none; color:#0077ba; width:100px;  font-size:15px" href="#Gallery"><span>Gallery</span></a>
+                            </td>
+                            <td style="border:none;width:100px;margin:0 0;">
+                                <a id="sub-menu-product" class="nav-item nav-link  " style="text-decoration:none; color:#0077ba; width:100px; font-size:15px " href="#prices"><span>Prices</span></a>
+                            </td>
+                            <td style="border:none;background-color:#0077ba;width:100%;padding:11px 15px">
+                                <p style="color:white;font-size:15px;text-align:left; margin:0px 0px 0px 25px " v-model="loadCategoria(@contenido[0].idVista)">
+                                    <b>From $ @ViewBag.Price </b> &nbsp;
+                                    <a class="btn h5button-nav" style="font-family:SegoeUI, Segoe UI; padding:8px 25px;margin:0; " data-toggle="modal" v-on:click="onClickCategoriaForm1()" id="help_me_plan2">INQUIRE</a>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </nav>
+            </div>
+        </nav>
+        <!--======================== FIXED SUBMENU MOvil=====================-->
+        <nav id="navmovil" class=" page-nav page-nav-anchors" data-toggle="sticky-onscroll" style="width:100%; ">
+            <table style="border:none;width:100%;height:100%">
+                <tr>
+                    <td style="border:none;width:50%; margin:0 0;padding:5px">
+                        <select class="botonFiltro" onchange="location = this.value;" style="font-size:17px;font-family: Arial; width:100%;text-align:center;color:#4A70E2; background-color:white; padding:0;">
+                            <option value="#Overview">Overview</option>
+                            <option value="#Gallery">Gallery</option>
+                            <option value="#Itineraries">Itineraries</option>
+                            <option value="#prices">Prices</option>
+                        </select>
+                    </td>
+                    <td style="border:none;background-color:#CCCCCC;width:100%;padding:8px 15px">
+                        <center>
+                            <p style="color:black;margin:0" class="">
+                                From <span class="pr"><b>$ @ViewBag.Price</b></span>
+                            </p>
+                        </center>
+                    </td>
+                </tr>
+            </table>
+        </nav>
+        <!--======================CONTENIDO=============================-->
+        <div class="container" style="animation: slideFadeUp 1s ease backwards;animation-delay: 1.3s;">
+            <section id="Overview"></section>
+            <div class="contenedorHome">
+                <ol class="breadcrumb" style="" itemscope itemtype="http://schema.org/BreadcrumbList">
+                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a itemprop="item" style="color:#0077ba" href="../../">
+                            <span itemprop="name">Home</span>
+                        </a>
+                        <meta itemprop="position" content="1" />
+                    </li>
+                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a itemprop="item" style="color:#0077ba" href="/ecuador-itineraries">
+                            <span itemprop="name">Ecuador Itineraries</span>
+                        </a>
+                        <meta itemprop="position" content="2" />
+                    </li>
+                    <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <span itemprop="name">@Breadcrumbitem</span>
+                        <meta itemprop="position" content="3" />
+                    </li>
+                </ol>
+                <h2 class="formato-titulo" style="text-align:left">
+                    <strong>@titulo[1]</strong>
+                </h2>
+                @{var cont = 0;
+                    foreach (var item in ViewBag.GetContenidoVista)
+                    {
+                        if (item.Titulo == titulo[1])
+                        {
+                            <span class="textoinfo parrafo formato-parrafo">@Html.Raw(item.Parrafo)</span>
+
+                            cont++;
+                            if (cont == 1)
+                            { break; }
+                        }
+                    }
+                }
+                <section id="Itineraries" style="background-color:white"></section>
+                <div id="isabela-operations" class="container">
+                    <table class="trip-info ic" style="font-size:15px;font-family:'BentonSans',sans-serif; text-align:center;width:100%">
+                        <tr>
+                            <td style="border-left:none; border-right:none">
+                                <div class="box" style="padding:25px;font-family:Arial;display:inline-flex ">
+                                    <h4 class="text-bullet icon-location" style="font-weight:600;font-family:Arial,'Font Awesome 5 Pro';font-size:26px;padding:15px"></h4>
+                                    @{int contparrafo = 0;
+                                        foreach (var item in ViewBag.GetContenidoVista)
+                                        {
+                                            if (item.Titulo == titulo[1])
+                                            {
+
+                                                contparrafo++;
+                                                if (contparrafo == 2)
+                                                {
+                                                    <span>@Html.Raw(item.Parrafo)</span>
+                                                }
+                                            }
+                                        }
+                                    }
+                                </div>
+                            </td>
+                            <td style="border-left:none; border-right:none">
+                                <div class="box" style="padding:25px;font-family:Arial;display:inline-flex ">
+                                    <h4 class="text-bullet icon-location" style="font-weight:600;font-family:Arial,'Font Awesome 5 Pro';font-size:26px;padding:15px"></h4>
+                                    @{contparrafo = 0;
+                                        foreach (var item in ViewBag.GetContenidoVista)
+                                        {
+                                            if (item.Titulo == titulo[1])
+                                            {
+
+                                                contparrafo++;
+                                                if (contparrafo == 3)
+                                                {
+                                                    <span>@Html.Raw(item.Parrafo)</span>
+                                                }
+                                            }
+                                        }
+                                    }
+                                </div>
+                            </td>
+                            <td style="border-left:none; border-right:none">
+                                <div class="box" style="padding:0 25px;font-family:Arial;display:inline-flex">
+                                    <h4 class="text-bullet icon-clock" style="font-family:Arial,'Font Awesome 5 Pro';font-weight:600;font-size:26px;padding:15px"></h4>
+                                    @{contparrafo = 0;
+                                        foreach (var item in ViewBag.GetContenidoVista)
+                                        {
+                                            if (item.Titulo == titulo[1])
+                                            {
+
+                                                contparrafo++;
+                                                if (contparrafo == 4)
+                                                {
+                                                    <span>@Html.Raw(item.Parrafo)</span>
+                                                }
+                                            }
+                                        }
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!------------mobile---------->
+                <div id="isabela-operations-mob">
+                    <hr />
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6">
+                            <div class="box" style="text-align:center">
+                                <h4 class="text-bullet icon-location" style="font-family:Arial,'Font Awesome 5 Pro';font-weight:600"></h4>
+                                @{int contparrafo2 = 0;
+                                    foreach (var item in ViewBag.GetContenidoVista)
+                                    {
+                                        if (item.Titulo == titulo[1])
+                                        {
+                                            contparrafo2++;
+                                            if (contparrafo2 == 2)
+                                            {
+                                                <span>@Html.Raw(item.Parrafo)</span>
+                                            }
+                                        }
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6">
+                            <div class="box" style="text-align:center">
+                                <h4 class="text-bullet icon-location" style="font-family:Arial,'Font Awesome 5 Pro';font-weight:600"></h4>
+                                @{contparrafo2 = 0;
+                                    foreach (var item in ViewBag.GetContenidoVista)
+                                    {
+                                        if (item.Titulo == titulo[1])
+                                        {
+                                            contparrafo2++;
+                                            if (contparrafo2 == 3)
+                                            {
+                                                <span>@Html.Raw(item.Parrafo)</span>
+                                            }
+                                        }
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ic-s">
+                        <br><br>
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="box" style="text-align:center">
+                                <h4 class="text-bullet icon-clock" style="font-family:Arial,'Font Awesome 5 Pro';font-weight:600"></h4>
+                                @{contparrafo2 = 0;
+                                    foreach (var item in ViewBag.GetContenidoVista)
+                                    {
+                                        if (item.Titulo == titulo[1])
+                                        {
+                                            contparrafo2++;
+                                            if (contparrafo2 == 4)
+                                            {
+                                                <span>@Html.Raw(item.Parrafo)</span>
+                                            }
+                                        }
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="container">
+            <div class="contenedorHome f-15">
+                <h2 class="formato-titulo" style="text-align:left">
+                    <br />
+                    <strong>@titulo[2]</strong>
+                </h2>
+                @{
+                    foreach (var item in ViewBag.GetContenidoVista)
+                    {
+                        if (item.Titulo == titulo[2])
+                        {
+                            <span>@Html.Raw(item.Parrafo)</span>
+                        }
+                    }
+                }
+                <br />
+                <div class="btnItinerarieDesktop row style-scroll style-scrollbtn" style="overflow-x:auto;margin-bottom: 10px">
+                    <div class="col-md-12" style="display: inline-flex;">
+                        @{ var i = 0;
+                            var contBtn = 0;
+                            foreach (var btnItiner in ViewBag.GetBtnItinerarios)
+                            {
+                                @Html.AntiForgeryToken()
+                                <form class="" asp-controller="ecuador_itineraries" asp-action="GetItinEcuadorProd"
+                                      data-ajax="true"
+                                      data-ajax-method="POST"
+                                      data-ajax-mode="replace"
+                                      data-ajax-update="#itiEcuador">
+                                    <div class="form-group">
+                                        <input type="number" style="display:none" name="idItinerario" value="@btnItiner.IdItinerarioBtn" />
+                                        <input type="number" style="display:none" name="idVista" value="@itinBtnEc[0].IdVista" />
+                                    </div>
+                                    <div class="parrafo ">
+                                        <div id="btnItiBtn" class="col-md-12">
+                                            <input type="submit" name="Submit" id="@btnItiner.IdItinerarioBtn" onclick="colorBtnItinerarioEc(@btnItiner.IdItinerarioBtn,@itinBtnEc[0].IdVista)" class="btn h5button-BEIGE colorBtnItin  @(i == 0 ? "colorBtnItinClick": "btn")" style="font-family:SegoeUI, Segoe UI;min-width:100px; border:1px groove;border-color:#998787;" value="@btnItiner.ItinNombre">
+                                            &emsp;
+                                        </div>
+                                    </div>
+                                </form>
+                                contBtn++;
+                                i++;
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="btnItinerarieMovil row style-scroll style-scrollbtn" style="overflow-x:auto;margin-bottom: 10px">
+                    <div class="col-md-12" style="display: inline-flex;">
+                        @{ i = 0;
+                            contBtn = 0;
+                            foreach (var btnItiner in ViewBag.GetBtnItinerarios)
+                            {
+
+                                if (contBtn == 4)
+                                {
+                                    break;
+                                }
+                                @Html.AntiForgeryToken()
+                                <form class="" asp-controller="ecuador_itineraries" asp-action="GetItinEcuadorProd"
+                                      data-ajax="true"
+                                      data-ajax-method="POST"
+                                      data-ajax-mode="replace"
+                                      data-ajax-update="#itiEcuador">
+                                    <div class="form-group">
+                                        <input type="number" style="display:none" name="idItinerario" value="@btnItiner.IdItinerarioBtn" />
+                                        <input type="number" style="display:none" name="idBarco" value="@itinBtnEc[0].IdVista" />
+                                    </div>
+                                    <div class="parrafo ">
+                                        <div id="btnItiBtn" class="col-md-12">
+                                            <input type="submit" name="Submit" id="@(btnItiner.IdItinerarioBtn + 100)" onclick="colorBtnItinerarioEc2(@btnItiner.IdItinerarioBtn +100,@itinBtnEc[0].IdVista)" class="btn h5button-BEIGE colorBtnItin  @(i == 0 ? "colorBtnItinClick": "btn")" style="font-family:SegoeUI, Segoe UI;min-width:100px; border:1px groove;border-color:#998787;" value="@btnItiner.ItinNombre">
+                                            &emsp;
+                                        </div>
+                                    </div>
+                                </form>
+                                i++;
+                                contBtn++;
+                            }
+                        }
+                    </div>
+                    <div class="col-md-12" style="display: inline-flex;">
+                        @{ i = 0;
+                            contBtn = 0;
+                            foreach (var btnItiner in ViewBag.GetBtnItinerarios)
+                            {
+                                contBtn++;
+                                if (contBtn > 4)
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <form class="" asp-controller="ecuador_itineraries" asp-action="GetItinEcuadorProd"
+                                          data-ajax="true"
+                                          data-ajax-method="POST"
+                                          data-ajax-mode="replace"
+                                          data-ajax-update="#itiEcuador">
+                                        <div class="form-group">
+                                            <input type="number" style="display:none" name="idItinerario" value="@btnItiner.IdItinerarioBtn" />
+                                            <input type="number" style="display:none" name="idBarco" value="@itinBtnEc[0].IdVista" />
+                                        </div>
+                                        <div class="parrafo ">
+                                            <div id="btnItiBtn" class="col-md-12">
+                                                <input type="submit" name="Submit" id="@(btnItiner.IdItinerarioBtn + 100)" onclick="colorBtnItinerarioEc2(@btnItiner.IdItinerarioBtn +100,@itinBtnEc[0].IdVista)" class="btn h5button-BEIGE colorBtnItin  @(i == 0 ? "colorBtnItinClick": "btn")" style="font-family:SegoeUI, Segoe UI;min-width:100px; border:1px groove;border-color:#998787;" value="@btnItiner.ItinNombre">
+                                                &emsp;
+                                            </div>
+                                        </div>
+                                    </form>
+                                }
+
+                                i++;
+
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*=============================SLIDE====================================== *@
+        <section id="slider-itinerary" style="background-color:white;padding:0">
+            <div id="carouselEc0" class="container">
+                <div id="caruselProduct" class="owl-carousel contenedorHome" style="background-color:white; height:100%;">
+                    @{ var cont1 = 0;
+                        foreach (var itinera in itinerarioDia)
+                        {
+                            <div class="item" style="height:100%;">
+                                <div class="row">
+                                    <div class="col-md-6" style="padding: 0 13px;">
+                                        <a id="btn-galeria-iti-mob" class=" align-content-center" style="font-family:'BentonSans',sans-serif">
+                                            <img class="lazyload" style="margin: 0.5px; width:800px; height:335px" data-src="@itinera.ItiLinkImagenCaratula" />
+                                        </a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row f-15 text-justify" style="margin:0; padding: 2em 1em 0; " id="experience_text">
+                                            <h3><p style=" text-align:left; color:#398AC9"><b> @itinera.ItinTituloEn</b><br /><span style="color:black"><b>Day @itinera.DiaNumero</b></span></p></h3>
+                                            <div class="style-scroll" style="overflow-y:scroll;height:164px">
+                                                <div style="margin-right:17px">
+                                                    <div style="margin-bottom:10px;">
+                                                        <p style="text-align: left;margin-bottom:0;line-height:1.5;font-size:18px">
+                                                            <br><span>@Html.Raw(@itinera.ItinDescripcionEn)</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            cont1++;
+                        }
+                    }
+                </div>
+                <div class="owl-nav">
+                    <button type="button" role="presentation" class="owl-prev tamañoBtnDer">
+                        <span aria-label="Previous">‹</span>
+                    </button>
+                    <button type="button" role="presentation" class="owl-next tamañoBtnIzq">
+                        <span aria-label="Next">›</span>
+                    </button>
+                </div>
+            </div>
+            <div id="itiEcuador" class="container">
+
+            </div>
+        </section>
+    </div>
+    <!--======================GALLERY=============================-->
+    <section id="Gallery" style="background-color:white;">
+        <div class="container">
+            <div class="contenedorHome">
+                <h2 class="formato-titulo parrafo" style="text-align:left"><strong>@titulo[3]</strong></h2>
+                @{
+                    foreach (var item in ViewBag.GetContenidoVista)
+                    {
+                        if (item.Titulo == titulo[3])
+                        {
+                            <p class="textoinfo parrafo formato-parrafo">
+                                <span>@Html.Raw(item.Parrafo)</span>
+                            </p>
+                        }
+                    }
+                }
+
+                <div class="row">
+                    <div class="col-md-4 col-xs-6" style="padding-left:0">
+                        <img data-src="@imagenItem[1].UrlImagen" alt="@imagenItem[1].NombreImagen" class="img-fluid lazyload" style="height:100%; width:100%; cursor:pointer" data-toggle="modal" data-target="#gale-cabins-tip" />
+                        <br />
+                        <strong class="parrafo" style="font-size:17px"> @titulo[4]&emsp;</strong>
+                        <a id="btnGaleria" onclick="limp()" class="h5button cruceros-boton" style="text-decoration:none; padding:3px 17px !important; font-family:Arial" data-toggle="modal" data-target="#gale-cabins-tip">
+                            View More
+                        </a>
+                        <br /><br />
+                    </div>
+                    <div class="col-md-4 col-xs-6 " style="padding-left:0">
+                        <img data-src="@imagenItem[2].UrlImagen" alt="@imagenItem[2].NombreImagen" class="img-fluid lazyload" style="height:75%; width:100%;cursor:pointer" data-toggle="modal" data-target="#gale2-social" />
+                        <br />
+                        <strong class="parrafo" style="font-size:17px">@titulo[5]</strong>
+                        <a id="btnGaleria2" class="h5button cruceros-boton" style="text-decoration:none;padding:3px 17px !important; font-family:Arial" data-toggle="modal" data-target="#gale2-social">
+                            View More
+                        </a>
+                        <br /><br />
+                    </div>
+                    <div class="col-md-4 col-xs-6 " style="padding-left:0">
+                        <img data-src="@imagenItem[3].UrlImagen" alt="@imagenItem[3].NombreImagen" class="img-fluid lazyload" style="height:75%; width:100%;cursor:pointer" data-toggle="modal" data-target="#gale2-activiti" />
+                        <br />
+                        <strong class="parrafo" style="font-size:17px">@titulo[6]</strong>
+                        <a id="btnGaleria3" class="h5button cruceros-boton" style="text-decoration:none;padding:3px 17px !important; font-family:Arial" data-toggle="modal" data-target="#gale2-activiti">
+                            View More
+                        </a>
+                        <br /><br />
+                    </div>
+                </div>
+                <br />
+
+            </div>
+        </div>
+    </section>
+    <!--=================select An option for you jungle================-->
+    <section id="prices" style="background-color:rgba(219, 211, 211, 0.17)">
+        <div class="container f-15" style="font-size:17px">
+            <h2 class="formato-titulo">
+                <b>@titulo[7]</b>
+            </h2>
+            <div class="row marginEcuadorSelect2">
+                <div class="col-md-2 "></div>
+                <div class="col-md-4  img-more-information" style="text-align:center;cursor: context-menu;background-color:white;margin:15px 0.5%;padding:0;border: 1px solid rgba(0,0,0,.2);transition:0.5s ease-in;">
+                    <div style="padding:10px">
+                        <h2 class="" style="font-family:Arial,'Font Awesome 5 Pro';font-weight:600;padding: 25px 35px;color:#0077ba">@prodRecomendadasSelect[1]</h2>
+                        <p class="formato-parrafo" style="text-align:center!important;-webkit-text-stroke: medium;">@prodRecomendadasSelect[2]</p>
+                        <p class="formato-parrafo" style="text-align:center!important;font-size:15px">*Private Tour</p>
+                        <a id="help_me_plan" class="h5button bg-in" v-on:click="onClickCategoria('@prodRecomendadasSelect[1]',@contenido[0].idVista)" style="text-decoration:none;padding:0 25px;font-size:18px; margin-bottom:15%">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 img-more-information" style="text-align:center;cursor: context-menu;background-color:white;margin:15px 0.5%;padding:0;border: 1px solid rgba(0,0,0,.2);">
+                    <div style="padding:10px">
+                        <h2 class="" style="font-family:Arial,'Font Awesome 5 Pro';font-weight:600;padding: 25px 35px;color:#0077ba">@prodRecomendadas2Select[1]</h2>
+                        <p class="formato-parrafo" style="text-align:center!important;-webkit-text-stroke: medium;">@prodRecomendadas2Select[2]</p>
+                        <p class="formato-parrafo" style="text-align:center!important;font-size:15px">*Private Tour</p>
+                        <a id="help_me_plan" class="h5button bg-in" v-on:click="onClickCategoria('@prodRecomendadas2Select[1]',@contenido[0].idVista)" style="text-decoration:none;padding:0 25px;font-size:18px; margin-bottom:15%">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2 ">
+                </div>
+            </div>
+            <div class="row" style="margin-top:3%">
+                <p style="text-align:center;font-size:13px">*This price is based on double ocupancy</p>
+            </div>
+            <partial name="~/Views/Forms/Modals/Ecuador_Itineraries/form_EcuadorItin.cshtml" />
+            <partial name="~/Views/Forms/Modals/Ecuador_Itineraries/form_EcuadorIti1.cshtml" />
+        </div>
+    </section>
+    <!-- ====================================//inclusions and exclusion -->
+    <div class="box box-page-information" style="background-color:rgba(219, 211, 211, 0.17)">
+        <div class="container">
+            <div class="cols cols-gutterx0 contenedorHome">
+                <div class="col-md-6">
+                    <div class="content inner content-dirty StyleParrafo" style="padding-left:0">
+                        <div class="line">
+                            <h2 class="formato-titulo" style="text-align:left;padding:0;color:black;text-transform:none"><strong>@titulo[8]</strong></h2>
+                        </div>
+                        @{
+                            foreach (var item in ViewBag.GetContenidoVista)
+                            {
+                                if (item.Titulo == titulo[8])
+                                {
+                                    <div class="textoinfo formato-parrafo" style="margin-left:0%!important">@Html.Raw(item.Parrafo)</div>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="col-md-6 pre">
+                    <div class="content inner content-dirty StyleParrafo" style="padding-left:0">
+                        <div class="line">
+                            <h2 class="formato-titulo" style="text-align:left;padding:0;color:black;text-transform:none"><strong>@titulo[9]:</strong></h2>
+                        </div>
+                        @{
+                            foreach (var item in ViewBag.GetContenidoVista)
+                            {
+                                if (item.Titulo == titulo[9])
+                                {
+                                    <div class="textoinfo formato-parrafo" style="margin-left:0%!important">@Html.Raw(item.Parrafo)</div>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--================================// RELATED PRODUCTS //=============================================================-->
+    <section class="related" style="background-color:white;padding-top:0">
+        <div class="container">
+            <div class="contenedorHome">
+                <h2 class="section-header-title formato-titulo" style="text-align:left;"><strong>@titulo[10]</strong></h2><br>
+                <div id="tabs" class="content content-twocolumns" style="margin:0">
+                    <div class="col-md-4" style="margin-bottom:15px">
+                        <article class="article-event article-loaded" id="tabs_1">
+                            <div class="article-image">
+                                <dvi>
+                                    <img data-src="@imagenItem[20].UrlImagen" alt="@imagenItem[20].NombreImagen" id="image_media" class="img-responsive lazyload" />
+                                </dvi>
+                            </div>
+                            <div class="article-main">
+                                <div class="article-date" style="width:auto; height:31px;">
+                                    <div style="padding:5px; font-size:8px; margin-top:-30px; padding-left:10px; padding-right:10px">
+                                        <strong>@prodRecomendadas[1]</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="article-body" style="color:black">
+                                <p style="height:100%;margin-bottom:0">
+                                    @prodRecomendadas[2]
+                                </p>
+                                <a style="color:#398AC9" href="@prodRecomendadas[3]">View Tours >></a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-4" style="margin-bottom:15px">
+                        <article class="article-event article-loaded" id="tabs_1">
+                            <div class="article-image">
+                                <div>
+                                    <img data-src="@imagenItem[21].UrlImagen" alt="@imagenItem[21].NombreImagen" id="image_media" class="img-responsive lazyload" />
+                                </div>
+                            </div>
+                            <div class="article-main">
+                                <div class="article-date" style="width:auto; height:31px;">
+                                    <div style="padding:5px; font-size:8px; margin-top:-30px; padding-left:10px; padding-right:10px">
+                                        <strong>@prodRecomendadas2[1]</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="article-body" style="color:black">
+                                <p style="height:100%;margin-bottom:0">
+                                    @prodRecomendadas2[2]
+                                </p>
+                                <a style="color:#398AC9" href="@prodRecomendadas2[3]">View Tours >></a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-4" style="margin-bottom:15px">
+                        <article class="article-event article-loaded" id="tabs_1">
+                            <div class="article-image">
+                                <div>
+                                    <img data-src="@imagenItem[22].UrlImagen" alt="@imagenItem[22].NombreImagen" id="image_media" class="img-responsive lazyload" />
+                                </div>
+                            </div>
+                            <div class="article-main">
+                                <div class="article-date" style="width:auto; height:31px;">
+                                    <div style="padding:5px; font-size:8px; margin-top:-30px; padding-left:10px; padding-right:10px">
+                                        <strong>@prodRecomendadas3[1]</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="article-body" style="color:black">
+                                <p style="height:100%;margin-bottom:0">
+                                    @prodRecomendadas3[2]
+                                </p>
+                                <a style="color:#398AC9" href="@prodRecomendadas3[3]">View Tours >></a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br />
+</div>
+@*modal taylor*@
+@*<div class="modal fade" id="taylorMade-Modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>*@
+<!-- Modal BOOK NOW HTML -->
+@*<div class="modal fade" id="modal_Book" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>*@
+<partial name="~/Views/Forms/Modals/Ecuador_Itineraries/Cloud/gale_maquiCloud.cshtml" />
+<partial name="~/Views/Forms/Modals/Ecuador_Itineraries/Cloud/gale_cabins.cshtml" />
+<partial name="~/Views/Forms/Modals/Ecuador_Itineraries/Cloud/gale_activityCloud.cshtml" />
+<script src="~/lib/vue/vue.min.js"></script>
+<script src="~/lib/vue/ecuadorItin.js"></script>
+<script src="~/js/Ecuador_Itineraries.js"></script>

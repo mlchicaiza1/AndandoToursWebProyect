@@ -1,0 +1,222 @@
+﻿@{
+    ViewData["Title"] = "map";
+}
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+@*<link rel="stylesheet" type="text/css" href="~/css/styleAndando.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/styleAndando03.css" />*@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha256-PZLhE6wwMbg4AB3d35ZdBF9HD/dI/y4RazA3iRDurss=" crossorigin="anonymous" />
+@*<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">*@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<script src="~/js/Js-Old/MapaVisitor-old.js"></script>
+@*<script src="~/js/prueba.js"></script>*@
+<style>
+    /* width */
+    #cards_map::-webkit-scrollbar {
+        width: 10px;
+    }
+    /* Track */
+    #cards_map::-webkit-scrollbar-track {
+        border: 1px solid;
+        border-color: #707070;
+        border-radius: 10px;
+    }
+    /* Handle */
+    #cards_map::-webkit-scrollbar-thumb {
+        background: #8E8C8D;
+        border: 1.5px solid;
+        border-color: #707070;
+        border-radius: 10px;
+    }
+
+    /* width */
+    #menu-map::-webkit-scrollbar {
+        width: 10px;
+    }
+    /* Track */
+    #menu-map::-webkit-scrollbar-track {
+        border: 1px solid;
+        border-color: #707070;
+        border-radius: 10px;
+    }
+    /* Handle */
+    #menu-map::-webkit-scrollbar-thumb {
+        background: #8E8C8D;
+        border: 1.5px solid;
+        border-color: #707070;
+        border-radius: 10px;
+    }
+</style>
+<div class="container--full-width" style="overflow:hidden; width:100%; ">
+    <!--================================SUB MENU=========================-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-xs-02 col-sm-0">
+                <div id="filtroVisitor">
+                    <div class="container">
+                        <div class="contenidoFiltroPlanner unselectable bloq" style="background-color:#ffffff; text-align:left;">
+                            <div id="botones_filtro">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle h5button botonFiltro"
+                                            data-toggle="dropdown" style="color:#747475">
+                                        Island   <i class="fas fa-angle-down" style="color:#7B7979;"> </i>
+                                    </button>
+                                    <ul id="menu-map" class="dropdown-menu" role="menu" style="overflow-y:scroll; z-index:0">
+                                        <li v-for="isla in  island" role="presentation">
+                                            <a role="menuitem" tabindex="-1" class="applyIsland" :value="isla.nombreIsland" :id="isla.idIsland" v-on:click="getIsld($event);">
+                                                <span class="formato-parrafo">
+                                                    {{isla.nombreIsland}}
+                                                </span>
+                                                <span style="display:none">{{isla.idIsland}}</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle h5button botonFiltro"
+                                            data-toggle="dropdown" style="color:#747475">
+                                        Wildlife   <i class="fas fa-angle-down" style="color:#7B7979;"> </i>
+                                    </button>
+                                    <ul id="menu-map" class="dropdown-menu" role="menu" style="overflow-y:scroll; z-index:0">
+                                        <li v-for="wild in  filtroWildLife" role="presentation">
+                                            <a role="menuitem" tabindex="-1" class="applyWildLife" :value="wild.nombreAnimal" :id="wild.nombreAnimal" v-on:click="onClickWildlife($event);">
+                                                <span class="formato-parrafo">
+                                                    {{wild.nombreAnimal}}
+                                                </span>
+                                                <span style="display:none">{{wild.idAnimal}}</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div id="cards_map" style="margin-left:8px; ">
+                        <div id="cards_map" style="overflow-y:scroll; height:480px">
+                            <div class="mainland-item textoinfo parrafo" v-for="cardallvisitor in allVisitor" v-if="VisitorIsland.length==0">
+                                <a :href="'../Planning/visitor_sites?IdVisitorSite='+cardallvisitor.idVisitorSite" id="item_1" target="_blank" onclick="localVisitor();">
+                                    <img id="img_cards" class="img-responsive" :src="'../images/'+cardallvisitor.urlImagenVisitorSite" title="My Passion" alt="My Passion">
+                                    <p id="item_p" style="margin-top:-135px;" class="formato-titulo"><a style="color:#398AC9; text-decoration:none" :href="'../Planning/visitor_sites?IdVisitorSite='+cardallvisitor.idVisitorSite" onclick="localVisitor();" target="_blank"><b>{{cardallvisitor.nombreVisitorSite}}</b></a></p>
+                                    <a :href="'../Planning/visitor_sites?IdVisitorSite='+cardallvisitor.idVisitorSite" target="_blank" style="color:black; text-decoration:none" onclick="localVisitor();">
+                                        <p id="item_p" style="margin-top:-10px;margin-right:15px;font-size:15px;">
+                                            {{cardallvisitor.metaDescripcion}}
+                                        </p>
+                                        <input id="idVisit" style="display:none" :value="''+cardallvisitor.idVisitorSite" />
+                                    </a>
+                                </a>
+                                <br />
+                                <br />
+                            </div>
+                            <div id="prb" class="mainland-item textoinfo parrafo" v-for="cardvisitor in VisitorIsland" v-if="VisitorIsland.length!=0">
+                                <a :href="'../Planning/visitor_sites?IdVisitorSite='+cardvisitor.idVisitorSite" id="item_1" target="_blank" onclick="localVisitor();">
+                                    <img id="img_cards" class="img-responsive" :src="'../images/'+cardvisitor.urlImagenVisitorSite" title="My Passion" alt="My Passion">
+                                    <p id="item_p" style="margin-top:-135px;" class="formato-titulo"><a style="color:#398AC9; text-decoration:none" :href="'../Planning/visitor_sites?IdVisitorSite='+cardvisitor.idVisitorSite" onclick="localVisitor();" target="_blank"><b>{{cardvisitor.nombreVisitorSite}}</b></a></p>
+                                    <a :href="'../Planning/visitor_sites?IdVisitorSite='+cardvisitor.idVisitorSite" target="_blank" style="color:black; text-decoration:none" onclick="localVisitor();">
+                                        <p id="item_p" style="margin-top:-10px;margin-right:15px;font-size:15px">
+                                            {{cardvisitor.metaDescripcion}}
+                                        </p>
+                                        <input id="idVisit" style="display:none" :value="''+cardvisitor.idVisitorSite" />
+                                    </a>
+                                </a>
+                                <br />
+                                <br />
+                            </div>
+                            <div id="prb1" class="mainland-item textoinfo parrafo" v-for="cardvisitor in visitWild" v-if="visitWild.length!=0">
+                                <a :href="'../Planning/visitor_sites?IdVisitorSite='+cardvisitor.idVisitorSite" id="item_1" target="_blank" onclick="localVisitor();">
+                                    <img id="img_cards" class="img-responsive" :src="'../images/'+cardvisitor.urlImagenVisitorSite" title="My Passion" alt="My Passion">
+                                    <p id="item_p" style="margin-top:-135px;" class="formato-titulo"><a style="color:#398AC9; text-decoration:none" :href="'../Planning/visitor_sites?IdVisitorSite='+cardvisitor.idVisitorSite" onclick="localVisitor();" target="_blank"><b>{{cardvisitor.nombreVisitorSite}}</b></a></p>
+                                    <a :href="'../Planning/visitor_sites?IdVisitorSite='+cardvisitor.idVisitorSite" target="_blank" style="color:black; text-decoration:none" onclick="localVisitor();">
+                                        <p id="item_p" style="margin-top:-10px;margin-right:15px;font-size:15px">
+                                            {{cardvisitor.metaDescripcion}}
+                                        </p>
+                                        <input id="idVisit" style="display:none" :value="''+cardvisitor.idVisitorSite" />
+                                    </a>
+                                </a>
+                                <br />
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="mapas2" class="col-md-4 col-xs-12 col-sm-12" style="margin-left:-8px;">
+                <div style="display:none">
+                    @foreach (var IdVisitorSite in Model)
+                    {
+                        if (IdVisitorSite.IdVisitorSite == 1)
+                        {
+                            <p id="latitud">@IdVisitorSite.LatitudVisitorSite</p>
+                            <p id="longitud">@IdVisitorSite.LongitudVisitorSite</p>
+                        }
+                        if (IdVisitorSite.IdVisitorSite == 2)
+                        {
+                            <p id="latitud2">@IdVisitorSite.LatitudVisitorSite</p>
+                            <p id="longitud2">@IdVisitorSite.LongitudVisitorSite</p>
+                        }
+                        if (IdVisitorSite.IdVisitorSite == 3)
+                        {
+                            <p id="latitud3">@IdVisitorSite.LatitudVisitorSite</p>
+                            <p id="longitud3">@IdVisitorSite.LongitudVisitorSite</p>
+                        }
+                        if (IdVisitorSite.IdVisitorSite == 4)
+                        {
+                            <p id="latitud4">@IdVisitorSite.LatitudVisitorSite</p>
+                            <p id="longitud4">@IdVisitorSite.LongitudVisitorSite</p>
+                        }
+                        if (IdVisitorSite.IdVisitorSite == 5)
+                        {
+                            <p id="latitud5">@IdVisitorSite.LatitudVisitorSite</p>
+                            <p id="longitud5">@IdVisitorSite.LongitudVisitorSite</p>
+                        }
+                        if (IdVisitorSite.IdVisitorSite == 2)
+                        {
+                            <p id="latitud2">@IdVisitorSite.LatitudVisitorSite</p>
+                            <p id="longitud2">@IdVisitorSite.LongitudVisitorSite</p>
+                        }
+                        if (IdVisitorSite.IdVisitorSite == 6)
+                        {
+                            <p id="latitud6">@IdVisitorSite.LatitudVisitorSite</p>
+                            <p id="longitud6">@IdVisitorSite.LongitudVisitorSite</p>
+                        }
+                        if (IdVisitorSite.IdVisitorSite == 7)
+                        {
+                            <p id="latitud7">@IdVisitorSite.LatitudVisitorSite</p>
+                            <p id="longitud7">@IdVisitorSite.LongitudVisitorSite</p>
+                        }
+                        if (IdVisitorSite.IdVisitorSite == 8)
+                        {
+                            <p id="latitud8">@IdVisitorSite.LatitudVisitorSite</p>
+                            <p id="longitud8">@IdVisitorSite.LongitudVisitorSite</p>
+                        }
+                        if (IdVisitorSite.IdVisitorSite == 9)
+                        {
+                            <p id="latitud9">@IdVisitorSite.LatitudVisitorSite</p>
+                            <p id="longitud9">@IdVisitorSite.LongitudVisitorSite</p>
+                        }
+                        if (IdVisitorSite.IdVisitorSite == 10)
+                        {
+                            <p id="latitud10">@IdVisitorSite.LatitudVisitorSite</p>
+                            <p id="longitud10">@IdVisitorSite.LongitudVisitorSite</p>
+                        }
+                        if (IdVisitorSite.IdVisitorSite == 11)
+                        {
+                            <p id="latitud11">@IdVisitorSite.LatitudVisitorSite</p>
+                            <p id="longitud11">@IdVisitorSite.LongitudVisitorSite</p>
+                        }
+
+                    }
+                </div>
+                <div id='mapa2' style="height:480px;width:100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br />
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDU7hYE49Aueu2BzdXz2u4gtCvVybLtJI4&callback=cargarMapa"></script>
+@section scripts {
+    <script src="~/lib/vue/VisitorSite.js"></script>
+
+}

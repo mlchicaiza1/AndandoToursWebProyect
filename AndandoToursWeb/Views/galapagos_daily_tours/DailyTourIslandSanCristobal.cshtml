@@ -1,0 +1,296 @@
+﻿@{
+    //Modelos: Contenidos texto e imagenes
+    var ItemDaily = ViewBag.GetContenidoVista;
+    var imgDaily = ViewBag.GetContenidoMult;
+
+    //Pasar titulos de ViewBag.GetContenidoVista a una nueva lista, quitar datos repetidos
+    var titulo = new List<string>();
+    Dictionary<string, int> uniqueStore = new Dictionary<string, int>();
+    foreach (var item in ViewBag.GetContenidoVista)
+    {
+
+        if (!uniqueStore.ContainsKey(item.Titulo))
+        {
+            uniqueStore.Add(item.Titulo, 0);
+            titulo.Add(item.Titulo);
+        }
+    }
+
+    //Quitar tags de los 3 Tours de cada Isla
+    var textoCms = ItemDaily[5].Parrafo;
+    string[] textCards = textoCms.Split('*');
+    var cardsTours = new List<string>();
+    var cardsTours_1 = new List<string>();
+    var cardsTours_2 = new List<string>();
+    foreach (var item in textCards)
+    {
+
+        cardsTours.Add(Regex.Replace(item, "<.*?>", String.Empty).Replace("\n", "").Replace("&nbsp;", "").Replace("&ndash;", ""));
+
+    }
+    textoCms = ItemDaily[6].Parrafo;
+    textCards = textoCms.Split('*');
+    foreach (var item in textCards)
+    {
+
+        cardsTours_1.Add(Regex.Replace(item, "<.*?>", String.Empty).Replace("\n", "").Replace("&nbsp;", "").Replace("&ndash;", ""));
+
+    }
+    textoCms = ItemDaily[7].Parrafo;
+    textCards = textoCms.Split('*');
+    foreach (var item in textCards)
+    {
+
+        cardsTours_2.Add(Regex.Replace(item, "<.*?>", String.Empty).Replace("\n", "").Replace("&nbsp;", "").Replace("&ndash;", ""));
+
+    }
+
+}
+<div id="DailiToursIsland" class="container--full-width" style="overflow-x:hidden; width:100%">
+    <div class="item active imgen-carousel">
+        <div class="fondos-imagen">
+            <img class="fondos-imagen" alt="@imgDaily[0].NombreImagen" style="background-image:url('@imgDaily[0].UrlImagen'); position:center; height:100%; width:100%;" />
+        </div>
+        <div class="caption texHeader" style="text-align:center; padding-bottom:40px" role="option">
+            <h1 class="font-x2 font-brush font-carousel" style="text-shadow:1px 1px 1px rgba(0, 0, 0, 0.5)">
+                <strong>@titulo[0]</strong>
+            </h1>
+            <p class="font-x2 " style="font-size:18px;margin-top:0; font-family:'BentonSans',sans-serif">
+                @Html.Raw(ItemDaily[0].Parrafo)
+            </p>
+            <p>
+                <a class="btn h5button" href="#DailyTours" id="help_me_plan" style="padding: 6px 14px;">Find your tour <i class="fas fa-angle-down" style="padding-left:10px"></i></a>
+            </p>
+        </div>
+    </div><div id="Overview"></div>
+    <!--================================SUB MENU=========================-->
+    <nav class="navbar  navbarsubmenu page-nav-home" data-toggle="sticky-onscroll" id="navpagina" style="border: 1px solid rgba(0,0,0,.1);">
+        <div class="limit">
+            <nav class="page-nav-anchors" style="text-transform:none; " id="sub-menu-cruises">
+                <ul>
+                    <li>
+                        <a href="#Overview"><span>Overview</span> </a>
+                    </li>
+                    <li>
+                        <a href="#DailyTours"><span>Daily Tours</span></a>
+                    </li>
+                    <li>
+                        <a style="width: 300px" href="#Moretours"><span>More tours</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+    <nav class="page-nav page-nav-home" data-toggle="sticky-onscroll" id="navmovil">
+        <div class="limit" style="width:100%">
+            <nav class="page-nav-anchors">
+                <ul style="width:100%">
+                    <li class="activities">
+                        <a style="padding-left:20px" href="#Overview">  <span>Overview</span></a>
+                    </li>
+                    <li class="prepare" style="margin-left: 20px;">
+                        <a href="#DailyTours" style="padding-left:15px"><span>Daily Tours</span></a>
+                    </li>
+                    <li class="itineraries" style="margin-left: 10px;">
+                        <a href="#Moretours"> <span>More tours</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+    <div class="container">
+        <ol class="breadcrumb" style="" itemscope itemtype="http://schema.org/BreadcrumbList">
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a itemprop="item" style="color:#0077ba" href="../../">
+                    <span itemprop="name">Home</span>
+                </a>
+                <meta itemprop="position" content="1" />
+            </li>
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a itemprop="item" style="color:#0077ba" href="../galapagos-daily-tours">
+                    <span itemprop="name"> Galapagos Daily Tours</span>
+                </a>
+                <meta itemprop="position" content="2" />
+            </li>
+            <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <span itemprop="name">@ViewBag.breadcrumb</span>
+                <meta itemprop="position" content="3" />
+            </li>
+        </ol>
+        <div class="row f-15 text-justify textoinfo parrafoDailyTour" style="font-family:Arial;padding: 0px 1em; background:white;">
+            <div id="DailyTours"></div>
+            <h2 class="formato-titulo" style="margin-top:0;margin-bottom:20px"><b>@titulo[1]</b></h2>
+            @{
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[1])
+                    {
+                        <span>@Html.Raw(item.Parrafo)</span>
+                    }
+                }
+            }
+        </div>
+    </div>
+    <!--================================CARD CRUCEROS=========================-->
+    <div class="container">
+        <div class="row f-15 text-justify textoinfo parrafoDailyTour" style="font-family:Arial;padding:0 1em; background:white;margin-bottom:0">
+            <h2 class="formato-titulo" style="margin-top:0"><b>@titulo[2]</b></h2>
+            @{
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[2])
+                    {
+                        <span>@Html.Raw(item.Parrafo)</span>
+                    }
+                }
+            }
+        </div>
+    </div>
+    <div class="container f-15 text-justify" style="padding: .5em 1em; background:white; text-decoration:none;margin-top: 42px;">
+        <div class="mainland-wrapper ">
+            <div class="mainland">
+                <div class="row  f-15 text-justify textoinfo parrafo" style="font-family:Arial; color: #656b6f !important; line-height:2; background:white;">
+                    <div class="col-xs-12 col-sm-6 col-md-4 cardsAndando">
+                        <!--ELEMENTO 1-->
+                        <div class="contenido-app">
+                            <a href="@cardsTours[5]" style="text-decoration:none" target="_blank" class="anc-card">
+                                <div class="mainland-item">
+                                    <div class="mainland-image">
+                                        <img class="img-portada lazyload" data-src="@imgDaily[2].UrlImagen" alt="@imgDaily[2].NombreImagen" >
+                                        <div class="cruise-details">
+                                            <span>@cardsTours[1]</span>
+                                        </div>
+                                    </div>
+                                    <div class="cruise-info tourDetails">
+                                        <h3 style="font-family:'Berlin Sans FB'">@titulo[5]</h3>
+                                        <p style="line-height: 1.2;margin-bottom: 15px">
+                                            @cardsTours[2]
+                                        </p>
+                                        <div class="rest-info DailyCardPrice">
+                                            <span class="price">@cardsTours[3]</span><br>
+                                            <span class="price">@cardsTours[4]</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--ELEMENTO 1-->
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 cardsAndando">
+                        <!--ELEMENTO 2-->
+                        <div class="contenido-app">
+                            <a href="@cardsTours_1[5]" style="text-decoration:none" target="_blank" class="anc-card">
+                                <div class="mainland-item">
+                                    <div class="mainland-image">
+                                        <img class="img-portada lazyload" data-src="@imgDaily[3].UrlImagen" alt="@imgDaily[3].NombreImagen">
+                                        <div class="cruise-details">
+                                            <span>@cardsTours_1[1]</span>
+                                        </div>
+                                    </div>
+                                    <div class="cruise-info tourDetails">
+                                        <h3 style="font-family:'Berlin Sans FB'">@titulo[6]</h3>
+                                        <p style="line-height: 1.2;margin-bottom: 0px">
+                                            @Html.Raw(@cardsTours_1[2])
+                                        </p>
+                                        <div class="rest-info DailyCardPrice">
+                                            <span class="price">@cardsTours_1[3]</span><br>
+                                            <span class="price">@cardsTours_1[4]</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--ELEMENTO 2-->
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 cardsAndando">
+                        <!--ELEMENTO 3-->
+                        <div class="contenido-app">
+                            <a href="@cardsTours_2[5]" style="text-decoration:none" target="_blank" class="anc-card">
+                                <div class="mainland-item">
+                                    <div class="mainland-image">
+                                        <img class="img-portada lazyload" data-src="@imgDaily[4].UrlImagen" alt="@imgDaily[4].NombreImagen" >
+                                        <div class="cruise-details">
+                                            <span>@cardsTours_2[1]</span>
+                                        </div>
+                                    </div>
+                                    <div class="cruise-info tourDetails">
+                                        <h3 style="font-family:'Berlin Sans FB'">@titulo[7]</h3>
+                                        <p style="line-height: 1.2;margin-bottom: 15px">
+                                            @Html.Raw(@cardsTours_2[2])
+                                        </p>
+                                        <div class="rest-info DailyCardPrice" id="Moretours">
+                                            <span class="price">@cardsTours_2[3]</span><br>
+                                            <span class="price">@cardsTours_2[4]</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--ELEMENTO 3-->
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--================================SECCION IMG INF========================-->
+    <div class="container">
+        <div class="row f-15 text-justify textoinfo parrafoDailyTour" style="padding: .5em 1em;margin-top: 10px; background:white;margin-bottom: 0">
+            <h2 class="formato-titulo"> <b>@titulo[3]</b></h2>
+            @{
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[3])
+                    {
+                        <span>@Html.Raw(item.Parrafo)</span>
+                    }
+                }
+            }
+            <p class="formato-parrafo" style="font-size:18px;margin-bottom: 10px">
+                Want to check out our Island Hopping Packages? <a class="btn h5button  dailyTour-boton" href="../tours/island-hopping" id="help_me_plan" style="font-size:15px;padding-top:6px;padding-bottom:6px">Island Hopping Tours</a>
+            </p>
+        </div>
+    </div>
+    <!--================================SECCION IMG INF =========================-->
+    <div class="container seccionItinerario seccionItinerarioImg" style="margin-bottom: 20px">
+        <div class="row">
+            <div class="col-md-6 " style="padding-left: 10px;">
+                <img class="img-responsive lazyload" data-src="@imgDaily[1].UrlImagen" alt="@imgDaily[1].NombreImagen"  style="margin:0;width:100%" />
+                <div class="caption ">
+                </div>
+            </div>
+            <div class="col-md-6 itinerarioDaily">
+                <div class="row f-15 text-justify textoinfo parrafoDailyTour" style="font-family:Arial;padding: 0 1em; color:#747475  !important; margin-top:-5px;line-height:2;">
+                    <h2 class="formato-titulo"> <b>@titulo[4]</b></h2>
+                    @{
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[4])
+                            {
+                                @Html.Raw(item.Parrafo)
+                            }
+                        }
+                    }
+                    <table style="margin-left:-13px;width: 110%">
+                        <tr>
+                            <td style="border:none">
+                                <div class="boxdiv1" style="width:110%">
+                                    <a class="btn h5button daily-boton" v-bind:href="linkIsland" style="margin-right:10px;color:white; background:#398AC9">
+                                        <span v-html="nomIsland"></span>
+                                    </a>
+                                    <a class="btn h5button daily-boton" v-bind:href="linkIsland_1" style="color:#398AC9; background:#fff; border-color:#398AC9;border: 1px solid #398AC9;">
+                                        <span v-html="nomIsland_1"></span>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+
+    <script src="~/lib/vue/DailyTours.js"></script>
+}

@@ -1,0 +1,86 @@
+﻿@{
+    ViewData["Title"] = "CmsImagenesAndando";
+}
+<script src="~/lib/jquery.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="~/lib/owl.carousel.js"></script>
+
+<div style="font-family:Arial" class="content-wrapper" id="cmsImagenes">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6" v-if="imgGestion.length != 0">
+                    <h2 style="text-transform: uppercase;">
+                        {{imgGestion[0].pagina}}
+                    </h2>
+                </div>
+
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- ./row -->
+            <div class="row">
+                <div class="col-12">
+                    <h4>Imágenes</h4>
+                </div>
+            </div>
+            <div class="card card-primary card-outline">
+                <div class="card-body pad">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <section style="background-color:white;font-family:Arial;padding-bottom:0">
+                                <div class="container">
+                                    <h2>Editar Imagen</h2>
+                                    <div id="myCarousel5" class="owl-carousel" style="background-color:white; height:100%;">
+                                        <div class="item" v-for="(cmsImagen, index) in imgGestion" style="height:auto;width:auto">
+                                            <div class="row">
+                                                <div class="col-md-12 card-header" style="padding: 0 13px;">
+                                                    <i class="fas" :id="'btnNombre'+index" v-bind:class="faedit" v-on:click="modificarNombre(cmsImagen.idImagen,'btnNombre'+index,'btnguardar'+index,'btncancelar'+index)"> </i>
+                                                    <input style="width:100%;text-transform: lowercase;" type="text" :id="cmsImagen.idImagen" class="form-control titulosVista" disabled placeholder="Enter ..." :value="cmsImagen.nombreImagen">
+                                                    <i style="padding-top:6px" class="far fa-check-circle btnGuadarCancelar" :id="'btnguardar'+index" v-on:click="guardarCambioNombre('btnguardar'+index,'btncancelar'+index,'btnNombre'+index,cmsImagen.idImagen)"></i>
+                                                    <i class="far fa-times-circle btnGuadarCancelar" :id="'btncancelar'+index" v-on:click="cancelarCambios('btnguardar'+index,'btncancelar'+index,'btnNombre'+index,cmsImagen.idImagen)"></i>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12" style="padding: 0 13px;">
+                                                    <span class=" align-content-center" style="font-family:'BentonSans',sans-serif">
+                                                        <img :id="cmsImagen.idImagen" style="margin: 0.5px 50px 0.5px 5px;height:350px" class="img-thumbnail" v-bind:src="cmsImagen.urlImagen" v-on:click="getModal($event)" />
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="owl-nav">
+                                        <center>
+                                            <button type="button" role="presentation" class="owl-prev">
+                                                <span aria-label="Previous">‹</span>
+                                            </button>
+                                            <button type="button" role="presentation" class="owl-next">
+                                                <span aria-label="Next">›</span>
+                                            </button>
+                                        </center>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <partial name="~/Views/CmsWebAndando/modal_EditarImagen.cshtml" />
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).next(".custom-file-label").html(fileName);
+        })
+    });
+</script>

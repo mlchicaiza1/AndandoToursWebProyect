@@ -1,0 +1,720 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+
+@{
+    @model List<AndandoToursWeb.Models.BarcoWeb>
+
+    int[] cards = { 111, 110, 70 };
+    int[] cards2 = { 87, 73, 88 };
+    var i = 0;
+    var iV = 0;
+    var barcos = new List<AndandoToursWeb.Models.BarcoWeb>();
+    var barcos2 = new List<AndandoToursWeb.Models.BarcoWeb>();
+
+
+    while (cards.Length > i)
+    {
+        foreach (var dat in Model)
+        {
+            if (cards[i] == dat.IdBarco)
+            {
+                barcos.Add(dat);
+
+                i++;
+                if (i == cards.Length)
+                {
+                    break;
+                }
+
+            }
+        }
+    }
+
+
+    while (cards2.Length > iV)
+    {
+        foreach (var dat2 in Model)
+        {
+            if (cards2[iV] == dat2.IdBarco)
+            {
+                barcos2.Add(dat2);
+
+                iV++;
+                if (iV == cards2.Length)
+                {
+                    break;
+                }
+
+            }
+        }
+    }
+
+}
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" type="text/css" href="~/css/styleAndando.css" />
+<link rel="stylesheet" type="text/css" href="~/css/styleAndando03.css" />
+<link rel="stylesheet" type="text/css" href="~/css/app.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha256-PZLhE6wwMbg4AB3d35ZdBF9HD/dI/y4RazA3iRDurss=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<div class="container--full-width" style="overflow:hidden; width:100%">
+    <div id="myCarousel" class="carousel slide active" aria-hidden="true" data-ride="carousel">
+        <div class="carousel-inner" role="listbox" style="background-color:#2c3040;">
+            <div class="item active imgen-carousel">
+                <div class="fondos-imagen" style="background-image:url(../../images/Cruises/Family_galapagos-islands-family-vacation.jpg);">
+                    <img src="" alt="sailing Galapagos" class="fondos-imagen" style="background-image:url(../../images/Cruises/Family_galapagos-islands-family-vacation.jpg); position:center; height:100%; width:100%;" />
+                </div>
+                <div class="carousel-caption" style="padding-bottom:45px; top:25%" role="option">
+                    <h1 class="font-x2 font-brush font-carousel">
+                        <strong>Galapagos Family Cruises</strong>
+                    </h1>
+                    <p class="font-x2 " style="font-size:18px; font-family:'BentonSans',sans-serif">
+                        Options and recommendations for your Galapagos Islands family vacation
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--================================SUB MENU=========================-->
+    <nav class="navbar  navbarsubmenu page-nav-home" data-toggle="sticky-onscroll" id="navpagina" style="border: 1px solid rgba(0,0,0,.1);">
+        <div class="limit">
+            <nav class="page-nav-anchors" style="text-transform:none; " id="sub-menu-cruises">
+                <ul>
+                    <li>
+                        <a href="#WhatToconsider"><span>What to consider</span> </a>
+                    </li>
+                    <li>
+                        <a href="#BestOption"><span>Best Option</span></a>
+                    </li>
+                    <li>
+                        <a style="width: 300px" href="#AndandoTouch"><span>Andando´s Touch</span></a>
+                    </li>
+                </ul>
+            </nav>  <div ></div>
+        </div>
+    </nav>
+    <nav class="page-nav page-nav-home" data-toggle="sticky-onscroll" id="navmovil">
+        <div class="limit" style="width:100%">
+            <nav class="page-nav-anchors">
+                <ul style="width:100%">
+                    <li class="activities">
+                        <a class="" href="#WhatToconsider">  <span>What to consider</span></a>
+                    </li>
+                    <li class="prepare" style="margin-left: 20px;">
+                        <a href="#BestOption"><span>Best Option</span></a>
+                    </li>
+                    <li class="itineraries" style="margin-left: 10px;">
+                        <a href="#AndandoTouch"> <span>Andando´s Touch</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+    <!--=========================INFO GALAPAGOS ISLAND================================-->
+    <div class="container" id="WhatToconsider">
+        <div class="row formato-parrafo text-justify textoinfo parrafo" style="font-family:Arial;padding: .5em 1em;  line-height:2; background:white;">
+
+            <ol class="breadcrumb" style="" itemscope itemtype="http://schema.org/BreadcrumbList">
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a itemprop="item" style="color:#0077ba" href="../../">
+                        <span itemprop="name">Home</span>
+                    </a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a itemprop="item" style="color:#0077ba" href="../galapagos-cruises">
+                        <span itemprop="name"> Galapagos Cruises</span>
+                    </a>
+                    <meta itemprop="position" content="2" />
+                </li>
+
+                <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span itemprop="name">
+                        Family
+                    </span>
+                    <meta itemprop="position" content="4" />
+                </li>
+            </ol>
+
+            <p>
+                Traveling to the Galapagos with your family is, in itself, a journey of introspection and transformation. There’s no other place on Earth that offers such a close encounter with nature.
+            </p>
+            <p>
+                A Galapagos Islands family vacation should be an unforgettable experience full of educational and fun activities for the little ones. Unlike your average tour, this trip can expand their vision of the world, making them feel like authentic adventurers diving into unique experiences.
+            </p>
+            <p>
+                With that said, no two cruises are alike.
+            </p>
+            <p>
+                How can you choose among all the Galapagos family cruises and tours, so you can enjoy the best one? Which are a life-changing experience?
+            </p>
+            <div class="EspacioModulos"></div>
+
+            <h2 style="color:black; text-align:left"><b>Galapagos Family Cruises</b></h2>
+            <p>
+                You can find more than 70 navigable cruise options in the Galapagos. When choosing the right one for your family, it’s important to keep these details in mind:
+            </p>
+            <p>
+                <ul>
+                    <li style="margin-left:3%" type="disc">
+                        <a href="#interconnectedaccommodations" style="text-decoration:none; color:#398AC9">     <span>Does the ship offer interconnected accommodations.</span></a>
+                    </li>
+                    <li style="margin-left:3%" type="disc">
+                        <a href="#allowedonboard" style="text-decoration:none; color:#398AC9">     <span>What’s the minimum age allowed on board.</span></a>
+                    </li>
+                    <li style="margin-left:3%; width:100%" type="disc">
+                        <a href="#familyexpeditions" style="text-decoration:none; color:#398AC9">     <span>Do the guides have extensive experience working with family expeditions.</span>  </a>
+                    </li>
+                    <li style="margin-left:3%" type="disc">
+                        <a href="#childrendiscounts" style="text-decoration:none; color:#398AC9">      <span>Does the cruise offer children discounts?.</span></a>
+                    </li>
+                    <li style="margin-left:3%" type="disc">
+                        <a href="#recommendedactivities" style="text-decoration:none; color:#398AC9">   <span>Does it provide recommended activities.</span></a>
+                    </li>
+                    <li style="margin-left:3%" type="disc">
+                        <a href="#childrensprograms" style="text-decoration:none; color:#398AC9">     <span>Does the cruise include children's programs.</span></a>
+                    </li>
+                </ul>
+            </p>
+        </div>
+
+        <div class="EspacioModulos"></div>
+
+        <div class="row formato-parrafo text-justify" style="padding: .5em 1em; margin-top:-30px; line-height:2; background:white;">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <img style="width:100%; height:230px" src="~/images/Cruises/_img_cruises_Family_family-cruises-_20galapagos.jpg" />
+            </div>
+            <div class="col-md-3 col-sm-12 col-xs-12">
+                <img style="width:100%; height:230px" src="~/images/Cruises/_img_cruises_Family_family-cruise.jpg" />
+            </div>
+            <div class="col-md-3 col-sm-12 col-xs-12">
+                <img style="width:100%; height:230px" src="~/images/Cruises/_img_cruises_Family_galapagos-family-cruise-a-good-option.jpg" />
+            </div>
+
+        </div>
+
+        <div class="EspacioModulos"></div>
+
+        <div class="row formato-parrafo text-justify textoinfo parrafo" style="font-family:Arial;padding: .5em 1em;  line-height:2; background:white;">
+            <p >
+                At Andando Tours, we work with several boats categorized as ideal for your Galapagos islands family vacation. Depending on your needs (and how they match up with the list above), we’ll recommend a cruise that perfectly fits your unique plans. See more details below!
+            </p>
+            <p>
+                Our team consists of family members who have traveled extensively in the Galapagos and Ecuador. We know first-hand the requirements and special considerations you need before undertaking a trip, so leave the work to us! Sit back, relax, and enjoy an exceptional vacation that can expand your family’s vision of the world.
+            </p>
+            <h2 style="color:black; text-align:left"> <b>What to consider before starting your Galapagos family vacation</b></h2>
+            <p>
+                What should you consider before starting your Galapagos family trip? Are there any unique limitations? Do you absolutely need a guide? Let’s dive into all that and more, so your vacation is fantastic – not stressful. After reading these considerations, you’ll be prepared to contact an expert and prepare your trip!
+            </p>
+            <p id="interconnectedaccommodations">
+                <a class="btn h5button BottonAndan" style="margin-left:0px;" data-toggle="modal" data-target="#exampleModalCenter" href="../../form_taylorMade/form_taylorMade" id="help_me_plan">Contact an Expert</a>
+            </p>
+        </div>
+
+
+
+        <div  class="row formato-parrafo text-justify textoinfo parrafo" style="font-family:Arial;padding: .5em 1em;  line-height:2; background:white;">
+            <h3 style="color:#398AC9"; text-align:left"><b>How many family members are joining the trip?</b></h3>
+            <p>
+                <b>1) A large family, or several families traveling together.</b>
+            </p>
+            <p  id="allowedonboard"  style="margin-left:1.5%">
+                <b>Charter a boat</b> is the best option for your family or group. You can enjoy an exclusive trip, with a crew uniquely experienced in attending to the well-being of families.
+            </p>
+            <p style="margin-left:1.5%">
+                The best boat for family charters: <a href="/galapagos-cruises/passion-yacht" style="text-decoration:none; color:#398AC9">M / Y WildAid´s Passion</a>. This yacht is specially designed for private family trips, with the aesthetic of a luxury house in the middle of the sea. It can accommodate up to 13 passengers.
+            </p>
+            <p>
+                <b>2) A family with 3 to 5 members.</b>
+            </p>
+            <p style="margin-left:1.5%">
+                In this case, your best option is to share the cruise with other passengers
+            </p>
+            <p style="margin-left:1.5%">
+                <b>Want to be as close as possible to your loved ones? Certain ships have triple rooms,</b> in which a couple and a child will be perfectly accommodated.
+            </p>
+            <p style="margin-left:1.5%">
+                <b>Together but not mixed. Interconnected rooms</b> allow you to keep the little ones close during the trip, while still maintaining privacy. This requirement is essential for a ship to be qualified as a Galapagos family cruise. Not all boats have interconnected cabins.
+            </p>
+            <p style="margin-left:1.5%" >
+                Boats with interconnected cabins include: Elite, Endemic, Tip Top II.
+            </p>
+        </div>
+    </div>
+
+
+    <div class="EspacioModulos"></div>
+    <div class="container f-15 text-justify" style="padding: .5em 1em; background:white; text-decoration:none;margin-top: 15px;">
+        <div class="mainland-wrapper ">
+            <div class="mainland">
+                <div class="row  f-15 text-justify textoinfo parrafo" style="font-family:Arial; color: #656b6f !important; line-height:2; background:white;">
+                    @{ i = 0;
+                        foreach (var barco in barcos)
+                        {
+                            <div class="col-xs-12 col-sm-6  col-md-4 cardsAndando">
+                                <div class="contenido-app" :id="@barco.IdBarco" v-on:click="select($event)">
+                                    <a href="@barco.BarcoURL" target="_blank" style="text-decoration:none" class="anc-card">
+                                        <div class="mainland-item @(@barco.BarcoEco == true ? "cardEco": "eco")" style="overflow:hidden;text-overflow:ellipsis">
+                                            <div class="mainland-image">
+                                                <img src="@barco.BarcoImagen" class="img-portada" alt="@barco.BarcoNombre">
+                                                <div class=" @(@barco.BarcoEco == true ? "wildAid": "hide")">
+                                                    <h5>Collaborating with WildAid to protect the Islands. </h5>
+                                                </div>
+                                                <div class=" @(@barco.BarcoEco == true ? "cruise-detailsEco" : "cruise-details")">
+                                                    <span>Category: @barco.BarcoCategoriaTipoNombreEn</span>
+                                                </div>
+                                            </div>
+                                            <div class="cruise-info">
+                                                <h3 style="font-family:'Berlin Sans FB'">@barco.BarcoNombre</h3>
+                                                <p>
+                                                    @Regex.Replace(barco.BarcoDescripcionCortaEn, "<.*?>", String.Empty)
+                                                </p>
+                                                <div class="rest-info">
+                                                    <span class="price" style="margin-left:10px; font-family:Arial">Price from: $@barco.BarcoPrecioMin  (@barco.BarcoDiasItinerario Days).</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div> i++;
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="EspacioModulos"></div>
+    <div class="container" >
+        <div class="row formato-parrafo text-justify textoinfo parrafo" style="font-family:Arial;padding: .5em 1em; margin-top:-15px; line-height:2; background:white;">
+            <h3 style="color:#398AC9; text-align:left"><b>The minimum age required for traveling on-board a Galapagos cruise</b></h3>
+            <p>
+                Most Galapagos cruises are kid-friendly, admitting children of all ages on-board. However, be aware that <b>the minimum recommended age for kids traveling to the Galapagos is six years old.</b>
+            </p>
+            <p>
+                The Galapagos Islands are an expedition destination. You will be doing excursions in the islands every morning and every afternoon, which can be tiring for the little ones. None of these excursions are mandatory, however, so you can refrain from certain excursions and stay on-board. That’s why the age limit is recommended, but not absolute.
+            </p>
+            <p>
+                Keep in mind that, <b>if a child stays on-board during excursions, an adult must stay with them.</b> If children do partake in the excursion, they should be old enough to endure walks of between one and two hours.
+            </p>
+            <p>
+                Some cruises offer babysitting services, which care for children while parents enjoy the activities. This service is an extra cost to the price of the cruise.
+            </p>
+            <p id="familyexpeditions">
+                <b>*Note:</b> If you decide to travel with a toddler, there are some boats (like the <a href="/galapagos-cruises/passion-yacht" style="text-decoration:none; color:#398AC9">M/Y WildAids Passion</a> or the <a href="/galapagos-cruises/ocean-spray" style="text-decoration:none; color:#398AC9">M/C Ocean Spray</a>) that can accommodate a cot in the parents’ room.
+            </p>
+            <div class="EspacioModulos"></div>
+            <h3 style="color:#398AC9; text-align:left"><b>Cruise category</b></h3>
+            <p>
+                The price of the trip depends on the boat’s category.
+            </p>
+            <p>
+                <b>1) The best guides:</b> You should keep in mind that the most experienced guides usually work on ships of higher categories. The quality of the guide is directly related to the children's involvement in the activities and the learning they will receive during their trip.
+            </p>
+            <p>
+                <b>2) Price, accommodations, and itinerary:</b> You can find <b>tourist class cruises from $350 per person, per day.</b> Typically, these ships have bunk beds with smaller spaces. The itinerary and excursions are very similar, regardless of the category you choose.
+            </p>
+            <p id="childrendiscounts">
+                <b>High-end cruises and luxury cruises</b> are the best options when traveling with your family. All Galapagos family cruises we recommend are of these categories, due to the experience of the guides, the number of activities, their unique services, and more varied options. The price of these cruises <b>starts at $550 per person, per day.</b>
+            </p>
+            <p>
+                <b>3) Discounts for children under 12:</b> These discounts are between <b>15% and 25%.</b> The discount can be up to 40% if the child is accommodated in the parent´s room.
+            </p>
+            <p>
+                Cruises with a higher discount for children include: Treasure of Galapagos, Passion & Odyssey.
+            </p>
+        </div>
+    </div>
+    <!--================================CARD CRUCEROS=========================-->
+
+    <div class="container f-15 text-justify" style="padding: .5em 1em; background:white; text-decoration:none;margin-top: 15px;">
+        <div class="mainland-wrapper ">
+            <div class="mainland">
+                <div class="row  f-15 text-justify textoinfo parrafo" style="font-family:Arial; color: #656b6f !important; line-height:2; background:white;">
+                    @{ iV = 0;
+                        foreach (var barco2 in barcos2)
+                        {
+                            <div class="col-xs-12 col-sm-6  col-md-4 cardsAndando">
+                                <div class="contenido-app" :id="@barco2.IdBarco" v-on:click="select($event)">
+                                    <a href="@barco2.BarcoURL" target="_blank" style="text-decoration:none" class="anc-card">
+                                        <div class="mainland-item @(barco2.BarcoEco == true ? "cardEco": "eco")" style="overflow:hidden;text-overflow:ellipsis">
+                                            <div class="mainland-image">
+                                                <img src="@barco2.BarcoImagen" class="img-portada" alt="@barco2.BarcoNombre">
+                                                <div class=" @(barco2.BarcoEco == true ? "wildAid": "hide")">
+                                                    <h5>Collaborating with WildAid to protect the Islands. </h5>
+                                                </div>
+                                                <div class=" @(barco2.BarcoEco == true ? "cruise-detailsEco" : "cruise-details")">
+                                                    <span>Category: @barco2.BarcoCategoriaTipoNombreEn</span>
+                                                </div>
+                                            </div>
+                                            <div class="cruise-info">
+                                                <h3 style="font-family:'Berlin Sans FB'">@barco2.BarcoNombre</h3>
+                                                <p>
+                                                    @Regex.Replace(barco2.BarcoDescripcionCortaEn, "<.*?>", String.Empty)
+                                                </p>
+                                                <div class="rest-info">
+                                                    <span class="price" style="margin-left:10px; font-family:Arial">Price from: $@barco2.BarcoPrecioMin  (@barco2.BarcoDiasItinerario Days).</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div> iV++;
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="EspacioModulos"></div>
+    <div class="container">
+        <div class="row formato-parrafo text-justify textoinfo parrafo" style="font-family:Arial;padding: .5em 1em; margin-top:-15px; line-height:2; background:white;">
+            <p>
+                <b>4) Single-Person Cabins:</b> Family members who need or require a cabin for themselves might pay an extra cost. Most ships have a single-person accommodation for individual travelers.
+            </p>
+            <p>
+                Today, most cruise ships have single rooms at no additional cost, but as spaces are limited, it is wise to ask for availability beforehand.
+            </p>
+            <p>
+                The only cruise that lacks a single-person supplement in every cabin: <a href="/sailing-cruises/mary-anne" style="text-decoration:none; color:#398AC9">S / S Mary Anne.</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="EspacioModulos"></div>
+    <div class="container" id="recommendedactivities">
+        <div class="row formato-parrafo text-justify" style="padding: .5em 1em; margin-top:-30px;color: #656b6f !important; line-height:2; background:white;">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <img style="width:100%; height:230px" src="~/images/Cruises/_img_cruises_Family_mary-anne-cruise-families.jpg" />
+            </div>
+            <div class="col-md-3 col-sm-12 col-xs-12">
+                <img style="width:100%; height:230px" src="~/images/Cruises/_img_cruises_Family_mary-anne-ship-gps.jpg" />
+            </div>
+            <div class="col-md-3 col-sm-12 col-xs-12">
+                <img style="width:100%; height:230px" src="~/images/Cruises/_img_cruises_Family_sailing-ship-galapagos-for-families.jpg" />
+            </div>
+            <p >
+
+                <a class="btn h5button BottonAndan" style="margin-left:10px;" data-toggle="modal" data-target="#exampleModalCenter" href="../../form_taylorMade/form_taylorMade" id="help_me_plan">Hepl me plan</a>
+
+            </p>
+        </div>
+        <div class="EspacioModulos"></div>
+        <div   class="row formato-parrafo text-justify textoinfo parrafo" id="childrensprograms" style="font-family:Arial;padding: .5em 1em;  line-height:2; background:white;">
+            <h3 style="color:#398AC9; text-align:left"> <b>Entertainment on board</b></h3>
+            <p>
+                Most ships in the Galapagos have DVDs, books, and movies. They also possess a collection of board games and cards.
+            </p>
+            <p>
+                <ul>
+                    <li style="margin-left:1.5%" type="disc">
+                        <span><b>Larger ships, such as Explorer II, offer certain extras</b>, such as cooking classes, karaoke, Spanish lessons, and more.</span>
+                    </li>
+                    <li style="margin-left:1.5%" type="disc">
+                        <span><b>Some first-class vessels</b>, such as the <a href="/sailing-cruises/mary-anne" style="text-decoration:none; color:#398AC9">S / S Mary Anne</a> or the <a href="/galapagos-cruises/tip-top-ii" style="text-decoration:none; color:#398AC9">Tip Top II</a> (with only 16 passengers) <b>can provide navigational experiences</b>, such as: customized boat tours, the opportunity to meet the captain, access to the ship's command, opportunity to hoist the sails, and 24-hour access to the cookie drawer!.</span>
+                    </li>
+                    <li style="margin-left:1.5%; width:100%" id="BestOption" type="disc">
+                        <span><b>Other small luxury boats</b>, such as the M/Y Evolution or the M/C Endemic, have a telescope for viewing the constellations at night.</span>
+                    </li>
+                </ul>
+            </p>
+
+            <div class="EspacioModulos"></div>
+            <h3 style="color:#398AC9; text-align:left"> <b>Kids Trip Leader</b></h3>
+            <p>
+                To make your Galapagos Islands family vacation all the more special, we provide this special, extra service.
+            </p>
+            <p>
+                Apart from the guide that will accompany you during the tour, we can include - at your request - <b>a second staff member, specialized in children</b>, who will accompany you, the official guide, and your kiddos throughout the activities. This helps provide your children with a customized, kid-friendly experience, while also allowing parents to have more free time and choose which activities they want to join. The Trip Leader will also entertain children during the transfers and help parents during meals.
+            </p>
+            <h2 style="color:black; text-align:left"> <b>Is a Galapagos cruise the ideal option for your children?</b></h2>
+            <p>
+                <b>The ideal starting age for a child to enjoy the islands is from 8 years.</b> At this age, they are old enough to appreciate and enjoy the wildlife and the experiences they will find.
+            </p>
+            <p id="AndandoTouch">
+                Between the ages of 8 to 14, children are young enough for a trip like this to have a lasting, positive impact, which will hopefully instill a love for learning, nature, and travel.
+            </p>
+            <p>
+                <b>A good alternative for your Galapagos family tour is an Island Hopping vacation.</b> Here, you can organize the excursions to fit your needs.
+            </p>
+            <p>
+                We create trips designed with children in mind - avoiding frantic itineraries and allowing enough time in each destination or activity for a reflexive, fun, and significant experience.
+            </p>
+            <p >
+
+                <a class="btn h5button BottonAndan" style="margin-left:0px;" href="/tours/island-hopping" id="help_me_plan">Island Hopping Sample Itineraries</a>
+
+
+
+            </p>
+
+            <div class="EspacioModulos"></div>
+            <h2 style="color:black; text-align:left"> <b>The Andando´s touch – how we involve the children</b></h2>
+            <p>
+                Our Galapagos Islands family vacations are designed to involve children during every part of the trip. They’re given fun tasks and experiences, like being the family photographer for the trip, offering input on the trip discussions, serving as the trip leaders in activities like cooking classes, and helping with the trip journal. The end result? Unforgettable memories for the whole family
+            </p>
+            <p>
+                You can add some of these servicers to your Galapagos tour:
+            </p>
+            <p>
+                <ul>
+                    <li style="margin-left:1.5%;line-height:2;" type="disc">
+                        <span><b>Journal their trip to Ecuador:</b> We prepare a journal and scrapbook (unique to each program, as each itinerary can be custom-made) for your children upon their arrival. The journal contains fun and interesting facts about the places the itinerary visits, and includes activities for the children such as painting, quizzes, and writing. It then serves as a lovely souvenir from their journey!.</span>
+                    </li>
+                    <li style="margin-left:1.5%;line-height:2;" type="disc">
+                        <span><b>Penpals:</b> To encourage a deeper exchange of cultures and to create excitement for the trip, we offer a postal exchange between the family’s participants and children of the communities of Ecuador that we will visit. This activity is usually conducted four months prior to the trip, so a couple of letters can be exchanged. The penpals can then meet during the trip to Ecuador.</span>
+                    </li>
+                    <li style="margin-left:1.5%;line-height:2; width:100%" type="disc">
+                        <span><b>Responsibility roles:</b> Travel also affords a multitude of other opportunities for children to embrace responsibility roles. These include monitoring the clock to ensure the family leaves for the airport or an expedition on time, acting as the family photographer, helping the family navigate with a map on self-guided tours, or creating a photo sketch-book with captions after you’ve returned home from the trip.</span>
+                    </li>
+                    <li style="margin-left:1.5%; width:100%;line-height:2;" type="disc">
+                        <span><b>Grow-up learning:</b> Children can request a painting and gaming pack about Galapagos animals. With these materials, they will have fun learning and captivating themselves with the wildlife of the Islands.</span>
+                    </li>
+                </ul>
+            </p>
+        </div>
+
+
+
+        <div class="EspacioModulos"></div>
+
+        <div class=" row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em; background:white;margin-top:0;margin-bottom:0">
+
+
+
+
+
+
+            <div class="col-md-6">
+                <div class="box" id="textoDerecha">
+
+                    <h3 style="color:black; text-align:left"><b>      Is an Island Hopping Program a Good Alternative?</b></h3>
+
+                    <p>An Island Hopping program involves staying on a populated island and taking navigable excursions to other, nearby islands. Usually, these packages are cheaper than cruise trips.</p>
+
+
+                    <p>The disadvantages are:</p>
+
+
+                    <ul>
+                        <li type="disc" style="margin-left:16px">
+                            <span>You see fewer visitor sites.</span>
+                        </li>
+                        <li type="disc" style="margin-left:16px">
+                            <span>
+                                Navigation between each point becomes longer and more uncomfortable.
+
+                            </span>
+                        </li>
+                    </ul>
+
+
+                    <p>
+                        The advantage? You have much more flexibility in planning your family trip. If, one day, you would prefer to stay resting on the beach or in the hotel pool,
+                        you can enjoy your trip exactly as you please. Just organize the itinerary to your specific needs!.
+                    </p>
+
+
+                    <p>
+                        We can adapt the pace of these itineraries to the children of the family, making the trip less stressful. Specifically, we create Galapagos family tours with alternating days of: navigable excursions,
+                        enjoying the surroundings of the islands, attending cooking classes, enjoying quieter scheduled activities, and much more!.
+                    </p>
+
+
+
+
+
+                </div>
+            </div>
+            <div class="col-md-6" style="padding-top: 0px 0;">
+                <div class="box">
+
+
+
+                    <p><h3 style=" text-align:left"><b>Why you should choose an Island Hopping tour?</b></h3></p>
+
+                    <p>These programs provide greater options for how to spend your days and enjoy activities with the whole family. Among them include:</p>
+
+
+                    <ul>
+                        <li type="disc" style="margin-left:16px">
+                            <span>
+                                Scavenger hunts.
+                            </span>
+                        </li>
+                        <li type="disc" style="margin-left:16px">
+                            <span>
+                                Cooking classes.
+
+                            </span>
+                        </li>
+
+
+                        <li type="disc" style="margin-left:16px">
+                            <span>
+                                Surfing lessons
+
+
+                            </span>
+                        </li>
+                        <li type="disc" style="margin-left:16px">
+                            <span>
+                                Biking though the islands.
+
+                            </span>
+                        </li>
+
+                        <li type="disc" style="margin-left:16px">
+                            <span>
+                                Chocolate workshops.
+
+                            </span>
+                        </li>
+                        <li type="disc" style="margin-left:16px">
+                            <span>
+                                Farming.
+
+
+                            </span>
+                        </li>
+                        <li type="disc" style="margin-left:16px">
+                            <span>
+                                You also have a range of dinner choices each night, with a variety of restaurants to pick from.
+
+                            </span>
+                        </li>
+
+                    </ul>
+                    <h3 style=" text-align:left"><b>Why you should choose a cruise?</b></h3>
+
+                    <p>Cruises take you to less frequented places, which means greater wildlife encounters and animals being less shy about human presences.</p>
+
+
+                    <p>Transportation between the Island Hopping tours is usually rather long. That time can be used on cruises to play and perform other activities</p>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class=" row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em; background:white;margin-top:0;margin-bottom:0">
+
+
+
+
+
+
+            <div class="col-md-6">
+                <div class="box" id="textoDerecha">
+
+                    <h2 style="color:black; text-align:left"><b> Galapagos Islands Family Getaway</b></h2>
+
+
+                    <h3 class="formato-titulo" style="margin-top:0;margin-bottom: 30px;"> <b>Highlights</b></h3>
+
+                    <ul>
+                        <li type="disc" style="margin-left:16px">
+                            <span>
+                                Amazing and fearless wildlife
+
+                            </span>
+                        </li>
+                        <li type="disc" style="margin-left:16px">
+                            <span>
+                                Cruises and tours designed for families
+
+                            </span>
+                        </li>
+
+
+                        <li type="disc" style="margin-left:16px">
+                            <span>
+                                Dedicated crew and cruise manager for family vacations
+
+                            </span>
+                        </li>
+                        <li type="disc" style="margin-left:16px">
+                            <span>
+                                Full cover protection during your land tours in mainland Ecuador.
+
+                            </span>
+                        </li>
+
+
+
+
+                    </ul>
+
+
+                    <p>
+                        Let Andando Tours / Angermeyer Cruises help you plan the perfect holiday for you and your family. Creating memories that last a lifetime is our specialty!.
+                    </p>
+
+
+
+
+                </div>
+            </div>
+            <div class="col-md-6" style="padding-top: 0px 0;">
+                <div class="box">
+
+
+
+                    <h3 class="formato-titulo" style="margin-top:0;margin-bottom: 30px;">
+                        <b>
+                            Extensions for your family vacations
+                        </b>
+                    </h3>
+
+
+                    <p>
+                        For families wanting to explore one of the most biodiverse destinations on the planet while visiting remote communities and interacting with indigenous
+                        people who call the jungle home, why not consider an Amazon adventure?  Or, for those looking for a challenge, perhaps an adventure that will take you through the impressive Andes mountains including Ecuador’s famous Avenue of the Volcanoes, home to the Andean cowboy (or chagra) where activities can include visits to indigenous markets, horseback riding
+                        , mountain biking and trekking – all while enjoying a stay at a colonial hacienda full of history and charm.
+                    </p>
+
+                    <p>Let Andando Tours / Angermeyer Cruises help you plan the perfect holiday for you and your family. Creating memories that last a lifetime is our specialty!.</p>
+
+
+                    <p>
+
+                        <a class="btn h5button BottonAndan" style="margin-left:10px;" data-toggle="modal" data-target="#exampleModalCenter" href="../../form_taylorMade/form_taylorMade" id="help_me_plan"> Start Planning your Family Vacations</a>
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br />
+</div>
+<div class="bs-example">
+    <!-- Modal Galeria HTML -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(".center").slick({
+        dots: true,
+        infinite: true,
+        centerMode: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+    });
+    $(".center2").slick({
+        dots: true,
+        infinite: true,
+        centerMode: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+    });
+</script>

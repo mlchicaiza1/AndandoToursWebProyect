@@ -1,0 +1,413 @@
+﻿@{ ViewData["Title"] = "Form_Package";
+    Layout = null; }
+
+<script src="~/js/Forms.js"></script>
+
+<div class="modal fade" id="formEcModal" style="padding-right:0" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form>
+                <div style="margin:10px">
+
+
+
+                    <div class="modal-body  ">
+
+
+
+
+                        <div class="row">
+
+
+                            <input type="text" style="display:none" id="idVisit" value="@ViewData["IP"]" />
+
+
+
+
+                            <p style="display:none" id="statusCode"></p>
+                            <p style="display:none" id="statusMessage"></p>
+                            <p id="ipAddress1" style="display:none"></p>
+                            <p style="display:none" id="countryCode1"></p>
+                            <p style="display:none" id="countryName"></p>
+                            <p style="display:none" id="regionName"></p>
+                            <p style="display:none" id="cityName1"></p>
+                            <p style="display:none" id="zipCode"></p>
+                            <p style="display:none" id="latitude"></p>
+
+                            <p style="display:none" id="longitude"></p>
+
+                            <script type="text/javascript">
+
+
+                    var HttpClient = function () {
+                        this.get = function (aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function () {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+
+                    var IPENcontrada = '@ViewData["IP"]';
+
+
+
+                        var theurl = 'https://api.ipinfodb.com/v3/ip-city/?key=37856f4bf8ee174979271811369e39326a7de8bb08f8ca9898ff2a81e364e271&ip=' + IPENcontrada + '&format=json';
+
+
+
+                    var client = new HttpClient();
+                    client.get(theurl, function (response) {
+                        var response1 = JSON.parse(response);
+                        //alert(response);
+                        document.getElementById("statusCode").innerHTML = response1.statusCode;
+                        document.getElementById("statusMessage").innerHTML = response1.statusMessage;
+                        //document.getElementById("ipAddress1").innerHTML = response1.ipAddress1;
+                        document.getElementById("ipAddress1").innerHTML = IPENcontrada;
+                        document.getElementById("countryCode1").innerHTML = response1.countryCode;
+                        document.getElementById("countryName").innerHTML = response1.countryName;
+                        document.getElementById("regionName").innerHTML = response1.regionName;
+                        document.getElementById("cityName1").innerHTML = response1.cityName;
+                        document.getElementById("zipCode").innerHTML = response1.zipCode;
+                        document.getElementById("latitude").innerHTML = response1.latitude;
+                        document.getElementById("longitude").innerHTML = response1.longitude;
+                    });
+                            </script>
+
+
+                            <div class=" col-md-12 col-sm-12 col-xs-12">
+
+                                <h5 id="tituloProd" class="formato-titulo modal-title" style="text-align:left;font-size:20px; color:#0077ba;top:6%"><b>{{titulo}}</b></h5>
+                                <a class="close icon-times-circle" id="close_modal1" data-dismiss="modal" style="  color:#0077ba;font-size:30px; margin-top:-5%" href="#"></a>
+
+
+                            </div>
+
+                            <div class=" col-md-12 col-sm-12 col-xs-12">
+                                <br />
+                                <div style="background:#c3bfbf;height:1.5px;width:100%"></div>
+                                <br />
+                            </div>
+
+                            <div style="font-size:15px" class=" col-md-6 col-sm-12 col-xs-12">
+
+                                <p> <b>E-mail adress <span style="color:red;font-weight:900"> *</span></b></p>
+
+
+                                <p>
+
+
+                                    <input style="font-family:Arial" class="form-control" type="email"
+                                           placeholder="Email@email.com" id="emailEcItin" name="emailEcItin" />
+
+
+
+                                </p>
+
+
+                            </div>
+
+
+                            <div style="font-size:15px" class=" col-md-6 col-sm-12 col-xs-12">
+                                <p>
+                                    <b>Name <span style="color:red;font-weight:900"> *</span></b>
+                                </p>
+                                <p>
+                                    <input class="form-control" placeholder="Your Name" autocomplete="off" type="text" id="nombreEcItin" name="nombreEcItin" />
+                                </p>
+                                <input type="text" id="taylor" class="form-control" name="taylor" style="display:none" value="Taylor Made" />
+
+                            </div>
+
+
+
+
+                            <div style="font-size:15px" class=" col-md-6 col-sm-12 col-xs-12">
+
+                                <p>  <b>Date    <span style="color:red;font-weight:900"> *</span></b></p>
+                                @*<input class="form-control  " placeholder="Start date	" autocomplete="off" type="text" id="startEcItin" name="startEcItin" />*@
+
+                                <input class="form-control  " placeholder="Start date" autocomplete="off" type="text" id="fecha" name="fecha">
+                                @*<div class="  " id="datepicker">
+
+                                <span class="input-group-addon">To</span>
+        <input class="form-control" placeholder="End date	" autocomplete="off" type="text" id="end" name="end" />
+                            </div>*@
+
+                            </div>
+
+
+
+
+                            <div style="font-size:15px" class=" col-md-6 col-sm-12 col-xs-12">
+                                <p>   <b>Number of travelers  <span style="color:red;font-weight:900"> *</span></b></p>
+
+                                <p>
+                                    <input class="form-control" placeholder="Number of travelers" min="0" type="number" id="travelersEcItin" name="travelersEcItin" />
+                                    <input type="text" id="taylorDeter" class="form-control" name="taylorDeter" style="display:none" value="{{titulo}}" />
+                                </p>
+                            </div>
+
+
+
+
+
+
+
+
+
+                            <div style="font-size:15px" class=" col-md-12 col-sm-12 col-xs-12">
+                                <p>   <b>Category</b></p>
+                                <p>
+
+
+                                    <select class="form-control" id="BugetDetermi">
+                                        <option selected="selected">{{select}}</option>
+
+
+                                    </select>
+
+                                </p>
+                            </div>
+
+
+                        </div>
+
+
+
+
+                        <br />
+
+
+                        <center>
+                            <input id="Button1" style="font-family: Arial;font-size: 16px;padding: 5px 15px" class="btn h5button  BottonAndan" type="button" onclick="EnviarFormulario1();" value="Submit request" />
+
+                        </center>
+                    </div>
+                </div>
+
+
+                <style>
+                    .datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
+                        font-family: Arial !important;
+                        font-size: 14px !important;
+                    }
+
+                    .datepicker table tr {
+                        font-family: Arial !important;
+                        font-size: 14px !important;
+                    }
+                </style>
+
+                <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+                <script>
+
+                    var date = new Date();
+                    date.setDate(date.getDate());
+                    $("#fecha").datepicker({
+                        format: 'yyyy/mm/dd',
+                        autoclose: true,
+                        startDate: date,
+                        todayHighlight: true,
+
+                    }).on('changeDate', function (selected) {
+                        var minDate2 = new Date(selected.date.valueOf());
+                        $('#end').datepicker('setStartDate', minDate2);
+                    });
+
+                    $("#end").datepicker({
+                        format: 'yyyy/mm/dd',
+
+                        startDate: date,
+                        todayHighlight: '#fecha',
+
+
+
+
+                    }).on('changeDate', function (selected) {
+                        var minDate = new Date(selected.date.valueOf());
+                        $('#fecha').datepicker('setEndDate', minDate);
+
+                    });
+
+                    $('#sandbox-container .input-daterange').datepicker({
+                    });
+
+
+
+
+                    var userTarget = "";
+                    var exit = false;
+                    $('.input-daterange').datepicker({
+
+                    });
+                    $('.input-daterange').focusin(function (e) {
+                        userTarget = e.target.name;
+                    });
+                    $('.input-daterange').on('changeDate', function (e) {
+                        if (exit) return;
+                        if (e.target.name != userTarget) {
+                            exit = true;
+                            $(e.target).datepicker('clearDates');
+                        }
+                        exit = false;
+                    });
+
+
+
+
+                    function ValidEmail1() {
+                        var EmailTxt = document.getElementById("emailEcItin");
+                        if ($(EmailTxt).val().length == 0) {
+                            EmailTxt.className = "ValidTInyp input-iconoError";
+                        } else {
+                            EmailTxt.className = "form-control input-icono";
+                        }
+                    }
+
+
+                    function ValidNombre1() {
+                        var NombreTxt = document.getElementById("nombreEcItin");
+                        if ($(NombreTxt).val().length == 0) {
+                            NombreTxt.className = "ValidTInyp input-iconoError";
+                        } else {
+                            NombreTxt.className = "form-control input-icono";
+                        }
+                    }
+
+
+                    function ValidFechaStard1() {
+                        var TXtstart = document.getElementById("fecha");
+                        if ($(TXtstart).val().length == 0) {
+                            TXtstart.className = "ValidTInyp input-iconoError";
+                        } else {
+                            TXtstart.className = "form-control input-icono";
+                        }
+                    }
+
+
+
+
+                    function ValidFechaNumeroPax1() {
+                        var travelers = document.getElementById("travelersEcItin");
+                        if ($(travelers).val().length == 0) {
+                            travelers.className = "ValidTInyp input-iconoError";
+                        } else {
+                            travelers.className = "form-control input-icono";
+                        }
+                    }
+                    function ValidarFormulario1() {
+                        ValidEmail1();
+                        ValidNombre1();
+                        ValidFechaStard1();
+
+                        ValidFechaNumeroPax1();
+                    }
+
+                    function EnviarFormulario1() {
+
+
+
+                        var NombreTxt = document.getElementById("nombreEcItin");
+                        var EmailTxt = document.getElementById("emailEcItin");
+                        var TXtstart = document.getElementById("fecha");
+
+                        var travelers = document.getElementById("travelersEcItin");
+
+
+                        if (($(EmailTxt).val().length == 0) || ($(NombreTxt).val().length == 0) || ($(TXtstart).val().length == 0) || ($(travelers).val().length == 0)) {
+                            ValidarFormulario1();
+                        } else {
+                            AprobarFormulario1();
+                        }
+
+                        //if ($(EmailTxt).val().length == 0) {
+                        //EmailTxt.className = "ValidTInyp input-iconoError";
+                        //}
+                        //else if ($(NombreTxt).val().length == 0) {
+                        //NombreTxt.className = "ValidTInyp input-iconoError";
+                        //}
+                        //else if ($(TXtstart).val().length == 0) {
+                        //TXtstart.className = "ValidTInyp input-iconoError";
+                        //}
+                        //else if ($(Txtend).val().length == 0) {
+                        //Txtend.className = "ValidTInyp input-iconoError";
+                        //}
+                        //else if ($(travelers).val().length == 0) {
+                        //travelers.className = "ValidTInyp input-iconoError";
+                        //}
+                        //else
+                        //{
+                        //EmailTxt.className = "form-control input-icono";
+                        //NombreTxt.className = "form-control input-icono";
+                        //travelers.className = "form-control input-icono";
+                        //TXtstart.className = "form-control input-icono";
+                        //Txtend.className = "form-control input-icono";
+
+                        /////  AprobarFormulario1();
+                        //}
+
+
+
+
+
+
+                    }
+
+                    //function pruebaemail(valor) {
+                    //re = /^([\da-z_\.-]+)@@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+                    //if (!re.exec(valor)) {
+
+                    //    //'email no valido
+
+                    //    var ValiCo = document.getElementById("ValiEmail");
+
+
+                    //    var ValiCo = 1;
+                    //}
+                    //else
+                    //    //'email valido
+                    //      var ValiCo = document.getElementById("ValiEmail");
+
+                    //    var ValiCo = 0;
+
+
+
+                    function AprobarFormulario1() {
+                        var Email = document.getElementById('emailEcItin').value;
+                        var Name = document.getElementById('nombreEcItin').value;
+                        var FechaDesde = document.getElementById('fecha').value;
+
+                        var NumeroPax = document.getElementById('travelersEcItin').value;
+                        var Category = document.getElementById('BugetDetermi').value;
+
+                        var taylor = document.getElementById('taylorDeter').value;
+                        //IP
+                        var IP = document.getElementById('ipAddress1').innerHTML;
+                        var CountryCode = document.getElementById('countryCode1').innerHTML;
+                        var CityName = document.getElementById('cityName1').innerHTML;
+
+                        var TipoTours = "TpoTours";
+
+
+
+                        window.location.href = "../thank_you_page/thank_you_page_Andando?Email=" + Email + "&Name=" + Name + "&FechaDesde=" + FechaDesde + "&NumeroPax=" + NumeroPax + "&Category=" + Category + "&taylor=" + taylor + "&IP=" + IP + "&CountryCode=" + CountryCode + "&CityName=" + CityName + "&TipoTours=" + TipoTours;
+                    }
+
+                </script>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        var fecha = new Date();
+        $("#fecha").datepicker({
+            startDate: fecha
+        });
+    });
+</script>

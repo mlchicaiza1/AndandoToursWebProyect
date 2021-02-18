@@ -1,0 +1,1334 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @*<title>@ViewData["Title"] - AndandoTou</title>*@
+    <title>@Html.Raw(ViewBag.Title)</title>
+    <meta name="title" content="@Html.Raw(ViewBag.Title)">
+    <meta name="description" content="@Html.Raw(ViewBag.MetaDescription)">
+    <link rel="canonical" href="@ViewBag.CanonicalURL" />
+    <meta name="keywords" content="@Html.Raw(ViewBag.MetaKeywords)">
+    <meta name="twitter:card" content="summary_large_image">
+    @*<link href="~/css/styleIconPlay.css" rel="stylesheet" />*@
+    @*<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">*@
+    <script src="~/js/jquery-1.12.4.min.js"></script>
+    <environment include="Development">
+        @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+            <link rel="stylesheet" href="~/css/styleAndando.css" />
+            <link rel="stylesheet" href="~/css/StyleAndando03.css" />*@
+        @*<link rel="stylesheet" href="~/css/bootstrap-datepicker.min.css" />*@
+        @*<link rel="stylesheet" href="~/css/StyleSlider.css" />*@
+        @*<link rel="stylesheet" href="~/font/font-awesome.min.css" />*@
+        @*<link rel="stylesheet" href="~/css/all.css" />*@
+        @*<link rel="stylesheet" type="text/css" href="~/css/app.css" />*@
+        @*<link href="~/css/styleIconPlay.css" rel="stylesheet" />*@
+        @*<link rel="stylesheet" href="~/font/style.css" />*@
+
+        <link rel="stylesheet" href="~/css/site.min.css" />
+        <link rel="preload" href="~/css/bootstrap-datepicker.standalone.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" type="text/css" href="~/font/fontello.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/owl.carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/owl.theme.default.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/site.min.css" />
+        <link rel="preload" href="~/css/bootstrap-datepicker.standalone.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" type="text/css" href="~/font/fontello.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/owl.carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <link rel="preload" href="~/css/owl.theme.default.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    </environment>
+    <style>
+    </style>
+</head>
+<body>
+    <header style="background-color:#179fec;font-family: 'BentonSans-Regular'">
+        <!--================================Logo AndandoTours=========================-->
+        <div class="header-logo" id="logoAndado">
+            <div class="limit">
+                <a href="/"> <img src="~/images/logo.jpg" alt="Andando Tours Logo" style="width:110px;height: 99px;" id="logo" /></a>
+            </div>
+        </div>
+        <!--================================Menu Secundario=========================-->
+        <nav class="header-nav-secondary menuAndandoEnlaces" id="menusecundario">
+            <div class="enlaces nav-inner" id="enlacesAndando">
+                <ul class="enlaces-AndadoTours">
+                    <li>
+                        <a style="text-decoration:none" href="#">
+                            <b style="color:#fcc100;">Toll free US & CA: +1 833 2632654 </b>
+                        </a>
+                    </li>
+                    <li><a style="text-decoration:none" href="../../blog">Blog</a></li>
+                    <li>
+                        <a style="text-decoration:none">About Us</a>
+                        <!-- start menu desplegable About -->
+                        <ul>
+                            <li><a href="/about-us" style="padding-top:30px">Why Andando</a></li>
+                            <li><a href="/about-us/responsable-travel/">Responsible Travel</a></li>
+                            <li><a href="/about-us/media/">Andando in the Media</a></li>
+                            <li><a href="/about-us/angermeyer-cruises/">Angereyer Cruises</a></li>
+                        </ul>
+                        <!-- end menu desplegable About -->
+                    </li>
+                    <li><a style="text-decoration:none" href="../contact/">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!--================================Menu Principal=========================-->
+        <div class="container" style="align-content:center">
+            <nav class="navbar   menuAndando  " data-toggle="sticky-onscroll-1" id="menuAndando" style="z-index:10;width:100%; ">
+                <!--================================Iconos - Logo Vista Moblie=========================-->
+                <div class="contenedor contenedor-botones-menu">
+                    <button id="btn-menu-barras" class="btn-menu-barras" style="margin-bottom:8px;">
+                        <i class="fas fa-bars fa-2x"></i>
+                    </button>
+                    <div class="box" style="height:50px;margin-bottom:0;border-radius:0;margin-left: 40px;">
+                        <a href="/"> <img src="~/images/logo.jpg" alt="Andando Tours Logo" style="width:50px" /></a>
+                    </div>
+                    <a class="btn h5button" style=" padding:5px 12px;margin-bottom:16px;margin-top:10px;  background-color:#ffffff ; color:#45b2ea; float:right; border-radius:10px 20px 10px 20px; font-size: 16px;" data-toggle="modal" data-target="#ModalInquire" href="../../../../form_taylorMade/form_taylorMade" id="btnInquireMovil">
+                        Inquire
+                    </a>
+                    <a class="btn h5button desbl" style="padding:5px 12px;margin-bottom:16px;margin-top:10px;  background-color:#ffffff ; color:#45b2ea; float:right; border-radius:10px 20px 10px 20px; font-size: 16px;" data-toggle="modal" data-target="#dayModal" href="../../../../form_taylorMade/form_DailyTours" id="btnDailyTours">
+                        Inquire
+                    </a>
+                    <a class="btn h5button desbl" style="padding:5px 12px;margin-bottom:16px;margin-top:10px;  background-color:#ffffff ; color:#45b2ea; float:right; border-radius:10px 20px 10px 20px; font-size: 16px;" data-toggle="modal" data-target="#formEcModalCabecera" href="../../../../Forms/Modals/Ecuador_Itinerarties/form_EcuadorIti1" id="btnEcuadorItinerarios">
+                        Inquire
+                    </a>
+                </div>
+                <div class="contenedor contenedor-enlaces-nav contenedor-tablet">
+                    <button id="btn-cerrar-menu" class="btn-menu-cerrar" style="background-color: white;">
+                        @*<span><img src="~/images/icon/botoncerrarmovil.png" /></span>*@
+                        <div class="header-hamburger in" style="margin-bottom: -15px;">
+                            <span><i class="fa fa-times"></i> </span>
+                        </div>
+                    </button>
+                    <div class="box" id="viewMobile" style="margin-bottom: 0px">
+                        <div class="btn-galapagos" id="btn-tripFinder" data-categoria="trip-finder" style="color:#eecd16;margin-top:20px; border-bottom: 1px solid rgba(0,0,0,.1);">
+                            *Trip Finder
+                        </div>
+                    </div>
+                    <div class="btn-galapagos" data-categoria="galapagos-cruises">
+                        <span id="btn-galapagosCruises" data-categoria="galapagos-cruises"> Galapagos Cruises </span>
+                        <span>
+                            <i class="fas fa-angle-right " id="btn-galapagosCruises-sig" style="color:#179fec;" data-categoria="galapagos-cruises"></i>
+                            <img class="lazyload" data-src="/images/Triangulo-blanco.png" style="" id="triangulo" data-categoria="galapagos-cruises" />
+                        </span>
+                    </div>
+                    <div class="btn-galapagos" data-categoria="galapagos-land">
+                        <span id="btn-galapagos-Island" data-categoria="galapagos-land">Galapagos Land-based</span>
+                        <span>
+                            <i class="fas fa-angle-right" style="color:#179fec" id="btn-galapagos-Island-sig" data-categoria="galapagos-land"></i>
+                            <img class="lazyload" data-src="/images/Triangulo-blanco.png" style="" id="triangulo1" data-categoria="galapagos-land" />
+                        </span>
+                    </div>
+                    <div class="btn-galapagos" data-categoria="mainland-ecuador">
+                        <span id="btn-mainlandEcuador" data-categoria="mainland-ecuador">Mainland Ecuador </span>
+                        <span>
+                            <i class="fas fa-angle-right" style="color:#179fec" id="btn-mainlandEcuador-sig" data-categoria="mainland-ecuador"></i>
+                            <img class="lazyload" data-src="/images/Triangulo-blanco.png" style="" id="triangulo2" data-categoria="mainland-ecuador" />
+                        </span>
+                    </div>
+                    <div class="btn-galapagos" data-categoria="travel-planning">
+                        <span id="btn-travelPlanning" data-categoria="travel-planning">Travel Planning</span> <span><i class="fas fa-angle-right" style="color:#179fec" id="btn-travelPlanning-sig" data-categoria="travel-planning"></i><img class="lazyload" data-src="/images/Triangulo-blanco.png" style="" id="triangulo3" data-categoria="travel-planning" /></span>
+                    </div>
+                    <div class="btn-galapagos" id="btn-tripTypes" data-categoria="trip-types">
+                        Trip Types <span><img class="lazyload" data-src="/images/Triangulo-blanco.png" style="" id="triangulo4" data-categoria="trip-types" /></span>
+                    </div>
+                    <div class="btn-galapagos" id="btn-tripFinderDesktop" data-categoria="trip-finder" style="color:#FFD388">
+                        *Trip Finder  <span><img class="lazyload" data-src="/images/Triangulo-blanco.png" style="" id="triangulo5" data-categoria="trip-finder" /></span>
+                    </div>
+                    <a class="btn h5button" style="padding:5px 16px; border-radius:10px 20px 10px 20px; background-color:#ffffff; color:#45b2ea" data-toggle="modal" data-target="#ModalInquire" href="../../../../form_taylorMade/form_taylorMade" id="btnInquire">
+                        Inquire
+                    </a>
+                    <a class="btn h5button desbl" style="padding:5px 16px; border-radius:10px 20px 10px 20px; background-color:#ffffff; color:#45b2ea" data-toggle="modal" data-target="#dayModal" href="../../../../form_taylorMade/form_DailyTours" id="btnDailyTours">
+                        Inquire
+                    </a>
+                    @* Vista movil enlaces de contacto Andando *@
+                    <div class="box" id="viewMobile" style="margin-bottom:0px">
+                        <div class="btn-galapagos" style="color:black">
+                            <a href="/blog" style="font-size:16px;color:black">Blog </a>
+                        </div>
+                        <div class="btn-galapagos" style="color:black" onclick="openNav()">
+                            About Us
+                            <i class="fas fa-angle-right" style="color:#179fec" id="btnAbouts" data-categoria="AboutUs"></i>
+                        </div>
+                        <div class="btn-galapagos" style="color:black">
+                            <a href="/contact/" style="font-size:16px;color:black">Contact Us </a>
+                        </div>
+                        <a href="#" style="color:#eecd16; font-size:16px">Live toll free US & CA: <br />+1 833 2632654 </a>
+                    </div>
+                </div>
+                <div class="contenedor contenedor-grid" id="tripFinderMobile">
+                    <div class="grid" id="grid">
+                        <div class="head">
+                            <button class="btn-regresar text-left" id="btn-regresarMenu"><i class="fas fa-chevron-left"></i>BACK</button>
+                        </div>
+                        <div class="foot" id="foot">
+                            <div class="box boxFooter" id="galapagos-cruises-footer">
+                                <img class="lazyload" data-src="/images/icon/iconHoja.png" style="display: inline-flex;height: 32px;width: 35px;margin-right: 10px;margin-left: 30px;" />
+                                <h4 id="mensajeFijo" style="margin-right:30px; font-size:16px; color:#0C5548; box-shadow:#ffffff ">
+                                    Help with your trip to conservation projects in the archipelago. How? <a href="/about-us/responsible-travel" style="cursor:pointer;text-decoration:none;color:#0C5548"><b>Click to find out.</b></a>
+                                </h4>
+                            </div>
+                            <div class="box boxFooter" id="galapagos-mainland-footer">
+                                <img class="lazyload" data-src="/images/icon/iconHoja.png" style="display: inline-flex;height: 32px;width: 35px;margin-right: 10px;margin-left: 30px;" />
+                                <h4 id="mensajeFijo" style="margin-right:30px; font-size:16px; color:#0C5548; box-shadow:#ffffff ">
+                                    Support different communities, artisans, and conservations projects around mainland Ecuador with your trip. <a href="/about-us/responsible-travel" style="cursor:pointer;text-decoration:none;color:#0C5548"><b>View More.</b></a>
+                                </h4>
+                            </div>
+                            <div class="box boxFooter" id="travel-planning-footer">
+                                <img class="lazyload" data-src="/images/icon/iconHoja.png" style="display: inline-flex;height: 32px;width: 35px;margin-right: 10px;margin-left: 30px;" />
+                                <h4 id="mensajeFijo" style="margin-right:30px; font-size:16px; color:#0C5548; box-shadow:#ffffff ">
+                                    Your trip will support social development and the conservation of the natural environment.<a href="/about-us/responsible-travel" style="cursor:pointer;text-decoration:none;color:#0C5548"><b>View More.</b></a>
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="categorias" data-categoria="galapagos-cruises">
+                            <div class="box" style="height:300px;padding-left:20px;padding-right:20px">
+                                <a href="/galapagos-cruises" data-categoria="cruising-guide" style="color:#E3C41D"> ALL OUR CRUISES </a><br />
+                                <a data-categoria="categories-galapagos" style="cursor:pointer"> Categories  <i class="fas fa-angle-right" data-categoria="categories-galapagos"> </i></a> <br />
+                                <a href="/cruises/availability" data-categoria="availability">Availability </a><br />
+                                <a href="/cruises/yacht-charters" data-categoria="private-Charters">Yacht Charters</a><br />
+                                <a href="/cruises/family" data-categoria="family-cruises">Family Cruises</a><br />
+                                <a href="/blog/cruises-for-single-adventure" data-categoria="solo-cruising">Solo Cruises </a><br />
+                                <div class="box mensajeFijoMovil">
+                                    <img class="lazyload" data-src="/images/icon/iconHoja.png" style="display: inline-flex;height: 32px;width: 35px;margin-right: 10px;" />
+                                    <h4 style="font-size:13px; color:#0C5548;text-align:justify ">
+                                        Help with your trip to conservation projects in the archipelago. How? <a href="/about-us/responsible-travel" style="cursor:pointer;text-decoration:none;color:#0C5548"><b>Click to find out.</b></a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="categorias" data-categoria="galapagos-land">
+                            <div class="box" style="height:200px;padding-left:20px;padding-right:20px">
+                                <a href="#" data-categoria="island-hopping">Island-Hopping <i class="fas fa-angle-right" data-categoria="island-hopping"></i></a><br />
+                                <a href="#" data-categoria="daily-tours">Daily Tours<i class="fas fa-angle-right" data-categoria="daily-tours"></i></a><br />
+                                <a href="#" data-categoria="information">I.Hopping vs Cruises<i class="fas fa-angle-right" data-categoria="information"></i></a><br />
+                            </div>
+                        </div>
+                        <div class="categorias" data-categoria="mainland-ecuador">
+                            <div class="box" style="height:200px;padding-left:20px;padding-right:10px">
+                                <a href="/ecuador-itineraries/avenue-of-volcanoes" data-categoria="avenue-volcanoes">Avenue of the volcanoes </a><br />
+                                <a href="/ecuador-itineraries/amazon-tours-ecuador" data-categoria="north-ecuador">Amazon Rainforest</a><br />
+                                <a href="/ecuador-itineraries/magical-north" data-categoria="amazon-rainforst">North of Ecuador</a><br />
+                                <a href="/ecuador-itineraries/austral-paths" data-categoria="austral-paths">Austral Paths </a><br />
+                                <a href="/ecuador-itineraries/cloud-forest" data-categoria="cloud-forest">Cloud Forest</a><br />
+                                <a href="/ecuador-itineraries" id="viewEscr" data-categoria="viewAllEcuadorItinerario" style="color:#E3C41D;padding-top: 0;padding-left:20px; font-size:18px">VIEW ALL</a>
+                                <a href="/ecuador-itineraries" id="viewMobile" style="color:#E3C41D;padding-top: 0; font-size:18px">VIEW ALL</a>
+                                <div class="box mensajeFijoMovil" style="margin-top:20px">
+                                    <img class="lazyload" data-src="/images/icon/iconHoja.png" style="display: inline-flex;height: 32px;width: 35px;margin-right: 10px;" />
+                                    <h4 style="font-size:13px; color:#0C5548;text-align:justify ">
+                                        Support different communities, artisans, and conservations projects around mainland Ecuador with your trip <a href="/about-us/responsible-travel" style="cursor:pointer;text-decoration:none;color:#0C5548"><b>View More.</b></a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="categorias" data-categoria="travel-planning">
+                            <div class="box" style="padding-left:20px;padding-right:20px">
+                                <a href="#" data-categoria="plan-trip-galapagos">Plan your trip to Galapagos <i class="fas fa-angle-right" data-categoria="plan-trip-galapagos"></i></a><br />
+                                <a href="#" data-categoria="plan-mainland-ecuador" style="height: 48px">Plan your trip to Mainland Ecuador<i class="fas fa-angle-right" data-categoria="plan-mainland-ecuador"></i></a><br />
+                                <a href="#" data-categoria="nature">Galapagos Nature<i class="fas fa-angle-right" data-categoria="nature"></i></a><br />
+                                <a href="/plan-your-trip/galapagos-activities" data-categoria="activities">Activities</a><br />
+                                <a href="/plan-your-trip/history" data-categoria="galapagos-history">History</a><br />
+                                <div class="box mensajeFijoMovil" style="margin-top:20px">
+                                    <img class="lazyload" data-src="/images/icon/iconHoja.png" style="display: inline-flex;height: 32px;width: 35px;margin-right: 10px;" />
+                                    <h4 style="font-size:13px; color:#0C5548;text-align:justify ">
+                                        Your trip will support social development and the conservation of the natural environment <a href="/about-us/responsible-travel" style="cursor:pointer;text-decoration:none;color:#0C5548"><b>View More.</b></a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="categorias" data-categoria="trip-types">
+                            <div class="box" style="height:200px;padding-left:20px;padding-right:20px">
+                                <a href="/trip-types/honeymoons" data-categoria="family-travel">Honeymoons</a><br />
+                                <a href="/trip-types/family-vacations/" data-categoria="honeymoons">Family Vacations</a><br />
+                                <a href="/trip-types/gay-tours" data-categoria="gay-tours">Gay tours</a><br />
+                                <a href="/trip-types/solo-travelers" data-categoria="solo-travel">Solo Travel</a><br />
+                                <div class="box">
+                                </div>
+                            </div>
+                        </div>
+                        @*Vista movil para botones Trip finder *@
+                        <div class="categorias" data-categoria="trip-finder" style="height:450px">
+                            <a class="btn tripFinderMov" href="#" data-categoria="finder_trip-types">
+                                {{triptype}}  &middot; {{contTrip}}  <i class="fas fa-angle-down" style="display:flex; color:#7B7979" data-categoria="finder_trip-types"></i>
+                            </a>
+                            <a class="btn tripFinderMov" href="#" data-categoria="finder_travelers">
+                                {{travelersTot}} <i class="fas fa-angle-down" style="display:flex;color:#7B7979" data-categoria="finder_travelers"></i>
+                            </a>
+                            <a class="btn tripFinderMov" href="#" data-categoria="finder_price-range">
+                                {{price}}  <i class="fas fa-angle-down" style="display:flex;color:#7B7979" data-categoria="finder_price-range"></i>
+                            </a>
+                            <a class="btn tripFinderMov" href="#" data-categoria="finder_dates">
+                                {{filterDate}}  <i class="fas fa-angle-down" style="display:flex;color:#7B7979" data-categoria="finder_dates"></i>
+                            </a>
+                            <a class="btn tripFinderMov" href="#" data-categoria="finder_ Lenght">
+                                Lenght{{lenghtDay}} <i class="fas fa-angle-down" style="display:flex;color:#7B7979" data-categoria="finder_ Lenght"></i>
+                            </a>
+                            <a class="btn h5button" v-on:click="getDisponibilidad()" style="padding: 5px 30px;margin-left:40px;border-radius:10px 20px 10px 20px;border-bottom: 0; background-color:#0077ba; color:#ffffff; width:140px" href="../../trip_planner/tri_planner">
+                                Search trip
+                            </a>
+                        </div>
+                        <div class="contenedor-subcategorias">
+                            <div class="subcategoria" data-categoria="galapagos-cruises" id="subcategoria-bannerCruises">
+                                <div class="baner-subcategoria" id="banner-img">
+                                    <div>
+                                        <a href="#" id="img-galapagos-cruises">
+                                            <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[2].UrlImagen" alt="@ViewBag.ImagenesMenu[2].NombreImagen" style="width: 750px" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="categories-galapagos" id="subcategoria">
+                                <div class="enlace-subcategoria">
+                                    <button class="btn-regresar text-left" id="btn-regresarCategorias"> <i class="fas fa-angle-left"></i>BACK</button>
+                                    <div class="box" style="padding-left:20px;padding-right:20px">
+                                        <a href="/galapagos-luxury-cruise" data-categoria="categories-galapagos">Luxury Cruses</a>
+                                        <a href="/sailing-cruises" data-categoria="categories-galapagos">Sailing Cruises</a>
+                                        <a href="/galapagos-cruises/galapagos-catamarans" data-categoria="categories-galapagos">Catamarans </a>
+                                        <a href="/galapagos-cruises/galapagos-yachts" data-categoria="categories-galapagos">Yachts</a>
+                                        <a href="/cruises/budget" data-categoria="categories-galapagos">Budget Options</a>
+                                    </div>
+                                    @*<a href="/galapagos-cruises" id="viewEscr" data-categoria="categories-galapagos" style="color:#E3C41D;padding-top: 0;padding-left: 30px; font-size:18px">ALL OUR CRUISES </a>
+                                        <a href="/galapagos-cruises" id="viewMobile" style="color:#E3C41D;padding-top: 0;padding-left: 20px; font-size:18px">ALL OUR CRUISES </a>*@
+                                </div>
+                                <div class="baner-subcategoria">
+                                    <a href="#" style="margin-top: 20px;">
+                                        <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[0].UrlImagen" alt="@ViewBag.ImagenesMenu[0].NombreImagen" />
+                                    </a>
+                                </div>
+                                <div class="box mensajeSubcategoriaMovil" style="padding-top: 20px;">
+                                    <img class=" lazyload" data-src="/images/icon/iconHoja.png" style="display: inline-flex;height: 32px;width: 35px;margin-right: 10px;" />
+                                    <h4 style="font-size:13px; color:#0C5548;text-align:justify ">
+                                        Help with your trip to conservation projects in the archipelago. How? <a href="/about-us/responsible-travel" style="cursor:pointer;text-decoration:none;color:#0C5548"><b>Click to find out.</b></a>
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="cruising-guide" style="grid-template-columns: 1fr;">
+                                <div class="baner-subcategoria imgban" id="banner-img">
+                                    <div>
+                                        <a href="#" id="img-mainland">
+                                            <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[1].UrlImagen" alt="@ViewBag.ImagenesMenu[1].NombreImagen" style="width: 750px" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-------------------------- Categoria sin subcategorias y con imagenes Galapago Cruises-------------->
+                            <div class="subcategoria" data-categoria="availability" style="grid-template-columns: 1fr;">
+                                <div class="baner-subcategoria imgban" id="banner-img">
+                                    <div>
+                                        <a href="#" id="img-mainland">
+                                            <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[2].UrlImagen" alt="@ViewBag.ImagenesMenu[2].NombreImagen" style="width: 750px" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="private-Charters" id="subcategoria-banner" style="grid-template-columns: 1fr;">
+                                <div class="baner-subcategoria" id="banner-img">
+                                    <div>
+                                        <a href="#" id="img-mainland">
+                                            <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[2].UrlImagen" alt="@ViewBag.ImagenesMenu[2].NombreImagen" style="width: 750px" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="family-cruises" id="subcategoria-banner" style="grid-template-columns: 1fr;">
+                                <div class="baner-subcategoria" id="banner-img">
+                                    <div>
+                                        <a href="#" id="img-mainland">
+                                            <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[2].UrlImagen" alt="@ViewBag.ImagenesMenu[2].NombreImagen" style="width: 750px" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="solo-cruising" id="subcategoria-banner" style="grid-template-columns: 1fr;">
+                                <div class="baner-subcategoria" id="banner-img">
+                                    <div>
+                                        <a href="#" id="img-mainland">
+                                            <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[2].UrlImagen" alt="@ViewBag.ImagenesMenu[2].NombreImagen" style="width: 750px" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--------------------------Galapagos Land Base ---------------------------------------------------------->
+                            <div class="subcategoria" data-categoria="galapagos-land" id="subcategoria-bannerLand">
+                                <div class="baner-subcategoria" id="banner-img">
+                                    <div>
+                                        <a href="#" id="img-galapagos-land">
+                                            <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[3].UrlImagen" alt="@ViewBag.ImagenesMenu[3].NombreImagen" style="width: 750px" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="island-hopping" id="subcategoria">
+                                <div class="enlace-subcategoria">
+                                    <button class="btn-regresar text-left"> <i class="fas fa-angle-left"></i>BACK</button>
+                                    <div class="box" style="padding-left:10px;padding-right:15px">
+                                        <a href="/tours/island-hopping/best-of-galapagos" data-categoria="island-hopping">Best of Galapagos</a>
+                                        <a href="/tours/island-hopping/galapagos-multisport" data-categoria="island-hopping">Galapagos Multisport</a>
+                                        <a href="/tours/island-hopping/galapagos-intensive" data-categoria="island-hopping">Galapagos Intensive</a>
+                                        <a href="/tours/island-hopping/santa-cruz-express" data-categoria="island-hopping">Santa Cruz Express</a>
+                                        <a href="/tours/island-hopping/san-cristobal-express" data-categoria="island-hopping">San Cristobal Express</a>
+                                    </div>
+                                    @*<a href="/tours/island-hopping" id="viewEscr" data-categoria="island-hopping" style="color:#E3C41D;padding-top: 0;padding-left: 15px; font-size:18px">VIEW ALL</a>
+                                        <a href="/tours/island-hopping" id="viewMobile" style="color:#E3C41D;padding-top: 0;padding-left: 20px; font-size:18px">VIEW ALL</a>*@
+                                </div>
+                                <div class="baner-subcategoria" style="margin-top:20px">
+                                    <a href="#">
+                                        <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[3].UrlImagen" alt="@ViewBag.ImagenesMenu[3].NombreImagen" />
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="daily-tours" id="subcategoria">
+                                <div class="enlace-subcategoria">
+                                    <button class="btn-regresar text-left"> <i class="fas fa-angle-left"></i>BACK</button>
+                                    <div class="box" style="padding-left:20px;padding-right:10px">
+                                        <a href="/tours/isabela" data-categoria="daily-tours">From Isabela</a>
+                                        <a href="/tours/santa-cruz" data-categoria="daily-tours">From Santa Cruz</a>
+                                        <a href="/tours/san-cristobal" data-categoria="daily-tours">From San Cristobal</a>
+                                    </div>
+                                    <a href="/galapagos-daily-tours" id="viewEscr" data-categoria="daily-tours" style="color:#E3C41D;padding-top: 0;padding-left: 30px; font-size:18px">VIEW ALL</a>
+                                    <a href="/galapagos-daily-tours" id="viewMobile" style="color:#E3C41D;padding-top: 0;padding-left: 20px; font-size: 18px">VIEW ALL</a>
+                                </div>
+                                <div class="baner-subcategoria">
+                                    <a href="#">
+                                        <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[4].UrlImagen" alt="@ViewBag.ImagenesMenu[4].NombreImagen" />
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="information" id="subcategoria" style="grid-template-columns: 1fr;">
+                                <div class="baner-subcategoria imgban" id="banner-img">
+                                    <div>
+                                        <a href="#" id="img-mainland">
+                                            <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[5].UrlImagen" alt="@ViewBag.ImagenesMenu[5].NombreImagen" style="width: 750px" />
+                                        </a>
+                                    </div>
+                                </div>
+                                @*<div class="enlace-subcategoria">
+                                        <button class="btn-regresar text-left"> <i class="fas fa-angle-left"></i>BACK</button>
+                                        <div class="box" style="padding-left:20px;padding-right:0px">
+                                            <a href="/blog/best-way-to-travel-galapagos" data-categoria="information">I.Hopping vs Cruises</a>
+                                            <a href="https://www.visitgalapagos.travel/back/complete-guide.html" data-toggle="modal" data-target="#modalCompGalapagosTravel" data-categoria="information">Galapagos Travel Guide</a>
+                                        </div>
+                                    </div>*@
+                                @*<div class="baner-subcategoria" style="margin-top:20px">
+                                        <a href="#">
+                                            <img class="img-responsive" src="@ViewBag.ImagenesMenu[5].UrlImagen" alt="@ViewBag.ImagenesMenu[5].NombreImagen" />
+                                        </a>
+                                    </div>*@
+                            </div>
+                            <!--------------------------Mainland Ecuador sin subcatgorias, con imagen en las subctegorias ---------------------------------------------------------->
+                            <div class="subcategoria " data-categoria="avenue-volcanoes" id="subcategoria-banner" style="grid-template-columns: 1fr">
+                                <div class="baner-subcategoria  imgbanner" id="banner-img">
+                                    <div>
+                                        <a href="/ecuador-itineraries/avenue-of-volcanoes" id="img-mainland">
+                                            <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[6].UrlImagen" alt="@ViewBag.ImagenesMenu[6].NombreImagen" style="width: 750px" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="north-ecuador" id="subcategoria-banner" style="grid-template-columns: 1fr;">
+                                <div class="baner-subcategoria" id="banner-img">
+                                    <div>
+                                        <a href="/ecuador-itineraries/magical-north" id="img-mainland">
+                                            <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[7].UrlImagen" alt="@ViewBag.ImagenesMenu[7].NombreImagen" style="width: 750px" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="amazon-rainforst" id="subcategoria-banner" style="grid-template-columns: 1fr;">
+                                <div class="baner-subcategoria" id="banner-img">
+                                    <div>
+                                        <a href="/ecuador-itineraries/amazon-tours-ecuador" id="img-mainland">
+                                            <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[8].UrlImagen" alt="@ViewBag.ImagenesMenu[8].NombreImagen" style="width: 750px" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="austral-paths" id="subcategoria-banner" style="grid-template-columns: 1fr;">
+                                <div class="baner-subcategoria" id="banner-img">
+                                    <div>
+                                        <a href="/ecuador-itineraries/austral-paths" id="img-mainland">
+                                            <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[9].UrlImagen" alt="@ViewBag.ImagenesMenu[9].NombreImagen" style="width: 750px" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="cloud-forest" id="subcategoria-banner" style="grid-template-columns: 1fr;">
+                                <div class="baner-subcategoria" id="banner-img">
+                                    <div>
+                                        <a href="/ecuador-itineraries/cloud-forest" id="img-mainland">
+                                            <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[10].UrlImagen" alt="@ViewBag.ImagenesMenu[10].NombreImagen" style="width: 750px" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="viewAllEcuadorItinerario" id="subcategoria-banner" style="grid-template-columns: 1fr;">
+                                <div class="baner-subcategoria" id="banner-img">
+                                    <div>
+                                        <a href="/ecuador-itineraries" id="img-mainland">
+                                            <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[10].UrlImagen" alt="@ViewBag.ImagenesMenu[10].NombreImagen" style="width: 750px" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--------------------------Travel Planning ---------------------------------------------------------------------------->
+                            <div class="subcategoria" data-categoria="travel-planning" id="subcategoria-bannerPlanning">
+                                <div class="baner-subcategoria" id="banner-img">
+                                    <div>
+                                        <a href="#" id="img-travel-plannin">
+                                            <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[11].UrlImagen" alt="@ViewBag.ImagenesMenu[11].NombreImagen" style="width: 750px" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="plan-trip-galapagos" id="subcategoria">
+                                <div class="enlace-subcategoria">
+                                    <button class="btn-regresar text-left"> <i class="fas fa-angle-left"></i>BACK</button>
+                                    <div class="box" style="padding-left:20px;padding-right:20px">
+                                        <a href="/plan-your-trip/galapagos-travel-ideas" data-categoria="plan-trip-galapagos">What to do</a>
+                                        <a href="/plan-your-trip/galapagos-travel-map" data-categoria="plan-trip-galapagos">Map & visitor sites</a>
+                                        <a href="/plan-your-trip/galapagos-travel-recommendations" data-categoria="plan-trip-galapagos">Considerations</a>
+                                        <a href="/plan-your-trip/choosing-itinerary" data-categoria="plan-trip-galapagos">Choose your itinerary</a>
+                                        <a href="/plan-your-trip/galapagos-travel-information/costs" data-categoria="plan-trip-galapagos">Costs of Travel</a>
+                                    </div>
+                                    <a href="/plan-your-trip/galapagos-travel-information" id="viewEscr" data-categoria="plan-trip-galapagos" style="color:#E3C41D;padding-top: 0;padding-left: 30px; font-size:18px">VIEW ALL</a>
+                                    <a href="/plan-your-trip/galapagos-travel-information" id="viewMobile" style="color:#E3C41D; padding-top: 0;padding-left: 20px; font-size:18px">VIEW ALL</a>
+                                </div>
+                                <div class="baner-subcategoria">
+                                    <a href="#">
+                                        <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[11].UrlImagen" alt="@ViewBag.ImagenesMenu[11].NombreImagen" />
+                                    </a>
+                                </div>
+                                <div class="box mensajeSubcategoriaMovil" style="margin-top:20px">
+                                    <img class=" lazyload" data-src="/images/icon/iconHoja.png" style="display: inline-flex;height: 32px;width: 35px;margin-right: 10px;" />
+                                    <h4 style="font-size:13px; color:#0C5548;text-align:justify ">
+                                        Your trip will support social development and the conservation of the natural environment <a href="/about-us/responsible-travel" style="cursor:pointer;text-decoration:none;color:#0C5548"><b>View More.</b></a>
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="plan-mainland-ecuador" id="subcategoria">
+                                <div class="enlace-subcategoria">
+                                    <button class="btn-regresar text-left"> <i class="fas fa-angle-left"></i>BACK</button>
+                                    <div class="box" style="padding-left:20px;padding-right:20px">
+                                        <a href="/plan-your-trip/ecuador-travel-ideas" data-categoria="plan-mainland-ecuador">What to do</a>
+                                        <a href="/plan-your-trip/ecuador-travel-recommendations" data-categoria="plan-mainland-ecuador">Considerations</a>
+                                        <a href="/plan-your-trip/mainland-ecuador/national-parks" data-categoria="plan-mainland-ecuador">National Parks of Ecuador</a>
+                                        <a href="/blog/travel-insurance" data-categoria="plan-mainland-ecuador">Insurance</a>
+                                    </div>
+                                    <a href="/plan-your-trip/mainland-ecuador" id="viewEscr" data-categoria="plan-mainland-ecuador" style="color:#E3C41D;padding-top: 0;padding-left: 30px; font-size:18px">VIEW ALL</a>
+                                    <a href="/plan-your-trip/mainland-ecuador" id="viewMobile" style="color:#E3C41D; padding-top: 0;padding-left: 20px; font-size:18px">VIEW ALL</a>
+                                </div>
+                                <div class="baner-subcategoria" data-categoria="plan-mainland-ecuador">
+                                    <a href="#">
+                                        <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[12].UrlImagen" alt="@ViewBag.ImagenesMenu[12].NombreImagen" />
+                                    </a>
+                                </div>
+                                <div class="box mensajeSubcategoriaMovil" style="margin-top:20px">
+                                    <img class=" lazyload" data-src="/images/icon/iconHoja.png" style="display: inline-flex;height: 32px;width: 35px;margin-right: 10px;" />
+                                    <h4 style="font-size:13px; color:#0C5548;text-align:justify ">
+                                        Your trip will support social development and the conservation of the natural environment <a href="/about-us/responsible-travel" style="cursor:pointer;text-decoration:none;color:#0C5548"><b>View More.</b></a>
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="nature" id="subcategoria">
+                                <div class="enlace-subcategoria">
+                                    <button class="btn-regresar text-left"> <i class="fas fa-angle-left"></i>BACK</button>
+                                    <div class="box" style="padding-left:20px;padding-right:20px">
+                                        <a href="/plan-your-trip/galapagos-nature/national-park" data-categoria="nature">Galapagos National Park Rules</a>
+                                        <a href="/plan-your-trip/galapagos-nature/wildlife-calendar" data-categoria="nature">Wildlife calendar</a>
+                                        <a href="/plan-your-trip/galapagos-nature/birdwatching" data-categoria="nature">Birdwatching</a>
+                                        <a href="/plan-your-trip/galapagos-nature/marine-reserve" data-categoria="nature">Marine Reserve</a>
+                                        <a href="/plan-your-trip/galapagos-nature/landscapes" data-categoria="nature">Landscapes</a>
+                                    </div>
+                                    @*<a href="#" id="viewEscr" data-categoria="nature" style="color:#E3C41D;padding-top: 0;padding-left: 30px; font-size:18px">VIEW ALL</a>
+                                        <a href="#" id="viewMobile" style="color:#E3C41D;padding-top: 0;padding-left: 20px; font-size:18px">VIEW ALL</a>*@
+                                </div>
+                                <div class="baner-subcategoria" style="margin-top:20px">
+                                    <a href="#">
+                                        <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[13].UrlImagen" alt="@ViewBag.ImagenesMenu[13].NombreImagen" />
+                                    </a>
+                                </div>
+                                <div class="box mensajeSubcategoriaMovil" style="margin-top:20px">
+                                    <img class=" lazyload" data-src="/images/icon/iconHoja.png" style="display: inline-flex;height: 32px;width: 35px;margin-right: 10px;" />
+                                    <h4 style="font-size:13px; color:#0C5548;text-align:justify ">
+                                        Your trip will support social development and the conservation of the natural environment <a href="/about-us/responsible-travel" style="cursor:pointer;text-decoration:none;color:#0C5548"><b>View More.</b></a>
+                                    </h4>
+                                </div>
+                                <div class="baner-subcategoria" style="height: 180px">
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="activities" id="subcategoria-banner" style="grid-template-columns: 1fr;">
+                                <div class="baner-subcategoria" id="banner-img">
+                                    <div>
+                                        <a href="/plan-your-trip/galapagos-activities" id="img-mainland">
+                                            <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[11].UrlImagen" alt="@ViewBag.ImagenesMenu[11].NombreImagen" style="width: 750px" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="galapagos-history" id="subcategoria-banner" style="grid-template-columns: 1fr;">
+                                <div class="baner-subcategoria" id="banner-img">
+                                    <div>
+                                        <a href="/plan-your-trip/history" id="img-mainland">
+                                            <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[11].UrlImagen" alt="@ViewBag.ImagenesMenu[11].NombreImagen" style="width: 750px" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            @* travel Planning sin subcatgorias, con imagen en las subctegorias *@
+                            <div class="subcategoria" data-categoria="honeymoons" id="subcategoria-banner" style="grid-template-columns: 1fr;">
+                                <div class="baner-subcategoria" id="banner-img">
+                                    <div>
+                                        <a href="/trip-types/honeymoons" id="img-mainland">
+                                            <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[15].UrlImagen" alt="@ViewBag.ImagenesMenu[15].NombreImagen" style="width: 750px" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="family-travel" id="subcategoria-banner1">
+                                <div class="baner-subcategoria">
+                                    <div>
+                                        <a href="/trip-types/family-vaca" id="img-travelPlanning">
+                                            <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[14].UrlImagen" alt="@ViewBag.ImagenesMenu[14].NombreImagen" style="width: 750px" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="gay-tours" id="subcategoria-banner" style="grid-template-columns: 1fr;">
+                                <div class="baner-subcategoria" id="banner-img">
+                                    <div>
+                                        <a href="/trip-types/gay-tours" id="img-mainland">
+                                            <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[16].UrlImagen" alt="@ViewBag.ImagenesMenu[16].NombreImagen" style="width: 750px" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="solo-travel" id="subcategoria-banner" style="grid-template-columns: 1fr;">
+                                <div class="baner-subcategoria" id="banner-img">
+                                    <div>
+                                        <a href="/trip-types/solo-travelers" id="img-mainland">
+                                            <img class="img-responsive lazyload" data-src="@ViewBag.ImagenesMenu[17].UrlImagen" alt="@ViewBag.ImagenesMenu[17].NombreImagen" style="width:750px" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            @*<div class="subcategoria" data-categoria="diving-galapagos" id="subcategoria-banner" style="grid-template-columns: 1fr;">
+                                    <div class="baner-subcategoria" id="banner-img">
+                                        <div>
+                                            <a href="#" id="img-mainland">
+                                                <img class="img-responsive" src="~/images/logos/andando-tours-png-azul-horizontal.png " style="width: 750px" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>*@
+                            @* Vista movil para opciones Trip finder  *@
+                            <div class="subcategoria" data-categoria="finder_trip-types" id="subcategoria" style="height:500px">
+                                <div class="enlace-subcategoria">
+                                    <button class="btn-regresar text-left"> <i class="fas fa-angle-left"></i>BACK</button>
+                                    <a class="btn h5button" id="btnResettle" href="#" v-on:click="resettleTripType">
+                                        <h4 style="font-family: Arial"><b>Resettle</b> </h4>
+                                    </a>
+                                    <ul style="padding-right: 10px;">
+                                        <li v-for="(trip,index) in maintripType">
+                                            <label class="containe">
+                                                <span :style="{color: checkColor}" :id="trip.labeltrip" name="tripType">{{trip.labeltrip}} </span>
+                                                <input type="checkbox" :value="trip.labeltrip" :id="trip.labeltrip" v-model="checkedTrip" @@change="checkTripType($event)">
+                                                <span class="checkmark" v-bind:class="trip.labeltrip"></span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                    <a class="btn h5button btn-regresar" style="margin-top:0" id="btnApplyFiltermobile" href="#">
+                                        Apply filter
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="finder_travelers" id="subcategoria" style="height:500px">
+                                <div class="enlace-subcategoria">
+                                    <button class="btn-regresar text-left"> <i class="fas fa-angle-left"></i>BACK</button>
+                                    <div class="box">
+                                        <a class="btn h5button" id="btnResettle" href="#" style="height: 0px;border:none;font-family:Arial" v-on:click="resettleTravel">
+                                            <h4><b>Resettle</b></h4>
+                                        </a>
+                                    </div>
+                                    <div class="box" style="padding:20px 0 15px 20px">
+                                        <h4 style="padding:15px 0px 0 38px">Adults</h4>
+                                        <div class="number-style" style="font-size:18px">
+                                            <span class="number-minus" v-on:click="minusTravelersAdu" v-bind:class="colorAdu"></span>
+                                            <p style="display:contents;font-family:Arial;color:#787778" :value="2"> {{ count }}</p>
+                                            <span class="number-plus" v-on:click="moreTravelersAdu"></span>
+                                        </div>
+                                    </div>
+                                    <div class="box" style="padding:0px 0 0px 20px" id="childrenMov">
+                                        <h4 style="padding:0 0 0 30px; margin-top:2px">Children</h4>
+                                        <h5 style="padding:0px 0 0 27px;margin-top:-15px">From 4 to 12</h5>
+                                        <div class="number-style" style="font-size:18px">
+                                            <span class="number-minus" v-on:click="minusTravelersChild" v-bind:class="colorChild"></span>
+                                            <p style="display:contents;font-family:Arial;color:#787778"> {{ count1 }}</p>
+                                            <span class="number-plus" v-on:click="moreTravelersChild"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="baner-subcategoria">
+                                    <div class="box">
+                                        <a class="btn h5button btn-regresar" id="btnApplyFiltermobile" style="margin-top: -25px;">
+                                            Apply filter
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="finder_price-range" id="subcategoria" style="height:500px">
+                                <div class="enlace-subcategoria">
+                                    <button class="btn-regresar text-left"> <i class="fas fa-angle-left"></i>BACK</button>
+                                    <div class="box">
+                                        <a class="btn h5button" id="btnResettle" href="#" style="height: 0px;border:none" onclick="resettlePriceMov()">
+                                            <h4 style="font-family:Arial"><b>Resettle</b></h4>
+                                        </a>
+                                    </div>
+                                    <div class="box" style="padding-top:20px;padding-bottom:20px">
+                                        <p>
+                                            <label for="amount1" style="margin:10px 0 0px 15px;  font-size:17px; font-weight:normal;font-family:Arial;color:#787778">The averange price is $3500:</label>
+                                        </p>
+                                        <div class="selector" style="width:260px; padding-top:0">
+                                            <div class="price-slider">
+                                                <div id="slider-range1" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" style="margin-bottom:0px;">
+                                                    <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
+                                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="top:-4px;background:#FFFFFF;border:1px solid #E5E5E5" v-on:click="priceIni"></span>
+                                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="top:-4px;background:#FFFFFF;border:1px solid #E5E5E5" v-on:click="priceIni"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p>
+                                            <input type="text" id="amount1" readonly style="border:0; color:#787778;font-family:Arial; font-size:17px; margin:5px 0 0 20px">
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="box" style="bottom:230px">
+                                    <a class="btn h5button btn-regresar" id="btnApplyFiltermobile" href="#" v-on:click="priceIni">
+                                        Apply filter
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="finder_dates" id="subcategoria" style="height:710px">
+                                <div class="enlace-subcategoria" style="height:65px">
+                                    <button class="btn-regresar text-left"> <i class="fas fa-angle-left"></i>BACK</button>
+                                    <a class="btn h5button" id="btnResettle" href="#" style="height: 0px;border:none;padding: 8px 15px 0; " onclick="resettledatepickerMov()">
+                                        <h4 style="margin: 0 0;font-family:Arial"><b>Resettle</b></h4>
+                                    </a>
+                                </div>
+                                <div class="boxDatepicker" style="padding-bottom:0">
+                                    <div class="input-group dates datepickerFilter" data-provide="" id="datepickerMovil" style="background-color:#ffffff; padding-left:0px;">
+                                    </div>
+                                </div>
+                                <div class="boxDatepicker" style="margin:0 0;height: 234px;">
+                                    <div class="input-group dates datepickerFilter" data-provide="" id="datepickerMovil1" style="background-color:#ffffff; ">
+                                    </div>
+                                </div>
+                                <div class="boxDatepicker" style="margin:0 0 70px 0;">
+                                    <a class="btn h5button btn-regresar" id="btnApplyFiltermobile" style="" href="#">
+                                        Apply filter
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="subcategoria" data-categoria="finder_ Lenght" id="subcategoria" style="height:500px">
+                                <div class="enlace-subcategoria">
+                                    <button class="btn-regresar text-left"> <i class="fas fa-angle-left"></i>BACK</button>
+                                    <div class="box">
+                                        <a class="btn h5button" id="btnResettle" href="#" style="height: 0px;border:none" v-on:click="resettlelenght">
+                                            <h4 style="font-family:Arial"><b>Resettle</b></h4>
+                                        </a>
+                                    </div>
+                                    <div class="box" style="padding:20px 0 20px 20px" id="lengMov">
+                                        <h4 style="padding:15px 0px 0 0px">Numbers of days</h4>
+                                        <div class="number-style" style="font-size:18px">
+                                            <span class="number-minus" v-on:click="minusLenght" v-bind:class="colorLenght"></span>
+                                            <p style="display:contents;font-family:Arial;color:#787778"> {{ countLen }}</p>
+                                            <span class="number-plus" v-on:click="moreLenght"></span>
+                                        </div>
+                                    </div>
+                                    <div class="box">
+                                        <a class="btn h5button btn-regresar" id="btnApplyFiltermobile" href="#">
+                                            Apply filter
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="baner-subcategoria">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--================================Filtros Tripplanner=========================-->
+    <div class="container" style="z-index:4000">
+        <div class="contenidoFiltro unselectable" id="contenidoFiltroId" style="background-color:#ffffff; text-align:center">
+            <div id="tripFinder">
+                <div class="btn-group ">
+                    <button type="button" class="btn btn-default dropdown-toggle h5button botonFiltro"
+                            data-toggle="dropdown" onclick="bloq()" style="color:#747475">
+                        {{triptype}}  &middot; {{contTrip}}   <i class="fas fa-angle-down" style="color:#7B7979;"> </i>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li v-for="(value, key) in  object">
+                            <label class="containe">
+                                <span :style="{color: checkColor}" :id="key" name="tripType1">{{value}} </span>
+                                <input type="checkbox" :value="value" :id="key" v-model="checkedTrip" @@change="checkTripType($event)">
+                                <span class="checkmark"></span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle h5button botonFiltro" style="color:#747475;"
+                            data-toggle="dropdown" onclick="bloq()">
+                        {{travelersTot}}<i class="fas fa-angle-down"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdownSty" role="menu" style="width:290px">
+                        <li>
+                            <div class="row">
+                                <div class="col-md-6 ">
+                                    <h4 style="padding:15px 0px 0 25px">Adults</h4>
+                                </div>
+                                <div class="col-md-6" style="padding:21px 0 0 5px">
+                                    <div class="number-style" style="font-size:18px">
+                                        <span class="number-minus" v-on:click="minusTravelersAdu" v-bind:class="colorAdu"></span>
+                                        <p style="display:contents;font-family:Arial;color:#787778" :value="2"> {{ count }}</p>
+                                        <span class="number-plus" v-on:click="moreTravelersAdu"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4 style="padding:0 0 0 25px; margin-top:2px">Children</h4>
+                                    <h5 style="padding:0px 0 0 25px;margin-top:-15px">From 4 to 12</h5>
+                                </div>
+                                <div class="col-md-6" style="padding:5px 0 0 5px" id="ChildrenDesk">
+                                    <div class="number-style" style="font-size:18px">
+                                        <span class="number-minus" v-on:click="minusTravelersChild" v-bind:class="colorChild"></span>
+                                        <p style="display:contents;font-family:Arial;color:#787778"> {{ count1 }}</p>
+                                        <span class="number-plus" v-on:click="moreTravelersChild"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row" style="margin-top:12px">
+                                <div class="col-md-6">
+                                    <button class="h5button" id="btnResettleEs" v-on:click="resettleTravel">
+                                        Resettle
+                                    </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="apply applyTravelers" id="applyTranel" v-on:click="applyTravel">
+                                        Apply
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle h5button botonFiltro" style="color:#747475;"
+                            data-toggle="dropdown" onclick="bloq()">
+                        {{price}} <i class="fas fa-angle-down"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdownSty" role="menu" style="width:290px" v-bind:style="{display:menu}">
+                        <li>
+                            <div class="row">
+                                <div class="col-md-12 ">
+                                    <p>
+                                        <label for="amount" style="margin:10px 0 0px 15px;  font-size:17px; font-weight:normal">The averange price is $3500:</label>
+                                    </p>
+                                    <div class="selector" style="width:280px; padding-top:0">
+                                        <div class="price-slider">
+                                            <div id="slider-range" v-on:click="priceRange" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" style="margin-bottom:0px;">
+                                                <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
+                                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="top:-4px;background:#FFFFFF;border:1px solid #E5E5E5" v-on:click="price"></span>
+                                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="top:-4px;background:#FFFFFF;border:1px solid #E5E5E5" v-on:click="price"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        <input type="text" id="amount" readonly style="border:0; font-family:Arial;color:#787778; font-size:17px; margin:5px 0 0 20px">
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button class="h5button" id="btnResettleEs" style="margin-top:-8px;" onclick="resettlePrice()" v-on:click="resettlePric">
+                                        Resettle
+                                    </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="apply applyPrice" style="padding-left: 50px;" v-on:click="applyPrice">
+                                        Apply
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle h5button  botonFiltro" style="color:#747475;"
+                            data-toggle="dropdown" onclick="bloq()">
+                        {{filterDate}}  <i class="fas fa-angle-down"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdownSty" role="menu" style="width:525px; height:325px;">
+                        <li>
+                            <div class="input-group input-daterange">
+                                <div class="row">
+                                    <div class="col-md-6" style="padding-right:0px; width:260px">
+                                        <div class="input-group dates datepickerFilter" data-provide="datepicker-inline" id="datepickerFilter" style="padding-left:0px;" v-on:click="getmonth">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6" style="padding-left:0px; width:260px">
+                                        <div class="input-group dates datepickerFilter1" data-provide="" id="datepickerFilter1" style="margin-left:10px;" v-on:click="getmonth">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button class="h5button" id="btnResettleEs" style="margin-top:-8px;margin-left:8px" v-on:click="resettleDate">
+                                            Resettle
+                                        </button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button class="apply applyDate" style="padding-left: 40px;margin-left: 150px;" v-on:click="applyDate">
+                                            Apply
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle h5button botonFiltro" style=" color:#747475;"
+                            data-toggle="dropdown" onclick="bloq()">
+                        Lenght{{lenghtDay}} <i class="fas fa-angle-down"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdownSty" role="menu" style="width:290px;height:120px">
+                        <li>
+                            <div class="row">
+                                <div class="col-md-6 " style="width:150px">
+                                    <h4 style="padding:15px 0px 0 25px">Numbers of days</h4>
+                                </div>
+                                <div class="col-md-6" style="padding:21px 0 0 0px;width:150px;" id="leng">
+                                    <div class="number-style" style="font-size:18px">
+                                        <span class="number-minus" v-on:click="minusLenght" v-bind:class="colorLenght"></span>
+                                        <p style="display:contents;font-family:Arial;color:#787778"> {{ countLen }}</p>
+                                        <span class="number-plus" v-on:click="moreLenght"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button class="h5button" id="btnResettleEs" style="margin-top:-8px;" v-on:click="resettlelenght">
+                                        Resettle
+                                    </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="apply applyLenght" v-on:click="applyLenght">
+                                        Apply
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <a class="btn h5button btnFiltter" href="../../trip_planner/tri_planner" onclick="desbloq()" v-on:click="getDisponibilidad">
+                    Apply filters
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="mySidenav" class="sidenav FiltroPlanner">
+        <button id="btn-cerrar-menu" class="btn-menu-cerrar" style="background-color: white">
+            <div class="header-about in" style="margin:20px 0 10px 10px">
+                <span onclick="closeNav()"><i class='fas fa-times-circle' style='font-size:30px;color:#179fec;padding-left:0;padding-top:5px'></i></span>
+            </div>
+        </button>
+        <div class="sideMovile" style="margin-top: 20px;">
+            <ul class="itemAbout" style="width:90%;">
+                <li><a href="/about-us" style="padding-top:30px">Why Andando</a></li>
+                <li><a href="/about-us/responsable-Travel/">Responsible Travel</a></li>
+                <li><a href="/about-us/media/">Andando in the Media</a></li>
+                <li><a href="/about-/angermeyer-cruises/">Angereyer Cruises</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="filtrosAndando" onclick="desbloq()">
+    </div>
+
+    <partial name="_CookieConsentPartial" />
+    <div class="page body-content">
+        @RenderBody()
+        <!-- Logos -->
+        <div>
+            <section class="section-color section-newsletter" style="background:#eff0f3">
+                <div class="limit inner">
+                    <div class="section-header">
+                        <h2 class="h3 section-header-title" style="color:#000;font-family: 'BentonSans-Regular'">Partners & Recognition</h2>
+                    </div>
+                    <div class="section-body">
+                        <div class="container">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm-1 col-xs-1" style="padding: 0 5px 0 5px;"></div>
+                                    <div class="col-sm-2 col-xs-2" style="padding: 0 5px 0 5px;">
+                                        <img class="img-responsive lazyload" data-src="/images/logos/LATA-2012.png" alt="LATA-2018">
+                                    </div>
+                                    <div class="col-sm-2 col-xs-2" style="padding: 0;">
+                                        <img class="img-responsive lazyload" data-src="/images/logos/central-de-receptivos.png" alt="central de receptivos">
+                                    </div>
+                                    <div class="col-sm-2 col-xs-2" style="padding: 0;">
+                                        <img class="img-responsive lazyload" data-src="/images/logos/USTOA-Associate-Logo.png" alt="logo USTOA">
+                                    </div>
+                                    <div class="col-sm-2 col-xs-2" style="padding: 0;">
+                                        <img class="img-responsive lazyload" data-src="/images/logos/luxLife.svg" alt="logo Lux Life">
+                                    </div>
+                                    <div class="col-sm-2 col-xs-2" style="padding: 0;">
+                                        <img class="img-responsive lazyload" data-src="/images/logos/logo-qa.png" alt="logo qa">
+                                    </div>
+                                    <div class="col-sm-1 col-xs-1" style="padding: 0 5px 0 5px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- Footer -->
+        <footer>
+            <div class="limit inner " style="text-align:left;font-family: 'BentonSans-Regular'">
+                <div class="cols">
+                    <div class="col-md-4 col-lg-3">
+                        <div class="footer-logo">
+                            <img class="lazyload" data-src="/images/logos/andando-tours-png-azul-horizontal.png" alt="Andando Tours" />
+                            <div class="vlsaFooter">
+                                <center>
+                                    <B>Toll free helpline</B> <br />US & CA<br /> <span class="azuffOOTER">
+                                        +1 833
+                                        2632636
+                                    </span>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8 col-md-8 col-lg-9">
+                        <div class="cols">
+                            <div class="col-sm-4 col-xs-6 col-md-3">
+                                <div class="footer-links">
+                                    <a href="/galapagos-cruises" style="color:white"><h4>Galapagos Cruises</h4></a>
+                                    <ul class="menu">
+                                        <li><a href="/cruises/yacht-charters" target="_blank">Private Charters</a></li>
+                                        <li><a href="/cruises/family" target="_blank">Family Cruises</a></li>
+                                        <li><a href="/galapagos-luxury-cruise" target="_blank">Luxury cruises</a></li>
+                                        <li><a href="/sailing-cruises" target="_blank">Sailing cruises</a></li>
+                                        <li><a href="/galapagos-cruises/high-end" target="_blank">High-End Cruises</a></li>
+                                        <li><a href="/galapagos-cruises/mid-range-cruises" target="_blank">Mid-Range</a></li>
+                                        <li><a href="/cruises/budget" target="_blank">Budget</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-xs-6 col-md-3" style="margin-bottom: 60px">
+                                <div class="footer-links">
+                                    <h4>
+                                        MORE OF GALAPAGOS
+                                    </h4>
+                                    <ul class="menu">
+                                        <li><a href="/plan-your-trip/galapagos-travel-ideas" target="_blank">What to do</a></li>
+                                        <li><a href="/plan-your-trip/galapagos-travel-map" target="_blank">Galapagos Map</a></li>
+                                        <li><a href="/tours/island-hopping" target="_blank">Island Hopping</a></li>
+                                        <li><a href="/tours/isabela" target="_blank">Isabela Tours</a></li>
+                                        <li><a href="/tours/santa-cruz" target="_blank">Santa Cruz tours</a></li>
+                                        <li><a href="/tours/san-cristobal" target="_blank">San Cristobal Tours</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-xs-6 col-md-3">
+                                <div class="footer-links">
+                                    <a href="/ecuador-itineraries"><h4>Travel info</h4></a>
+                                    <ul class="menu">
+                                        <li><a href="/plan-your-trip/ecuador-travel-ideas" target="_blank">What to do</a></li>
+                                        <li><a href="/plan-your-trip/mainland-ecuador/national-parks" target="_blank">National Parks</a></li>
+                                        <li><a href="/ecuador-itineraries/amazon-tours-ecuador" target="_blank">Amazon Jungle </a></li>
+                                        <li><a href="/ecuador-itineraries/magical-north" target="_blank">Magical North</a></li>
+                                        <li><a href="/ecuador-itineraries/austral-paths" target="_blank">South of Ecuador</a></li>
+                                        <li><a href="/sailing-cruises" target="_blank">Sailing cruises</a></li>
+                                        <li><a href="/ecuador-itineraries/avenue-of-volcanoes" target="_blank">Avenue of Volcanoes</a></li>
+                                        <li><a href="/ecuador-itineraries/cloud-forest" target="_blank">Cloud Forest</a></li>
+                                    </ul>
+                                </div>
+                                @*<div class="footer-social redSocial" style="margin-top: 70px">
+                                        <a class="iconRedSocialTablet" href="https://www.instagram.com/andando_tours/" target="_blank"><img src="~/images/RedesSociales/instagram.png" /></a>
+                                    </div>*@
+                            </div>
+                            <div class="col-sm-4 col-xs-6 col-md-3">
+                                <div class="footer-contact" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                                    <h4>CONTACT</h4>
+                                    <p>Moreno Bellido E6 - 167, Amazonas</p>
+                                    <p>Quito Pichincha 170515</p>
+                                    <p>Phone: +593 23237330</p>
+                                    <p>&nbsp;</p>
+                                </div>
+                                <div class="footer-social redSocial redSocialTablet">
+                                    <a href="https://www.instagram.com/andando_tours/" target="_blank"><img class="lazyload" data-src="/images/RedesSociales/instagram.png" /></a>
+                                    <a href="https://www.facebook.com/VisitGalapagos" target="_blank"><img class=" lazyload" data-src="/images/RedesSociales/facebook.png" /></a>
+                                    <a href="https://www.tripadvisor.com/Attraction_Review-g294308-d8747742-Reviews-Andando_Tours-Quito_Pichincha_Province.html" target="_blank"><img class="lazyload" data-src="/images/RedesSociales/tripadvisor.png" /></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-sub">
+                    <div class="cols">
+                        <div class="col-md-5 col-lg-6">
+                            <div class="footer-sub-text1">
+                                <a href="/terms-and-conditions" style="padding-right:25px">Terms and Conditions</a>
+                                <a href="/sitemap" style="padding-right:20px">Site Map</a>
+                                <a href="/about-us/">About Us</a>
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-lg-6 text-center">
+                            <div class="footer-sub-text">
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div class="bs-example">
+        <!-- Modal Galeria HTML -->
+        <div class="modal fade" id="ModalInquire" tabindex="-1" role="dialog" aria-labelledby="ModalInquireTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="ModalHacienda" tabindex="-1" role="dialog" aria-labelledby="ModalHaciendaTiitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="ModalGuia" tabindex="-1" role="dialog" aria-labelledby="ModalGuiaTiitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="ModalGuiaGalapagosTravel" tabindex="-1" role="dialog" aria-labelledby="ModalGuiaGalapagosTravelTiitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                </div>
+            </div>
+        </div>
+        @*<div class="modal fade" id="modalCompGalapagosTravel" style="max-width:100%;overflow-y:hidden; padding:0 " tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog " role="document">
+                    <div class="modal-content" style="width:100%; height:100%">
+                        <div class="modal-header" style="height:60px">
+                            <img src="~/images/logos/andando-tours-png-azul-horizontal.png" style="width:100px; height:50px; margin-top:-10px; margin-left:0px" />
+                            <h4 style="color:rgba(20,104,164,.8);margin-top: -34px;text-align: center;font-family: Arial">Download our complete Galapagos Travel Guide</h4>
+                                <button type="button" class="close-form pull-right" data-dismiss="modal" style="margin-top:-40px" onclick="clean();">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            <div class=" col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-md-10 col-sm-10 col-xs-9 ">
+                                    <h5 class="formato-titulo modal-title" style="text-align:left;font-size:18px; color:#0077ba;top:6%"><b>Download our complete Galapagos Travel Guide</b></h5>
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-xs-3 ">
+                                    <button type="button" class="close-form pull-right" data-dismiss="modal" style="" onclick="clean();">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <iframe id="lf-iframe-embed-code-74271" style="min-width: 100% !important;width: 100px !important;*width: 100% !important; border:none;min-height: 429px;" src="http://eepurl.com/gEpvqP" scrolling="no" frameborder="0"></iframe>
+                            <iframe id="lf-iframe-embed-code-74736" style="min-width: 100% !important;width: 100px !important;*width: 100% !important; border:none;min-height: 600px;" src="https://visitgalapagos.us15.list-manage.com/subscribe?u=13bcb03659759e8410a67809d&amp;id=acd29896c5" scrolling="no" frameborder="0"></iframe>
+                            <script type="text/javascript">var ifr = document.getElementById("lf-iframe-embed-code-74736"); if (window.location.href && window.location.href.indexOf('?') > -1) { var get = window.location.href.substr(window.location.href.indexOf('?') + 1); if (ifr && get.length > 0) { var src = ifr.src; src = src.indexOf('?') > -1 ? src + '&' + get : src + '?' + get; ifr.src = src; } } var iframePosition = function (e) { var n = ifr.getBoundingClientRect().top + pageYOffset; ifr.contentWindow.postMessage(JSON.stringify({ type: 'iframeTop', value1: n }), '*'); }, onTestScroll = function (e) { window.pageYOffset || document.documentElement.scrollTop; var n = ifr.getBoundingClientRect(); ifr.contentWindow.postMessage(JSON.stringify({ type: 'windowTop', value2: n.y || n.top, value3: window.innerHeight }), '*'); }; window.addEventListener ? (window.addEventListener('scroll', onTestScroll, !1), window.addEventListener('load', onTestScroll, !1), window.addEventListener('scroll', iframePosition, !1), window.addEventListener('load', iframePosition, !1), window.addEventListener('DOMContentLoaded', iframePosition, !1)) : window.attachEvent && (window.addEventListener('DOMContentLoaded', iframePosition), window.attachEvent('scroll', onTestScroll), window.addEventListener('load', onTestScroll)); window.handleIFrameMessage = function (e) { if (e.data.length > 0) { try { var args = JSON.parse(e.data); var iframe = document.getElementById("lf-iframe-embed-code-74736"); var formIds = ["74736"]; if (formIds.indexOf(args.formID) !== -1) { switch (args.case) { case 'redirectTo': window.open(decodeURI(args.redirectToURL), '_self'); ifr.src = ifr.src; break; case 'resizeIframe': iframe.width = args.scrollWidth + 'px', iframe.height = args.scrollHeight + 'px'; break; case 'stepChanged': var elCoords = getCoords(ifr), isFormOnScreen = isOnScreen(ifr, false); if (!isFormOnScreen) { window.scrollTo(0, elCoords.top); } break; case 'scrollTo': window.scrollTo({ top: args.scrollToPosition }); break; } } if ('contentWindow' in iframe && 'postMessage' in iframe.contentWindow) { var urls = { 'docurl': encodeURIComponent(document.URL), 'referrer': encodeURIComponent(document.referrer), }; iframe.contentWindow.postMessage(JSON.stringify({ 'type': 'urls', 'value': urls }), '*'); } } catch (e) { } } }; if (window.addEventListener) { window.addEventListener('message', handleIFrameMessage, false); } else if (window.attachEvent) { window.attachEvent('onmessage', handleIFrameMessage); } var getCoords = function (elem) { var box = elem.getBoundingClientRect(); var body = document.body; var docEl = document.documentElement; var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop; var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft; var clientTop = docEl.clientTop || body.clientTop || 0; var clientLeft = docEl.clientLeft || body.clientLeft || 0; var top = box.top + scrollTop - clientTop; var left = box.left + scrollLeft - clientLeft; return { top: Math.round(top), left: Math.round(left) }; }; var isOnScreen = function (_this, partial) { var t = _this; var box = t.getBoundingClientRect(); var win = { h: window.innerHeight, w: window.innerWidth }; var topEdgeInRange = box.top >= 0 && box.top <= win.h; var bottomEdgeInRange = box.bottom >= 0 && box.bottom <= win.h; var leftEdgeInRange = box.left >= 0 && box.left <= win.w; var rightEdgeInRange = box.right >= 0 && box.right <= win.w; var coverScreenHorizontally = (box.left <= 0 ^ box.right >= win.w); var coverScreenVertically = (box.top <= 0 ^ box.bottom >= win.h); var topEdgeInScreen = topEdgeInRange && (leftEdgeInRange || rightEdgeInRange || coverScreenHorizontally); var bottomEdgeInScreen = bottomEdgeInRange && (leftEdgeInRange || rightEdgeInRange || coverScreenHorizontally); var leftEdgeInScreen = leftEdgeInRange && (topEdgeInRange || bottomEdgeInRange || coverScreenVertically); var rightEdgeInScreen = rightEdgeInRange && (topEdgeInRange || bottomEdgeInRange || coverScreenVertically); var isPartiallyOnScreen = topEdgeInScreen || bottomEdgeInScreen || leftEdgeInScreen || rightEdgeInScreen; var isEntirelyOnScreen = topEdgeInScreen && bottomEdgeInScreen && leftEdgeInScreen && rightEdgeInScreen; return partial ? isPartiallyOnScreen : isEntirelyOnScreen; };</script>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+    </div>
+    <environment include="Development">
+        @*<script src="https://code.jquery.com/jquery-1.12.4.js"></script>*@
+        @*<script src="~/lib/jquery/dist/jquery.js"></script>*@
+        @*<script src="~/js/incrementNumber.js"></script>*@
+
+        @*<script src="~/js/moment.min.js"></script>*@
+
+        @*<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>*@
+        @*<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>*@
+
+        @*<script src="https://widget.reviews.io/rich-snippet-reviews-widgets/dist.js" type="text/javascript"></script>*@
+        @*
+            <script src="~/js/Cruises.js"></script>
+            <script src="~/lib/vue/CruisesCharter.js"></script>
+            <script src="~/lib/vue/CruisesDisponibilidad.js"></script>
+            <script src="~/lib/vue/CruisesHome-Category.js"></script>
+            <script src="~/lib/vue/DailyTours.js"></script>
+            <script src="~/lib/vue/CruisesProduct.js"></script>*@
+        @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>*@
+        @*<script src="~/lib/vue/vue.min.js"></script>
+            <script src="~/js/jquery-ui.min.js"></script>*@
+        <script src="~/js/daterangepicker.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+        <script src="~/js/bootstrap-datepicker.js" asp-append-version="true"></script>
+        <script src="~/js/jquery.ui.touch-punch.min.js"></script>
+        <script src="~/lib/vue/vue.min.js"></script>
+        <script src="~/lib/vue/dataCruises.js"></script>
+        <script src="~/js/Cruises.js" async></script>
+        <script src="~/js/owl.carousel.js" async></script>
+        <script src="~/js/lazysizes.min.js" async></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/daterangepicker.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+        <script src="~/js/bootstrap-datepicker.js" asp-append-version="true"></script>
+        <script src="~/js/jquery.ui.touch-punch.min.js"></script>
+        <script src="~/lib/vue/dataCruises.js"></script>
+        <script src="~/js/Cruises.js" async></script>
+        <script src="~/js/owl.carousel.js" async></script>
+        <script src="~/js/lazysizes.min.js" async></script>
+    </environment>
+    @RenderSection("Scripts", required: false)
+    <script type="text/javascript">
+        //$('#datepicker').datepicker({
+        //    inputs: $('.range_date'),
+        //    format: "mm-yyyy",
+        //    viewMode: "months",
+        //    minViewMode: "months",
+        //    clearBtn: true,
+        //    language: "es",
+        //    autoclose: true,
+        //    todayHighlight: true,
+        //    toggleActive: true
+        //});
+        $('.input-daterange input').each(function () {
+            $(this).datepicker('clearDates');
+        });
+        $('#datepicker').datepicker();
+        $('#datepicker').on('changeDate', function () {
+            $('#my_hidden_input').val(
+                $('#datepicker').datepicker('getFormattedDate')
+            );
+        });
+        $(function () {
+            $('input[name="daterange"]').daterangepicker({
+                opens: 'left',
+                format: "mm-yyyy",
+                viewMode: "months",
+                minViewMode: "months",
+            }, function (start, end, label) {
+                console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+            });
+        });
+
+        $('#datepickerFilterDispo').datepicker({
+            format: "mm-yyyy",
+            viewMode: "months",
+            minViewMode: "months",
+        });
+        //DataPicker Menu Principal
+        var today = new Date();
+        $('#datepickerFilter').datepicker({
+            format: "mm-yyyy",
+            minViewMode: "months",
+            multidate: 3,
+            startDate: new Date(today.getFullYear(), today.getMonth(), today.getDate())
+        });
+        $('#datepickerFilter1').datepicker({
+            format: "mm-yyyy",
+            minViewMode: "months",
+            multidate: 3,
+            startDate: new Date((today.getFullYear() + 1), 0, today.getDate()),
+
+        });
+        //DataPicker TripPlanner
+        //$('#datepickerFilterPlanner').datepicker({
+        //    format: "mm-yyyy",
+        //    minViewMode: "months",
+        //    multidate: 3,
+        //    startDate: new Date(today.getFullYear(), today.getMonth(), today.getDate())
+        //});
+        //$('#datepickerFilterPlanner_1').datepicker({
+        //    format: "mm-yyyy",
+        //    viewMode: "months",
+        //    minViewMode: "months",
+        //    startDate: new Date((today.getFullYear() + 1), 0, today.getDate()),
+        //    multidate: 3,
+        //});
+        $('#datepickerMovil').datepicker({
+            format: "mm-yyyy",
+            minViewMode: "months",
+            multidate: 3,
+            startDate: new Date(today.getFullYear(), today.getMonth(), today.getDate())
+        });
+        $('#datepickerMovil1').datepicker({
+            format: "mm-yyyy",
+            viewMode: "months",
+            minViewMode: "months",
+            startDate: new Date((today.getFullYear() + 1), 0, today.getDate()),
+            multidate: 3,
+        });
+        //DataPicker Cruises Producto
+        $('#datepickerProduct').datepicker({
+            format: "mm-yyyy",
+            minViewMode: "months",
+            multidate: 3,
+            startDate: new Date(today.getFullYear(), today.getMonth(), today.getDate())
+        });
+        $('.datepickerProduct').datepicker({
+            format: "mm-yyyy",
+            minViewMode: "months",
+            multidate: 3,
+            startDate: new Date(today.getFullYear(), today.getMonth(), today.getDate())
+        });
+        $('.dropdown-menu').on('click', function (e) {
+            e.stopPropagation();
+        });
+        $('#numberprice').each(function () {
+            $(this).number();
+        });
+
+        //--------------------Menu Cruceros Disponibilidad Scroll horizontal---------------------------------
+        // Detect dropdown event
+        $(".dropdown").on("show.bs.dropdown", function (event) {
+            // get offset position of selected button and subtract scroll .outer scroll position
+            var buttonPos = parseInt(event.currentTarget.offsetLeft) - parseInt($(".outer").scrollLeft());
+            // Apply button position to dropdown
+            $(this).find(".dropdown-menu_cruises").css("left", buttonPos);
+            // Store buttons offset position to be used to calculate the dropdowns position when .outer is scrolled
+            $(this).find(".dropdown-menu").attr("data-leftPos", event.currentTarget.offsetLeft);
+        });
+        // Detect when .outer is scrolled
+        $(".outer").on("scroll", function () {
+            var activeDropdown = $('.dropdown.open').find('.dropdown-menu');
+            // subtract scroll position from buttons offset position
+            var pos = parseInt(activeDropdown.attr('data-leftPos')) - parseInt($(this).scrollLeft());
+            // appply updated position to dropdown
+            activeDropdown.css("left", pos);
+        });
+    </script>
+</body>
+</html>

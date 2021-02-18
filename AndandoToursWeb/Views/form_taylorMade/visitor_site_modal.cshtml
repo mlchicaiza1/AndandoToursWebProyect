@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewData["Title"] = "visitor_site_modal";
+    Layout = null;
+    var infoVisitor = ViewBag.infoVisitor;
+}
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="~/css/styleAndando.css" />
+<link rel="stylesheet" type="text/css" href="~/css/styleAndando03.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha256-PZLhE6wwMbg4AB3d35ZdBF9HD/dI/y4RazA3iRDurss=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+ 
+<div class="modal-header" style="height:60px">
+    <img src="~/images/logos/andando-tours-png-azul-horizontal.png" style="width:100px; height:50px; margin-top:-10px; margin-left:0px" />
+    <button type="button" class="close-form pull-right" onclick="limp();" data-dismiss="modal" style="margin-top:-40px">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body" style="overflow-y:scroll;">
+
+
+
+ 
+
+   
+                <img src="/images/@infoVisitor[0].UrlImagenVisitorSite" title="@infoVisitor[0].NombreImagenVisitorSite" class="img-responsive" style="margin:0;width:100%" />
+
+
+            
+                <div class="row formato-parrafo text-justify textoinfo parrafo" id="text_map" style="font-family:Arial;padding: .1em 1em; margin-top:5% ;color: black !important; background:white;">
+
+
+
+                    <p><h4 style="color:#5299D0"><b id="nameVisitor">@infoVisitor[0].NombreVisitorSite</b></h4></p>
+                    <p><h4 style="color:black"><b>About this visitor site</b></h4></p>
+                    <p>@infoVisitor[0].DescripcionVisitorSite</p>
+
+                    <p><h4 style="color:black"><b>Wildlife</b></h4></p>
+
+
+                    <p>
+                      @infoVisitor[0].WildLifeVisitorSite
+                    </p>
+
+                </div>
+                <div id="image_team" class="row formato-parrafo text-justify" style="margin-top:-20px;padding: 0em 1em; color: black !important; background:white;margin-left:-15px;">
+
+                    <div class="col-md-6 " style="padding-left:15px;margin-top:10px;padding-right:0">
+
+                        <img src="/images/@infoVisitor[0].Animal2VisitorSIte" title="" class="img-responsive" style="margin:0;width:98%" />
+
+                    </div>
+                    <div class="col-md-6 " style="padding-left:15px;margin-top:10px;padding-right:0">
+
+                        <img src="/images/@infoVisitor[0].Animal3VisitorSIte" class="img-responsive" style="margin:0;width:98%" />
+
+                    </div>
+
+                </div>
+                <div id="image_team" class="row formato-parrafo text-justify" style="padding: 0em 1em; color: black !important; background:white;margin-left:-15px;">
+
+                    <div class="col-md-6 " style="padding-left:15px;margin-top:10px;padding-right:0">
+
+                        <img src="/images/@infoVisitor[0].Animal4VisitorSIte" class="img-responsive" style="margin:0;width:98%" />
+
+                    </div>
+                    <div class="col-md-6 " style="padding-left:15px;margin-top:10px;padding-right:0">
+
+                        <img src="~/images/VisitorSites/BachasBeach/Great_blue_heron_Galapagos.jpg" class="img-responsive" style="margin:0;width:98%" />
+
+                    </div>
+
+                </div>
+                <div class="row formato-parrafo text-justify textoinfo parrafo" style="font-family:Arial;padding: .5em 1em; color: black !important; background:white;">
+
+
+                    <p><h4 style="color:black"><b>Activities</b></h4></p>
+
+
+                    <div class="col-md-12">
+                        <table style="margin-left:-13px">
+
+                            <tr>
+
+                                <td style="border:none;padding-right:0;">
+                                    <img src="~/images/icon/Walking.png" style="width:200px;height:100px" alt="Alternate Text" />
+                                    <input id="act1i" value="Walking.png" style="display:none" />
+                                    <center><b><a id="act1" style=" font-family:SegoeUI, Segoe UI; color:#656b6f; text-decoration:none"></a></b></center>
+                                </td>
+
+
+                                <td style="border:none;padding-right:0;">
+                                    <img src="~/images/icon/Snorkeling.png" style="width:200px;height:100px" alt="Alternate Text" />
+                                    <input id="act2i" value="Snorkeling.png" style="display:none" />
+                                    <center><b><a id="act2" style=" font-family:SegoeUI, Segoe UI; color:#656b6f; text-decoration:none"></a></b></center>
+                                </td>
+
+                                <td style="border:none;padding-right:0;">
+                                    <img src="~/images/icon/Wildlife Observation.png" style="width:200px;height:100px" alt="Alternate Text" />
+                                    <input id="act3i" value="Wildlife Observation.png" style="display:none" />
+                                    <center><b><a id="act3" style=" font-family:SegoeUI, Segoe UI; color:#656b6f; text-decoration:none"></a></b></center>
+                                </td>
+
+                                <td style="border:none;padding-right:0;">
+                                    <img src="~/images/icon/Walking.png" style="width:200px;height:100px" alt="Alternate Text" />
+                                    <input id="act4i" value="Walking.png" style="display:none" />
+                                    <center><b><a id="act4" style=" font-family:SegoeUI, Segoe UI; color:#656b6f; text-decoration:none"></a></b></center>
+                                </td>
+
+                                <td style="border:none;padding-right:0;">
+                                    <img src="~/images/icon/Wildlife Observation.png" style="width:200px;height:100px" alt="Alternate Text" />
+                                    <input id="act5i" value="Wildlife Observation.png" style="display:none" />
+                                    <center><b><a id="act5" style=" font-family:SegoeUI, Segoe UI; color:#656b6f; text-decoration:none"></a></b></center>
+                                </td>
+
+
+                                <td style="border:none;padding-right:0;">
+                                    <img src="~/images/icon/Snorkeling.png" style="width:200px;height:100px" alt="Alternate Text" />
+                                    <input id="act6i" value="Snorkeling.png" style="display:none" />
+                                    <center><b><a id="act6" style=" font-family:SegoeUI, Segoe UI; color:#656b6f; text-decoration:none"></a></b></center>
+                                </td>
+
+                            </tr>
+
+
+                        </table>
+                    </div>
+                </div>
+        
+
+ 
+
+</div> 

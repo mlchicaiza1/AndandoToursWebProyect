@@ -1,0 +1,164 @@
+﻿@{
+    ViewData["Title"] = "galeria4_productModal";
+    Layout = null;
+}
+<link rel="stylesheet" type="text/css" href="~/css/app.css" />
+<link rel="stylesheet" type="text/css" href="~/css/styleAndando.css" />
+<script src="~/js/Forms.js"></script>
+<div class="modal-header" style="overflow-y:hidden;height:60px">
+    <img src="~/images/logos/andando-tours-png-azul-horizontal.png" style="width:100px; height:50px; margin-top:-10px; margin-left:0px" />
+    <button type="button" class="close-form pull-right" onclick="limp();" data-dismiss="modal" style="margin-top:-40px">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body tamModal style-scroll" style="overflow-x:hidden;overflow-y:scroll;font-family:Arial">
+    <div class="container">
+        <h3 style="color:#5299D0; text-align:center">
+            M/Y Passion - Deck Plan
+        </h3>
+        <div>
+            <h3 class="formato-titulo" style="text-align:left"><b>Suites</b></h3>
+            <p class="parrafo formato-parrafo" style="line-height:1.5em">
+                Measuring 159 feet (48.5 meters), the Passion stands four decks high and boasts an exceptional amount of space for only 14 passengers.
+            </p>
+            <table id="grid-gale-social" style="margin-left:-14px">
+                <tr>
+                    <td style="border:none;padding-right:0">
+                        <img src="~/images/Galery-Prod/galapagos-fund-wildaid-passion.jpg" style="width:724px; height:380px;" />
+                    </td>
+                    <td style="border:none;padding-right:0">
+                        <img src="~/images/About/Infinity exterior.jpg" style=" height:380px; margin-left:2px" />
+                    </td>
+                </tr>
+            </table>
+            @* ===============MOBILE=============== *@
+            <div id="grid-gale-social-mob">
+                <div class="container" style="width:auto; padding:0;margin-top:10px">
+                    <div class="col-md-12" style="padding:0; margin-top: 10px;">
+                        <img src="~/images/Galery-Prod/galapagos-fund-wildaid-passion.jpg" class="img-responsive" />
+                    </div>
+                    <div class="col-md-12" style="padding:0;margin-top: 10px;">
+                        <img src="~/images/About/Infinity exterior.jpg" class="img-responsive" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3 class="formato-titulo" style="text-align:left">
+                <b>Staterooms</b>
+            </h3>
+            <p class="formato-parrafo" style="line-height:1.5em">
+                The Passion’s cabins are incredibly spacious. Our four ample staterooms have a private bathroom with hair dryers and USB charger.
+            </p>
+            <div id="grid-gale-social" style="margin-left:-12px;">
+                <div id="grid-prod-galery-ext">
+                    <div id="caja-galeria-ext">
+                        <img class="img-responsive" src="~/images/Galery-Prod/galapagos-fund-wildaid-passion.jpg" style="width:750px; height:380px; margin-right:0" />
+                    </div>
+                    <div id="caja-galeria2-ext">
+                        <img class="img-responsive" src="~/images/About/Infinity exterior.jpg" style="height:380px;" />
+                    </div>
+                    <div id="caja-galeria3-ext">
+                        <img src="~/images/About/Infinity exterior.jpg" style="margin-left:12px; height:380px;" />
+                    </div>
+                    <div id="caja-galeria4-ext">
+                        <img src="~/images/Galery-Prod/galapagos-fund-wildaid-passion.jpg" style="width:750px; height:380px; margin-right:0" />
+                    </div>
+                </div>
+            </div>
+            @* ============MOBIL======== *@
+            <div id="grid-gale-social-mob">
+                <div id="grid-prod-galery-ext">
+                    <div id="caja-galeria-ext">
+                        <img class="img-responsive" src="~/images/Galery-Prod/galapagos-fund-wildaid-passion.jpg" />
+                    </div>
+                    <div id="caja-galeria2-ext">
+                        <img class="img-responsive" src="~/images/About/Infinity exterior.jpg" />
+                    </div>
+                    <div id="caja-galeria3-ext">
+                        <img src="~/images/About/Infinity exterior.jpg" />
+                    </div>
+                    <div id="caja-galeria4-ext">
+                        <img src="~/images/Galery-Prod/galapagos-fund-wildaid-passion.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="display:none">
+            <br />
+            <p>
+                <h3 class="formato-titulo" style="text-align:left">
+                    <b>
+                        M/Y Passion - Social Areas
+                    </b>
+                </h3>
+            </p>
+            <p class="formato-parrafo" style="line-height:1.5em">
+                This exclusive vessel has ample social areas, a panoramic sky lounge and bar, separate dining room, wonderfully spacious sun decks for al fresco dining and a secluded sun deck with hot tub for relaxation and privacy.
+            </p>
+            <div class="row">
+                <div class="col-xs-6">
+                    <img class="img-responsive" src="~/images/Galery-Prod/alya-cruise-activities-and-itineraries.jpg" />
+                </div>
+                <div class="col-xs-6">
+                    <img class="img-responsive" src="~/images/Galery-Prod/alya-cruise-activities-and-itineraries.jpg" />
+                </div>
+            </div>
+            <div class="row" style="margin-top:17px">
+                <div class="col-xs-6">
+                    <img class="img-responsive" src="~/images/Galery-Prod/alya-cruise-activities-and-itineraries.jpg" />
+                </div>
+                <div class="col-xs-6">
+                    <img class="img-responsive" src="~/images/Galery-Prod/alya-cruise-activities-and-itineraries.jpg" />
+                </div>
+            </div>
+        </div>
+        <div style="display:none">
+            <h3 class="formato-titulo" style="text-align:left">
+                <b>
+                    M/Y Passion - Gourmet food
+                </b>
+            </h3>
+            <p class="formato-parrafo" style="line-height:1.5em">
+                A voyage of the senses every time you sit down for a meal. Our culinary team applies creativity and uses the finest ingredients in everything they prepare on board.
+            </p><br />
+            <div id="grid-gale-social" class="container" style="padding:0">
+                <div class="container" style="width:97.5%;padding:0;margin:0">
+                    <div class="col-md-12" style="padding:0">
+                        <img class="img-responsive" src="~/images/Galery-Prod/galapagos-fund-wildaid-passion.jpg" style="margin:0" />
+                    </div>
+                </div>
+                <div class="container" style="width:97.5%;margin-left:0;padding:0;margin-top:30px">
+                    <div id="grid-prod-galery-exp" style="margin-top:10px">
+                        <div id="caja-galeria-exp">
+                            <img class="img-responsive" src="~/images/Galery-Prod/alya-cruise-activities-and-itineraries.jpg" style="width:551px;height:171px;margin:0" />
+                        </div>
+                        <div id="caja-galeria2-exp">
+                            <img class="img-responsive" src="~/images/product itinerary.jpg" style="height:380px" />
+                        </div>
+                        <div id="caja-galeria3-exp">
+                            <img class="img-responsive" src="~/images/Galery-Prod/alya-availability.jpg" style="width:551px;height:171px" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @* ===============MOBILE=============== *@
+            <div id="grid-gale-social-mob">
+                <div class="container" style="width:auto;padding:0;margin-top:10px">
+                    <div class="col-md-12" style="padding:0; margin-top: 10px;">
+                        <img class="img-responsive" src="~/images/Galery-Prod/galapagos-fund-wildaid-passion.jpg" style="width:100%" />
+                    </div>
+                    <div class="col-md-12" style="padding:0; margin-top: 10px;">
+                        <img class="img-responsive" src="~/images/Galery-Prod/alya-cruise-activities-and-itineraries.jpg" style="width:100%" />
+                    </div>
+                    <div class="col-md-12" style="padding:0; margin-top: 10px;">
+                        <img class="img-responsive" src="~/images/product itinerary.jpg" style="width:100%" />
+                    </div>
+                    <div class="col-md-12" style="padding:0; margin-top: 10px;">
+                        <img class="img-responsive" src="~/images/Galery-Prod/alya-availability.jpg" style="width:100%" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

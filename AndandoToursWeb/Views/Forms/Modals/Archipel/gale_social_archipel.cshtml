@@ -1,0 +1,116 @@
+﻿@{
+
+    var contenido = ViewBag.GetContenidoVista;
+    var imagenItem = ViewBag.GetContenidoMult;
+
+}
+<div class="modal fade" id="gale2-social" style="overflow:hidden;padding-right:0" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-full" style="width:100%;height:100%; margin:0" role="document">
+        <div class="modal-content" style="width:100%; height:100%">
+            <div class="modal-header" style="overflow-y:hidden;height:60px">
+                <img src="~/images/logos/andando-tours-png-azul-horizontal.png" style="width:100px; height:50px; margin-top:-10px; margin-left:0px" />
+                <button type="button" class="close-form pull-right" onclick="limp();" data-dismiss="modal" style="margin-top:-40px">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body tamModal style-scroll" style="overflow-x:hidden; overflow-y:scroll;font-family:Arial;text-align:left">
+                <div class="container">
+                    <h3 style="color:#5299D0; text-align:center">
+                        @contenido[19].Titulo
+                    </h3>
+                    <div>
+                        @*<h3 class="formato-titulo" style="text-align:left"><b>@titulo[9]</b></h3>*@
+                        @{
+                            foreach (var item in ViewBag.GetContenidoVista)
+                            {
+                                if (item.Titulo == @contenido[18].Titulo)
+                                {
+                                    <p class="textoinfo parrafo formato-parrafo">
+                                        <span>@Html.Raw(item.Parrafo)</span>
+                                    </p>
+                                }
+                            }
+                        }
+                        <h3 class="formato-titulo">
+                            @contenido[20].Titulo
+                        </h3>
+                        @{
+                            foreach (var item in ViewBag.GetContenidoVista)
+                            {
+                                if (item.Titulo == @contenido[20].Titulo)
+                                {
+                                    <p class="textoinfo parrafo formato-parrafo">
+                                        <span>@Html.Raw(item.Parrafo)</span>
+                                    </p>
+                                }
+                            }
+                        }
+                        <div id="grid-gale-social" style="margin-left:-12px;">
+                            <div id="grid-prod-galery-ext">
+                                <div id="caja-galeria-ext">
+                                    <img class="img-responsive" src="@imagenItem[13].UrlImagen" alt="@imagenItem[13].NombreImagen" style="width:750px; height:380px; margin-right:0" />
+                                </div>
+                                <div id="caja-galeria2-ext">
+                                    <img class="img-responsive" src="@imagenItem[14].UrlImagen" alt="@imagenItem[14].NombreImagen" style="height:380px;" />
+                                </div>
+                                <div id="caja-galeria3-ext">
+                                    <img src="@imagenItem[15].UrlImagen" alt="@imagenItem[15].NombreImagen" style="margin-left:12px; height:380px;" />
+                                </div>
+                                <div id="caja-galeria4-ext">
+                                    <img src="@imagenItem[16].UrlImagen" alt="@imagenItem[16].NombreImagen" style="width:750px; height:380px; margin-right:0" />
+                                </div>
+                            </div>
+                        </div>
+                        @* ============MOBIL======== *@
+                        <div id="grid-gale-social-mob">
+                            <div id="grid-prod-galery-ext">
+                                <div id="caja-galeria3-ext">
+                                    <img src="@imagenItem[13].UrlImagen" alt="@imagenItem[13].NombreImagen" />
+                                </div>
+                                <div id="caja-galeria4-ext">
+                                    <img src="@imagenItem[14].UrlImagen" alt="@imagenItem[14].NombreImagen" />
+                                </div>
+                                <div id="caja-galeria-ext">
+                                    <img class="img-responsive" src="@imagenItem[15].UrlImagen" alt="@imagenItem[15].NombreImagen" />
+                                </div>
+                                <div id="caja-galeria2-ext">
+                                    <img class="img-responsive" src="@imagenItem[16].UrlImagen" alt="@imagenItem[16].NombreImagen" />
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="formato-titulo">
+                            @contenido[21].Titulo
+                        </h3>
+                        @{
+                            foreach (var item in ViewBag.GetContenidoVista)
+                            {
+                                if (item.Titulo == @contenido[21].Titulo)
+                                {
+                                    <p class="textoinfo parrafo formato-parrafo">
+                                        <span>@Html.Raw(item.Parrafo)</span>
+                                    </p>
+                                }
+                            }
+                        }
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <img class="img-responsive" src="@imagenItem[17].UrlImagen" alt="@imagenItem[17].NombreImagen" />
+                            </div>
+                            <div class="col-xs-6">
+                                <img class="img-responsive" src="@imagenItem[18].UrlImagen" alt="@imagenItem[18].NombreImagen" />
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:17px">
+                            <div class="col-xs-6">
+                                <img class="img-responsive" src="@imagenItem[19].UrlImagen" alt="@imagenItem[19].NombreImagen" />
+                            </div>
+                            <div class="col-xs-6">
+                                <img class="img-responsive" src="@imagenItem[20].UrlImagen" alt="@imagenItem[20].NombreImagen" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+﻿@page
+@model LoginModel
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Log in";
+
+}
+
+<link href="~/theme/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/owl.carousel.css" />
+<!-- Ionicons -->
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- overlayScrollbars -->
+<link rel="stylesheet" href="~/theme/dist/css/adminlte.min.css">
+<!-- summernote -->
+<link rel="stylesheet" href="~/theme/plugins/summernote/summernote-bs4.css">
+<!-- Google Font: Source Sans Pro -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+<link rel="stylesheet" href="~/theme/dist/css/StyleCMSAndando/StyleCMSAndado.css" />
+
+
+<!-- icheck bootstrap -->
+<link rel="stylesheet" href="~/theme/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="~/theme/dist/css/adminlte.min.css">
+
+<div class="row" style="padding-top: 8%;padding-bottom: 10%;width: 100%;">
+    <div class=" col-md-4 col-lg-4 col-sm-4 col-xs-4">
+        <section>
+        </section>
+    </div>
+    <div class="col-md-6 col-lg-6 col-sm-4 col-xs-4 ">
+        <div class="login-box" style="margin-left: 20px;">
+            <div class="login-logo">
+                <a href="../../index2.html"><b>AndandoTours</b></a>
+            </div>
+            <!-- /.login-logo -->
+            <div class="card">
+                <div class="card-body login-card-body">
+                    <p class="login-box-msg">Sign in to start your session</p>
+                    <section>
+                        <form method="post">
+                            <hr />
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <div class="input-group mb-3">
+                                <input class="form-control" placeholder="User Name" asp-for="Input.UserName">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-envelope"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="password" class="form-control" placeholder="Password" asp-for="Input.Password">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-lock"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="icheck-primary">
+                                        <input type="checkbox" id="remember" asp-for="Input.RememberMe">
+                                        <label for="remember">
+                                            Remember Me
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-4">
+                                    <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <div class="form-group">
+                                <p>
+                                    <a asp-page="./ForgotPassword">Forgot your password?</a>
+                                </p>
+                                <p>
+                                    <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register a new membership</a>
+                                </p>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+                <!-- /.login-card-body -->
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

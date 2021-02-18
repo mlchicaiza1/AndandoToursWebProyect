@@ -1,0 +1,637 @@
+﻿@{
+    var contenido = ViewBag.GetContenidoVista;
+    var imagenItem = ViewBag.GetContenidoMult;
+    var mapa = ViewBag.GetMapa;
+    var titulo = new List<string>();
+    Dictionary<string, int> uniqueStore = new Dictionary<string, int>();
+    var region = new List<string>();
+    Dictionary<string, int> uniqueStoreRegion = new Dictionary<string, int>();
+    foreach (var item1 in ViewBag.GetMapa)
+    {
+        if (!uniqueStoreRegion.ContainsKey(item1.Region))
+        {
+            uniqueStoreRegion.Add(item1.Region, 0);
+            region.Add(item1.Region);
+        }
+    }
+    foreach (var item in ViewBag.GetContenidoVista)
+    {
+
+        if (!uniqueStore.ContainsKey(item.Titulo))
+        {
+            uniqueStore.Add(item.Titulo, 0);
+            titulo.Add(item.Titulo);
+        }
+    }
+
+    //Quitar tags de los 3 Tours de cada Isla
+    var textoCms = contenido[9].Parrafo;
+    string[] textCards = textoCms.Split('*');
+    var cardsTours = new List<string>();
+    var cardsTours_1 = new List<string>();
+    var cardsTours_2 = new List<string>();
+    var cardsTours_3 = new List<string>();
+    var cardsTours_4 = new List<string>();
+    foreach (var item in textCards)
+    {
+
+        cardsTours.Add(Regex.Replace(item, "<.*?>", String.Empty).Replace("\n", "").Replace("&nbsp;", "").Replace("&ndash;", ""));
+
+    }
+    textoCms = contenido[10].Parrafo;
+    textCards = textoCms.Split('*');
+    foreach (var item in textCards)
+    {
+
+        cardsTours_1.Add(Regex.Replace(item, "<.*?>", String.Empty).Replace("\n", "").Replace("&nbsp;", "").Replace("&ndash;", ""));
+
+    }
+    textoCms = contenido[11].Parrafo;
+    textCards = textoCms.Split('*');
+    foreach (var item in textCards)
+    {
+
+        cardsTours_2.Add(Regex.Replace(item, "<.*?>", String.Empty).Replace("\n", "").Replace("&nbsp;", "").Replace("&ndash;", ""));
+
+    }
+    textoCms = contenido[12].Parrafo;
+    textCards = textoCms.Split('*');
+    foreach (var item in textCards)
+    {
+
+        cardsTours_3.Add(Regex.Replace(item, "<.*?>", String.Empty).Replace("\n", "").Replace("&nbsp;", "").Replace("&ndash;", ""));
+
+    }
+    textoCms = contenido[13].Parrafo;
+    textCards = textoCms.Split('*');
+    foreach (var item in textCards)
+    {
+
+        cardsTours_4.Add(Regex.Replace(item, "<.*?>", String.Empty).Replace("\n", "").Replace("&nbsp;", "").Replace("&ndash;", ""));
+
+    }
+}
+<div class="container--full-width" style="overflow-x:hidden;overflow:hidden; width:100%">
+    <div class="item active imgen-carousel">
+        <div class="fondos-imagen">
+            <img class="fondos-imagen" title="@imagenItem[0].NombreImagen" alt="@imagenItem[0].NombreImagen" style="background-image: url('@imagenItem[0].UrlImagen'); position:center; height:100%; width:100%;" />
+        </div>
+        <div class="caption" style="text-align:center; padding-bottom:40px" role="option">
+            <h1 class="font-x2 font-brush font-carousel" style="text-shadow:1px 1px 1px rgba(0, 0, 0, 0.5);margin-bottom:30px">
+                <strong>@titulo[0]</strong>
+            </h1>
+            <p class="font-x2 " style="font-size:18px;margin-top:0; font-family:'BentonSans',sans-serif">
+                <span>@Html.Raw(contenido[0].Parrafo)</span>
+            </p>
+            <p style="margin-top:3%!important">
+                <a class="btn h5button" href="#Top-Itineraries" id="help_me_plan" style="padding: 5px 14px; font-family: 'BentonSans-Regular'">Find your tour <i class="fas fa-angle-down" style="padding-left:10px"></i></a>
+            </p>
+        </div>
+    </div>
+    <!--================================SUB MENU=========================-->
+    <nav class="navbar  navbarsubmenu page-nav-home" data-toggle="sticky-onscroll" id="navpagina" style="border: 1px solid rgba(0,0,0,.1);">
+        <div class="limit">
+            <nav class="page-nav-anchors" style="text-transform:none; " id="sub-menu-cruises">
+                <ul>
+                    <li>
+                        <a href="#Destinations"><span>Destinations</span> </a>
+                    </li>
+                    <li>
+                        <a href="#Top-Itineraries"><span>Top Itineraries</span></a>
+                    </li>
+                    <li>
+                        <a style="width: 300px" href="#Properties"><span>Properties</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+    <nav class="page-nav page-nav-home" data-toggle="sticky-onscroll" id="navmovil">
+        <div class="limit" style="width:100%">
+            <nav class="page-nav-anchors">
+                <ul style="width:100%">
+                    <li class="activities">
+                        <a class="" href="#Destinations">  <span>Destinations</span></a>
+                    </li>
+                    <li class="prepare" style="margin-left: 20px;">
+                        <a href="#Top-Itineraries"><span>Top Itineraries</span></a>
+                    </li>
+                    <li class="itineraries" style="margin-left: 10px;">
+                        <a href="#Properties"> <span>Properties</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+    <!--=======================Contenido========================================================-->
+    <div class="container">
+        <div class="row f-15 text-justify textoinfo parrafo" style="font-family:Arial;padding:0 0.5em;margin-top:0; color: #656b6f !important; background:white;">
+            <ol class="breadcrumb" style="" itemscope itemtype="http://schema.org/BreadcrumbList">
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a itemprop="item" style="color:#0077ba" href="../../">
+                        <span itemprop="name">Home</span>
+                    </a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span itemprop="name">Ecuador Itineraries</span>
+                    <meta itemprop="position" content="2" />
+                </li>
+            </ol>
+            <p><h2 class="" style="text-align:left;color:black"> <b>@titulo[1]</b></h2></p>
+            @{
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[1])
+                    {
+
+                        <p class="formato-parrafo">
+                            <span>@Html.Raw(item.Parrafo)</span>
+                        </p>
+                        <div id="Destinations"></div>
+                    }
+                }
+            }
+            <a id="help_me_plan" class="h5button bg-in  btn-carousel" data-toggle="modal" href="../form_taylorMade/form_taylorMade" style="margin-top:0!important; text-decoration:none;font-size:16px; font-family:Arial; z-index:50000" data-target="#taylorMade-Modal">
+                Connect with an expert
+            </a><br />
+        </div>
+    </div><div id="Top-Itineraries"></div>
+    <!--================================Destinations in Mainland Ecuador=========================-->
+    <div class="container f-15 text-justify" style="padding:4em 1em 1em; color: #656b6f !important; line-height:2; background:white; text-decoration:none">
+        <div class="mainland-wrapper ">
+            <div class="mainland">
+                <div class="row" style="width: 1145px; margin-left: 4px;">
+                    <div class="col-lg-12 col-sm-12">
+                        <h2 class="formato-titulo" style="text-align:justify"> <b><span>@titulo[2]</span></b> </h2>
+                        @{
+                            foreach (var item in ViewBag.GetContenidoVista)
+                            {
+                                if (item.Titulo == titulo[2])
+                                {
+
+                                    <p class="formato-parrafo">
+                                        <span>@Html.Raw(item.Parrafo)</span>
+                                    </p>
+
+                                }
+                            }
+                        }
+                    </div>
+                    <div id="cruisesFiltersDesktop">
+                        <div class="col-lg-3 col-sm-12" style="padding-left: 15px;padding-bottom:20px">
+                            <div class="categories-item">
+                                <a href="/ecuador-itineraries/amazon-tours-ecuador/#Itineraries" id="item_1">
+                                    <img class="lazyload" data-src="@imagenItem[3].UrlImagen" title="@imagenItem[3].NombreImagen" alt="@imagenItem[3].NombreImagen">
+                                    <p style=" font-family: 'BentonSans-Regular';text-align:left"><b>Amazon</b></p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-12" style="padding-bottom:20px">
+                            <div class="categories-item">
+                                <a href="/ecuador-itineraries/magical-north#Itineraries" id="item_2">
+                                    <img class="lazyload" data-src="@imagenItem[4].UrlImagen" title="@imagenItem[4].NombreImagen" alt="@imagenItem[4].NombreImagen">
+                                    <p style=" font-family: 'BentonSans-Regular';text-align:left"><b>North of Ecuador </b></p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-12" style="padding-bottom:20px">
+                            <div class="categories-item">
+                                <a href="/ecuador-itineraries/austral-paths#Itineraries" id="item_3">
+                                    <img class="lazyload" data-src="@imagenItem[5].UrlImagen" title="@imagenItem[5].NombreImagen" alt="@imagenItem[5].NombreImagen">
+                                    <p style=" font-family: 'BentonSans-Regular';text-align:left"><b>Southern Ecuador</b></p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-12" style="padding-bottom:20px">
+                            <div class="categories-item">
+                                <a href="/ecuador-itineraries/avenue-of-volcanoes#Itineraries" id="item_4">
+                                    <img class="lazyload" data-src="@imagenItem[6].UrlImagen" title="@imagenItem[6].NombreImagen" alt="@imagenItem[6].NombreImagen">
+                                    <p style=" font-family: 'BentonSans-Regular';text-align:left; margin-top: -70px;"><b>Avenue of Volcanoes</b></p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Availability"></div>
+            </div>
+        </div>
+    </div>
+    <!--Mobile-->
+    <div class="container" id="cruisesFiltersMobile">
+        <div class="row f-15 text-justify textoinfo parrafo" style="font-family:Arial;padding: .4em .6em; background:white;margin-top:-15px;">
+            <div class="mainland-wrapper container-fluid" style="width: 100%;padding-right:0;margin-top:0">
+                <div class="mainland">
+                    <div class="row" style="height:auto">
+                        <table style="border:none;font-family: 'BentonSans-Regular';">
+                            <tr style="border:none;">
+                                <td class="filterIcon" style="width:auto; border:none">
+                                    <a href="/ecuador-itineraries/amazon-tours-ecuador#Itineraries" id="item_1">
+                                        <img class="lazyload" data-src="@imagenItem[3].UrlImagen" title="@imagenItem[3].NombreImagen" alt="@imagenItem[3].NombreImagen" style="border-radius:10px; width:120px;height:90px ;margin-left:-8px;text-align:right">
+                                        <p style="text-align:left"> <b>Amazon</b></p>
+                                    </a>
+                                </td>
+                                <td class="filterIcon" style="width:auto;border:none">
+                                    <a href="/ecuador-itineraries/magical-north#Itineraries" id="item_2">
+                                        <img class="lazyload" data-src="@imagenItem[4].UrlImagen" title="@imagenItem[4].NombreImagen" alt="@imagenItem[4].NombreImagen" style="border-radius:10px; width:120px;height:90px ;margin-left:-8px;text-align:right">
+                                        <p style="text-align:left"> <b>North of Ecuador</b></p>
+                                    </a>
+                                </td>
+                                <td class="filterIcon" style="width:auto;border:none">
+                                    <a href="/ecuador-itineraries/austral-paths#Itineraries" id="item_3">
+                                        <img class="lazyload" data-src="@imagenItem[5].UrlImagen" title="@imagenItem[5].NombreImagen" alt="@imagenItem[5].NombreImagen" style="border-radius:10px; width:120px;height:90px ;margin-left:-8px;text-align:right">
+                                        <p style="text-align:left"><b>Southern Ecuador</b></p>
+                                    </a>
+                                </td>
+                                <td style="width:auto;border:none">
+                                    <a href="/ecuador-itineraries/avenue-of-volcanoes#Itineraries" id="item_4">
+                                        <img class="lazyload" data-src="@imagenItem[6].UrlImagen" title="@imagenItem[6].NombreImagen" alt="@imagenItem[6].NombreImagen" style="border-radius:10px; width:120px;height:90px ;margin-left:-8px;text-align:right">
+                                        <p style="text-align:left"><b>Avenue of Volcanoes</b></p>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>   <div id="cruisesbest"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <!--================================CARD CRUCEROS PRODUCTOS=========================-->
+    <div class="container">
+        <div class="row f-15 text-justify textoinfo parrafo" style="font-family:Arial;padding: .4em 1em; background:white;">
+            <h2 class="formato-titulo" style="margin-top:0;margin-bottom:30px"> <b>@titulo[3]</b></h2>
+            @{
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[3])
+                    {
+                        <p class="formato-parrafo">
+                            <span>@Html.Raw(item.Parrafo)</span>
+                        </p>
+                    }
+                }
+            }
+        </div>
+    </div>
+    <div class="container f-15 text-justify" style="padding: .5em 1em; background:white; text-decoration:none;margin-top: 42px;">
+        <div class="mainland-wrapper ">
+            <div class="mainland">
+                <div class="row  f-15 text-justify textoinfo parrafo" style="font-family:Arial; color: #656b6f !important; line-height:2; background:white;">
+                    <div class="col-xs-12 col-sm-6 col-md-4 cardsAndando">
+                        <!--ELEMENTO 1-->
+                        <div class="contenido-app">
+                            <a href="@cardsTours[4]" style="text-decoration:none" target="_blank" class="anc-card">
+                                <div class="mainland-item">
+                                    <div class="mainland-image">
+                                        <img class="img-portada lazyload" data-src="@imagenItem[7].UrlImagen" alt="@imagenItem[7].NombreImagen">
+                                        <div class="cruise-details">
+                                            <span>@cardsTours[1]</span>
+                                        </div>
+                                    </div>
+                                    <div class="cruise-info tourDetailsIsabela">
+                                        <h3 style="font-family:'Berlin Sans FB'">@titulo[6]</h3>
+                                        <p>
+                                            @cardsTours[2]
+                                        </p>
+                                        <div class="rest-info DailyCardPrice">
+                                            <span class="price">@cardsTours[3]</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--ELEMENTO 1-->
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 cardsAndando">
+                        <!--ELEMENTO 2-->
+                        <div class="contenido-app">
+                            <a href="@cardsTours_1[4]" style="text-decoration:none" target="_blank" class="anc-card">
+                                <div class="mainland-item">
+                                    <div class="mainland-image">
+                                        <img class="img-portada lazyload" data-src="@imagenItem[8].UrlImagen" alt="@imagenItem[8].NombreImagen">
+                                        <div class="cruise-details">
+                                            <span>@cardsTours_1[1]</span>
+                                        </div>
+                                    </div>
+                                    <div class="cruise-info tourDetailsIsabela">
+                                        <h3 style="font-family:'Berlin Sans FB'">@titulo[7]</h3>
+                                        <p>
+                                            @cardsTours_1[2]
+                                        </p>
+                                        <div class="rest-info DailyCardPrice">
+                                            <span class="price">@cardsTours_1[3]</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--ELEMENTO 2-->
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 cardsAndando">
+                        <!--ELEMENTO 3-->
+                        <div class="contenido-app">
+                            <a href="@cardsTours_2[4]" style="text-decoration:none" target="_blank" class="anc-card">
+                                <div class="mainland-item">
+                                    <div class="mainland-image">
+                                        <img class="img-portada lazyload" data-src="@imagenItem[9].UrlImagen" alt="@imagenItem[9].NombreImagen">
+                                        <div class="cruise-details">
+                                            <span>@cardsTours_2[1]</span>
+                                        </div>
+                                    </div>
+                                    <div class="cruise-info tourDetailsIsabela">
+                                        <h3 style="font-family:'Berlin Sans FB'">@titulo[8]</h3>
+                                        <p>
+                                            @cardsTours_2[2]
+                                        </p>
+                                        <div class="rest-info DailyCardPrice">
+                                            <span class="price">@cardsTours_2[3]</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--ELEMENTO 3-->
+                        <div></div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 cardsAndando">
+                        <!--ELEMENTO 2-->
+                        <div class="contenido-app">
+                            <a href="@cardsTours_3[4]" style="text-decoration:none" target="_blank" class="anc-card">
+                                <div class="mainland-item">
+                                    <div class="mainland-image">
+                                        <img class="img-portada lazyload" data-src="@imagenItem[10].UrlImagen" alt="@imagenItem[10].NombreImagen">
+                                        <div class="cruise-details">
+                                            <span>@cardsTours_3[1]</span>
+                                        </div>
+                                    </div>
+                                    <div class="cruise-info tourDetailsIsabela">
+                                        <h3 style="font-family:'Berlin Sans FB'">@titulo[9]</h3>
+                                        <p>
+                                            @cardsTours_3[2]
+                                        </p>
+                                        <div class="rest-info DailyCardPrice">
+                                            <span class="price">@cardsTours_3[3]</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--ELEMENTO 2-->
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 cardsAndando">
+                        <!--ELEMENTO 3-->
+                        <div class="contenido-app">
+                            <a href="@cardsTours_4[4]" style="text-decoration:none" target="_blank" class="anc-card">
+                                <div class="mainland-item">
+                                    <div class="mainland-image">
+                                        <img class="img-portada lazyload" data-src="@imagenItem[11].UrlImagen" alt="@imagenItem[11].NombreImagen">
+                                        <div class="cruise-details" id="Properties">
+                                            <span>@cardsTours_4[1]</span>
+                                        </div>
+                                    </div>
+                                    <div class="cruise-info tourDetailsIsabela">
+                                        <h3 style="font-family:'Berlin Sans FB'">@titulo[10]</h3>
+                                        <p>
+                                            @cardsTours_4[2]
+                                        </p>
+                                        <div class="rest-info DailyCardPrice">
+                                            <span class="price">@cardsTours_4[3]</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--ELEMENTO 3-->
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--==============//Properties//==========================-->
+    <div class="container">
+        <div class="row f-15 text-justify textoinfo parrafo" style="font-family:Arial;padding:0 0.5em; margin-top:0; color: #656b6f !important; line-height:2; background:white;">
+            <!--ELEMENTO 3-->
+            @*<div class="col-md-12" style="padding:0">
+                    <h4 style="text-align:left">
+                        <a href="#" style="text-align:left;color: #398AC9;"> More information about destination... </a>
+                    </h4>
+                </div>*@
+            <h2 class="formato-titulo" style="margin-top:0;margin-bottom:30px"> <b>@titulo[4]</b></h2>
+            @{
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[4])
+                    {
+                        <p class="formato-parrafo">
+                            <span>@Html.Raw(item.Parrafo)</span>
+                        </p>
+                    }
+                }
+            }
+            <p style="color:#2c3040">
+                Download the guide with the most unique properties and Haciendas of Ecuador
+                <a class="btn h5button downloadCruises" style="padding-top:6px;padding-bottom:6px;color: #fff; margin-left:10px " data-toggle="modal" href="https://www.visitgalapagos.travel/back/hotels-guide.html" data-target="#taylorMade-Modal">
+                    DOWNLOAD
+                </a>
+            </p>
+            <br /><br />
+        </div>
+    </div>
+    <div class="row" id="mapaFiltros">
+        <div class="container">
+            <div class="contenedorHome">
+                <!--=============================MAPA INTERACTIVO=============================================-->
+                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12" style="margin-left:-8px;padding-bottom:15px ">
+                    <div id='mapa'>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12" style="padding-left:0">
+                    <div class="col-md-12" style="padding-left: 0">
+                        <div class="dropdown" ; style=" box-shadow:none">
+                            <select class="btn btn-default" style="font-family:Arial; font-size:18px; color:#3487c8" onchange="fitroRegion(value)" v-on:click="onClickMap($event)" id="selecRegion">
+                                <option value="All">All</option>
+                                @{
+                                    @foreach (var regiones in region)
+                                    {
+                                        <option value="@regiones">@regiones</option>
+                                    }
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+                    <div id="filtrosHotel">
+                        <div class="col-md-12 style-scroll" style="height:460px;overflow-y:scroll" id="descripcionHoteles">
+                            @{ var conMapa = 1;
+                                @foreach (var mapaHotel in mapa)
+                                {
+                                    <div class="mainland-item textoinfo parrafo info info-@conMapa">
+                                        <div id="item_1">
+                                            <a v-on:click="getGaleriaEc($event)" style="cursor:pointer" :id="@mapaHotel.IdMapaHotel">
+                                                <img id="img_cards" class="img-responsive lazyload" data-src="@mapaHotel.FotoHotel" title="@mapaHotel.NombreHotel" alt="@mapaHotel.NombreHotel">
+                                                <p id="item_p" class="nombreHotel+@mapaHotel.IdMapaHotel" style="color:#398AC9;margin-top:-128px; font-size:15px">@mapaHotel.NombreHotel</p>
+                                            </a>
+                                            <p id="item_p" class="descripHotel" style="margin-top:-10px;margin-right:15px;font-size:12px;color:black">
+                                                @mapaHotel.DescripcionHotel
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    conMapa++;
+                                }
+                            }
+                        </div>
+                        <div class="col-md-12 style-scroll" style="height:460px;overflow-y:scroll; display:none" id="filtroHoteles">
+                            <div v-for="(index,datHotel) in mapaData">
+                                <div v-bind:class="'mainland-item textoinfo parrafo info info-'+(index+1)">
+                                    <div id="item_1">
+                                        <a v-on:click="getGaleriaEc($event)" style="cursor:pointer" :id="datHotel.idMapaHotel">
+                                            <img id="img_cards" class="img-responsive lazyload" :data-src="datHotel.fotoHotel" :title="datHotel.nombreHotel" :alt="datHotel.nombreHotel">
+                                            <p id="item_p" style="margin-top:-128px; font-size:15px;color:#398AC9">{{datHotel.nombreHotel}}</p>
+                                        </a>
+                                        <p id="item_p" style="margin-top:-10px;margin-right:15px;font-size:12px;color:black">
+                                            {{datHotel.descripcionHotel}}
+                                        </p>
+                                    </div>
+                                </div>
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="linkMapa" style="padding-top: 131%;">
+                    <p style="padding-top:15px"><a v-on:click="mostrarLinkMapa()" style="cursor:pointer;color:#398AC9;font-size:15px">View in Map>>></a></p>
+                </div>
+                <div id="linkfiltro" style="padding-top: 154%;">
+                    <p style="padding-top:15px"><a v-on:click="mostrarLinkFiltros()" style="cursor:pointer;color:#398AC9;font-size:15px">View Details>>></a></p>
+                </div>
+            </div>
+        </div>
+        <partial name="~/Views/Forms/Modals/Ecuador_Itineraries/galeriaMapa.cshtml" />
+        <partial name="~/Views/Forms/Modals/Ecuador_Itineraries/galeriaMapa2.cshtml" />
+    </div>
+    <div class="container">
+        <div class="row f-15 text-justify textoinfo parrafo" style="font-family:Arial;padding:0 0.5em;margin-top:0!important;color: #656b6f !important; line-height:2; background:white;">
+            <h2 class="formato-titulo" style="margin-top:30px;margin-bottom:20px"> <b>@titulo[5]</b></h2>
+            @{var cont = 0;
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[5])
+                    {
+                        <span>@Html.Raw(item.Parrafo)</span>
+                        cont++;
+                        if (cont == 2)
+                        { break; }
+                    }
+                }
+            }
+            <p style="margin:10px 0">
+                <a href="/plan-your-trip/ecuador-travel-recommendations" style="padding:0;font-family:Arial;font-size:16px; color: #398AC9;"> View More </a><br />
+            </p>
+            @{cont = 0;
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[5])
+                    {
+
+                        cont++;
+                        if (cont == 3)
+                        {
+                            <span>@Html.Raw(item.Parrafo)</span>
+                        }
+                    }
+                }
+            }
+            <!--===============================Ecuador everyone=======================-->
+            @{cont = 0;
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[5])
+                    {
+
+                        cont++;
+                        if (cont == 4)
+                        {
+                            <span>@Html.Raw(item.Parrafo)</span>
+                        }
+                    }
+                }
+            }
+        </div>
+        <section style="background-color:white; padding-top:0">
+            <div id="ecuador-eve">
+                <div class=" contenedorHome">
+                    <div class="col-lg-6 " style="padding-left:0.8em">
+                        <a href="/trip-types/family-vacations" id="item_4">
+                            <img class="img-responsive lazyload" data-src="@imagenItem[1].UrlImagen" title="@imagenItem[1].NombreImagen" alt="@imagenItem[1].NombreImagen" style="width: 100%;" />
+                        </a>
+                    </div>
+                    <div class="col-lg-6 " style="padding-right:0;">
+                        <a href="/trip-types/honeymoons" id="item_4">
+                            <img class="img-responsive lazyload" data-src="@imagenItem[2].UrlImagen" title="@imagenItem[2].NombreImagen" alt="@imagenItem[2].NombreImagen" style="width: 98%;" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--========================Mobile==========================-->
+            <div id="ecuador-eve-mob">
+                <div class=" contenedorHome">
+                    <div class="col-lg-6 col-sm-12" style="padding:0">
+                        <a href="/trip-types/family-vacations" id="item_4">
+                            <img class="lazyload" data-src="@imagenItem[1].UrlImagen" title="@imagenItem[1].NombreImagen" alt="@imagenItem[1].NombreImagen" style="width:100%" />
+                        </a>
+                    </div>
+                    <div class="col-lg-6 col-sm-12" style="margin-top:10px;padding:0">
+                        <a href="/trip-types/honeymoons" id="item_4">
+                            <img class="img-responsive lazyload" data-src="@imagenItem[2].UrlImagen" title="@imagenItem[2].NombreImagen" alt="@imagenItem[2].NombreImagen" style="width:100%" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="padding:0">
+                <div class="col-md-12">
+                    <p style="margin:10px 0">
+                        <a href="/trip-types" style="padding:0;font-family:Arial;font-size:16px; color: #398AC9;">  Check out all our trip types >> </a><br />
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="bs-example" style="padding:0">
+    <!-- Modal Help me Plan HTML -->
+    <div class="modal fade" id="taylorMade-Modal" style="max-width:100%;overflow-y:hidden; padding:0 " tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content" style="width:100%; height:100%">
+                <div class="modal-header" style="height:60px">
+                    <img src="~/images/logos/andando-tours-png-azul-horizontal.png" style="width:100px; height:50px; margin-top:-10px; margin-left:0px" />
+                    @*<h4  style="color:rgba(20,104,164,.8);margin-top: -34px;text-align: center;font-family: Arial">Download our Cruising Guide</h4>*@
+                    <button type="button" class="close-form pull-right" data-dismiss="modal" style="margin-top:-40px" onclick="clean();">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <iframe id="lf-iframe-embed-code-74738" style="min-width: 100% !important;width: 100px !important;*width: 100% !important; border:none;min-height: 600px;" src="https://visitgalapagos.us15.list-manage.com/subscribe?u=13bcb03659759e8410a67809d&amp;id=7d1c4d81f6" scrolling="no" frameborder="0"></iframe>
+                    <script type="text/javascript">var ifr = document.getElementById("lf-iframe-embed-code-74738"); if (window.location.href && window.location.href.indexOf('?') > -1) { var get = window.location.href.substr(window.location.href.indexOf('?') + 1); if (ifr && get.length > 0) { var src = ifr.src; src = src.indexOf('?') > -1 ? src + '&' + get : src + '?' + get; ifr.src = src; } } var iframePosition = function (e) { var n = ifr.getBoundingClientRect().top + pageYOffset; ifr.contentWindow.postMessage(JSON.stringify({ type: 'iframeTop', value1: n }), '*'); }, onTestScroll = function (e) { window.pageYOffset || document.documentElement.scrollTop; var n = ifr.getBoundingClientRect(); ifr.contentWindow.postMessage(JSON.stringify({ type: 'windowTop', value2: n.y || n.top, value3: window.innerHeight }), '*'); }; window.addEventListener ? (window.addEventListener('scroll', onTestScroll, !1), window.addEventListener('load', onTestScroll, !1), window.addEventListener('scroll', iframePosition, !1), window.addEventListener('load', iframePosition, !1), window.addEventListener('DOMContentLoaded', iframePosition, !1)) : window.attachEvent && (window.addEventListener('DOMContentLoaded', iframePosition), window.attachEvent('scroll', onTestScroll), window.addEventListener('load', onTestScroll)); window.handleIFrameMessage = function (e) { if (e.data.length > 0) { try { var args = JSON.parse(e.data); var iframe = document.getElementById("lf-iframe-embed-code-74738"); var formIds = ["74738"]; if (formIds.indexOf(args.formID) !== -1) { switch (args.case) { case 'redirectTo': window.open(decodeURI(args.redirectToURL), '_self'); ifr.src = ifr.src; break; case 'resizeIframe': iframe.width = args.scrollWidth + 'px', iframe.height = args.scrollHeight + 'px'; break; case 'stepChanged': var elCoords = getCoords(ifr), isFormOnScreen = isOnScreen(ifr, false); if (!isFormOnScreen) { window.scrollTo(0, elCoords.top); } break; case 'scrollTo': window.scrollTo({ top: args.scrollToPosition }); break; } } if ('contentWindow' in iframe && 'postMessage' in iframe.contentWindow) { var urls = { 'docurl': encodeURIComponent(document.URL), 'referrer': encodeURIComponent(document.referrer), }; iframe.contentWindow.postMessage(JSON.stringify({ 'type': 'urls', 'value': urls }), '*'); } } catch (e) { } } }; if (window.addEventListener) { window.addEventListener('message', handleIFrameMessage, false); } else if (window.attachEvent) { window.attachEvent('onmessage', handleIFrameMessage); } var getCoords = function (elem) { var box = elem.getBoundingClientRect(); var body = document.body; var docEl = document.documentElement; var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop; var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft; var clientTop = docEl.clientTop || body.clientTop || 0; var clientLeft = docEl.clientLeft || body.clientLeft || 0; var top = box.top + scrollTop - clientTop; var left = box.left + scrollLeft - clientLeft; return { top: Math.round(top), left: Math.round(left) }; }; var isOnScreen = function (_this, partial) { var t = _this; var box = t.getBoundingClientRect(); var win = { h: window.innerHeight, w: window.innerWidth }; var topEdgeInRange = box.top >= 0 && box.top <= win.h; var bottomEdgeInRange = box.bottom >= 0 && box.bottom <= win.h; var leftEdgeInRange = box.left >= 0 && box.left <= win.w; var rightEdgeInRange = box.right >= 0 && box.right <= win.w; var coverScreenHorizontally = (box.left <= 0 ^ box.right >= win.w); var coverScreenVertically = (box.top <= 0 ^ box.bottom >= win.h); var topEdgeInScreen = topEdgeInRange && (leftEdgeInRange || rightEdgeInRange || coverScreenHorizontally); var bottomEdgeInScreen = bottomEdgeInRange && (leftEdgeInRange || rightEdgeInRange || coverScreenHorizontally); var leftEdgeInScreen = leftEdgeInRange && (topEdgeInRange || bottomEdgeInRange || coverScreenVertically); var rightEdgeInScreen = rightEdgeInRange && (topEdgeInRange || bottomEdgeInRange || coverScreenVertically); var isPartiallyOnScreen = topEdgeInScreen || bottomEdgeInScreen || leftEdgeInScreen || rightEdgeInScreen; var isEntirelyOnScreen = topEdgeInScreen && bottomEdgeInScreen && leftEdgeInScreen && rightEdgeInScreen; return partial ? isPartiallyOnScreen : isEntirelyOnScreen; };</script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="modal fade" id="taylorMade-Modal" style="overflow-y:hidden;background:rgba(247, 246, 246, 0.49); max-width:100%; position:fixed; height:100%; width:100%; overflow:hidden;z-index:3500;" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog" style="width:75%;height:75%;" role="document">
+            <div class="modal-content" style="width:100%; margin:6% 0">
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+
+    <script src="~/js/mapa.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiyGt11-ERdPuSchm1OMyGljb1VDlxpsc&callback=cargarMap"></script>
+    <script src="~/lib/vue/ecuadorItin.js"></script>
+}

@@ -1,0 +1,351 @@
+﻿<link rel="stylesheet" type="text/css" href="~/css/styleAndando.css" />
+<link rel="stylesheet" type="text/css" href="~/font/fontello.css" />
+<link rel="stylesheet" type="text/css" href="~/css/app.css" />
+
+<div class="modal  fade" id="emailBarco" style="overflow-x:hidden;overflow-y:hidden" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-full" style="width:100%;height:100%; margin:0" role="document">
+        <div class="modal-content" style="width:100%;">
+            <div class="modal-header" style="height:60px">
+                <img src="~/images/logos/andando-tours-png-azul-horizontal.png" style="width:100px; height:50px; margin-top:-10px; margin-left:0px" />
+                <button type="button" class="close-form pull-right" v-on:click="closeModalTripEmail" style="margin-top:-40px" onclick="clean();">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="ModaltripEmail" style="height:100%">
+                <div id="modal_dispo" class="modal-body font-modal" style="height:60%;margin:0 0">
+                    <div class="row">
+                        <form>
+                            <div style="margin:10px">
+
+
+
+                                <div class="modal-body  ">
+
+
+
+
+                                    <div class="row">
+
+
+                                        <input type="text" style="display:none" id="idVisit" value="@ViewData["IP"]" />
+
+
+
+
+                                        <p style="display:none" id="statusCode"></p>
+                                        <p style="display:none" id="statusMessage"></p>
+                                        <p id="ipAddress1" style="display:none"></p>
+                                        <p style="display:none" id="countryCode1"></p>
+                                        <p style="display:none" id="countryName"></p>
+                                        <p style="display:none" id="regionName"></p>
+                                        <p style="display:none" id="cityName1"></p>
+                                        <p style="display:none" id="zipCode"></p>
+                                        <p style="display:none" id="latitude"></p>
+
+                                        <p style="display:none" id="longitude"></p>
+
+                                        <script type="text/javascript">
+
+
+                    var HttpClient = function () {
+                        this.get = function (aUrl, aCallback) {
+                            var anHttpRequest = new XMLHttpRequest();
+                            anHttpRequest.onreadystatechange = function () {
+                                if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                                    aCallback(anHttpRequest.responseText);
+                            }
+
+                            anHttpRequest.open("GET", aUrl, true);
+                            anHttpRequest.send(null);
+                        }
+                    }
+
+                    var IPENcontrada = '@ViewData["IP"]';
+
+
+
+                        var theurl = 'https://api.ipinfodb.com/v3/ip-city/?key=37856f4bf8ee174979271811369e39326a7de8bb08f8ca9898ff2a81e364e271&ip=' + IPENcontrada + '&format=json';
+
+
+
+                    var client = new HttpClient();
+                    client.get(theurl, function (response) {
+                        var response1 = JSON.parse(response);
+                        //alert(response);
+                        document.getElementById("statusCode").innerHTML = response1.statusCode;
+                        document.getElementById("statusMessage").innerHTML = response1.statusMessage;
+                        //document.getElementById("ipAddress1").innerHTML = response1.ipAddress1;
+                        document.getElementById("ipAddress1").innerHTML = IPENcontrada;
+                        document.getElementById("countryCode1").innerHTML = response1.countryCode;
+                        document.getElementById("countryName").innerHTML = response1.countryName;
+                        document.getElementById("regionName").innerHTML = response1.regionName;
+                        document.getElementById("cityName1").innerHTML = response1.cityName;
+                        document.getElementById("zipCode").innerHTML = response1.zipCode;
+                        document.getElementById("latitude").innerHTML = response1.latitude;
+                        document.getElementById("longitude").innerHTML = response1.longitude;
+                    });
+                                        </script>
+                                        <div class=" col-md-12 col-sm-12 col-xs-12">
+                                            <h5 id="tituloProd" class="formato-titulo modal-title" style="text-align:center;font-size:20px; color:#0077ba;top:6%"><b id="nombrePaquete">{{PaqIslandEmail.nombreIslandHoppingYPaquete}} - </b> <b id="categoriaPaquete"> {{PaqIslandEmail.categoria}}</b></h5>
+                                        </div>
+                                        <div style="font-size:15px" class=" col-md-6 col-sm-6 col-xs-6">
+                                            <p> <b>E-mail adress <span style="color:red;font-weight:900"> *</span></b></p>
+                                            <p>
+                                                <input style="font-family:Arial" class="form-control" type="email"
+                                                       placeholder="Email@email.com" id="emailTrip" name="emailTrip" />
+                                            </p>
+                                        </div>
+                                        <div style="font-size:15px" class=" col-md-6 col-sm-6 col-xs-6">
+                                            <p>
+                                                <b>Name <span style="color:red;font-weight:900"> *</span></b>
+                                            </p>
+                                            <p>
+                                                <input class="form-control" placeholder="Your Name" autocomplete="off" type="text" id="nombreTrip" name="nombreTrip" />
+                                            </p>
+                                            <input type="text" id="formTrip" class="form-control" name="formTrip" style="display:none" value="Form TripPlanner" />
+                                        </div>
+                                        <div style="font-size:15px" class=" col-md-6 col-sm-6 col-xs-6">
+
+                                            <p>  <b>Your travel dates <span style="color:red;font-weight:900"> *</span></b></p>
+                                            @*<input class="form-control  " placeholder="Start date	" autocomplete="off" type="text" id="startEcItin" name="startEcItin" />*@
+
+                                            <input class="form-control  " placeholder="Start date" autocomplete="off" type="text" id="fechaTrip" name="fechaTrip">
+
+                                        </div>
+                                        <div style="font-size:15px" class=" col-md-6 col-sm-6 col-xs-6">
+                                            <p>   <b>Number of travelers  <span style="color:red;font-weight:900"> *</span></b></p>
+                                            <p>
+                                                <input class="form-control" placeholder="Number of travelers" min="0" type="number" id="travelersEcItin" name="travelersEcItin" />
+                                                <input type="text" id="formTripDeter" class="form-control" name="formTripDeter" style="display:none" value="Titulo" />
+                                            </p>
+                                        </div>
+                                        <div style="font-size:15px" class=" col-md-12 col-sm-12 col-xs-12">
+                                            <p>   <b>More Details </b></p>
+                                            <p>
+                                                <input class="form-control" placeholder="Tell us something more, we need to know about your dream trip" type="text" id="tripdetails" name="trip-details" />
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <center>
+                                        <input id="Button1" style="font-family: Arial;font-size: 16px;padding: 5px 15px;width:200px" class="btn h5button  " type="button" v-on:click="SendleadTrip(PaqIslandEmail.nombreIslandHoppingYPaquete,PaqIslandEmail.categoria,PaqIslandEmail.numeroDias)" value="Submit request" />
+
+                                    </center>
+                                </div>
+                            </div>
+                            <style>
+                                .datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
+                                    font-family: Arial !important;
+                                    font-size: 14px !important;
+                                }
+
+                                .datepicker table tr {
+                                    font-family: Arial !important;
+                                    font-size: 14px !important;
+                                }
+                            </style>
+
+                            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+                            <script>
+
+                                var date = new Date();
+                                date.setDate(date.getDate());
+
+                                $(document).ready(function () {
+
+                                    $("#fechaTrip").datepicker({
+                                        format: 'yyyy/mm/dd',
+                                        autoclose: true,
+                                        startDate: date,
+                                        todayHighlight: true,
+
+                                    }).on('changeDate', function (selected) {
+                                        var minDate2 = new Date(selected.date.valueOf());
+                                        $('#end').datepicker('setStartDate', minDate2);
+                                    });
+
+                                    $("#end").datepicker({
+                                        format: 'yyyy/mm/dd',
+
+                                        startDate: date,
+                                        todayHighlight: '#fechaTrip',
+
+
+                                    }).on('changeDate', function (selected) {
+                                        var minDate = new Date(selected.date.valueOf());
+                                        $('#fechaTrip').datepicker('setEndDate', minDate);
+
+                                    });
+                                });
+
+
+                                $('#sandbox-container .input-daterange').datepicker({
+                                });
+
+                                var userTarget = "";
+                                var exit = false;
+                                $('.input-daterange').datepicker({
+
+                                });
+                                $('.input-daterange').focusin(function (e) {
+                                    userTarget = e.target.name;
+                                });
+                                $('.input-daterange').on('changeDate', function (e) {
+                                    if (exit) return;
+                                    if (e.target.name != userTarget) {
+                                        exit = true;
+                                        $(e.target).datepicker('clearDates');
+                                    }
+                                    exit = false;
+                                });
+
+
+
+
+                                function ValidEmail1() {
+                                    var EmailTxt = document.getElementById("emailTrip");
+                                    if ($(EmailTxt).val().length == 0) {
+                                        EmailTxt.className = "ValidTInyp input-iconoError";
+                                    } else {
+                                        EmailTxt.className = "form-control input-icono";
+                                    }
+                                }
+
+
+                                function ValidNombre1() {
+                                    var NombreTxt = document.getElementById("nombreTrip");
+                                    if ($(NombreTxt).val().length == 0) {
+                                        NombreTxt.className = "ValidTInyp input-iconoError";
+                                    } else {
+                                        NombreTxt.className = "form-control input-icono";
+                                    }
+                                }
+
+
+                                function ValidfechaTripStard1() {
+                                    var TXtstart = document.getElementById("fechaTrip");
+                                    if ($(TXtstart).val().length == 0) {
+                                        TXtstart.className = "ValidTInyp input-iconoError";
+                                    } else {
+                                        TXtstart.className = "form-control input-icono";
+                                    }
+                                }
+
+
+
+
+                                function ValidfechaTripNumeroPax1() {
+                                    var travelers = document.getElementById("travelersEcItin");
+                                    if ($(travelers).val().length == 0) {
+                                        travelers.className = "ValidTInyp input-iconoError";
+                                    } else {
+                                        travelers.className = "form-control input-icono";
+                                    }
+                                }
+                                function ValidarFormulario1() {
+                                    ValidEmail1();
+                                    ValidNombre1();
+                                    ValidfechaTripStard1();
+
+                                    ValidfechaTripNumeroPax1();
+                                }
+                                                                                        //Enviar datos
+                                                                                        //function EnviarFormularioTrip() {
+
+
+
+                                                                                        //    var NombreTxt = document.getElementById("nombreTrip");
+                                                                                        //    var EmailTxt = document.getElementById("emailTrip");
+                                                                                        //    var TXtstart = document.getElementById("fechaTrip");
+
+                                                                                        //    var travelers = document.getElementById("travelersEcItin");
+                                                                                        //    if (($(EmailTxt).val().length == 0) || ($(NombreTxt).val().length == 0) || ($(TXtstart).val().length == 0) || ($(travelers).val().length == 0)) {
+                                                                                        //        ValidarFormulario1();
+                                                                                        //    } else {
+                                                                                        //        AprobarFormularioTrip();
+                                                                                        //    }
+                                                                                        //}
+
+                                                                                        //function AprobarFormularioTrip() {
+                                                                                        //    var Email = document.getElementById('emailTrip').value;
+                                                                                        //    var Name = document.getElementById('nombreTrip').value;
+                                                                                        //    var fechaTripDesde = document.getElementById('fechaTrip').value;
+                                                                                        //    var nombrePaquete = document.getElementById('nombrePaquete').value;
+                                                                                        //    var nombreCategoria = document.getElementById('categoriaPaquete').value;
+                                                                                        //    var NumeroPax = document.getElementById('travelersEcItin').value;
+                                                                                        //    var details = document.getElementById('tripdetails').value;
+                                                                                        //    var formTrip = document.getElementById('formTripDeter').value;
+                                                                                        //    //IP
+                                                                                        //    var IP = document.getElementById('ipAddress1').innerHTML;
+                                                                                        //    var CountryCode = document.getElementById('countryCode1').innerHTML;
+                                                                                        //    var CityName = document.getElementById('cityName1').innerHTML;
+
+                                                                                        //    var TipoTours = "TpoTours";
+
+                                                                                        //    var leadsBoars = new Object();
+                                                                                        //    leadsBoars.NombreBarco = nombrePaquete;
+                                                                                        //    leadsBoars.Itinerario = nombreCategoria;
+                                                                                        //    leadsBoars.Noches = 0;
+                                                                                        //    leadsBoars.SalCodigo = fechaTripDesde;
+                                                                                        //    leadsBoars.Correo = Email;
+                                                                                        //    leadsBoars.Nombre = Name;
+                                                                                        //    leadsBoars.NummeroMax = NumeroPax;
+                                                                                        //    leadsBoars.Observacion = details;
+                                                                                        //    window.location.href = "/Cruises/CreateLeadsBoats?leadsBoatsData="+JSON.stringify(leadsBoars);
+                                                                                        //    //window.location.href = "../thank_you_page/thank_you_page_island_hopping?email=" + Email + "&name=" + Name + "&fechaDesde=" + fechaTripDesde + "&NumeroPax=" + NumeroPax + "&Category=" + Category + "&formTrip=" + formTrip + "&IP=" + IP + "&CountryCode=" + CountryCode + "&CityName=" + CityName + "&TipoTours=" + TipoTours;
+                                                                                        //}
+
+                            </script>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            @* ======================footer================================================================== *@
+            <div class="modal-footer" id="modal_footer">
+                <section style="background-color:#E5E5E5;padding:0 0">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-6 col-md-6">
+                                <p class="footer-inf" style="text-align:left">
+                                    Andando Tours is committed to ensuring your privacy. We dont sell the information provded. <br />
+                                </p>
+                            </div>
+                            <div class="col-xs-6 col-md-6">
+                                <p class="footerTerms" style="text-align:right">
+                                    |&nbsp;&nbsp; <a style="color:#5299D0" href="/terms-and-conditions"> TERMS & CONDITIONS </a> &nbsp;&nbsp;|&nbsp;&nbsp; <a style="color:#5299D0" href="/about-us "> ABOUR US </a>  &nbsp;&nbsp;|
+                                </p>
+                                <p class="footerTermsMovile" style="text-align:right;margin-bottom: 0;">
+                                    <a style="color:#5299D0" href="/terms-and-conditions"> TERMS & CONDITIONS </a> |<br /><a style="color:#5299D0" href="/about-us "> ABOUR US </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="container" style=" padding-top: 10px;">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12">
+                            <div class="col-md-2 col-xs-2">
+                                <img class="img-responsive lazyload" data-src="/images/logos/LATA-2012.png" style="max-height:100px;" alt="LATA-2012" />
+                            </div>
+                            <div class="col-md-2 col-xs-2">
+                                <img class="img-responsive lazyload" data-src="/images/logos/central-de-receptivos.png" style="max-height:100px;" alt="central-de-receptivos" />
+                            </div>
+                            <div class="col-md-2 col-xs-2">
+                                <img class="img-responsive lazyload" data-src="/images/logos/USTOA-Associate-Logo.svg" style="max-height:100px;padding-top: 25%;" alt="logo USTOA" />
+                            </div>
+                            <div class="col-md-2 col-xs-2">
+                                <img class="img-responsive lazyload" data-src="/images/logos/luxLife.svg" style="max-height:100px;" alt="luxLife" />
+                            </div>
+                            <div class="col-md-2 col-xs-2">
+                                <img class="img-responsive lazyload" data-src="/images/logos/logo-ecuador.png" style="max-height:100px;" alt="logo-ecuador" />
+                            </div>
+                            <div class="col-md-2 col-xs-2">
+                                <img class="img-responsive lazyload" data-src="/images/logos/logo-qa.png" style="max-height:100px;" alt="logo-qa" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

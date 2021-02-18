@@ -1,0 +1,251 @@
+﻿@{
+
+    ViewData["Title"] = "itinerary";
+    Layout = null;
+}
+<link rel="stylesheet" type="text/css" href="~/css/app.css" />
+<link rel="stylesheet" type="text/css" href="~/css/styleAndando.css" />
+<link rel="stylesheet" type="text/css" href="~/css/styleAndando03.css" />
+<script src="~/js/validaciones.js"></script>
+<div class="modal  fade" id="itineraryModal" style="overflow:hidden" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-full" style="width:100%;height:100%; margin:0" role="document">
+        <div class="modal-content" style="width:100%; height:100%">
+            <div class="modal-header" style="height:60px">
+                <img   src="~/images/logos/andando-tours-png-azul-horizontal.png" id="logo_modal" style="width:100px; height:50px; margin-left:0px" />
+                <a class="close icon-times-circle" id="close_modal" v-on:click="closeModalcloseModalCabina"  style="color:#5299D0;font-size:30px; " ></a>
+            </div>
+            <div class="" style="height:100%">
+                <div id="modal_dispo" class="modal-body font-modal" style="height:60%;margin:0 0">
+                    <div id="row_cabina" class="row" style="margin-top:10px;">
+                        <div class="container" style=" margin-bottom:15px; border-bottom:1px solid; border-bottom-color:black" v-for="cabina in cabinas">
+                            <div class="row" style="overflow-y:scroll;height: 80%;">
+                                <div class="col-md-12"  v-if="cabinas.length">
+                                    <div class="col-md-4">
+                                        <img class="img-responsive" src="~/images/About/alya-galapagos-double.jpg" title="My Passion" alt="My Passion" style="border:1px solid">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p style="font-size:15px">Nombre de cabina: {{cabina.tipoCabina1}}</p>
+                                        <p style="font-size:15px">Availability: {{cabina.dispo_CabinaTipo1}} passengers</p>
+                                        <p style="font-size:15px">Single supplement: 70%</p>
+                                        <p style="font-size:15px">Discount for triple occupancy: 30%</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p style="font-size:20px; text-align:right;color: #FB2626" v-if="cabina.dispo_CabinaTipo1 <  4 ">
+                                            Only {{cabina.dispo_CabinaTipo1}} spaces left
+                                        </p>
+                                        <p style="font-size:18px; text-align:right; color: black">
+                                            $ {{cabina.cabinaPrecio1}} / person
+                                        </p>
+                                        <div class="dropdown" style="margin-top:30px;box-shadow:none;float:right">
+                                            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" style="font-family:Arial;text-align:left;width:158px;font-size:18px">{{passengSelect}} <span style="margin-left:5px" class="caret"></span></button>
+                                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" style="width:100%; font-size:18px">
+                                                <li role="presentation" v-for="i in cabina.dispo_CabinaTipo1">
+                                                    <a role="menuitem" tabindex="-1" :id="i" v-on:click="checkPassengers" >
+                                                         {{i}} passengers
+                                                     </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12" style="margin-top:30px" v-if="cabina.dispo_CabinaTipo2 >0 ">
+                                    <div class="col-md-4">
+                                        <img class="img-responsive" src="~/images/About/alya-galapagos-double.jpg" title="My Passion" alt="My Passion" style="border:1px solid">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p style="font-size:15px">Nombre de cabina: {{cabina.tipoCabina2}}</p>
+                                        <p style="font-size:15px">Availability: {{cabina.dispo_CabinaTipo2}} passengers</p>
+                                        <p style="font-size:15px">Single supplement: 70%</p>
+                                        <p style="font-size:15px">Discount for triple occupancy: 30%</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p style="font-size:20px; text-align:right;color: #FB2626" v-if="cabina.dispo_CabinaTipo2 <  4 ">
+                                            Only {{cabina.dispo_CabinaTipo2}} spaces left
+                                        </p>
+                                        <p style="font-size:18px; text-align:right; color: black">
+                                            $ {{cabina.cabinaPrecio2}} / person
+                                        </p>
+                                        <div class="dropdown" style="margin-top:30px;box-shadow:none;float:right">
+                                            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" style="font-family:Arial;text-align:left;width:158px;font-size:18px">{{passengSelectCab2}}<span style="margin-left:5px" class="caret"></span></button>
+                                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" style="width:100%; font-size:18px">
+                                                <li role="presentation" v-for="i in cabina.dispo_CabinaTipo2">
+                                                    <a role="menuitem" tabindex="-1" :id="i" v-on:click="checkPassengersCab2">
+                                                        {{i}} passengers
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div id="row_cabina_mobile" class="row" style="margin-top:20px;">
+                        <div class="container" style="margin-bottom:15px; border-bottom:1px solid; border-bottom-color:black">
+                            <div class="col-md-12" style="overflow-y:scroll;">
+                                <div v-for="cabina in cabinas">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-xs-6">
+                                            <img class="img-responsive" src="~/images/About/alya-galapagos-double.jpg" title="My Passion" alt="My Passion" style="border:1px solid; margin-top:5px;height:124px; width:95%">
+                                        </div>
+                                        <div class="col-sm-6 col-xs-6">
+                                            <ul style="margin-top:5px; margin-left:-18px; font-family:Arial; color:black; line-height:.5">
+                                                <li>
+                                                    <p style="font-size:13px;line-height:1;margin-bottom: 8px;">Nombre de cabina : {{cabina.tipoCabina1}}</p>
+                                                </li>
+                                                <li>
+                                                    <p style="font-size:13px;line-height:1;margin-bottom: 8px;">Capacity: {{cabina.dispo_CabinaTipo1}} passengers</p>
+                                                </li>
+                                                <li>
+                                                    <p style="font-size:13px;line-height:1;margin-bottom: 8px;">Single supplement: 70%</p>
+                                                </li>
+                                                <li>
+                                                    <p style="font-size:13px;line-height:1; margin-bottom: 8px;">Discount for triple occupancy: 30%</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6 col-xs-6">
+                                            <div class="dropdown" style="margin-top:15px; width:100px;box-shadow:none">
+                                                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" style="font-family:Arial;text-align:left;width:130px;font-size:13px">- <span style="margin-left:90px" class="caret"></span></button>
+                                                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" style="width:100%; font-size:18px">
+                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Enero</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-xs-6">
+                                            <p style="font-size:13px;margin-bottom:5px; text-align:right;color: #FB2626" v-if="cabina.dispo_CabinaTipo1 <  4 ">
+                                                Only {{cabina.dispo_CabinaTipo1}}  spaces left
+                                            </p>
+                                            <p style="font-size:13px; text-align:right; color: black">
+                                                $ {{cabina.cabinaPrecio1}}/ person
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6 col-xs-6">
+                                            <img class="img-responsive" src="~/images/About/alya-galapagos-double.jpg" title="My Passion" alt="My Passion" style="border:1px solid; margin-top:5px;height:124px; width:95%">
+                                        </div>
+                                        <div class="col-sm-6 col-xs-6">
+                                            <ul style="margin-top:5px; margin-left:-18px; font-family:Arial; color:black; line-height:.5">
+                                                <li>
+                                                    <p style="font-size:13px;line-height:1;margin-bottom: 8px;">Nombre de cabina : {{cabina.tipoCabina1}}</p>
+                                                </li>
+                                                <li>
+                                                    <p style="font-size:13px;line-height:1;margin-bottom: 8px;">Capacity: {{cabina.dispo_CabinaTipo1}} passengers</p>
+                                                </li>
+                                                <li>
+                                                    <p style="font-size:13px;line-height:1;margin-bottom: 8px;">Single supplement: 70%</p>
+                                                </li>
+                                                <li>
+                                                    <p style="font-size:13px;line-height:1; margin-bottom: 8px;">Discount for triple occupancy: 30%</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6 col-xs-6">
+                                            <div class="dropdown" style="margin-top:15px; width:100px;box-shadow:none">
+                                                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" style="font-family:Arial;text-align:left;width:130px;font-size:13px">- <span style="margin-left:90px" class="caret"></span></button>
+                                                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" style="width:100%; font-size:18px">
+                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Enero</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-xs-6">
+                                            <p style="font-size:13px;margin-bottom:5px; text-align:right;color: #FB2626" v-if="cabina.dispo_CabinaTipo1 <  4 ">
+                                                Only {{cabina.dispo_CabinaTipo1}}  spaces left
+                                            </p>
+                                            <p style="font-size:13px; text-align:right; color: black">
+                                                $ {{cabina.cabinaPrecio1}}/ person
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+             
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="container">
+                            <div class="col-md-12">
+                                <div class="col-xs-12 col-sm-12 col-md-2">
+                                    <p class="formato-parrafo" style=" color:#5B5A5A;margin-bottom:0 ">Email address*</p>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-3">
+                                    <input type="text" class="form-control formato-parrafo" name="name" placeholder="Email@email.com " required style="border:.5px solid grey; border-radius:5px;padding:5px 3px" onkeypress="return validarEmail(event)">
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-1" style="margin-bottom:0">
+                                    <p class="formato-parrafo" style="color:#5B5A5A;margin-bottom:0">Name*</p>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-3" >
+                                    <input type="text" class="form-control formato-parrafo" name="name" placeholder="Your name" required style="border:.5px solid grey; border-radius:5px;padding:5px 5px" onkeypress="return soloLetras(event)">
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-3" style="margin-bottom:0">
+                                    <a class="btn h5button" href="../form_taylorMade/sustainable_travelModal" data-toggle="modal" data-target="#exampleModalScrollable" style="font-family:SegoeUI, Segoe UI;padding: 6px 25px;font-size:16px;float: right;" id="help_me_plan6">Submit request</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    @* ======================footer================================================================== *@
+                    <div class="modal-footer" id="modal_footer" style="margin-top: 10px">
+                        <section style="background-color:#E5E5E5;padding:0 0">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xs-6 col-md-6">
+                                        <p class="footer-inf" style="text-align:left">
+                                            Andando Tours is committed to ensuring your privacy. We dont sell the information provded. <br />
+                                            <a style="color:#5299D0" href="#">Privacy Policy. </a>
+
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-6 col-md-6">
+                                        <p class="footerTerms text-parrafoCon" style="text-align:right">
+                                            |&nbsp;&nbsp; TERMS & CONDITIONS &nbsp;&nbsp;|&nbsp;&nbsp;  PRIVACY POLICY  &nbsp;&nbsp;|
+                                        </p>
+                                        <p class="footerTermsMovile" style="text-align:right">
+                                            PRIVACY POLICY <br />TERMS & CONDITIONS
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <div class="container" style=" padding-top: 10px;">
+                            <div class="row">
+                                <div class="logos-wrapper">
+                                    <div>
+                                        <img src="~/images/logos/LATA-2012.png" class="img-responsive " style="max-height:100px;" alt="LATA-2012" />
+                                    </div>
+                                    <div>
+                                        <img src="~/images/logos/logo-ecuador.png" class="img-responsive " style="max-height:100px;" alt="LATA-2012" />
+                                    </div>
+                                    <div>
+                                        <img src="~/images/logos/Galapagos-Islands-Travel-Angermeyer-Cruises.png" class="img-responsive " style="max-height:100px;" alt="LATA-2012" />
+                                    </div>
+                                    <div>
+                                        <img src="~/images/logos/americas.png" class="img-responsive " style="max-height:100px;" alt="LATA-2012" />
+                                    </div>
+                                    <div>
+                                        <img src="~/images/logos/central-de-receptivos.png" class="img-responsive " style="max-height:100px;" alt="LATA-2012" />
+                                    </div>
+                                    <div>
+                                        <img src="~/images/logos/full_color_white_background_copy.jpg" class="img-responsive " style="max-height:100px;" alt="LATA-2012" />
+                                    </div>
+                                    <div>
+                                        <img src="~/images/logos/logo-qa.png" class="img-responsive " style="max-height:100px;" alt="LATA-2012" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,576 @@
+﻿@{
+    Layout = "_Layout";
+
+    var contenido = ViewBag.GetContenidoVista;
+    var imagenItem = ViewBag.GetContenidoMult;
+    var titulo = new List<string>();
+    Dictionary<string, int> uniqueStore = new Dictionary<string, int>();
+    var barcosCards = ViewBag.CardsCruises;
+
+    foreach (var item in ViewBag.GetContenidoVista)
+    {
+
+        if (!uniqueStore.ContainsKey(item.Titulo))
+        {
+            uniqueStore.Add(item.Titulo, 0);
+            titulo.Add(item.Titulo);
+        }
+    }
+
+
+}
+<div class="container--full-width" style="overflow-x:hidden; width:100%" id="CruisesCharter">
+    <div class="item active imgen-carousel">
+        <div class="fondos-imagen">
+            <img class="fondos-imagen" title="@imagenItem[0].NombreImagen" alt="@imagenItem[0].NombreImagen" style="background-image: url('@imagenItem[0].UrlImagen'); position:center; height:100%; width:100%;" />
+        </div>
+        <div class="caption texHeader" style="text-align:center; padding-bottom:40px" role="option">
+            <h1 class="font-x2 font-brush font-carousel" style="text-shadow:1px 1px 1px rgba(0, 0, 0, 0.5)">
+                <strong>@titulo[0]</strong>
+            </h1>
+            <p class="font-x2 " style="font-size:18px;margin-top:0; font-family:'BentonSans',sans-serif">
+                <span>@Html.Raw(contenido[0].Parrafo)</span>
+            </p>
+            <p>
+                <a class="btn h5button" href="#Availability" id="help_me_plan" style="padding: 6px 14px;">Galapagos tours <i class="fas fa-angle-down" style="padding-left:10px"></i></a>
+            </p>
+        </div>
+    </div>
+    <!--================================SUB MENU=========================-->
+    <nav class="navbar  navbarsubmenu page-nav-home" data-toggle="sticky-onscroll" id="navpagina" style="border: 1px solid rgba(0,0,0,.1);">
+        <div class="limit">
+            <nav class="page-nav-anchors" style="text-transform:none; " id="sub-menu-cruises">
+                <ul>
+                    <li>
+                        <a href="#Highlighted"><span>Highlighted Cruises</span> </a>
+                    </li>
+                    <li>
+                        <a href="#Availability"><span>Availability</span></a>
+                    </li>
+                    <li>
+                        <a style="width: 300px" href="#CharterGuide"><span>Charter Guide</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+    <nav class="page-nav page-nav-home" data-toggle="sticky-onscroll" id="navmovil">
+        <div class="limit" style="width:100%">
+            <nav class="page-nav-anchors">
+                <ul style="width:100%">
+                    <li class="activities">
+                        <a class="" href="#Highlighted">  <span style="line-height: 1.4">Highlighted Cruises</span></a>
+                    </li>
+                    <li class="prepare" style="margin-left: 20px;">
+                        <a href="#Availability"><span>Availability</span></a>
+                    </li>
+                    <li class="itineraries" style="margin-left: 10px;">
+                        <a href="#CharterGuide"> <span>Charter Guide</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+    <!--=========================INFO GALAPAGOS ISLAND================================-->
+    <div class="container">
+        <ol class="breadcrumb" style="" itemscope itemtype="http://schema.org/BreadcrumbList">
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a itemprop="item" style="color:#0077ba" href="../../">
+                    <span itemprop="name">Home</span>
+                </a>
+                <meta itemprop="position" content="1" />
+            </li>
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a itemprop="item" style="color:#0077ba" href="../galapagos-cruises">
+                    <span itemprop="name">Galapagos Cruises</span>
+                </a>
+                <meta itemprop="position" content="2" />
+            </li>
+            <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <span itemprop="name">Charters</span>
+                <meta itemprop="position" content="3" />
+            </li>
+        </ol>
+        <div class="row f-15 text-justify textoinfo parrafo" style="font-family:Arial;padding: .4em 1em; background:white;">
+            <h2 class="formato-titulo" style="margin-top:0;margin-bottom:30px"> <b>@titulo[1]</b></h2><div id="Highlighted"></div>
+            @{
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[1])
+                    {
+
+                        <p class="formato-parrafo">
+                            <span>@Html.Raw(item.Parrafo)</span>
+                        </p>
+
+                    }
+                }
+            }
+            <p style="margin-top:35px;margin-bottom:0px">
+                <a class="btn h5button" id="help_me_plan" style="padding-top:6px;padding-bottom:6px " data-toggle="modal" data-target="#ModalInquire" href="/form_taylorMade/form_taylorMade">Help me plan </a>
+            </p>
+        </div>
+    </div>
+    <!--================================CARD CRUCEROS=========================-->
+    <div class="container">
+        <div class="row f-15 text-justify textoinfo parrafo" style="font-family:Arial;padding: .4em 1em; background:white;">
+            <h2 class="formato-titulo" style="margin-top:0;margin-bottom:30px"> <b>@titulo[2]</b></h2>
+            @{
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[2])
+                    {
+                        <p class="formato-parrafo">
+                            <span>@Html.Raw(item.Parrafo)</span>
+                        </p>
+                    }
+                }
+            }
+        </div>
+    </div>
+    <div class="container f-15 text-justify" style="padding: .5em 1em; background:white; text-decoration:none;margin-top: 15px;">
+        <div class="mainland-wrapper ">
+            <div class="mainland">
+                <div class="row  f-15 text-justify textoinfo parrafo" style="font-family:Arial; color: #656b6f !important; line-height:2; background:white;">
+                    @{var i = 0;
+                        foreach (var barco in barcosCards)
+                        {
+                            <div class="col-xs-12 col-sm-6  col-md-4 cardsAndando">
+                                <div class="contenido-app" :id="@barco.IdBarco" v-on:click="select($event)">
+                                    <a href="@barco.BarcoURL" target="_blank" style="text-decoration:none" class="anc-card">
+                                        <div class="mainland-item @(@barco.BarcoEco == true ? "cardEco": "eco")" style="overflow:hidden;text-overflow:ellipsis">
+                                            <div class="mainland-image">
+                                                <img class="lazyload img-portada" data-src="@barco.BarcoImagen" alt="@barco.BarcoNombre">
+                                                <div class=" @(@barco.BarcoEco == true ? "wildAid": "hide")">
+                                                    <h5>Collaborating with WildAid to protect the Islands. </h5>
+                                                </div>
+                                                <div class=" @(@barco.BarcoEco == true ? "cruise-detailsEco" : "cruise-details")">
+                                                    <span>Category: @barco.BarcoCategoriaTipoNombreEn</span>
+                                                </div>
+                                            </div>
+                                            <div class="cruise-info">
+                                                <h3 style="font-family:'Berlin Sans FB'">@barco.BarcoNombre</h3>
+                                                <p>
+                                                    @Regex.Replace(barco.BarcoDescripcionCortaEn, "<.*?>", String.Empty)
+                                                </p>
+                                                <div class="rest-info">
+                                                    <span class="price" style="margin-left:10px; font-family:Arial">Price from: $@barco.BarcoPrecioMin  (@barco.BarcoDiasItinerario Days).</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div> i++;
+                        }
+                    }
+                </div>
+            </div>
+            <a href="../galapagos-cruises" target="_blank" style="color: #398AC9;font-size:16px; padding-left: 10px; font-family: 'BentonSans-Regular'"> View all cruises >></a>
+        </div>
+    </div>
+    <br />
+    <!--================================SECCION FILTROS CRUISES CATEGORIES=========================-->
+    <section style="background-color:#EDEDED">
+        <div class="container" style="padding: 0 3em">
+            <div class="row f-15 text-justify textoinfo parrafo" style="font-family:Arial;margin-bottom: 10px">
+                <h2 class="formato-titulo" style="margin-top:0;"> <b>@titulo[3]</b></h2>
+                @{
+                    foreach (var item in ViewBag.GetContenidoVista)
+                    {
+                        if (item.Titulo == titulo[3])
+                        {
+
+                            <span>@Html.Raw(item.Parrafo)</span>
+                        }
+                    }
+                }
+            </div><div id="Availability"></div>
+            <div class="contenedorHome" id="cruisesFiltersDesktop">
+                <div class="row">
+                    @*<h2 class="formato-titulo" style="padding-left: 5px;text-align:justify;margin: 10px 0px 30px;"> <b>@titulo[3]</b></h2>*@
+                    <div class="col-md-12 " style="margin-bottom:20px;padding-left: 0px;font-family:Arial">
+                        <a class="btn h5button " href="/galapagos-luxury-cruise" target="_blank" id="btnCategories" style="margin-right:20px;font-size: 16px">
+                            Luxury
+                        </a>
+                        <a class="btn h5button " href="/galapagos-cruises/high-end" target="_blank" id="btnCategories" style="margin-right:20px;font-size: 16px">
+                            High-End
+                        </a>
+                        <a class="btn h5button " href="/sailing-cruises" target="_blank" id="btnCategories" style="margin-right:20px;font-size: 16px">
+                            Sailing Cruises
+                        </a>
+                        <a class="btn h5button " href="/galapagos-cruises/mid-range-cruises" target="_blank" id="btnCategories" style="margin-right:20px;font-size: 16px">
+                            Mid-Range
+                        </a>
+                        <a class="btn h5button " href="/cruises/budget" target="_blank" id="btnCategories" style="font-size: 16px">
+                            Budget
+                        </a>
+                    </div>
+                    <p>
+                        <h5>
+                            <a style="font-family:Arial;font-size: 15px;color:#398AC9;text-decoration:none;padding-left: 5px" href="/blog/galapagos-cruise-categories"> View the differentes between categories  >> </a>
+                        </h5>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================================SECCION FILTROS CRUISES CATEGORIES MOBILE=========================-->
+    <section style=" margin-top:0px;padding-bottom:0;background-color:#EDEDED;padding-top:0" id="cruisesFiltersMobile">
+        <div class="contenedorHome container">
+            <div class="row f-15 text-justify textoinfo parrafo" style="font-family:Arial;padding: 0 1.5em">
+                <div class="row" style="overflow-x: auto;white-space: nowrap; font-family:Arial">
+                    <div class="col-md-12" style="margin-bottom:10px;padding-right:10px">
+                        <a class="btn h5button btnCategoriesMobile" href="/galapagos-luxury-cruise" target="_blank" style="margin-right:10px">
+                            Luxury
+                        </a>
+                        <a class="btn h5button btnCategoriesMobile" href="/galapagos-cruises/high-end" target="_blank" style="margin-right:10px">
+                            High-End
+                        </a>
+                        <a class="btn h5button btnCategoriesMobile" href="/sailing-cruises" target="_blank" style="margin-right:10px">
+                            Sailing Cruises
+                        </a>
+                    </div>
+                    <div class="col-md-12" style="padding-right:10px;margin-bottom:10px">
+                        <a class="btn h5button btnCategoriesMobile" href="/galapagos-cruises/mid-range-cruises" target="_blank" style="margin-right:10px;">
+                            Mid-Range
+                        </a>
+                        <a class="btn h5button btnCategoriesMobile" href="/cruises/budget" target="_blank" style="margin-right:10px;">
+                            Budget
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5>
+                            <a style="color:#398AC9;text-decoration:none;font-family:Arial;margin-top:20px" href="/blog/galapagos-cruise-categories"> Differentes between categories >> </a>
+                        </h5>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!--============================================Availability========================================-->
+    <section style="background:white;padding-top:0">
+        <div class="container">
+            @*<input type="hidden" id="idBarco" name="idBarco" value="@barcos[0].IdBarco">*@
+            <div class="container" style="padding:0">
+                <div class="col-md-6 col-xs-12" style="padding:0">
+                    <h2 class="formato-titulo"><b>@titulo[4]</b></h2>
+                    <p class="formato-parrafo">Available Departure</p>
+                </div>
+                <div class="col-md-6 col-xs-12" style="padding:0">
+                    <div class="formato-parrafo" style="font-family:Arial;color: black !important; background:white;">
+                        <div class="dropdown dropdownDate" id="dispo_dropdown1">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" style="font-family:Arial; color:#398AC9;font-size:18px" v-html="dateTrip"><span style="margin-left:17px" class="caret"></span></button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" style="width:260px; font-size:18px; border:solid 1px grey;z-index: 4;">
+                                <li>
+                                    <div class="input-group input-daterange">
+                                        <div class="row">
+                                            <div class="col-md-6" style="padding-right:0px; width:260px">
+                                                <div class="input-group dates datepickerFilter" data-provide="datepicker-inline" id="datepickerProduct" style="padding-left:0px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 col-xs-6">
+                                                <button class="h5button" id="btnResettleEs" style="margin-top:-8px;margin-left:8px;font-family:Arial">
+                                                </button>
+                                            </div>
+                                            <div class="col-md-6 col-xs-6">
+                                                <button class="apply applyDateProduct" style="font-family:Arial" v-on:click="applyDate">
+                                                    Apply
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div><br />
+            <div class="col-md-12 style-scroll" style="overflow-y:scroll; padding:0; overflow-x:hidden; max-height:415px">
+                <div v-if="filDispoBarcos.length">
+                    <div class="container" style="margin-top:15px; border-bottom:groove;font-family:Arial; border-width:0.5px; border-bottom-color:rgba(0, 0, 0, 0.24)" v-for="(dispon,index) in barcoFiltroFecha" v-if="index<=limitDisponibilidad">
+                        <div class="col-xs-6 col-md-2 col-lg-2" style="text-align:center; line-height:0.6">
+                            <p style="color:black;font-size:16px;line-height:1em">{{dispon.salFechaSalida | format_date}}<p>
+                            <p style="font-size:14px;">{{dispon.noches}} Days<p>
+                        </div>
+                        <div class="col-xs-6 col-md-2 col-lg-2" style="text-align:center; line-height:0.6">
+                            <p style="color:black;font-size:18px;line-height:1em">{{dispon.barcoNombre}}<p>
+                            <p style="font-size:14px; color:#398AC9;line-height: 1em">{{dispon.itinNombre}}<p>
+                        </div>
+                        <div class="col-xs-6 col-md-2 col-lg-2" style="text-align:center; line-height:0.6" id="precio" v-if="dispon.idBarco== 85 || dispon.idBarco==73 ">
+                            <p style="color:black;font-size:18px">{{dispon.totalDisponibilidad}}<p>
+                            <p style="font-size:14px;">Availability<p>
+                        </div>
+                        <div class="col-xs-6 col-md-2 col-lg-2" style="text-align:center; line-height:0.6" v-else>
+                            <p style="color:black;font-size:18px">{{dispon.salDispoTotalOtrosBarcos}}<p>
+                            <p style="font-size:14px;">Availability<p>
+                        </div>
+                        <div class="col-xs-6 col-md-2 col-lg-2" style="text-align:center; line-height:0.6">
+                            <p style="color:black;font-size:18px">$ {{dispon.cabinaPrecio1}}<p>
+                            <p style="font-size:14px">From<p>
+                        </div>
+                        <div class="col-xs-12 col-md-4 col-lg-4" style="text-align:center; border-right:none; line-height:0.6">
+                            <p><a class="btn buttonRequest" :id="dispon.idSalida" v-on:click="openTailorMadeCharter" style="font-family:SegoeUI, Segoe UI; "><b>Request Booking</b></a><p>
+                            <p style="font-size:14px; color:#F29F67;margin-top:-6px">More Information<p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" v-else>
+                    <span v-html="messagLoadDispo"></span>
+                </div>
+            </div>
+            <partial name="~/Views/Forms/formCharters/TaylorMadeCharter.cshtml" />
+        </div><div id="CharterGuide"></div>
+    </section>
+    <!--================================INFO CRUCEROS =========================-->
+    <div class="container" id="sailingcruise">
+        <div class="row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em;margin-bottom: 0; background:white;">
+            <h2 class="formato-titulo" style="margin-bottom: 25px"> <b>@titulo[5]</b></h2>
+            @{var cont = 0;
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[5])
+                    {
+
+                        <span>@Html.Raw(item.Parrafo)</span>
+                        cont++;
+                        if (cont == 1)
+                        { break; }
+                    }
+                }
+            }
+        </div>
+        <div class=" row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em; background:white;margin-top:0;margin-bottom:0">
+            <div class="col-md-6" style="padding: 0px 0;">
+                <div class="box" id="textoDerecha">
+                    @{cont = 0;
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[5])
+                            {
+
+                                cont++;
+                                if (cont == 2)
+                                {
+                                    <span>@Html.Raw(item.Parrafo)</span>
+                                }
+                            }
+                        }
+                    }
+                </div>
+            </div>
+            <div class="col-md-6" style="padding: 0px 0;">
+                <div class="box" id="textoIzquierda">
+                    @{cont = 0;
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[5])
+                            {
+
+                                cont++;
+                                if (cont == 3)
+                                {
+                                    <span>@Html.Raw(item.Parrafo)</span>
+                                }
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--=========================INFO GALAPAGOS ISLAND================================-->
+    <div class="container" id="sailingcruise" style="margin-bottom:20px">
+        <div class="row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em;margin-bottom: 0; background:white;">
+            <h2 class="formato-titulo" style="margin-bottom: 25px"> <b>@titulo[6]</b></h2>
+        </div>
+        <div class=" row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em; background:white;margin-top:0;margin-bottom:0">
+            <div class="col-md-6" style="padding: 0px 0;">
+                <div class="box" id="textoDerecha">
+                    @{cont = 0;
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[6])
+                            {
+
+                                cont++;
+                                if (cont == 1)
+                                {
+                                    <span>@Html.Raw(item.Parrafo)</span>
+                                }
+                            }
+                        }
+                    }
+                </div>
+            </div>
+            <div class="col-md-6" style="padding: 0px 0;">
+                <div class="box" id="textoIzquierda">
+                    @{cont = 0;
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[6])
+                            {
+
+                                cont++;
+                                if (cont == 2)
+                                {
+                                    <span>@Html.Raw(item.Parrafo)</span>
+                                }
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--================================SECCION IMG INF========================-->
+    <div class="container seccionItinerario seccionItinerarioImg" style="padding-bottom:0">
+        <div class="row">
+            <div class="col-md-6 " style="padding-left: 10px">
+                <img class="lazyload img-responsive" data-src="@imagenItem[1].UrlImagen" title="@imagenItem[1].NombreImagen" alt="@imagenItem[1].NombreImagen" style="margin:0;width:100%" />
+                <div class="caption ">
+                </div>
+            </div>
+            <div class="col-md-6 itinerarioDaily">
+                <div class="row f-15 text-justify textoinfo parrafoDailyTour" style="font-family:Arial;padding: 0 1em; color:#747475  !important; margin-top:-5px;line-height:2;">
+                    <h2 class="formato-titulo"> <b>@titulo[7]</b></h2>
+                    @{
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[7])
+                            {
+                                @Html.Raw(item.Parrafo)
+                            }
+                        }
+                    }
+                    <table style="margin-left:-13px;width: 110%">
+                        <tr>
+                            <td style="border:none">
+                                <div class="boxdiv1">
+                                    <a class="btn h5button daily-boton" href="https://www.visitgalapagos.travel/back/cruises/cruising_guide.html" data-toggle="modal" data-target="#taylorMade-Modal" style="margin-right:10px;color:white; background:#398AC9">
+                                        Download Guide
+                                    </a>
+                                    <a class="btn h5button daily-boton" href="/galapagos-cruises" style="color:#398AC9; background:#fff; border-color:#398AC9;border: 1px solid #398AC9;">
+                                        View  all cruises
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--================================INFO CRUCEROS CHARTER =========================-->
+    <div class="container" id="sailingcruise" style="overflow-y:hidden">
+        <div class="row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em;margin-bottom: 0; background:white;">
+            <h2 class="formato-titulo" style="margin-bottom: 25px"> <b>@titulo[8]</b></h2>
+        </div>
+        <div class=" row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em; background:white;margin-top:0;margin-bottom:0">
+            <div class="col-md-6" style="padding: 0px 0;">
+                <div class="box" id="textoDerecha">
+                    @{cont = 0;
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[8])
+                            {
+
+                                cont++;
+                                if (cont == 1)
+                                {
+                                    <span>@Html.Raw(item.Parrafo)</span>
+                                }
+                            }
+                        }
+                    }
+                </div>
+            </div>
+            <div class="col-md-6" style="padding: 0px 0;">
+                <div class="box" id="textoIzquierda">
+                    @{cont = 0;
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[8])
+                            {
+
+                                cont++;
+                                if (cont == 2)
+                                {
+                                    <span>@Html.Raw(item.Parrafo)</span>
+                                }
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        <div class=" row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em;background:white; margin-top:0;margin-bottom:0">
+            <div class="col-md-6" style="padding: 0px 0;">
+                <div class="box" id="textoDerecha">
+                    @{cont = 0;
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[8])
+                            {
+
+                                cont++;
+                                if (cont == 3)
+                                {
+                                    <span>@Html.Raw(item.Parrafo)</span>
+                                }
+                            }
+                        }
+                    }
+                </div>
+            </div>
+            <div class="col-md-6" style="padding: 0px 0;">
+                <div class="box" id="textoIzquierda">
+                    @{cont = 0;
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[8])
+                            {
+
+                                cont++;
+                                if (cont == 4)
+                                {
+                                    <span>@Html.Raw(item.Parrafo)</span>
+                                }
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bs-example" style="padding:0">
+    <!-- Modal Help me Plan HTML -->
+    <div class="modal fade" id="taylorMade-Modal" style="max-width:100%;overflow-y:hidden; padding:0 " tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content" style="width:100%; height:100%">
+                <div class="modal-header" style="height:60px">
+                    <img src="~/images/logos/andando-tours-png-azul-horizontal.png" style="width:100px; height:50px; margin-top:-10px; margin-left:0px" />
+                    @*<h4  style="color:rgba(20,104,164,.8);margin-top: -34px;text-align: center;font-family: Arial">Download our Cruising Guide</h4>*@
+                    <button type="button" class="close-form pull-right" data-dismiss="modal" style="margin-top:-40px" onclick="clean();">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <iframe id="lf-iframe-embed-code-74271" style="min-width: 100% !important;width: 100px !important;*width: 100% !important; border:none;min-height: 429px;" src="https://app.leadformly.com/get_last_form_url/74271" scrolling="no" frameborder="0"></iframe>
+                    <script type="text/javascript">var ifr = document.getElementById("lf-iframe-embed-code-74271"); if (window.location.href && window.location.href.indexOf('?') > -1) { var get = window.location.href.substr(window.location.href.indexOf('?') + 1); if (ifr && get.length > 0) { var src = ifr.src; src = src.indexOf('?') > -1 ? src + '&' + get : src + '?' + get; ifr.src = src; } } var iframePosition = function (e) { var n = ifr.getBoundingClientRect().top + pageYOffset; ifr.contentWindow.postMessage(JSON.stringify({ type: 'iframeTop', value1: n }), '*'); }, onTestScroll = function (e) { window.pageYOffset || document.documentElement.scrollTop; var n = ifr.getBoundingClientRect(); ifr.contentWindow.postMessage(JSON.stringify({ type: 'windowTop', value2: n.y || n.top, value3: window.innerHeight }), '*'); }; window.addEventListener ? (window.addEventListener('scroll', onTestScroll, !1), window.addEventListener('load', onTestScroll, !1), window.addEventListener('scroll', iframePosition, !1), window.addEventListener('load', iframePosition, !1), window.addEventListener('DOMContentLoaded', iframePosition, !1)) : window.attachEvent && (window.addEventListener('DOMContentLoaded', iframePosition), window.attachEvent('scroll', onTestScroll), window.addEventListener('load', onTestScroll)); window.handleIFrameMessage = function (e) { if (e.data.length > 0) { try { var args = JSON.parse(e.data); var iframe = document.getElementById("lf-iframe-embed-code-74271"); var formIds = ["74271"]; if (formIds.indexOf(args.formID) !== -1) { switch (args.case) { case 'redirectTo': window.open(decodeURI(args.redirectToURL), '_self'); ifr.src = ifr.src; break; case 'resizeIframe': iframe.width = args.scrollWidth + 'px', iframe.height = args.scrollHeight + 'px'; break; case 'stepChanged': var elCoords = getCoords(ifr), isFormOnScreen = isOnScreen(ifr, false); if (!isFormOnScreen) { window.scrollTo(0, elCoords.top); } break; case 'scrollTo': window.scrollTo({ top: args.scrollToPosition }); break; } } if ('contentWindow' in iframe && 'postMessage' in iframe.contentWindow) { var urls = { 'docurl': encodeURIComponent(document.URL), 'referrer': encodeURIComponent(document.referrer), }; iframe.contentWindow.postMessage(JSON.stringify({ 'type': 'urls', 'value': urls }), '*'); } } catch (e) { } } }; if (window.addEventListener) { window.addEventListener('message', handleIFrameMessage, false); } else if (window.attachEvent) { window.attachEvent('onmessage', handleIFrameMessage); } var getCoords = function (elem) { var box = elem.getBoundingClientRect(); var body = document.body; var docEl = document.documentElement; var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop; var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft; var clientTop = docEl.clientTop || body.clientTop || 0; var clientLeft = docEl.clientLeft || body.clientLeft || 0; var top = box.top + scrollTop - clientTop; var left = box.left + scrollLeft - clientLeft; return { top: Math.round(top), left: Math.round(left) }; }; var isOnScreen = function (_this, partial) { var t = _this; var box = t.getBoundingClientRect(); var win = { h: window.innerHeight, w: window.innerWidth }; var topEdgeInRange = box.top >= 0 && box.top <= win.h; var bottomEdgeInRange = box.bottom >= 0 && box.bottom <= win.h; var leftEdgeInRange = box.left >= 0 && box.left <= win.w; var rightEdgeInRange = box.right >= 0 && box.right <= win.w; var coverScreenHorizontally = (box.left <= 0 ^ box.right >= win.w); var coverScreenVertically = (box.top <= 0 ^ box.bottom >= win.h); var topEdgeInScreen = topEdgeInRange && (leftEdgeInRange || rightEdgeInRange || coverScreenHorizontally); var bottomEdgeInScreen = bottomEdgeInRange && (leftEdgeInRange || rightEdgeInRange || coverScreenHorizontally); var leftEdgeInScreen = leftEdgeInRange && (topEdgeInRange || bottomEdgeInRange || coverScreenVertically); var rightEdgeInScreen = rightEdgeInRange && (topEdgeInRange || bottomEdgeInRange || coverScreenVertically); var isPartiallyOnScreen = topEdgeInScreen || bottomEdgeInScreen || leftEdgeInScreen || rightEdgeInScreen; var isEntirelyOnScreen = topEdgeInScreen && bottomEdgeInScreen && leftEdgeInScreen && rightEdgeInScreen; return partial ? isPartiallyOnScreen : isEntirelyOnScreen; };</script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+    <script src="~/lib/vue/CruisesCharter.js"></script>
+}
+

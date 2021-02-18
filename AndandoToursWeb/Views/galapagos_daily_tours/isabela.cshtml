@@ -1,0 +1,636 @@
+﻿@{
+    var ItemDaily = ViewBag.GetContenidoVista;
+    var imgDailym = ViewBag.GetContenidoMult;
+    var titulo = new List<string>();
+    Dictionary<string, int> uniqueStore = new Dictionary<string, int>();
+    var breadcrumb = ViewBag.breadcrumb;
+    var breadcrumbFinal = ViewBag.breadcrumbFinal;
+    var urlBread = "";
+    if(breadcrumb == "San Cristobal"){
+        urlBread = "/tours/san-cristobal";
+    }
+    if(breadcrumb == "Santa Cruz"){
+        urlBread = "/tours/santa-cruz";
+    }
+    if(breadcrumb == "Isabela"){
+        urlBread = "/tours/isabela";
+    }
+    foreach (var item in ViewBag.GetContenidoVista)
+    {
+
+        if (!uniqueStore.ContainsKey(item.Titulo))
+        {
+            uniqueStore.Add(item.Titulo, 0);
+            titulo.Add(item.Titulo);
+        }
+    }
+    var comp = titulo[titulo.Count - 1];
+    //quitar tags de product relacionadas
+    var textoCms = ItemDaily[12].Parrafo;
+    string[] textRecomendado = textoCms.Split('*');
+    var textoCms2 = ItemDaily[13].Parrafo;
+    string[] textRecomendado2 = textoCms2.Split('*');
+    var IslasRecomendadas = new List<string>();
+    var IslasRecomendadas2 = new List<string>();
+
+    foreach (var item in textRecomendado)
+    {
+        IslasRecomendadas.Add(Regex.Replace(item, "<.*?>", String.Empty).Replace("\n", "").Replace("&nbsp;", "").Replace("&ndash;", ""));
+    }
+    foreach (var item in textRecomendado2)
+    {
+        IslasRecomendadas2.Add(Regex.Replace(item, "<.*?>", String.Empty).Replace("\n", "").Replace("&nbsp;", "").Replace("&ndash;", ""));
+    }
+}
+@*<script src="~/js/DailyTours.js"></script>*@
+<link rel="stylesheet" type="text/css" href="~/font/fontello.css" />
+<div id="dayliModal" style="font-family: Arial;overflow-x:hidden">
+    <div style="overflow:hidden">
+        <div class="item active imgen-carousel">
+            <div class="fondos-imagen" style="background-image:url(@imgDailym[0].UrlImagen);">
+                <img alt="@imgDailym[0].NombreImagen" class="fondos-imagen" style="background-image:url('@imgDailym[0].UrlImagen'); position:center; height:100%; width:100%;" />
+            </div>
+            <div class="caption texHeader" style="text-align:center; padding-bottom:40px" role="option">
+                <h1 class="font-x2 font-brush font-carousel" style="text-shadow:1px 1px 1px rgba(0, 0, 0, 0.5);margin-top:2px">
+                    <strong>@titulo[0]</strong>
+                </h1>
+                <p class="font-x2 " style="font-size:18px; margin-top:0; font-family:'BentonSans',sans-serif">
+                    @Html.Raw(ItemDaily[0].Parrafo)
+                </p>
+                    <p >
+                        <a id="help_me_plan" class="btn h5button" style="text-decoration:none;padding: 6px 14px;font-size:18px; font-family:'Noto Sans',sans-serif; z-index:50000" v-on:click="getDayliForm">
+                            Book Now <i class="fas fa-angle-down" style="padding-left:10px"></i>
+                        </a>
+                    </p>
+            </div>
+        </div>
+        <!--======================== FIXED SUBMENU=====================-->
+        <nav class="navbar  navbarsubmenu page-nav-home" data-toggle="sticky-onscroll" id="navpagina" style="background-color:white; font-family: Arial; border: 1px solid rgba(0,0,0,.1);border-top:0px;">
+            <div class="limit" style="max-width:100%">
+                <nav class="page-nav-anchors" style="text-transform:none;margin:0" id="sub-menu-productos">
+                    <table class="submenu">
+                        <tr>
+                            <td style="border:none;width:100px; margin:0 0;">
+                                <a id="sub-menu-product" class="nav-item nav-link " style="text-decoration:none; color:#0077ba; width:100px; font-size:15px" href="#Overview"><span>Overview</span> </a>
+                            </td>
+                            <td style="border:none;width:100px;margin:0 0;">
+                                <a id="sub-menu-product" class="nav-item nav-link  " style="text-decoration:none; color:#0077ba; width:100px;  font-size:15px" href="#Inclusions"><span>Inclusions</span></a>
+                            </td>
+                            <td style="border:none;width:100px;margin:0 0;">
+                                <a id="sub-menu-product" class="nav-item nav-link  " style="text-decoration:none; color:#0077ba; width:100px; font-size:15px " href="#Itineraries"><span>Itinerary</span></a>
+                            </td>
+                            <td style="border:none;width:100px;margin:0 0;">
+                                <a id="sub-menu-product" class="nav-item nav-link  " style="text-decoration:none; color:#0077ba; width:100px; font-size:15px " href="#relatedProducts"><span>Related Products</span></a>
+                            </td>
+                            <td style="border:none;background-color:#0077ba;width:100%;padding:11px 15px">
+                                <p style="color:white;font-size:15px;text-align:left; margin:0px 0px 0px 25px ">
+                                    <b>Price $</b><b id="precioDaily">@ViewBag.price</b> &nbsp;
+                                    <a class="btn h5button-nav" style="font-family:SegoeUI, Segoe UI; padding:8px 25px;margin:0; " v-on:click="getDayliForm" id="help_me_plan2">INQUIRE</a>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </nav>
+            </div>
+        </nav>
+        <!--======================== FIXED SUBMENU MOvil=====================-->
+        <nav id="navmovil" class=" page-nav page-nav-anchors" data-toggle="sticky-onscroll" style="width:100%; ">
+            <table style="border:none;width:100%;height:100%">
+                <tr>
+                    <td style="border:none;width:50%; margin:0 0;padding:5px">
+                        <select class="botonFiltro" onchange="location = this.value;" style="font-size:17px;font-family: Arial; width:100%;text-align:center;color:#4A70E2; background-color:white; padding:0;">
+                            <option value="#Overview">Overview</option>
+                            <option value="#Inclusions">Inclusions</option>
+                            <option value="#Itineraries">Itinerary</option>
+                            <option value="#relatedProducts">Related Products</option>
+                        </select>
+                    </td>
+                    <td style="border:none;background-color:#CCCCCC;width:100%;padding:8px 15px">
+                        <center>
+                            <p style="color:black;margin:0" class="">
+                                From <span class="pr"><b>$ @ViewBag.price</b></span>
+                            </p>
+                        </center>
+                    </td>
+                </tr>
+            </table>
+        </nav>
+        <section id="Overview" style="background-color:white"></section>
+        <!--======================CONTENIDO=============================-->
+        <div class="container" style="animation: slideFadeUp 1s ease backwards;animation-delay: 1.3s;">
+            <ol class="breadcrumb" style="" itemscope itemtype="http://schema.org/BreadcrumbList">
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a itemprop="item" style="color:#0077ba" href="../../">
+                        <span itemprop="name">Home</span>
+                    </a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a itemprop="item" style="color:#0077ba" href="/galapagos-daily-tours">
+                        <span itemprop="name"> Galapagos Daily Tours</span>
+                    </a>
+                    <meta itemprop="position" content="2" />
+                </li>
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a itemprop="item" style="color:#0077ba" href="@urlBread">
+                        <span itemprop="name">@ViewBag.breadcrumb</span>
+                    </a>
+                    <meta itemprop="position" content="3" />
+                </li>
+                <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span itemprop="name">@ViewBag.breadcrumbFinal</span>
+                    <meta itemprop="position" content="4" />
+                </li>
+            </ol>
+            <div class="contenedorHome f-15">
+                <section style="background-color:white">
+                    <h2 class="formato-titulo" style="margin-top:0" id="titulo-daily-prod">
+                        <strong><br />@titulo[1]</strong>
+                    </h2>
+                    @{var cont = 0;
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[1])
+                            {
+                                <p class="textoinfo parrafo formato-parrafo">
+                                    <span>@Html.Raw(item.Parrafo)</span>
+                                </p>
+                                cont++;
+                                if (cont == 1)
+                                { break; }
+                            }
+                        }
+                    }
+                </section>
+                <!--======================ICONOS DE OPERACIONES==================================-->
+                <div id="isabela-operations" class="container">
+                    <table class="trip-info ic" style="font-size:15px;font-family:'BentonSans',sans-serif; text-align:center;width:100%">
+                        <tr>
+                            <td style="border-left:none; border-right:none">
+                                <div class="box" style="padding:0 25px;font-family:Arial;display:inline-flex ">
+                                    <h4 class="text-bullet icon-calendar" style="font-family:Arial,'Font Awesome 5 Pro'; font-weight:600;font-size:29px;padding:6px;"></h4>
+                                    @{int contparrafo = 0;
+                                        foreach (var item in ViewBag.GetContenidoVista)
+                                        {
+                                            if (item.Titulo == titulo[1])
+                                            {
+
+                                                contparrafo++;
+                                                if (contparrafo == 2)
+                                                {
+                                                    <span>@Html.Raw(item.Parrafo)</span>
+                                                }
+                                            }
+                                        }
+                                    }
+                                </div>
+                            </td>
+                            <td style="border-left:none; border-right:none">
+                                <div class="box" style="padding:0 25px;font-family:Arial;display:inline-flex ">
+                                    <h4 class="text-bullet icon-location" style="font-weight:600;font-family:Arial,'Font Awesome 5 Pro';font-size: 22px;padding: 10px;"></h4>
+                                    @{contparrafo = 0;
+                                        foreach (var item in ViewBag.GetContenidoVista)
+                                        {
+                                            if (item.Titulo == titulo[1])
+                                            {
+
+                                                contparrafo++;
+                                                if (contparrafo == 3)
+                                                {
+                                                    <span>@Html.Raw(item.Parrafo)</span>
+                                                }
+                                            }
+                                        }
+                                    }
+                                </div>
+                            </td>
+                            <td style="border-left:none; border-right:none">
+                                <div class="box" style="padding:25px;font-family:Arial;display:inline-flex ">
+                                    <h4 class="text-bullet icon-clock" style="font-family:Arial,'Font Awesome 5 Pro';font-size: 22px;padding: 10px;"></h4>
+                                    @{contparrafo = 0;
+                                        foreach (var item in ViewBag.GetContenidoVista)
+                                        {
+                                            if (item.Titulo == titulo[1])
+                                            {
+
+                                                contparrafo++;
+                                                if (contparrafo == 4)
+                                                {
+                                                    <span>@Html.Raw(item.Parrafo)</span>
+                                                }
+                                            }
+                                        }
+                                    }
+                                </div>
+                            </td>
+                            <td style="border-left:none; border-right:none">
+                                <div class="box" style="padding:0 25px;font-family:Arial;display:inline-flex ">
+                                    <h4 class="text-bullet icon-users" style="font-family:Arial,'Font Awesome 5 Pro';font-size:22px;padding: 10px;">
+                                    </h4>
+                                    @{contparrafo = 0;
+                                        foreach (var item in ViewBag.GetContenidoVista)
+                                        {
+                                            if (item.Titulo == titulo[1])
+                                            {
+
+                                                contparrafo++;
+                                                if (contparrafo == 5)
+                                                {
+                                                    <span>@Html.Raw(item.Parrafo)</span>
+                                                }
+                                            }
+                                        }
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!------------mobile---------->
+                <div id="isabela-operations-mob" style="font-size:15px;font-family:Arial ">
+                    <hr style="margin:0" />
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+                            <div class="box" style="text-align:center">
+                                <h4 class="text-bullet icon-calendar" style="font-family:Arial,'Font Awesome 5 Pro';font-weight:600;font-size: 31px;"></h4>
+                                @{int contparrafo2 = 0;
+                                    foreach (var item in ViewBag.GetContenidoVista)
+                                    {
+                                        if (item.Titulo == titulo[1])
+                                        {
+
+                                            contparrafo2++;
+                                            if (contparrafo2 == 2)
+                                            {
+                                                <span>@Html.Raw(item.Parrafo)</span>
+                                            }
+                                        }
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6">
+                            <div class="box" style="text-align:center">
+                                <h4 class="text-bullet icon-location" style="font-weight:600;font-family:Arial,'Font Awesome 5 Pro';font-size:31px;"></h4>
+                                @{contparrafo2 = 0;
+                                    foreach (var item in ViewBag.GetContenidoVista)
+                                    {
+                                        if (item.Titulo == titulo[1])
+                                        {
+
+                                            contparrafo2++;
+                                            if (contparrafo2 == 3)
+                                            {
+                                                <span>@Html.Raw(item.Parrafo)</span>
+                                            }
+                                        }
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <br><br>
+                        <div class="col-xs-6 col-sm-6">
+                            <div class="box" style="text-align:center">
+                                <h4 class="text-bullet icon-clock" style="font-weight:600;font-family:Arial,'Font Awesome 5 Pro';font-size: 22px;padding: 10px;"></h4>
+                                @{contparrafo2 = 0;
+                                    foreach (var item in ViewBag.GetContenidoVista)
+                                    {
+                                        if (item.Titulo == titulo[1])
+                                        {
+
+                                            contparrafo2++;
+                                            if (contparrafo2 == 4)
+                                            {
+                                                <span>@Html.Raw(item.Parrafo)</span>
+                                            }
+                                        }
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6">
+                            <div class="box" style="text-align:center">
+                                <h4 class="text-bullet icon-users" style="font-weight:600;font-family:Arial,'Font Awesome 5 Pro';font-size: 22px;padding: 10px;"></h4>
+                                @{contparrafo2 = 0;
+                                    foreach (var item in ViewBag.GetContenidoVista)
+                                    {
+                                        if (item.Titulo == titulo[1])
+                                        {
+
+                                            contparrafo2++;
+                                            if (contparrafo2 == 5)
+                                            {
+                                                <span>@Html.Raw(item.Parrafo)</span>
+                                            }
+                                        }
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin:0!important" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container listDailyTours" style="overflow:hidden">
+        <div class="contenedorHome" style="animation: slideFadeUp 1s ease backwards;animation-delay: 1.3s;">
+            <section id="Itineraries" style="background-color:white"></section>
+            <h2 class="formato-titulo" id="titulo-daily-prod">
+                <strong>@titulo[2]</strong>
+            </h2>
+            @{
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[2])
+                    {
+                        <span>@Html.Raw(item.Parrafo)</span>
+                    }
+                }
+            }
+        </div>
+    </div>
+    <!--======================SLIDE=============================-->
+    <section style="background-color:#EFF0F3;font-size:17px">
+        <div class="container">
+            <h2 class="formato-titulo" style="margin-bottom:30px">
+                <b>@titulo[3]</b>
+            </h2>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="8000">
+                <div class="carousel-inner" role="listbox">
+                    @{ if (@imgDailym[3].idVista == 2029)
+                        {
+                            <div class="item active imgen-carousel">
+                                <div class="fondos-imagen lazyload" style="background-image:url('@imgDailym[1].UrlImagen')">
+                                </div>
+                                <div class="carousel-caption" style="padding-bottom:45px; " role="option">
+                                    <span class="font-x2 " style="font-size:18px; font-family:'BentonSans',sans-serif">
+
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="item imgen-carousel">
+                                <div class="fondos-imagen lazyload" style="background-image:url('@imgDailym[2].UrlImagen');"></div>
+                                <div class="carousel-caption" style="padding-bottom:45px; " role="option">
+                                    <span class="font-x2 " style="font-size:18px; font-family:'BentonSans',sans-serif">
+
+                                    </span>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            if (@imgDailym[3].idVista == 2030 || @imgDailym[3].idVista == 2032)
+                            {
+                                <div class="item active imgen-carousel">
+                                    <div class="fondos-imagen lazyload" style="background-image:url('@imgDailym[1].UrlImagen')">
+                                    </div>
+                                    <div class="carousel-caption" style="padding-bottom:45px; " role="option">
+                                        <span class="font-x2 " style="font-size:18px; font-family:'BentonSans',sans-serif">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="item imgen-carousel">
+                                    <div class="fondos-imagen lazyload" style="background-image:url('@imgDailym[2].UrlImagen');"></div>
+                                    <div class="carousel-caption" style="padding-bottom:45px; " role="option">
+                                        <span class="font-x2 " style="font-size:18px; font-family:'BentonSans',sans-serif">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="item imgen-carousel">
+                                    <div class="fondos-imagen lazyload" style="background-image:url(@imgDailym[3].UrlImagen);">
+                                    </div>
+                                    <div class="carousel-caption" style="padding-bottom:50px;" role="option">
+                                        <span class="font-x2 " style="font-size:18px; font-family:'Noto Sans',sans-serif">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="item imgen-carousel">
+                                    <div class="fondos-imagen lazyload" style="background-image:url(@imgDailym[4].UrlImagen);">
+                                    </div>
+                                    <div class="carousel-caption" style="padding-bottom:50px;" role="option">
+                                        <span class="font-x2 " style="font-size:18px; font-family:'Noto Sans',sans-serif">
+
+                                        </span>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="item active imgen-carousel">
+                                    <div class="fondos-imagen lazyload" style="background-image:url('@imgDailym[1].UrlImagen')">
+                                    </div>
+                                    <div class="carousel-caption" style="padding-bottom:45px; " role="option">
+                                        <span class="font-x2 " style="font-size:18px; font-family:'BentonSans',sans-serif">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="item imgen-carousel">
+                                    <div class="fondos-imagen lazyload" style="background-image:url('@imgDailym[2].UrlImagen');"></div>
+                                    <div class="carousel-caption" style="padding-bottom:45px; " role="option">
+                                        <span class="font-x2 " style="font-size:18px; font-family:'BentonSans',sans-serif">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="item imgen-carousel">
+                                    <div class="fondos-imagen lazyload" style="background-image:url(@imgDailym[3].UrlImagen);">
+                                    </div>
+                                    <div class="carousel-caption" style="padding-bottom:50px;" role="option">
+                                        <span class="font-x2 " style="font-size:18px; font-family:'Noto Sans',sans-serif">
+
+                                        </span>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+
+                </div>
+                <a class="left carousel-control" style="background:none;" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" style="background:none;" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="container f15 text-justify formato-parrafo itinerMargin">
+            <br />
+            @{cont = 0;
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[3])
+                    {
+                        <span>@Html.Raw(item.Parrafo)</span>
+                        cont++;
+                        if (cont == 1)
+                        { break; }
+                    }
+                }
+            }
+            <div class="col-md-12 itinerLocation" style="display:inline-flex">
+                <span class="text-bullet icon-location" style="font-family:Arial,'Font Awesome 5 Pro';font-size:19px;padding:12px 0px 0px 10px; font-weight:600"></span>
+                @{contparrafo = 0;
+                    foreach (var item in ViewBag.GetContenidoVista)
+                    {
+                        if (item.Titulo == titulo[3])
+                        {
+
+                            contparrafo++;
+                            if (contparrafo == 2)
+                            {
+                                <span>@Html.Raw(item.Parrafo)</span>
+                            }
+                        }
+                    }
+                }
+            </div>
+            <div class="col-md-12 itinerLocation" style="display:inline-flex">
+                <span class="text-bullet icon-location" style="font-family:Arial,'Font Awesome 5 Pro';font-size:17px;padding:12px 0px 0px 15px; font-weight:600"></span>
+                @{contparrafo = 0;
+                    foreach (var item in ViewBag.GetContenidoVista)
+                    {
+                        if (item.Titulo == titulo[3])
+                        {
+
+                            contparrafo++;
+                            if (contparrafo == 3)
+                            {
+                                <span>@Html.Raw(item.Parrafo)</span>
+                            }
+                        }
+                    }
+                }
+            </div>
+        </div>
+
+        <section id="Inclusions"></section>
+    </section>
+    <!--=================================//TOUR DETAILS//=============================-->
+    <section style="background-color:white;">
+        <div class="container" style="font-size:17px">
+            <h2 class="formato-titulo">
+                <b>@titulo[4]</b>
+            </h2>
+            <div style="line-height:2.5em">
+                @*<tr>*@
+                    <div class="listTourDetails col-lg-6 col-md-6 col-xs-12" style="background-color:#0077BA;padding:30px">
+                            @{cont = 0;
+                                foreach (var item in ViewBag.GetContenidoVista)
+                                {
+                                    if (item.Titulo == titulo[4])
+                                    {
+                                        <span>@Html.Raw(item.Parrafo)</span>
+                                        cont++;
+                                        if (cont == 1)
+                                        { break; }
+                                    }
+                                }
+                            }
+                    </div>
+                    <div class="listTourDetails col-lg-6 col-md-6 col-xs-12" style="padding:30px">
+                        <div class="Includes">
+                            @{contparrafo = 0;
+                                foreach (var item in ViewBag.GetContenidoVista)
+                                {
+                                    if (item.Titulo == titulo[4])
+                                    {
+
+                                        contparrafo++;
+                                        if (contparrafo == 2)
+                                        {
+                                            <span>@Html.Raw(item.Parrafo)</span>
+                                        }
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                @*</tr>*@
+            </div>
+        </div>
+    </section>
+    <section id="relatedProducts" style=""></section>
+    <!--================================// RELATED PRODUCTS //=============================================================-->
+    <section class="related" style="background-color:white">
+        <div>
+            <div class="container">
+                <div class="contenedorHome">
+                    <h2 class="formato-titulo">
+                        <b>@titulo[5]</b>
+                    </h2>
+                    <div class="row">
+                        <div id="image_related_products" class="row f-15 text-justify" style="font-family:Arial; padding: .5em 1em; color: black !important; line-height:1.3; background:white; margin-top:-20px">
+                            <div class="col-md-4" style="margin-top:15px">
+                                <center>
+                                    <a href="#">
+                                        @{
+                                            if (@imgDailym[3].idVista == 2029)
+                                            {
+                                                <img data-src="@imgDailym[3].UrlImagen" alt="@imgDailym[3].NombreImagen" id="image_media" class="img-responsive lazyload" />
+                                            }
+                                            else
+                                            {
+                                                if (@imgDailym[3].idVista == 2030 || @imgDailym[3].idVista == 2032)
+                                                {
+                                                    <img data-src="@imgDailym[5].UrlImagen" alt="@imgDailym[5].NombreImagen" id="image_media" class="img-responsive lazyload" />
+                                                }
+                                                else
+                                                {
+                                                    <img data-src="@imgDailym[4].UrlImagen" alt="@imgDailym[4].NombreImagen" id="image_media" class="img-responsive lazyload" />
+                                                }
+                                            }
+                                        }
+                                    </a>
+                                    <p style="margin-top:10px;font-size:17px">
+                                        <span><b>@IslasRecomendadas[1]</b></span>
+                                    </p>
+                                    <a class="btn h5button formato-parrafo" style="font-family:SegoeUI, Segoe UI" href="@IslasRecomendadas[2]" id="help_me_plan">Read More</a>
+                                </center>
+                           </div>
+                            <div class="col-md-4" style="margin-top:15px">
+                                <center>
+                                    <a href="#">
+                                        @{
+                                            if (@imgDailym[3].idVista == 2029)
+                                            {
+                                            <img data-src="@imgDailym[4].UrlImagen" alt="@imgDailym[4].NombreImagen" id="image_media" class="img-responsive lazyload" />
+                                            }
+                                            else
+                                            {
+                                                if (@imgDailym[3].idVista == 2030 || @imgDailym[3].idVista == 2032)
+                                                {
+                                            <img data-src="@imgDailym[6].UrlImagen" alt="@imgDailym[6].NombreImagen" id="image_media" class="img-responsivelazyload" />
+                                                }
+                                                else
+                                                {
+                                            <img data-src="@imgDailym[5].UrlImagen" alt="@imgDailym[5].NombreImagen" id="image_media" class="img-responsive lazyload" />
+                                                }
+                                            }
+                                        }
+                                    </a>
+                                    <p style="margin-top:10px;font-size:17px">
+                                        <span><b>@IslasRecomendadas2[1]</b></span>
+                                    </p>
+                                    <a class="btn h5button formato-parrafo" style="font-family:SegoeUI, Segoe UI" href="@IslasRecomendadas2[2]" id="help_me_plan">Read More</a>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+    </section>
+</div>
+<partial name="~/Views/form_taylorMade/form_DailyTours.cshtml" />
+

@@ -1,0 +1,21 @@
+﻿@{ 
+    var contenidoImagen = ViewBag.GetContenidoMult;
+
+}
+<div class="modal fade" id="modal-deck" style="overflow:hidden;padding-right:0" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-full " role="document" style="width:100%">
+        <div class="modal-content" style="width:100%; height:100%">
+            <div class="modal-header" style="overflow-y:hidden;height:60px">
+                <img src="~/images/logos/andando-tours-png-azul-horizontal.png" style="width:100px; height:50px; margin-top:-10px; margin-left:0px" />
+                <button type="button" class="close-form pull-right" onclick="limp();" data-dismiss="modal" style="margin-top:-40px">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body tamModal style-scroll" style="overflow-x:hidden; overflow-y:hidden;font-family:Arial;text-align:left">
+                <div class="container">
+                    <img class="img-fluid" src="@contenidoImagen[4].UrlImagen" alt="@contenidoImagen[4].NombreImagen" title="@contenidoImagen[4].NombreImagen" style="max-height:40em">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

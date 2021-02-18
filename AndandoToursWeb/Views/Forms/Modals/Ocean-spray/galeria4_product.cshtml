@@ -1,0 +1,139 @@
+﻿@{
+
+    var contenido = ViewBag.GetContenidoVista;
+    var imagenItem = ViewBag.GetContenidoMult;
+    var titulo = new List<string>();
+    Dictionary<string, int> uniqueStore = new Dictionary<string, int>();
+
+    foreach (var item in ViewBag.GetContenidoVista)
+    {
+
+        if (!uniqueStore.ContainsKey(item.Titulo))
+        {
+            uniqueStore.Add(item.Titulo, 0);
+            titulo.Add(item.Titulo);
+        }
+    } 
+    
+ }
+<div class="modal fade" id="gale4-ModalScrollable" style="overflow:hidden;padding-right:0" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-full" style="width:100%;height:100%; margin:0" role="document">
+        <div class="modal-content" style="width:100%; height:100%">
+            <div class="modal-header" style="overflow-y:hidden;height:60px">
+                <img class="img-responsive lazyload" data-src="/images/logos/andando-tours-png-azul-horizontal.png" style="width:100px; height:50px; margin-top:-10px; margin-left:0px" />
+                <button type="button" class="close-form pull-right" onclick="limp();" data-dismiss="modal" style="margin-top:-40px">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body tamModal style-scroll" style="overflow-x:hidden; overflow-y:scroll;font-family:Arial;text-align:left">
+                <div class="container f-15">
+                    <h3 style="color:#5299D0; text-align:center">
+                        @titulo[20]
+                    </h3>
+                    <div>
+                        <h3 class="formato-titulo" style="text-align:left"><b>@titulo[21]</b></h3>
+                        @{
+                            foreach (var item in ViewBag.GetContenidoVista)
+                            {
+                                if (item.Titulo == titulo[21])
+                                {
+                                    <p class="textoinfo parrafo formato-parrafo">
+                                        <span>@Html.Raw(item.Parrafo)</span>
+                                    </p>
+                                }
+                            }
+                        }
+                        <table id="grid-gale-social" style="margin-left:-14px">
+                            <tr>
+                                <td style="border:none;padding-right:0">
+                                    <img class="img-responsive lazyload" data-src="@imagenItem[21].UrlImagen" alt="@imagenItem[21].NombreImagen" style="width:724px; height:380px;" />
+                                </td>
+                                <td style="border:none;padding-right:0">
+                                    <img class="img-responsive lazyload" data-src="@imagenItem[22].UrlImagen" alt="@imagenItem[22].NombreImagen" style=" height:380px; margin-left:2px" />
+                                </td>
+                            </tr>
+                        </table>
+                        @* ===============MOBILE=============== *@
+                        <div id="grid-gale-social-mob">
+                            <div class="container" style="width:auto; padding:0;margin-top:10px">
+                                <div class="col-md-12" style="padding:0; margin-top: 10px;">
+                                    <img class="img-responsive lazyload" data-src="@imagenItem[21].UrlImagen" alt="@imagenItem[21].NombreImagen" style="width:100%" />
+                                </div>
+                                <div class="col-md-12" style="padding:0;margin-top: 10px;">
+                                    <img class="img-responsive lazyload" data-src="@imagenItem[22].UrlImagen" alt="@imagenItem[22].NombreImagen"  />
+                                </div>
+                            </div>
+                        </div>
+                        <table id="grid-gale-social" style="margin-left:-14px">
+                            <tr>
+                                <td style="border:none;padding-right:0">
+                                    <img class="img-responsive lazyload" data-src="@imagenItem[23].UrlImagen" alt="@imagenItem[23].NombreImagen" style="width:724px; height:380px;" />
+                                </td>
+                                <td style="border:none;padding-right:0">
+                                    <img class="img-responsive lazyload" data-src="@imagenItem[24].UrlImagen" alt="@imagenItem[24].NombreImagen" style=" height:380px; margin-left:2px" />
+                                </td>
+                            </tr>
+                        </table>
+                        @* ===============MOBILE=============== *@
+                        <div id="grid-gale-social-mob">
+                            <div class="container" style="width:auto; padding:0;margin-top:10px">
+                                <div class="col-md-12" style="padding:0; margin-top: 10px;">
+                                    <img class="img-responsive lazyload" data-src="@imagenItem[23].UrlImagen" alt="@imagenItem[23].NombreImagen" style="width:100%" />
+                                </div>
+                                <div class="col-md-12" style="padding:0;margin-top: 10px;">
+                                    <img class="img-responsive lazyload" data-src="@imagenItem[24].UrlImagen" alt="@imagenItem[24].NombreImagen"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="formato-titulo" style="text-align:left"><b>@titulo[22]</b></h3>
+                        <div id="grid-gale-social" style="margin-left:-12px;">
+                            <div id="grid-prod-galery-ext-Passion">
+                                <div id="caja-galeria-ext">
+                                    <img class="img-responsive lazyload" data-src="@imagenItem[25].UrlImagen" alt="@imagenItem[25].NombreImagen" style="width:750px; height:380px; margin-right:0" />
+                                </div>
+                                <div id="caja-galeria2-ext">
+                                    <img class="img-responsive lazyload" data-src="@imagenItem[26].UrlImagen" alt="@imagenItem[26].NombreImagen" style="height:380px;" />
+                                </div>
+                            </div>
+                        </div>
+                        @* ============MOBIL======== *@
+                        <div id="grid-gale-social-mob">
+                            <div id="grid-prod-galery-ext-Passion">
+                                <div id="caja-galeria-ext">
+                                    <img class="img-responsive lazyload" data-src="@imagenItem[25].UrlImagen" alt="@imagenItem[25].NombreImagen" />
+                                </div>
+                                <div id="caja-galeria2-ext">
+                                    <img class="img-responsive lazyload" data-src="@imagenItem[26].UrlImagen" alt="@imagenItem[26].NombreImagen"   />
+                                </div>
+                            </div>
+                        </div>
+                        <div id="grid-gale-social" style="margin-left:-12px;margin-top:15px">
+                            <div id="grid-prod-galery-ext-Passion">
+                                <div id="caja-galeria-ext">
+                                    <img class="img-responsive lazyload" data-src="@imagenItem[27].UrlImagen" alt="@imagenItem[27].NombreImagen" style="width:750px; height:380px; margin-right:0" />
+                                </div>
+                                <div id="caja-galeria2-ext">
+                                    <img class="img-responsive lazyload" data-src="@imagenItem[28].UrlImagen" alt="@imagenItem[28].NombreImagen" style="height:380px;" />
+                                </div>
+                            </div>
+                        </div>
+                        @* ============MOBIL======== *@
+                        <div id="grid-gale-social-mob">
+                            <div id="grid-prod-galery-ext-Passion">
+                                <div id="caja-galeria-ext">
+                                    <img class="img-responsive lazyload" data-src="@imagenItem[27].UrlImagen" alt="@imagenItem[27].NombreImagen" />
+                                </div>
+                                <div id="caja-galeria2-ext">
+                                    <img class="img-responsive lazyload" data-src="@imagenItem[28].UrlImagen" alt="@imagenItem[28].NombreImagen"   />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

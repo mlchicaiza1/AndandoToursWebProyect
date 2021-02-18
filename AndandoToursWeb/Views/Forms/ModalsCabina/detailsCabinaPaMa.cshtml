@@ -1,0 +1,246 @@
+﻿<div class="modal  fade" id="detailsCabPaMa" style="overflow-x:hidden" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-full" style="width:100%;height:100%; margin:0" role="document">
+        <div class="modal-content" style="width:100%; height:100%">
+            <div class="modal-header" style="height:60px">
+                <img   class="img-responsive lazyload" data-src="/images/logos/andando-tours-png-azul-horizontal.png" id="logo_modal" style="width:100px; height:50px; margin-left:0px" />
+                <a class="close icon-times-circle" id="close_modal" v-on:click="closeModalCabinaPaMa"  style="color:#5299D0;font-size:35px; " ></a>
+            </div>
+            <div class="" style="height:100%">
+                <div id="modal_dispo" class="modal-body font-modal" style="height:60%;margin:0 0">
+                    <div id="row_cabina" class="row" style="margin-top:10px;">
+                        <div class="container" style=" margin-bottom:15px; border-bottom:1px solid; border-bottom-color:black" v-for="cabina in cabinas">
+                            <div class="row" style="overflow-y:scroll;height: 80%;">
+                                <div class="col-md-12" v-if="cabinas.length">
+                                    <div class="col-md-4">
+                                        <img class="img-responsive " :src="cabina.barcoCabinaFoto1" :title="cabina.barcoNombre" :alt="cabina.barcoNombre" style="border:1px solid">
+                                    </div>
+                                    <div class="col-md-4 cabinInfo">
+                                        <p><span>Cabin:</span> {{cabina.tipoCabina1}}</p>
+                                        <p><span>Availability:</span> {{cabina.dispo_CabinaTipo1}} passengers</p>
+                                        <p v-if="cabina.barcoSingleSupplement != '0,00' "><span>Single supplement:</span> {{cabina.barcoSingleSupplement}}%</p>
+                                        <p v-else><span>Single supplement:</span> -- </p>
+                                        <p> <span>Discount for triple occupancy:</span> {{cabina.barcoTripleDisc}} %</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p style="font-size:20px; text-align:right;color: #FB2626" v-if="cabina.dispo_CabinaTipo1 <  4 ">
+                                            Only {{cabina.dispo_CabinaTipo1}} spaces left
+                                        </p>
+                                        <p style="font-size:18px; text-align:right; color: black">
+                                            $ {{cabina.cabinaPrecio1}} / person
+                                        </p>
+                                        <div class="dropdown" style="margin-top:30px;box-shadow:none;float:right">
+                                            <button class="btn btn-default dropdown-toggle" type="button" id="btnPassenCabina1" data-toggle="dropdown" style="font-family:Arial;text-align:left;width:158px;font-size:18px" v-on:click="SelectPasseng">{{passengSelect}} <span style="margin-left:5px" class="caret"></span></button>
+                                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" style="width:100%; font-size:18px">
+                                                <li role="presentation" v-for="i in cabina.dispo_CabinaTipo1">
+                                                    <a role="menuitem" tabindex="-1" :id="i" v-on:click="checkPassengers">
+                                                        {{i}} passengers
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12" style="margin-top:30px" v-if="cabina.dispo_CabinaTipo2 >0 ">
+                                    <div class="col-md-4">
+                                        <img class="img-responsive" :src="cabina.barcoCabinaFoto2" :title="cabina.barcoNombre" :alt="cabina.barcoNombre" style="border:1px solid;width: 100%;">
+                                    </div>
+                                    <div class="col-md-4 cabinInfo">
+                                        <p><span>Cabin:</span> {{cabina.tipoCabina2}}</p>
+                                        <p><span>Availability:</span> {{cabina.dispo_CabinaTipo2}} passengers</p>
+                                        <p v-if="cabina.barcoSingleSupplement != '0,00' "><span>Single supplement:</span> {{cabina.barcoSingleSupplement}}%</p>
+                                        <p v-else><span>Single supplement:</span> -- </p>
+                                        <p> <span>Discount for triple occupancy:</span> {{cabina.barcoTripleDisc}} %</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p style="font-size:20px; text-align:right;color: #FB2626" v-if="cabina.dispo_CabinaTipo2 <  4 ">
+                                            Only {{cabina.dispo_CabinaTipo2}} spaces left
+                                        </p>
+                                        <p style="font-size:18px; text-align:right; color: black">
+                                            $ {{cabina.cabinaPrecio2}} / person
+                                        </p>
+                                        <div class="dropdown" style="margin-top:30px;box-shadow:none;float:right">
+                                            <button class="btn btn-default dropdown-toggle" type="button" id="btnPassenCabina2" data-toggle="dropdown" style="font-family:Arial;text-align:left;width:158px;font-size:18px" v-on:click="SelectPasseng">{{passengSelectCab2}}<span style="margin-left:5px" class="caret"></span></button>
+                                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" style="width:100%; font-size:18px">
+                                                <li role="presentation" v-for="i in cabina.dispo_CabinaTipo2">
+                                                    <a role="menuitem" tabindex="-1" :id="i" v-on:click="checkPassengersCab2">
+                                                        {{i}} passengers
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                     @*Cabinas Movile*@ 
+                    <div id="row_cabina_mobile" class="row" >
+                        <div class="container" style="margin-bottom:10px; border-bottom:1px solid; border-bottom-color:black">
+                            <div class="col-md-12" style="overflow-y:scroll;">
+                                <div v-for="cabina in cabinas">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-xs-6">
+                                            <img class="img-responsive " :src="cabina.barcoCabinaFoto1" :title="cabina.barcoNombre" :alt="cabina.barcoNombre" style="border:1px solid; margin-top:5px;height:124px; width:95%">
+                                        </div>
+                                        <div class="col-sm-6 col-xs-6 cabinInfoMovile">
+                                            <ul>
+                                                <li>
+                                                    <p><span>Cabin:</span> {{cabina.tipoCabina1}}</p>
+                                                </li>
+                                                <li>
+                                                    <p><span>Capacity:</span> {{cabina.dispo_CabinaTipo1}} passengers</p>
+                                                </li>
+                                                <li>
+                                                    <p v-if="cabina.barcoSingleSupplement != '0,00' "><span>Single supplement:</span> {{cabina.barcoSingleSupplement}}%</p>
+                                                    <p v-else><span>Single supplement:</span> -- </p>
+                                                </li>
+                                                <li>
+                                                    <p><span>Discount for triple occupancy:</span> {{cabina.barcoTripleDisc}}%</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6 col-xs-6">
+                                            <div class="dropdown" style="margin-top:10px;margin-bottom:10px;box-shadow:none">
+                                                <button class="btn btn-default dropdown-toggle" type="button" id="btnPassenCabinaMovile" data-toggle="dropdown" style="font-family:Arial;text-align:left;font-size:13px" v-on:click="SelectPasseng">{{passengSelect}} <span style="margin-left:6px" class="caret"></span></button>
+                                                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" style="font-size:18px;margin-left: 0px;">
+                                                    <li role="presentation" v-for="i in cabina.dispo_CabinaTipo1">
+                                                        <a role="menuitem" tabindex="-1" :id="i" v-on:click="checkPassengers">
+                                                            {{i}} passengers
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-xs-6">
+                                            <p style="font-size:13px;margin-bottom:5px; text-align:right;color: #FB2626" v-if="cabina.dispo_CabinaTipo1 <  4 ">
+                                                Only {{cabina.dispo_CabinaTipo1}}  spaces left
+                                            </p>
+                                            <p style="font-size:15px; text-align:left; color: black;padding-top: 15px;">
+                                                $ {{cabina.cabinaPrecio1}}/ person
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row" v-if="cabina.dispo_CabinaTipo2 >0 ">
+                                        <div class="col-sm-6 col-xs-6">
+                                            <img class="img-responsive " :src="cabina.barcoCabinaFoto2" :title="cabina.barcoNombre" :alt="cabina.barcoNombre" style="border:1px solid; margin-top:5px;height:124px; width:95%">
+                                        </div>
+                                        <div class="col-sm-6 col-xs-6 cabinInfoMovile">
+                                            <ul>
+                                                <li>
+                                                    <p><span>Cabin:</span> {{cabina.tipoCabina2}}</p>
+                                                </li>
+                                                <li>
+                                                    <p><span>Capacity:</span> {{cabina.dispo_CabinaTipo2}} passengers</p>
+                                                </li>
+                                                <li>
+                                                    <p v-if="cabina.barcoSingleSupplement != '0,00' "><span>Single supplement:</span> {{cabina.barcoSingleSupplement}}%</p>
+                                                    <p v-else><span>Single supplement:</span> -- </p>
+                                                </li>
+                                                <li>
+                                                    <p><span>Discount for triple occupancy:</span> {{cabina.barcoTripleDisc}}%</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="row" v-if="cabina.dispo_CabinaTipo2 >0 ">
+                                        <div class="col-sm-6 col-xs-6">
+                                            <div class="dropdown" style="margin-top:10px;margin-bottom:10px;box-shadow:none">
+                                                <button class="btn btn-default dropdown-toggle" type="button" id="btnPassenCabinaMovile2" data-toggle="dropdown" style="font-family:Arial;text-align:left;font-size:13px" v-on:click="SelectPasseng">{{passengSelectCab2}}<span style="margin-left:6px" class="caret"></span></button>
+                                                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" style="margin-left: 0px; font-size:18px">
+                                                    <li role="presentation" v-for="i in cabina.dispo_CabinaTipo2">
+                                                        <a role="menuitem" tabindex="-1" :id="i" v-on:click="checkPassengersCab2">
+                                                            {{i}} passengers
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-xs-6">
+                                            <p style="font-size:13px;margin-bottom:5px; text-align:right;color: #FB2626" v-if="cabina.dispo_CabinaTipo2 <  4 ">
+                                                Only {{cabina.dispo_CabinaTipo2}}  spaces left
+                                            </p>
+                                            <p style="font-size:13px; text-align:right; color: black">
+                                                $ {{cabina.cabinaPrecio2}}/ person
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="container">
+                            <div class="col-md-12 sendEmail">
+                                <div class=" col-md-2">
+                                    <p class="formato-parrafo" style=" color:#5B5A5A;margin-bottom:0 ">Email address*</p>
+                                </div>
+                                <div class=" col-md-3" style="display:grid">
+                                    <input type="email" class="form-control  formato-parrafo " v-on:click="writeTextValidacionEmail" id="emailClient" name="email" placeholder="Email@email.com " required style="border-radius:5px;padding:5px 3px">
+                                    <p style="margin-bottom: 0;font-size: 12px;font-weight: 600;" v-bind:style="{color:colorEmailVal}" v-html="email"></p>
+                                </div>
+                                <div class=" col-md-1" style="margin-bottom:0">
+                                    <p class="formato-parrafo" style="color:#5B5A5A;margin-bottom:0">Name*</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control formato-parrafo" id="nameClient" v-on:click="writeTextValidacionName" name="name" placeholder="Your name" required style="border-radius:5px;padding:5px 5px">
+                                </div>
+                                <div class=" col-md-3" style="margin-bottom:5px">
+                                    <a class="btn h5button" type="submit" href="#" data-toggle="modal" data-target="#exampleModalScrollable" style="font-family:SegoeUI, Segoe UI;padding: 6px 25px;font-size:16px;float: right;" id="help_me_plan6" v-on:click="SendleadBoatPassionMary()">Submit request</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @* ======================footer================================================================== *@
+                <div class="modal-footer" id="modal_footer">
+                    <section style="background-color:#E5E5E5;padding:0 0">
+                        <div class="container">
+                            <div class="row" style="padding-right: 2%;">
+                                <div class="col-xs-6 col-md-6">
+                                    <p class="footer-inf" style="text-align:left">
+                                        Andando Tours is committed to ensuring your privacy. We dont sell the information provded. <br />
+                                    </p>
+                                </div>
+                                <div class="col-xs-6 col-md-6">
+                                    <p class="footerTerms" style="text-align:right">
+                                        |&nbsp;&nbsp; <a style="color:#5299D0" href="/terms-and-conditions"> TERMS & CONDITIONS </a> &nbsp;&nbsp;|&nbsp;&nbsp; <a style="color:#5299D0" href="/about-us "> ABOUR US </a>  &nbsp;&nbsp;|
+                                    </p>
+                                    <p class="footerTermsMovile" style="text-align:right;margin-bottom: 0;">
+                                        <a style="color:#5299D0" href="/terms-and-conditions"> TERMS & CONDITIONS </a> |<br /><a style="color:#5299D0" href="/about-us "> ABOUR US </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="container" style=" padding-top: 10px;">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="col-md-2 col-xs-2">
+                                    <img class="img-responsive lazyload" data-src="/images/logos/LATA-2012.png" style="max-height:100px;" alt="LATA-2012" />
+                                </div>
+                                <div class="col-md-2 col-xs-2">
+                                    <img class="img-responsive lazyload" data-src="/images/logos/central-de-receptivos.png" style="max-height:100px;" alt="central-de-receptivos" />
+                                </div>
+                                <div class="col-md-2 col-xs-2">
+                                    <img class="img-responsive lazyload" data-src="/images/logos/USTOA-Associate-Logo.svg" style="max-height:100px;padding-top: 25%;" alt="logo USTOA" />
+                                </div>
+                                <div class="col-md-2 col-xs-2">
+                                    <img class="img-responsive lazyload" data-src="/images/logos/luxLife.svg" style="max-height:100px;" alt="luxLife" />
+                                </div>
+                                <div class="col-md-2 col-xs-2">
+                                    <img class="img-responsive lazyload" data-src="/images/logos/logo-ecuador.png" style="max-height:100px;" alt="logo-ecuador" />
+                                </div>
+                                <div class="col-md-2 col-xs-2">
+                                    <img class="img-responsive lazyload" data-src="/images/logos/logo-qa.png" style="max-height:100px;" alt="logo-qa" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

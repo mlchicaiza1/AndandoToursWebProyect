@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "form_DailyTours";
+    Layout = null;
+    @model AndandoToursWeb.Models.Availability;
+    var conte = ViewBag.GetContenidoVista;
+    var listDays = ViewBag.listDays;
+}
+<script src="~/js/Forms.js"></script>
+<div class="modal fade" id="dayModal" style="overflow:hidden" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" z-index="50">
+            <div class="modal-header" style="height:73px">
+                <div class="col-md-6 col-xs-10">
+                    <h5 class="formato-titulo modal-title" style="text-align:left;font-size:20px; color:#5299D0;top:6%"><b id="titulo">@conte[0].Titulo</b></h5>
+                </div>
+                <div class="col-md-6 col-xs-2">
+                    <button type="button" class="close-form pull-right" onclick="limp();" data-dismiss="modal" style="margin-right:-5px;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <div class="" style="height:100%">
+                <div class="modal-body font-modal" style="height:60%;margin:0 12%;font-family:Arial;font-size:16px">
+                    <p class="formato-titulo modal-title" style="text-align:justify;top:6%;font-size:13px;margin-bottom:9px"><b>*At this moment no charges will be made.</b> We must first approve availability and receive your confirmation. The maximum limit for response is 24 hours during working days. </p>
+                    <form submit="checkForm" method="post">
+                        <div class="form-group col-md-6 col-sm-12 col-xs-12">
+                            <b>E-mail adress:<span style="color:red;"> *</span></b>
+                            <input style="font-family:Arial" class="form-control" type="email" required="required"
+                                   placeholder="Email@email.com" id="emailDaily" name="emailDaily" />
+                        </div>
+                        <div class=" form-group col-md-6 col-sm-12 col-xs-12">
+                            <b>Name:*</b>
+                            <input style="font-family:Arial" class="form-control" placeholder="Your Name" type="text" id="nombreDaily" name="nombreDaily" onkeypress="return soloLetras(event);" required/>
+                        </div>
+                        <div class="form-group col-md-6 col-sm-12 col-xs-6">
+                            <b>Passengers:<span style="color:red;"> *</span></b>
+                            <input style="font-family:Arial" class="form-control" min="1" type="number" required="required"
+                                   placeholder="Number Passengers" id="travelersDaily" name="Passengers" />
+                        </div>
+                        <div class="form-group col-md-6 col-sm-12 col-xs-6">
+                            <b>Date of Travel:<span style="color:red;">*</span></b>
+                                <input class="form-control  " placeholder="Start date" autocomplete="off" type="text" id="fecha" name="fecha" />
+                            <input type="text" id="daily" class="form-control" name="daily" style="display:none" value="DailyTours" />
+                        </div>
+                        <div class="form-group col-md-12">
+                            <b>Message:</b>
+                            <textarea class="form-control textarea-taylor style-textDayli" placeholder="Tell us something more we need to know about your travel..." type="text" id="obser" name="obser"></textarea>
+                        </div>
+                        <center>
+                            <input id="Button1" type="button"  onclick="EnviarFormDaily();" value="Checkout"  style="font-family:Arial;font-size:16px; padding:5px 15px; width:150px" class="btn BottonAndan h5button" />
+                            @*<input value="Submit request"  style="font-family:Arial;font-size:16px; padding:5px 15px" type="submit" class="h5button">*@
+                            @*@Html.ActionLink("Submit request", "thank_you_page_availability", "thank_you_page", new { email = Model.EmailLeads, name = Model.NombreLeads, taylor = Model.FromProveniente, obser = Model.ObservacionLeads }, new { @class = "h5button" })*@
+                        </center>
+                    </form>
+
+                </div>
+                <div class="modal-footer footer-taylor" style="border:none; padding-top:0">
+                    <centrar>
+                        <p style="text-align:center; margin-bottom:0"><b>We accept credit cards and paypal payments</b></p>
+                        <img class="lazyload" src="~/images/icon/icono-paypal-tarjetas.png" style="width:250px" />
+                        <p style="text-align:center">We accept credit cards and paypal payments <a style="color:#5299D0;text-align:center" href="/terms-and-conditions" target="_blank">terms and conditions</a></p>
+                    </centrar>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        var fecha = new Date();
+        $("#fecha").datepicker({
+            startDate: fecha,
+            daysOfWeekDisabled: [@listDays]
+        });
+
+    });
+</script>

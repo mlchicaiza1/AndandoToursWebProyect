@@ -1,0 +1,246 @@
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> SignInManager;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GestorContenidosAndandoWeb</title>
+
+    <link rel="stylesheet" href="~/css/site.css" />
+    <!-- Font Awesome -->
+    <link href="~/theme/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/owl.carousel.css" />
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/theme/dist/css/adminlte.min.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="~/theme/plugins/summernote/summernote-bs4.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="~/theme/dist/css/StyleCMSAndando/StyleCMSAndado.css" />
+
+
+    <environment include="Development">
+        @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+            <link rel="stylesheet" href="~/css/site.css" />*@
+    </environment>
+    <environment exclude="Development">
+        @*<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+                  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+                  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+            <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />*@
+
+        <!-- Font Awesome -->
+        <link href="~/theme/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+        <!-- overlayScrollbars -->
+        <link rel="stylesheet" href="~/theme/dist/css/adminlte.min.css">
+        <!-- Google Font: Source Sans Pro -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+        <link rel="stylesheet" href="~/theme/dist/css/StyleCMSAndando/StyleCMSAndado.css" />
+    </environment>
+</head>
+<body class="hold-transition sidebar-mini">
+
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header desAct navbar navbar-expand navbar-white navbar-light " id="menuSupCms">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="../../cms" class="nav-link">Home</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar desAct sidebar-dark-primary elevation-4" style="position: fixed;" id="menuLateralCms">
+            <!-- Brand Logo -->
+            <a href="../../" class="brand-link">
+                <img src="~/theme/dist/img/logo.jpg"
+                     alt="AdminLTE Logo"
+                     class="brand-image img-circle elevation-3"
+                     style="opacity: .8">
+                <span class="brand-text font-weight-light">AndandoTours</span>
+            </a>
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="~/theme/dist/img/logo.jpg" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <partial name="_LoginPartial" />
+                    </div>
+
+                </div>
+                <!-- Sidebar Menu -->
+                <nav class="mt-2" id="menu1">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                        with font-awesome or any other icon font library -->
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Pages Categories
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../../cms/PaginasWeb/CmsText" v-on:click="getIdPageMenu($event)" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p :id="1010">Home AndandoTours</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../cms/PaginasWeb" v-on:click="getCategoriaMenu" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p :id="'galapagos-cruises'">Galapagos Cruises</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../cms/PaginasWeb" v-on:click="getCategoriaMenu" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p :id="'barco'">Barcos</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../cms/PaginasWeb/CmsText" v-on:click="getIdPageMenu" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p :id="1011">Cruises Yacht Charters</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../cms/PaginasWeb/CmsText" v-on:click="getIdPageMenu" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p :id="2047">Availability</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../cms/PaginasWeb" v-on:click="getCategoriaMenu" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p :id="'daily-tours'">Daily-Tours</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../cms/PaginasWeb" v-on:click="getCategoriaMenu" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p :id="'ecuador-tours'">Ecuador Tours</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../cms/PaginasWeb" v-on:click="getCategoriaMenu" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p :id="'blog'">Blogs</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Administrator"))
+                        {
+                            <li class="nav-item has-treeview">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>
+                                        Administrator
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="../../cms/Admin/ListUsers" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>List User</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="../../cms/Admin/ListRoles" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>List Roles</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="../../cms/AndandoCms/ActividadUsuarios" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>User Activity</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        }
+
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+        @RenderBody()
+        <hr />
+        <footer>
+            <p></p>
+        </footer>
+    </div>
+    @*<div class="container body-content">
+
+        </div>*@
+
+    <environment include="Development">
+        @*<script src="~/lib/jquery/dist/jquery.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>*@
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
+        </script>
+        <script src="~/js/cms.js" asp-append-version="true"></script>
+    </environment>
+
+    <script src="~/theme/plugins/jquery/jquery.min.js"></script>
+    <script src="~/lib/owl.carousel.js"></script>
+    @*<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>*@
+    <!-- Bootstrap 4 -->
+    <script src="~/theme/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/theme/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/theme/dist/js/demo.js"></script>
+    <!-- DataTables -->
+    <script src="~/theme/plugins/datatables/jquery.dataTables.js"></script>
+    <script src="~/theme/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+    <!-- page script -->
+    <script src="~/lib/vue/vue.min.js"></script>
+    <script src="~/lib/vue/VueData.js"></script>
+    @*<script src="https://code.jquery.com/jquery-3.3.1.js"></script>*@
+    <script src=" https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <!-- Summernote -->
+    <script src="~/theme/plugins/summernote/summernote-bs4.min.js"></script>
+    <script src="~/ckeditor/ckeditor.js"></script>
+
+    <script src="~/js/cms.js"></script>
+
+
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

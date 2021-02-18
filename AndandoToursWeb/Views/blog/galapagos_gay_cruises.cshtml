@@ -1,0 +1,134 @@
+﻿@{
+    var contenido = ViewBag.GetContenidoVista;
+    var imagenItem = ViewBag.GetContenidoMult;
+    var titulo = new List<string>();
+    Dictionary<string, int> uniqueStore = new Dictionary<string, int>();
+
+
+    foreach (var item in ViewBag.GetContenidoVista)
+    {
+
+        if (!uniqueStore.ContainsKey(item.Titulo))
+        {
+            uniqueStore.Add(item.Titulo, 0);
+            titulo.Add(item.Titulo);
+        }
+    }
+}
+<div style="overflow-x:hidden;font-family:Arial">
+    <div style="overflow:hidden">
+        <div class="item active imgen-carousel">
+            <div class="fondos-imagen">
+                <img class="fondos-imagen" title="@imagenItem[0].NombreImagen" alt="@imagenItem[0].NombreImagen" style="background-image: url('@imagenItem[0].UrlImagen'); position:center; height:100%; width:100%;" />
+            </div>
+            <div class="caption" style="text-align:center; padding-bottom:40px" role="option">
+                <h1 class="font-x2 font-brush font-carousel" style="text-shadow:1px 1px 1px rgba(0, 0, 0, 0.5);margin-bottom:30px">
+                    <strong>@titulo[0]</strong>
+                </h1>
+                <p class="font-x2 " style="font-size:18px;margin-top:0; font-family:'BentonSans',sans-serif">
+                    <span>@Html.Raw(contenido[0].Parrafo)</span>
+                </p>
+            </div>
+        </div>
+        <div id="mc_embed_signup">
+            <!--================================SUB MENU=========================-->
+            <nav class="navbar  page-nav page-nav-home" data-toggle="sticky-onscroll" style="border: 1px solid rgba(0,0,0,.1); display:block">
+                <div class="limit">
+                    <nav class="page-nav-anchors" style="text-transform:none; " id="sub-menu-cruises">
+                        <center>
+                            <form action="https://visitgalapagos.us15.list-manage.com/subscribe/post?u=13bcb03659759e8410a67809d&amp;id=e632bf5b97" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                                <div id="mc_embed_signup_scroll" class="form-group" style="margin-bottom: 7px;">
+                                    <div class="col-md-6 menuBlogText">
+                                        <p>Explore Ecuador and Galapagos from your Inbox </p>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 col-xs-12 menuBlogSubscribe">
+                                        <div class="input-group" style="text-align:center">
+                                            <input type="email" value="" name="EMAIL" redonly class="form-control email" id="mce-EMAIL" required style="font-family:Arial;border-color: #398AC9" placeholder="Email...">
+                                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_13bcb03659759e8410a67809d_e632bf5b97" tabindex="-1" value=""></div>
+                                            <span class="input-group-btn" style="padding-right: 30px;">
+                                                <button class="btn btn-default btnEmail" redonly type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">Subscribe</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </center>
+                    </nav>
+                </div>
+            </nav>
+        </div>
+        <!--==========Redes Sociales===========-->
+        <div style="float:left">
+            <div class="social">
+                <ul>
+                    <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://www.visitgalapagos.travel/sailing-cruises/mary-anne/" target="_blank" onclick="window.open(this.href, '', 'resizable=yes,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=500,height=500'); return false;" class="icon-facebook"></a></li>
+                    <li><a href="https://twitter.com/intent/tweet?url=URL&text=https://www.visitgalapagos.travel/blog/best-time-to-visit-the-ecuadorian-amazon&via=Andandotours" onclick="window.open(this.href, '', 'resizable=yes,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=500,height=500'); return false;" class="icon-twitter" data-show-count="false" target="_blank"></a></li>
+                    <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.visitgalapagos.travel/sailing-cruises/mary-anne/" onclick="window.open(this.href, '', 'resizable=yes,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=500,height=500'); return false;" target="_blank" class="icon-googleplus"></a></li>
+                </ul>
+            </div>
+        </div>
+        <!--==========Redes Sociales MObil===========-->
+        <div style="float:left">
+            <div class="social-mob">
+                <ul>
+                    <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://www.visitgalapagos.travel/sailing-cruises/mary-anne/" onclick="window.open(this.href, '', 'resizable=yes,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=500,height=500'); return false;" target="_blank" class="icon-facebook"></a></li>
+                    <li><a href="https://twitter.com/intent/tweet?url=URL&text=https://www.visitgalapagos.travel/blog/best-time-to-visit-the-ecuadorian-amazon&via=Andandotours" onclick="window.open(this.href, '', 'resizable=yes,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=500,height=500'); return false;" class="icon-twitter" data-show-count="false" target="_blank"></a></li>
+                    <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.visitgalapagos.travel/sailing-cruises/mary-anne/" onclick="window.open(this.href, '', 'resizable=yes,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=500,height=500'); return false;" target="_blank" class="icon-googleplus"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container padd f-15" style="margin-top:40px;padding-bottom:40px">
+            <h2 class="formato-titulo" style=" text-align:left; padding-top: 20px;"><b>@titulo[2]</b></h2>
+            @{
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[2])
+                    {
+                        <span>@Html.Raw(item.Parrafo)</span>
+                    }
+                }
+            }
+            <h2 class="formato-titulo" style=" text-align:left;padding-top: 15px;"><b>@titulo[3]</b></h2>
+            <table id="grid-gale-social" style="margin-left:-14px;padding-bottom: 20px;">
+                <tr>
+                    <td style="border:none;padding-right:0">
+                        <img class="lazyload" data-src="@imagenItem[1].UrlImagen" title="@imagenItem[1].NombreImagen" alt="@imagenItem[1].NombreImagen" style="width:724px; height:380px;" />
+                    </td>
+                    <td style="border:none;padding-right:0">
+                        <img class="lazyload" data-src="@imagenItem[2].UrlImagen" title="@imagenItem[2].NombreImagen" alt="@imagenItem[2].NombreImagen" style=" height:380px; margin-left:2px" />
+                    </td>
+                </tr>
+            </table>
+            @* ===============MOBILE=============== *@
+            <div id="grid-gale-social-mob">
+                <div class="container" style="width:auto; padding:0;margin-top:10px;padding-bottom: 20px">
+                    <div class="col-md-12" style="padding:0; margin-top: 10px;">
+                        <img class="img-responsive lazyload" data-src="@imagenItem[1].UrlImagen" title="@imagenItem[1].NombreImagen" alt="@imagenItem[1].NombreImagen" />
+                    </div>
+                    <div class="col-md-12" style="padding:0;margin-top: 10px;">
+                        <img class="img-responsive lazyload" data-src="@imagenItem[2].UrlImagen" title="@imagenItem[2].NombreImagen" alt="@imagenItem[2].NombreImagen" />
+                    </div>
+                </div>
+            </div>
+            @{
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[3])
+                    {
+                        <span>@Html.Raw(item.Parrafo)</span>
+                    }
+                }
+            }
+            <h2 class="formato-titulo" style=" text-align:left;padding-top: 15px;"><b>@titulo[4]</b></h2>
+            @{
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[4])
+                    {
+                        <span>@Html.Raw(item.Parrafo)</span>
+                    }
+                }
+            }
+        </div>
+    </div>
+</div>

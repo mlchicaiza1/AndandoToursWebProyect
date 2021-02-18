@@ -1,0 +1,395 @@
+﻿@{
+    ViewData["Title"] = "blogPost";
+}
+<div style="overflow-x:hidden;font-family:Arial">
+    <div style="overflow:hidden">
+        <div class="item active imgen-carousel">
+            <div class="fondos-imagen" style="background-image:url(../images/Home/slide.jpg);">
+                <img src="" alt="sailing Galapagos" class="fondos-imagen" style=" background-image:url(../images/Home/slide.jpg); position:center; height:100%; width:100%;" />
+            </div>
+            <div class="caption" style="text-align:center; padding-bottom:40px" role="option">
+                <h1 class="font-x2 font-brush font-carousel" style="text-shadow:1px 1px 1px rgba(0, 0, 0, 0.5);">
+                    <strong>Galapagos Cruises</strong>
+                </h1>
+                <p class="font-x2 " style="font-size:18px; margin-top: 2%!important; font-family:'BentonSans',sans-serif">
+                    Lorem ipsum dolor sit amet consectetur adisicing elit
+                </p>
+            </div>
+        </div>
+        <!--================================SUB MENU=========================-->
+        <nav class="navbar  page-nav page-nav-home" data-toggle="sticky-onscroll" id="navpagina" style="border: 1px solid rgba(0,0,0,.1);">
+            <div class="limit">
+                <nav class="page-nav-anchors" style="text-transform:none; " id="sub-menu-cruises">
+                    <center>
+                        <form>
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <p style="color:black;text-align:end;font-size:18px;font-family:Arial;margin-top:5px">Suscribete al newsletter para más noticias de GPS</p>
+                                </div>
+                                <div class="col-sm-6" style="padding-right: 300px;">
+                                    <div class="input-group" style="text-align:center">
+                                        <input type="text" redonly class="form-control email" id="staticEmail" style="font-family:Arial;border-color: #398AC9" placeholder="Email...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default btnEmail" redonly type="button">Subscribe</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </center>
+                </nav>
+            </div>
+        </nav>
+        <!--======================== FIXED SUBMENU MOvil=====================-->
+        <nav class="page-nav page-nav-home" data-toggle="sticky-onscroll" id="navmovil" style="border: 1px solid rgba(0,0,0,.1);border-top:0; height: 45px; padding-right:0px;">
+            <nav class="page-nav-anchors" style="width:100%; margin-left:-7%;">
+                <center>
+                    <form class="margenBlog">
+                        <div class="input-group" style="text-align:center;margin-top: 3px;margin-left: 24px;">
+                            <input type="text" redonly class="form-control email" id="staticEmail" style="font-family:Arial;border-color: #398AC9" placeholder="Email...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default btnEmail" redonly type="button">Subscribe</button>
+                            </span>
+                        </div>
+                    </form>
+                </center>
+            </nav>
+        </nav>
+        <!--==========Redes Sociales===========-->
+        <div style="float:left">
+            <div class="social">
+                <ul>
+                    <li><a href="https://www.facebook.com/VisitGalapagos" target="_blank" class="icon-facebook"></a></li>
+                    <li><a href="https://twitter.com/AndandoTours" target="_blank" class="icon-twitter"></a></li>
+                    <li><a href="https://plus.google.com/b/100589937559438672244/+VisitgalapagosTravel" target="_blank" class="icon-googleplus"></a></li>
+                </ul>
+            </div>
+        </div>
+        <!--==========Redes Sociales MObil===========-->
+        <div style="float:left">
+            <div class="social-mob">
+                <ul>
+                    <li><a href="https://www.facebook.com/VisitGalapagos" target="_blank" class="icon-facebook"></a></li>
+                    <li><a href="https://twitter.com/AndandoTours" target="_blank" class="icon-twitter"></a></li>
+                    <li><a href="https://plus.google.com/b/100589937559438672244/+VisitgalapagosTravel" target="_blank" class="icon-googleplus"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container padd">
+            <h2 class="formato-titulo" style="font-family:'BentonSans',sans-serif; text-align:center">
+                <b>CATEGORIA / <span style="color:#5299d1"> AUTOR</span></b>
+            </h2>
+            <h2 class="formato-titulo" style=" text-align:left"><b>Exterior</b></h2>
+            <p class="parrafo formato-parrafo" style="font-size:17px">
+                *Somos dueños y operadores de barcos, habiendo tenido 12 barcos en las islas, además
+                de tener acuerdos inigualables con otros operadores. Contacta con nosotros y tendrás un
+                además
+                de tener acuerdos inigualables con otros operadores. Contacta con nosotros y tendrás un
+            </p>
+            <table id="grid-gale-social" style="margin-left:-14px">
+                <tr>
+                    <td style="border:none;padding-right:0">
+                        <img src="~/images/Galery-Prod/galapagos-fund-wildaid-passion.jpg" style="width:724px; height:380px;" />
+                    </td>
+                    <td style="border:none;padding-right:0">
+                        <img src="~/images/About/Infinity exterior.jpg" style=" height:380px; margin-left:2px" />
+                    </td>
+                </tr>
+            </table>
+            @* ===============MOBILE=============== *@
+            <div id="grid-gale-social-mob">
+                <div class="container" style="width:auto; padding:0;margin-top:10px">
+                    <div class="col-md-12" style="padding:0; margin-top: 10px;">
+                        <img src="~/images/Galery-Prod/galapagos-fund-wildaid-passion.jpg" class="img-responsive" />
+                    </div>
+                    <div class="col-md-12" style="padding:0;margin-top: 10px;">
+                        <img src="~/images/About/Infinity exterior.jpg" class="img-responsive" />
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h2 class="formato-titulo" style="margin-top: 30px;text-align:left">
+                    <b>Social Areas</b>
+                </h2>
+                <p class="parrafo formato-parrafo" style="font-size:17px">
+                    *Somos dueños y operadores de barcos, habiendo tenido 12 barcos en las islas, además
+                    de tener acuerdos inigualables con otros operadores. Contacta con nosotros y tendrás un
+                    además
+                    de tener acuerdos inigualables con otros operadores. Contacta con nosotros y tendrás un
+                </p>
+                <div id="grid-gale-social" style="margin-left:-12px;">
+                    <div id="grid-prod-galery-ext">
+                        <div id="caja-galeria-ext">
+                            <img class="img-responsive" src="~/images/Galery-Prod/galapagos-fund-wildaid-passion.jpg" style="width:750px; height:380px; margin-right:0" />
+                        </div>
+                        <div id="caja-galeria2-ext">
+                            <img class="img-responsive" src="~/images/About/Infinity exterior.jpg" style="height:380px;" />
+                        </div>
+                        <div id="caja-galeria3-ext">
+                            <img src="~/images/About/Infinity exterior.jpg" style="margin-left:12px; height:380px;" />
+                        </div>
+                        <div id="caja-galeria4-ext">
+                            <img src="~/images/Galery-Prod/galapagos-fund-wildaid-passion.jpg" style="width:750px; height:380px; margin-right:0" />
+                        </div>
+                    </div>
+                </div>
+                @* ============MOBIL======== *@
+                <div id="grid-gale-social-mob">
+                    <div id="grid-prod-galery-ext">
+                        <div id="caja-galeria-ext">
+                            <img class="img-responsive" src="~/images/Galery-Prod/galapagos-fund-wildaid-passion.jpg" />
+                        </div>
+                        <div id="caja-galeria2-ext">
+                            <img class="img-responsive" src="~/images/About/Infinity exterior.jpg" />
+                        </div>
+                        <div id="caja-galeria3-ext">
+                            <img src="~/images/About/Infinity exterior.jpg" />
+                        </div>
+                        <div id="caja-galeria4-ext">
+                            <img src="~/images/Galery-Prod/galapagos-fund-wildaid-passion.jpg" />
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <h2 class="formato-titulo" style="margin-top: 30px; text-align:left">
+                    <b>Cabins</b>
+                </h2>
+                <p class="parrafo formato-parrafo">
+                    *Somos dueños y operadores de barcos, habiendo tenido 12 barcos en las islas, además
+                    de tener acuerdos inigualables con otros operadores. Contacta con nosotros y tendrás un
+                    además
+                    de tener acuerdos inigualables con otros operadores. Contacta con nosotros y tendrás un
+                </p>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <img class="img-responsive" src="~/images/Galery-Prod/alya-cruise-activities-and-itineraries.jpg" />
+                    </div>
+                    <div class="col-xs-6">
+                        <img class="img-responsive" src="~/images/Galery-Prod/alya-cruise-activities-and-itineraries.jpg" />
+                    </div>
+                </div>
+                <div class="row" style="margin-top:17px">
+                    <div class="col-xs-6">
+                        <img class="img-responsive" src="~/images/Galery-Prod/alya-cruise-activities-and-itineraries.jpg" />
+                    </div>
+                    <div class="col-xs-6">
+                        <img class="img-responsive" src="~/images/Galery-Prod/alya-cruise-activities-and-itineraries.jpg" />
+                    </div>
+                </div>
+                <br />
+                <h2 class="formato-titulo" style="margin-top: 30px;">
+                    <b>Experiences</b>
+                </h2>
+                <p class="formato-parrafo">
+                    *Somos dueños y operadores de barcos, habiendo tenido 12 barcos en las islas, además
+                    de tener acuerdos inigualables con otros operadores. Contacta con nosotros y tendrás un
+                </p><br />
+                <div id="grid-gale-social" class="container" style="padding:0">
+                    <div class="container" style="width:97.5%;padding:0;margin:0">
+                        <div class="col-md-12" style="padding:0">
+                            <img class="img-responsive" src="~/images/Galery-Prod/galapagos-fund-wildaid-passion.jpg" style="margin:0" />
+                        </div>
+                    </div>
+                    <div class="container" style="width:97.5%;margin-left:0;padding:0;margin-top:30px">
+                        <div id="grid-prod-galery-exp" style="margin-top:10px">
+                            <div id="caja-galeria-exp">
+                                <img class="img-responsive" src="~/images/Galery-Prod/alya-cruise-activities-and-itineraries.jpg" style="width:551px;height:171px;margin:0" />
+                            </div>
+                            <div id="caja-galeria2-exp">
+                                <img class="img-responsive" src="~/images/product itinerary.jpg" style="height:380px" />
+                            </div>
+                            <div id="caja-galeria3-exp">
+                                <img class="img-responsive" src="~/images/Galery-Prod/alya-availability.jpg" style="width:551px;height:171px" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @* ===============MOBILE=============== *@
+                <div id="grid-gale-social-mob">
+                    <div class="container" style="width:auto;padding:0;margin-top:10px">
+                        <div class="col-md-12" style="padding:0; margin-top: 10px;">
+                            <img class="img-responsive" src="~/images/Galery-Prod/galapagos-fund-wildaid-passion.jpg" style="width:100%" />
+                        </div>
+                        <div class="col-md-12" style="padding:0; margin-top: 10px;">
+                            <img class="img-responsive" src="~/images/Galery-Prod/alya-cruise-activities-and-itineraries.jpg" style="width:100%" />
+                        </div>
+                        <div class="col-md-12" style="padding:0; margin-top: 10px;">
+                            <img class="img-responsive" src="~/images/product itinerary.jpg" style="width:100%" />
+                        </div>
+                        <div class="col-md-12" style="padding:0; margin-top: 10px;">
+                            <img class="img-responsive" src="~/images/Galery-Prod/alya-availability.jpg" style="width:100%" />
+                        </div>
+                    </div>
+                </div>
+                <br />
+            </div>
+        </div>
+        <!--=======================CRUISING THE GALAPAGOS SOLO====================-->
+        <section style="background-color:#eff0f3">
+            <div class="container ">
+                <h4 class="text-center" style="font-size:20px; font-family:'BentonSans',sans-serif"><strong>Cruising the Galapagos solo</strong></h4>
+                <p class="text-center parrafo" style="font-size:18px;font-family:Arial">
+                    Private charters allow us to offer services not included on a normal cruise within the restrictions imposed by the national
+                    park authorities: professional.
+                </p>
+                <div class="col-md-4 col-xs-12"></div>
+                <div class="col-md-4 col-xs-12">
+                    <center>
+                        <form class="margenBlog" style="margin:0 ">
+                            <div class="input-group" style="text-align:center;margin-top: 3px;">
+                                <input type="text" redonly class="form-control email" id="staticEmail" style="font-family:Arial;border-color: #398AC9" placeholder="Email...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default btnEmail" redonly type="button">Subscribe</button>
+                                </span>
+                            </div>
+                        </form>
+                    </center>
+                </div>
+            </div>
+        </section>
+        <!--=================================Coments===============================-->
+        <section style="background-color:white">
+            <div class="container" id="comentario">
+                <div class="col-md-12">
+                    <span>0 comments</span>
+                </div>
+                <center>
+                    <form style="font-family:Arial">
+                        <div class="col-md-12" style="display:inline-block">
+                            <div class="form-group col-md-2" style="width:75px">
+                                <img src="~/images/icon/user.jpg" class="img-rounded" style="width:70px;margin:0" />
+                            </div>
+                            <div class="form-group col-md-8" style="width:850px">
+                                <textarea class="form-control " style="font-family:Arial;overflow-y:scroll; max-width:850px" placeholder=""
+                                          type="text" id="pregunta3"> </textarea>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <button type="submit" style="position:absolute;height:100px;width:60px;background-position:center;background-size:80px; transition:0.5s; background-image:url(../images/icon/submit.jpg); margin:0; padding:12%" class="btn-request "></button>
+                            </div>
+                        </div>
+                        <div class="col-md-12" style="display:inline-block">
+                            <div class="form-group col-md-2" style="width:75px">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <input style="font-family:Arial" class="form-control" placeholder="NAME" type="text" id="inputName" />
+                            </div>
+                            <div class="form-group col-md-3" style="width:290px">
+                                <input style="font-family:Arial" class="form-control" type="text"
+                                       placeholder="EMAIL" id="inputUserName" />
+                            </div>
+                            <div class="form-group col-md-3">
+                                <input style="font-family:Arial" class="form-control" type="text"
+                                       placeholder="WEBSITE" id="inputWebsite" />
+                            </div>
+                        </div>
+                    </form>
+                </center>
+            </div>
+        </section>
+        <!--=================================Coments Mobile===============================-->
+        <section style="background-color:white">
+            <div id="comentario-mob" class="container">
+                <center>
+                    <div class="form-group col-md-12">
+                        <img src="~/images/icon/user.jpg" class="img-rounded" style="width:70px;margin:0" />
+                    </div>
+                    <div class="col-md-12" style="display:inline-block;width:100%">
+                        <div class="col-xs-4" style="display:inline-block;padding:0;text-align:left"></div>
+                        <div class="col-xs-8" style="text-align:right">
+                            <span>0 comments</span>
+                        </div>
+                    </div>
+                    <center>
+                        <form>
+                            <div class="col-md-12" style="width:100%; display:inline-block">
+                                <div class="form-group col-md-12">
+                                    <textarea class="form-control " style="font-family:Arial;overflow-y:scroll" placeholder=""
+                                              type="text" id="pregunta3"> </textarea>
+                                </div>
+                                <div class="form-group col-md-6 col-md-12">
+                                    <input style="font-family:Arial" class="form-control" placeholder="NAME"
+                                           type="text" id="inputName" />
+                                </div>
+                                <div class="form-group col-md-6 col-md-12">
+                                    <input style="font-family:Arial" class="form-control" type="text"
+                                           placeholder="EMAIL" id="inputUserName" />
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <input style="font-family:Arial" class="form-control" type="text"
+                                           placeholder="WEBSITE" id="inputWebsite" />
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-4 col-md-4" style="left:1%"></div>
+                            <div class="form-group col-xs-4 col-md-4" style="right:1%">
+                                <button type="submit" style="font-family:Arial; text-align:center;color:white; background-position:center;background-size:80px; margin:0; padding:5%" class="btn-request h5button6-nav">Submit</button>
+                            </div>
+                        </form>
+                    </center>
+                </center>
+            </div>
+        </section>
+    </div>
+    <!--================================// RELATED PRODUCTS //=============================================================-->
+    <section id="related_prod" class="related" style="background-color:white;padding-top:0">
+        <div class="container">
+            <div class="contenedorHome">
+                <h2 class="section-header-title formato-titulo" style="text-align:left;" id="gallery"><strong>Related Products</strong></h2><br>
+                <div id="tabs" class="content content-twocolumns" style="margin:0">
+                    <div class="col-md-4" style="margin-bottom:15px">
+                        <article class="article-event article-loaded" id="tabs_1">
+                            <div class="article-image"><img src="~/images/articles/perfect cruise in galapagos.jpg" class="attachment-400x300x1 size-400x300x1 wp-post-image img-loaded" alt=""></div>
+                            <div class="article-main">
+                                <div class="article-date" style="width:auto; height:31px;">
+                                    <div style="padding:5px; font-size:8px; margin-top:-30px; padding-left:10px; padding-right:10px">
+                                        <strong>M/Y Theory</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="article-body" style="color:black">
+                                <p style="height:100%;margin-bottom:0">
+                                    Step on board the MV Theory Galapagos Cruise for an eco-friendly, high-end journey to the exciting Galapagos Islands.
+                                </p>
+                                <a style="color:#398AC9" href="../../galapagos-cruises/theory/">View Cruises >></a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-4" style="margin-bottom:15px">
+                        <article class="article-event article-loaded" id="tabs_1">
+                            <div class="article-image"><img src="~/images/articles/galapagos islands reasons.jpg" class="attachment-400x300x1 size-400x300x1 wp-post-image img-loaded" alt=""></div>
+                            <div class="article-main">
+                                <div class="article-date" style="width:auto; height:31px">
+                                    <div style="padding:5px; font-size:8px; margin-top:-30px; padding-left:10px; padding-right:10px">
+                                        <strong>M/C Ocean Spray</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="article-body" style="color:black">
+                                <p style="margin:0">
+                                    This Mega-Catamaran offers the best performance and comfort in Galapagos Luxury Cruising.
+                                </p>
+                                <a style="color:#398AC9" href="../../galapagos-cruises/ocean-spray/">View Cruise >></a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-4">
+                        <article class="article-event article-loaded" id="tabs_1">
+                            <div class="article-image"><img src="~/images/articles/galapagos paradise.jpg" class="attachment-400x300x1 size-400x300x1 wp-post-image img-loaded" alt=""></div>
+                            <div class="article-main">
+                                <div class="article-date" style="width:auto; height:31px">
+                                    <div style="padding:5px; font-size:8px; margin-top:-30px; padding-left:10px; padding-right:10px">
+                                        <strong>M/Y Odyssey</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="article-body" style="color:black">
+                                <p style="margin:0">This yacht offers unparalleled stability comfort and the guarantee of a tranquil and relaxed cruise. It features 9 double cabins with ample ocean views from each one.</p>
+                                <a href="../../galapagos-cruises/odyssey/" style="color:#398AC9">View Cruise >></a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+    </section>
+</div>

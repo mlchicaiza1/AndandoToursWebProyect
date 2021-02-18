@@ -1,0 +1,461 @@
+﻿@{
+    var contenido = ViewBag.GetContenidoVista;
+    //var imagenItem = ViewBag.GetContenidoMult;
+    var titulo = new List<string>();
+    Dictionary<string, int> uniqueStore = new Dictionary<string, int>();
+
+
+    foreach (var item in ViewBag.GetContenidoVista)
+    {
+
+        if (!uniqueStore.ContainsKey(item.Titulo))
+        {
+            uniqueStore.Add(item.Titulo, 0);
+            titulo.Add(item.Titulo);
+        }
+    }
+}
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<div id="dipoCruises" class="container--full-width" style="width:100%; overflow-y:hidden; overflow-x:hidden ">
+    <div class="item active imgen-carousel" style="background-image:url(../../wwwroot/images/slide.jpg)">
+        <div class="fondos-imagen" style="background-image:url(../images/Home/slide.jpg);">
+            <img src="" alt="sailing Galapagos" class="fondos-imagen" style=" background-image:url(../images/Home/slide.jpg); position:center; height:100%; width:100%;" />
+        </div>
+        <div class="caption" style="text-align:center; font-size:48px;padding-bottom:40px" role="option">
+            <h1 class="font-x2 font-brush font-carousel" style="text-shadow:1px 1px 1px rgba(0, 0, 0, 0.5);margin-bottom:30px">
+                <strong>@titulo[0]</strong>
+            </h1>
+            <p class="font-x2 " style="font-size:18px;margin-top:0; font-family:'BentonSans',sans-serif">
+                <span>@Html.Raw(contenido[0].Parrafo)</span>
+            </p>
+            <p class="btn-carousel">
+                <a class="btn h5button" href="#productos-dispo" id="help_me_plan" style="font-size:18px; padding: 5px 14px;font-family:'BentonSans-Regular'">Select a boat<i class="fas fa-angle-down" style="padding-left:10px"></i></a>
+            </p>
+        </div>
+    </div>
+    <!--================================SUB MENU MOVILE=========================-->
+    <div id="mySidenavMovile" class="sidenav FiltroPlanner">
+        <button id="btn-cerrar-menu" class="btn-menu-cerrar" style="background-color: white;margin:10px 10px 60px">
+            <div class="header-hamburgerDisp in" style="margin-top: 10px;margin-right:20px">
+                <span onclick="closeNavMovile()"><i class='fas fa-times-circle' style='font-size:30px;color:#179fec;padding-left:0;padding-top:5px'></i></span>
+            </div>
+        </button>
+        <div class="sideMovile">
+            <div class="dropdown" style="text-align: center;">
+                <button class="btn btn-default dropdown-toggle h5button botonFiltro" type="button" data-toggle="dropdown">
+                    {{triptype}} {{contTrip}}  <i class="fas fa-angle-down" style="color:#7B7979;"> </i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu_cruises">
+                    <li v-for="(value, index) in  maintripType">
+                        <label class="containe">
+                            <span :style="{color: checkColor}" :id="index" :name="value">{{value.barcoCategoriaTipoNombreEn}}</span>
+                            <input type="checkbox" :value="value.barcoCategoriaTipoNombreEn" :id="index" v-model="checkedBarcos" @@change="checkTripType($event)">
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                    <li>
+                        <div class="row" style="margin-top: 18px;font-family:Arial">
+                            <div class="col-md-6 col-xs-6">
+                                <button class="h5button" id="btnResettleEs" v-on:click="resettleCruises">
+                                    Resettle
+                                </button>
+                            </div>
+                            <div class="col-md-6 col-xs-6">
+                                <button class="apply applyTravelerPlanner" id="applyTravel" style="margin-left:0;width:90px" v-on:click="applyCruises">
+                                    Apply
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="sideMovile">
+            <div class="dropdown" style="text-align:center">
+                <button class="btn btn-default dropdown-toggle h5button botonFiltro" type="button" data-toggle="dropdown">
+                    {{travelersTot}}<i class="fas fa-angle-down"></i>
+                </button>
+                <ul class="dropdown-menu dropdownSty dropdown-menu_cruises" role="menu" style="width:270px">
+                    <li>
+                        <div class="row">
+                            <div class="col-md-6 col-xs-6 ">
+                                <h4 style="padding:15px 0px 0 25px">Adults</h4>
+                            </div>
+                            <div class="col-md-6 col-xs-6" style="padding:21px 0 0 5px">
+                                <div class="number-style" style="font-size:18px">
+                                    <span class="number-minus" v-on:click="minusTravelersAdu" v-bind:class="colorAdu"></span>
+                                    <p style="display:contents;font-family:Arial;color:#787778" :value="2"> {{ count }}</p>
+                                    <span class="number-plus" v-on:click="moreTravelersAdu"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row" >
+                            <div class="col-md-6 col-xs-6">
+                                <h4 style="padding:0 0 0 25px; margin-top:2px">Children</h4>
+                                <h5 style="padding:0px 0 0 25px;margin-top:-15px">From 4 to 12</h5>
+                            </div>
+                            <div class="col-md-6 col-xs-6" style="padding:5px 0 0 5px" id="ChildrenDesk">
+                                <div class="number-style" style="font-size:18px">
+                                    <span class="number-minus" v-on:click="minusTravelersChild" v-bind:class="colorChild"></span>
+                                    <p style="display:contents;font-family:Arial;color:#787778"> {{ count1 }}</p>
+                                    <span class="number-plus" v-on:click="moreTravelersChild"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row" style="padding-top: 10px;">
+                            <div class="col-md-6 col-xs-6">
+                                <button class="h5button" id="btnResettleEs" v-on:click="resettleTravel">
+                                    Resettle
+                                </button>
+                            </div>
+                            <div class="col-md-6 col-xs-6">
+                                <button class="apply applyTravelerPlanner" id="applyTravel" v-on:click="applyTravel">
+                                    Apply
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="sideMovile">
+            <div class="dropdown contenidoFiltroCategoria" style="text-align:center">
+                <button class="btn btn-default dropdown-toggle h5button botonFiltro" type="button" data-toggle="dropdown">
+                    {{filterDate}}  <i class="fas fa-angle-down" style="color:#7B7979;"> </i>
+                </button>
+                <ul class="dropdown-menu  filtroDate dropdown-menu_cruises" role="menu" style="height: 290px;">
+                    <li>
+                        <div class="input-group input-daterange">
+                            <div class="row">
+                                <div class="col-md-6" style="padding-right:0px; width:260px">
+                                    <div class="input-group dates datepickerFilter datepickerProduct" data-provide="datepicker-inline" id="datepickerDispMovile" style="padding-left:0px;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-xs-6 ResettleDate">
+                                    <button class="h5button" id="btnResettleEs" style="margin-top:-8px;margin-left:8px" v-on:click="resettleDate">
+                                        Resettle
+                                    </button>
+                                </div>
+                                <div class="col-md-6 col-xs-6 ApplyDate">
+                                    <button class="apply applyDatePlanner" v-on:click="applyDate">
+                                        Apply
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="sideMovile">
+            <a class="btn h5button btnFiltter" href="#productos-dispo" v-on:click="getListBarcoCards($event)">
+                Apply filters
+            </a>
+        </div>
+    </div>
+    <!--================================SUB MENU=========================-->
+    <div class="wrapper">
+        <div class="external-dropdown" data-toggle="sticky-onscroll">
+            <div class="outer FiltroPlanner">
+                <div class="side">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle h5button botonFiltro" type="button" data-toggle="dropdown">
+                            <span v-html="triptype "></span> <span v-html=" contTrip "></span>  <i class="fas fa-angle-down" style="color:#7B7979;"> </i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu_cruises" style="height: 240px;">
+                            <li v-for="(value, index) in  maintripType">
+                                <label class="containe">
+                                    <span :style="{color: checkColor}" :id="index" :name="value.barcoCategoriaTipoNombreEn">{{value.barcoCategoriaTipoNombreEn}}</span>
+                                    <input type="checkbox" :value="value.barcoCategoriaTipoNombreEn" :id="index" v-model="checkedBarcos" @@change="checkTripType($event)">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <div class="row" style="margin-top: 18px;font-family:Arial">
+                                    <div class="col-md-6 col-xs-6">
+                                        <button class="h5button" id="btnResettleEs" v-on:click="resettleCruises">
+                                            Resettle
+                                        </button>
+                                    </div>
+                                    <div class="col-md-6 col-xs-6">
+                                        <button class="apply applyTravelerPlanner" id="applyTravel" style="margin-left:0;width:90px" v-on:click="applyCruises">
+                                            Apply
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="side">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle h5button botonFiltro" type="button" data-toggle="dropdown">
+                            <span v-html="travelersTot"></span> <i class="fas fa-angle-down"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdownSty dropdown-menu_cruises" role="menu" style="width:290px">
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-6 ">
+                                        <h4 style="padding:15px 0px 0 25px">Adults</h4>
+                                    </div>
+                                    <div class="col-md-6 col-xs-6" style="padding:21px 0 0 5px">
+                                        <div class="number-style" style="font-size:18px">
+                                            <span class="number-minus" v-on:click="minusTravelersAdu" v-bind:class="colorAdu"></span>
+                                            <p style="display:contents;font-family:Arial;color:#787778" :value="2"> {{ count }}</p>
+                                            <span class="number-plus" v-on:click="moreTravelersAdu"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row" >
+                                    <div class="col-md-6 col-xs-6">
+                                        <h4 style="padding:0 0 0 25px; margin-top:2px">Children</h4>
+                                        <h5 style="padding:0px 0 0 25px;margin-top:-15px">From 4 to 12</h5>
+                                    </div>
+                                    <div class="col-md-6 col-xs-6" style="padding:5px 0 0 5px" id="ChildrenDesk">
+                                        <div class="number-style" style="font-size:18px">
+                                            <span class="number-minus" v-on:click="minusTravelersChild" v-bind:class="colorChild"></span>
+                                            <p style="display:contents;font-family:Arial;color:#787778"> {{ count1 }}</p>
+                                            <span class="number-plus" v-on:click="moreTravelersChild"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row" style="padding-top: 15px;">
+                                    <div class="col-md-6 col-xs-6">
+                                        <button class="h5button" id="btnResettleEs" v-on:click="resettleTravel">
+                                            Resettle
+                                        </button>
+                                    </div>
+                                    <div class="col-md-6 col-xs-6">
+                                        <button class="apply applyTravelerPlanner" id="applyTravel" v-on:click="applyTravel">
+                                            Apply
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="side">
+                    <div class="dropdown contenidoFiltroCategoria">
+                        <button class="btn btn-default dropdown-toggle h5button botonFiltro" type="button" data-toggle="dropdown">
+                            <span v-html="filterDate"></span>  <i class="fas fa-angle-down" style="color:#7B7979;"> </i>
+                        </button>
+                        <ul class="dropdown-menu  filtroDate dropdown-menu_cruises" role="menu">
+                            <li>
+                                <div class="input-group input-daterange">
+                                    <div class="row">
+                                        <div class="col-md-6" style="padding-right:0px; width:260px">
+                                            <div class="input-group dates datepickerFilter " data-provide="datepicker-inline" id="datepickerFilterPlanner" style="padding-left:0px;">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 dataPickerDesk" style="padding-left:0px; width:260px">
+                                            <div class="input-group dates datepickerFilter1" data-provide="" id="datepickerFilterPlanner_1" style="margin-left:10px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-6 ResettleDate">
+                                            <button class="h5button" id="btnResettleEs" style="margin-top:-8px;margin-left:8px" v-on:click="resettleDate">
+                                                Resettle
+                                            </button>
+                                        </div>
+                                        <div class="col-md-6 col-xs-6 ApplyDate">
+                                            <button class="apply applyDatePlanner" v-on:click="applyDate">
+                                                Apply
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="side">
+                    <a class="btn h5button btnFiltter btnVisibleFiltro" id="btnFiltroBarco" href="#productos-dispo" v-on:click="getListBarcoCards($event)">
+                        Apply filters
+                    </a>
+                </div>
+                <div class="pull-right">
+                    <a class="btn h5buttonFilters btnFiltter showFilter" onclick="openNavMovile()">
+                        filters
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="overflow-y:hidden">
+            <div class="row f-15 textoinfo parrafo" style="font-family:Arial;padding: .5em 1em; color: #656b6f !important; line-height:2; background:white;">
+                <ol class="breadcrumb" style="" itemscope itemtype="http://schema.org/BreadcrumbList">
+                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a itemprop="item" style="color:#0077ba" href="../../">
+                            <span itemprop="name">Home</span>
+                        </a>
+                        <meta itemprop="position" content="1" />
+                    </li>
+                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a itemprop="item" style="color:#0077ba" href="../galapagos-cruises">
+                            <span itemprop="name">Galapagos Cruises</span>
+                        </a>
+                        <meta itemprop="position" content="2" />
+                    </li>
+                    <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <span itemprop="name">Availability</span>
+                        <meta itemprop="position" content="3" />
+                    </li>
+                </ol>
+                <h2 class="formato-titulo" style="margin-top:5px;margin-bottom: 30px;"><b> @titulo[1] </b></h2>
+                <div id="productos-dispo"></div>
+                <div id="tripp"></div>
+                @*<p class="formato-parrafo" style="color:#398AC9">Autor / Categoría</p>*@
+                @{
+                    foreach (var item in ViewBag.GetContenidoVista)
+                    {
+                        if (item.Titulo == titulo[1])
+                        {
+                            <span style="color:black">@Html.Raw(item.Parrafo)</span>
+                        }
+                    }
+                }
+                <div class="boxdiv1" style="display:inline-flex">
+                    <p style="color:black;margin-right:20px">
+                        Need Galapagos travel information?
+                        <a class="btn h5button daily-boton" data-toggle="modal" data-target="#ModalInquire" href="../../../../form_taylorMade/form_taylorMade" style="margin-right:10px;color:white; background:#398AC9">
+                            Help me Plan
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br />
+        <!--GALAPAGOS CRUISES-->
+        <!--================================CARD CRUCEROS=========================-->
+        <div class="container  text-justify" style="padding: .5em 1em; background:white; text-decoration:none;">
+            <div class="mainland-wrapper ">
+                <div class="mainland">
+                    <div class="row  f-15 text-justify textoinfo parrafo" style="font-family:Arial; color: #656b6f !important; line-height:2; background:white; margin-top: 0;">
+                        <div class="row f-15 text-justify textoinfo parrafo" style="margin-top: 0;">
+                            <div style="padding-top:20px;padding-bottom:15px;    padding-left: 1%;" v-if="disponibilidadBarcos === false">
+                                <p><span style="font-size:24px; font-weight:700" v-html="results"></span></p>
+                                <p><span style="font-size:18px" v-html="respuestaBarcos"></span></p>
+                            </div>
+                            <div v-if="ListBarcoCards.length == 0 ">
+                                <div class="col-xs-12 col-sm-6 col-md-4 cardsAndando" v-for="(value, key) in cargaDatos">
+                                    <div class="contenido-app">
+                                        <a style="text-decoration:none" class="anc-card">
+                                            <div class="mainland-item">
+                                                <div class="mainland-image">
+                                                    <img src="~/images/Galapagos.jpg" style="background-color:#f1f1f1" class="img-portada" alt="">
+                                                    <div class="cruise-details">
+                                                        <span>{{value}}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="cruise-info">
+                                                    <h3 style="font-family:'Berlin Sans FB'"></h3>
+                                                    <p style="text-align:justify; margin-left:-5px; font-family:Arial">
+                                                        {{value}}
+                                                    </p>
+                                                    <div class="rest-info">
+                                                        <span class="price" style="margin-left:10px; font-family:Arial">{{value}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4 cardsAndando" v-for="(barcos,index) in ShowCardsBarcos" v-bind:currentPage="currentPage">
+                                <div class="contenido-app">
+                                    <a v-on:click="ShowDispoBarco($event)" :id="barcos.idBarco" style="text-decoration:none; cursor:pointer" class="anc-card">
+                                        <div class="mainland-item eco" v-bind:class="barcos.barcoEco == true ? cardEco: eco" style="overflow:hidden;text-overflow:ellipsis">
+                                            <div class="mainland-image">
+                                                <img class="lazyload img-portada" :data-src="barcos.barcoImagen" :alt="barcos.barcoCategoriaTipoNombreEn">
+                                                <div v-bind:class="barcos.barcoEco == true ? wildAid: hide">
+                                                    <h5>Collaborating with WildAid to protect the Islands. </h5>
+                                                </div>
+                                                <div class="cruise-details" v-bind:class="barcos.barcoEco == true ? cruisedetailsEco: cruiseDetails">
+                                                    <span>Category: {{barcos.barcoCategoriaTipoNombreEn}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="cruise-info">
+                                                <h3 style="font-family:'Berlin Sans FB'">{{barcos.barcoNombre}}</h3>
+                                                <p style="text-align:left;font-size:15px!important; margin-left:-5px;max-height:70px;overflow:hidden;text-overflow:ellipsis; font-family:Arial!important">
+                                                    {{desBarco[index]}}
+                                                </p>
+                                                <div class="rest-info">
+                                                    <span class="price" style="margin-left:10px; font-family:Arial">Price from: ${{barcos.barcoPrecioMin}} ({{barcos.barcoDiasItinerario }} Days). </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            @*<div v-if="dispBarcosVerficarInf != 'Loading information…' && dispVerficarOtrosBarcos !=''">
+            <span v-html="dispBarcosVerficarInf"></span>
+        </div>*@
+                        </div>
+                     </div>
+                </div>
+                <br />
+            </div>
+            <partial name="~/Views/Forms/ModalsAvailability/availabilityPassionMary.cshtml" />
+            <partial name="~/Views/Forms/ModalsAvailability/availabilityOtrosBarcos.cshtml" />
+            <partial name="~/Views/Forms/ModalsCabina/detailsCabinaPaMa.cshtml" />
+            <partial name="~/Views/Forms/ModalsCabina/detailsCabinaOtrosBarcos.cshtml" />
+
+            <br />
+            <nav v-if="totalPages()>0" style="text-align:center">
+                <ul class="pagination justify-content-center " style="margin:20px 0">
+                    <li class="pagination-btn" v-on:click="updatePage(0)"><a href="#tripp">&laquo;</a></li>
+                    <li v-if="showPrevioustLink()" class="pagination-btn" v-on:click="updatePage(currentPage-1)"><a href="#tripp">&lt;</a></li>
+                    <li class="active" v-on:click="updatePage(currentPage)"><a href="#tripp">{{showPages(currentPage,1)}}</a></li>
+                    <li v-on:click="updatePage(currentPage+1)" v-if="showNextLink()"><a href="#tripp">{{showPages(currentPage,2)}}</a></li>
+                    <li v-on:click="updatePage(currentPage+2)" v-if="totalPages()>=showPages(currentPage,3)"><a href="#tripp">{{showPages(currentPage,3)}}</a></li>
+                    <li v-on:click="updatePage(currentPage+1)" v-if="showNextLink()" class="pagination-btn"><a href="#tripp">&gt;</a></li>
+                    <li class="pagination-btn" v-on:click="updatePage(totalPages()-1)"><a href="#tripp">&raquo;</a></li>
+                </ul>
+                <br />
+            </nav>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openNavMovile() {
+        document.getElementById("mySidenavMovile").style.width = "300px";
+    }
+
+    function closeNavMovile() {
+        document.getElementById("mySidenavMovile").style.width = "0";
+    }
+    $(document).ready(function () {
+        var today = new Date();
+        $('#datepickerFilterPlanner').datepicker({
+            format: "mm-yyyy",
+            minViewMode: "months",
+            multidate: 3,
+            startDate: new Date(today.getFullYear(), today.getMonth(), today.getDate())
+        });
+        $('#datepickerFilterPlanner_1').datepicker({
+            format: "mm-yyyy",
+            viewMode: "months",
+            minViewMode: "months",
+            startDate: new Date((today.getFullYear() + 1), 0, today.getDate()),
+            multidate: 3,
+        });
+    });
+
+</script>
+@section scripts {
+    <script src="~/lib/vue/CruisesDisponibilidad.js"></script>
+}
+

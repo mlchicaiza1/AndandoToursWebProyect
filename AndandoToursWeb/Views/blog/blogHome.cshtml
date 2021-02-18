@@ -1,0 +1,274 @@
+﻿@{
+    var contenido = ViewBag.GetContenidoVista;
+    var imagenItem = ViewBag.GetContenidoMult;
+    var titulo = new List<string>();
+    Dictionary<string, int> uniqueStore = new Dictionary<string, int>();
+
+
+    foreach (var item in ViewBag.GetContenidoVista)
+    {
+
+        if (!uniqueStore.ContainsKey(item.Titulo))
+        {
+            uniqueStore.Add(item.Titulo, 0);
+            titulo.Add(item.Titulo);
+        }
+    }
+}
+<div class="container--full-width" style="overflow-x:hidden;overflow:hidden; width:100%">
+    <div class="item active imgen-carousel">
+        <div class="fondos-imagen">
+            <img class="fondos-imagen" title="@imagenItem[0].NombreImagen" alt="@imagenItem[0].NombreImagen" style="background-image: url('@imagenItem[0].UrlImagen'); position:center; height:100%; width:100%;" />
+        </div>
+        <div class="caption" style="text-align:center; padding-bottom:40px" role="option">
+            <h1 class="font-x2 font-brush font-carousel" style="text-shadow:1px 1px 1px rgba(0, 0, 0, 0.5);margin-bottom:30px">
+                <strong>@titulo[0]</strong>
+            </h1>
+            <p class="font-x2 " style="font-size:18px;margin-top:0; font-family:'BentonSans',sans-serif">
+                <span>@Html.Raw(contenido[0].Parrafo)</span>
+            </p><div id="Articles"></div>
+        </div>
+    </div>
+    <!--================================SUB MENU=========================-->
+    <nav class="navbar  navbarsubmenu page-nav-home" data-toggle="sticky-onscroll" id="navpagina" style="border: 1px solid rgba(0,0,0,.1);">
+        <div class="limit">
+            <nav class="page-nav-anchors" style="text-transform:none; " id="sub-menu-cruises">
+                <ul>
+                    <li>
+                        <a href="#Articles"><span>Highlighted Articles</span> </a>
+                    </li>
+                    <li>
+                        <a><span></span></a>
+                    </li>
+                    <li>
+                        <a style="width: 300px" href="#moreArticles"><span>More Content</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+    <nav class="page-nav page-nav-home" data-toggle="sticky-onscroll" id="navmovil">
+        <div class="limit" style="width:100%">
+            <nav class="page-nav-anchors">
+                <ul style="width:100%">
+                    <li class="activities" style="width: 150px;margin-right: 5%;">
+                        <a href="#Articles"><span>Highlighted Articles</span> </a>
+                    </li>
+                    <li class="itineraries" style="margin-left: 10px;">
+                        <a href="#moreArticles"> <span>More Content</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+    <!--================================SECCION IMG INF========================-->
+    <div class="container">
+        <div class="row">
+            <div class="row" style="padding-bottom:5px;padding-top:30px">
+                <div class="col-md-6 imgTravel imgBlog" style="padding-left:0;padding-right:0">
+                    <img data-src="@imagenItem[1].UrlImagen" title="@imagenItem[1].NombreImagen" alt="@imagenItem[1].NombreImagen" class="img-responsive lazyload" style="margin:0;width:100%" />
+                </div>
+                <div class="col-md-6 textoTravel colorBlog" >
+                    <div class="row f-15 text-justify textoinfo " style="padding: 1.2em 1.5em; margin-top:-25px">
+                        <h2 class="formato-titulo" style="margin-top:5px;margin-bottom: 30px;"><b> @titulo[1] </b></h2>
+                        @*<p class="formato-parrafo" style="color:#398AC9">Autor / Categoría</p>*@
+                        @{
+                            foreach (var item in ViewBag.GetContenidoVista)
+                            {
+                                if (item.Titulo == titulo[1])
+                                {
+                                    <span>@Html.Raw(item.Parrafo)</span>
+                                }
+                            }
+                        }
+                        <table style="margin-left:-13px">
+                            <tr>
+                                <td style="border:none">
+                                    <a class="btn h5button btnRead " style="font-family:'BentonSans-Regular';padding:6px 20px; font-size:16px" href="/blog/best-way-to-travel-galapagos">Read Article</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-bottom:5px">
+                <div class="col-md-6 imgTravel  imgBlog_1" style="padding-left:0;padding-right:0">
+                    <img  data-src="@imagenItem[2].UrlImagen" title="@imagenItem[2].NombreImagen" alt="@imagenItem[2].NombreImagen" class="img-responsive lazyload" style="margin:0;width:100%" />
+                </div>
+                <div class="col-md-6 textoTravel colorBlog">
+                    <div class="row f-15 text-justify textoinfo" style="padding: 1.2em 1.5em; margin-top:-25px;">
+                        <h2 class="formato-titulo" style="margin-top:5px;margin-bottom: 30px;"><b> @titulo[2] </b></h2>
+                        @{
+                            foreach (var item in ViewBag.GetContenidoVista)
+                            {
+                                if (item.Titulo == titulo[2])
+                                {
+                                    <span>@Html.Raw(item.Parrafo)</span>
+                                }
+                            }
+                        }
+                        <table style="margin-left:-13px">
+                            <tr>
+                                <td style="border:none">
+                                    <a class="btn h5button btnRead" style="font-family:'BentonSans-Regular';padding:6px 20px; font-size:16px" href="/blog/galapagos-cruise-categories">Read Article</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 imgTravel  imgBlog_2" style="padding-left:0;padding-right:0">
+                    <img data-src="@imagenItem[3].UrlImagen" title="@imagenItem[3].NombreImagen" alt="@imagenItem[3].NombreImagen" class="img-responsive lazyload" style="margin:0;width:100%" />
+                </div>
+                <div class="col-md-6 textoTravel colorBlog">
+                    <div class="row f-15 text-justify textoinfo" style="padding: 1.2em 1.5em;margin-top:-25px;">
+                        <h2 class="formato-titulo" style="margin-top:5px;margin-bottom: 30px;"><b> @titulo[3] </b></h2>
+                        @{
+                            foreach (var item in ViewBag.GetContenidoVista)
+                            {
+                                if (item.Titulo == titulo[3])
+                                {
+                                    <span>@Html.Raw(item.Parrafo)</span>
+                                }
+                            }
+                        }
+                        <table style="margin-left:-13px">
+                            <tr>
+                                <td style="border:none">
+                                    <a class="btn h5button btnRead" style="font-family:'BentonSans-Regular';padding:6px 20px; font-size:16px" href="/blog/cruises-for-single-adventurers">Read Article</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--================================SECCION Subc=========================-->
+    <section style="background-color:#EDEDED;padding:0 0 0 0;margin-bottom:15px;">
+        <div class="container">
+            <div class="row f-15 text-justify textoinfo parrafo" style="font-family:Arial;padding: .5em 1em; color: #747475 !important; line-height:2;margin-bottom: 0">
+                <h2 class="textBlog"> <b>@titulo[4]</b></h2>
+                @{var cont = 0;
+                    foreach (var item in ViewBag.GetContenidoVista)
+                    {
+                        if (item.Titulo == titulo[4])
+                        {
+                            <p class="textoinfo parrafo formato-parrafo">
+                                <span>@Html.Raw(item.Parrafo)</span>
+                            </p>
+                            cont++;
+                            if (cont == 1)
+                            { break; }
+                        }
+                    }
+                }
+            <center>
+                <div id="mc_embed_signup">
+                    <form action="https://visitgalapagos.us15.list-manage.com/subscribe/post?u=13bcb03659759e8410a67809d&amp;id=e632bf5b97" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                        <div  id="mc_embed_signup_scroll" class="form-group">
+                            <div class="col-sm-10" style="padding-right: 20%;padding-bottom: 20px;padding-top:20px;float:right">
+                                <div class="input-group" style="font-family:Arial">
+                                    <input type="email" value="" name="EMAIL" redonly class="form-control email" id="mce-EMAIL" style="font-family:Arial;border-color: #398AC9" placeholder="Email..." required>
+                                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_13bcb03659759e8410a67809d_e632bf5b97" tabindex="-1" value=""></div>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default btnEmail" redonly type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">Subscribe</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </center>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <div id="moreArticles"></div>
+        <div class="row f-15 text-justify textoinfo parrafo" style="font-family:Arial;padding: .5em 1em; background:white;margin-bottom: 0">
+            @{int contparrafo = 0;
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[4])
+                    {
+
+                        contparrafo++;
+                        if (contparrafo == 2)
+                        {
+                            <span>@Html.Raw(item.Parrafo)</span>
+                        }
+                    }
+                }
+            }
+            <a class="btn h5button btnItinerarie dailyTour-boton" href="/tours" id="help_me_plan" style="padding-top:6px;padding-bottom:6px">Trip Finder</a>
+            <p class="formato-parrafo" style="font-size:18px;text-align:left;margin-bottom: 5px;">
+            </p>
+        </div>
+    </div>
+    <!--================================// RELATED PRODUCTS //=============================================================-->
+    <section style="background-color:white">
+        <div class="container-fluid">
+            <div class="container productoImg">
+                <div class="contenedorHome">
+                    <div class="row">
+                        <div class="row f-15 text-justify prodcutoImagen" style="font-family:Arial; padding: .5em 1em; color: black !important; line-height:1.3; background:white; margin-top:-30px">
+                            @{
+                                for (int i = 4; i < 14; i++)
+                                {
+                                    <div class="texto-blogPost col-md-4 col-xs-6 " style="margin-top:40px">
+                                        <center>
+                                            <img data-src="@imagenItem[i].UrlImagen" title="@imagenItem[i].NombreImagen" alt="@imagenItem[i].NombreImagen" id="image_media" class="img-responsive lazyload" />
+                                            <p>
+                                                <b>
+                                                    @titulo[i + 1]
+                                                </b>
+                                            </p>
+                                            <a class="btn h5button" target="_blank" style="font-family:SegoeUI, Segoe UI;font-size: 17px;" href=" @Regex.Replace(contenido[i+2].Parrafo, "<.*?>", String.Empty)" id="help_me_plan">Read Article</a>
+                                        </center>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br />
+    <!--================================BLOQUES GRANDES IMAGENES=========================-->
+    <div class="row f-15 text-justify" style="padding: .5em 1em; color: #656b6f !important; line-height:2; background:white; text-decoration:none; padding-top:30px">
+        <div class="mainland-wrapper container-fluid">
+            <div class="mainland">
+                <div class="row imagenBloque-blog">
+                    <h2 class="bloquesimg" style="color:#0D0D0D;text-align:initial"> <b>@titulo[15] </b> </h2>
+                    <h2 class="textTrip" style="color:#0D0D0D;text-align:initial"> <b> What to prepare </b> </h2>
+                    <div class="col-xs-6 col-sm-6 col-md-6  bloquesimg">
+                        <!--ELEMENTO 1-->
+                        <a href="/plan-your-trip/ecuador-travel-ideas" target="_blank">
+                            <img data-src="@imagenItem[14].UrlImagen" title="@imagenItem[14].NombreImagen" alt="@imagenItem[14].NombreImagen" class="img-responsive imgBlogEc lazyload" style="width:100%; " />
+                            <div class="centradoImagBlog">WHAT TO DO IN ECUADOR</div>
+                        </a>
+                        <a href="/plan-your-trip/galapagos-travel-map" target="_blank" style=""> Galapagos travel Map >> </a>
+                        <!--ELEMENTO 1-->
+                    </div>
+                    <div class="col-xs-6 col-sm-6  col-md-6 bloquesimg">
+                        <!--ELEMENTO 2-->
+                        <a href="/plan-your-trip/galapagos-travel-ideas" target="_blank">
+                            <img data-src="@imagenItem[15].UrlImagen" title="@imagenItem[15].NombreImagen" alt="@imagenItem[15].NombreImagen" class="img-responsive imgBlogEc lazyload" style="width:100%; " />
+                            <div class="centradoImagBlog">WHAT TO DO IN GALAPAGOS</div>
+                        </a>
+                        <!--ELEMENTO 2-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+</div>
+<script id="mcjs">
+    !function (c, h, i, m, p) {
+        m = c.createElement(h), p = c.getElementsByTagName(h)[0], m.async = 1, m.src = i, p.parentNode.insertBefore(m, p)
+    }
+        (document, "script", "https://chimpstatic.com/mcjs-connected/js/users/13bcb03659759e8410a67809d/7d13bbe8fff66a22667f023bc.js");
+</script>

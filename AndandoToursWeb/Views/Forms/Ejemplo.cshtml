@@ -1,0 +1,1304 @@
+﻿@model AndandoToursWeb.Startup
+
+@{
+    ViewData["Title"] = "Ejemplo";
+}
+
+<h2>Ejemplo</h2>
+
+<h4>Startup</h4>
+<html lang="en">
+<head>
+    <style id="stndz-style"></style>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+
+    <title>Unique Galapagos Cruises – Andando Tours</title>
+
+    <link rel="stylesheet" href="dist/css/app.css">
+    <meta name="description" content="Galapagos cruises that will evoke the charm and adventure of when the first visitors came to the islands, while
+	offering great service standards.">
+    <meta name="google-site-verification" content="9WKAGg6Pwn3IJ8fNyJdO84uScJt9iX4B7Lfb09sJeOE">
+
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" type="text/css">
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="img/favicon.png" rel="shortcut icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+
+    <script type="text/javascript" async="" id="inspsync" src="https://cdn.inspectlet.com/inspectlet.js?wid=1159236235&amp;r=436605"></script>
+    <script type="text/javascript" id="zsiqscript" defer="" src="https://salesiq.zoho.com/widget"></script>
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-WZV6DS"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap-datepicker3.standalone.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script>
+    <link href="https://file.myfontastic.com/hYDnVAGCG48zXjdDTQ8x7U/icons.css" rel="stylesheet">
+    <style>
+        #promoPassion{
+            display: none;
+        }
+        #proms1 {
+            display: none;
+        }
+        @@media (max-width:1920px) {
+            #proms {
+                left:0%;
+                top:0%;
+            }
+            #app-form {
+                margin-left:20%;
+                margin-top:10%;
+            }
+        }
+        @@media (max-width:1536px) {
+            #proms {
+                margin-left:0%;
+                margin-top:0%;
+            }
+            #app-form {
+                margin-left:15%;
+                margin-top:7%;
+            }
+        }
+
+        @@media(max-width:900px) {
+            #proms {
+                display: none;
+            }
+            #proms1 {
+                position: fixed;
+                background-image:url(../../img/fondopromo.png);
+                height: 400px;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                z-index:1000;
+                animation: modal .5s 2s forwards;
+                display: flex;
+                opacity: 0;
+            }
+
+            @@keyframes modal {
+                100% {
+                    display: flex;
+                    opacity: 1;
+                }
+            }
+        }
+
+    </style>
+    <!--========= TAG MANEAGER ===============-->
+    <!--borrar cache automaticamente-->
+    <script type="text/javascript">
+        function reloadScripts(toRefreshList/* list of js to be refresh */, key /* change this key every time you want force a refresh */) {
+            var scripts = document.getElementsByTagName('script');
+            for (var i = 0; i < scripts.length; i++) {
+                var aScript = scripts[i];
+                for (var j = 0; j < toRefreshList.length; j++) {
+                    var toRefresh = toRefreshList[j];
+                    if (aScript.src && (aScript.src.indexOf(toRefresh) > -1)) {
+                        new_src = aScript.src.replace(toRefresh, toRefresh + '?k=' + key);
+                        // console.log('Force refresh on cached script files. From: ' + aScript.src + ' to ' + new_src)
+                        aScript.src = new_src;
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WZV6DS');
+    </script>
+
+    <link rel="stylesheet" href="https://css.zohostatic.com/salesiq/Oct_22_2019_2_https/styles/floatbutton.css">
+    <script src="https://js.zohostatic.com/salesiq/Oct_22_2019_2_https/js/floatbutton.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-logo">
+
+            <div class="limit">
+                <a href="/"><img src="img/logo.jpg" alt="Andando Tours Logo" class="img-loaded"></a>
+            </div>
+        </div>
+        <div class="header-nav">
+
+            <nav class="header-nav-primary">
+                <!--googleoff: all-->
+                <div class="nav-inner">
+                    <ul>
+
+                        <li class="">
+                            <a href="galapagos-cruises/">Galapagos Cruises <span class="fa fa-angle-right"></span><span class="fa fa-caret-down"></span></a>
+                            <ul id="sub-menu">
+                                <li id="menu-tumb">
+                                    <div id="icon-menu">
+                                        <a href="luxury-cruise/">
+                                            <img src="img/Luxury/passion-one-of-the-best-galapagos-cruises.jpg" class="img-loaded"><!--imagen lista-->
+                                            <label>Luxury cruises</label>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li id="menu-tumb">
+                                    <div id="icon-menu">
+                                        <a href="sailing-cruises/">
+                                            <img src="img/sailling/sailing-Galapagos.jpg" class="img-loaded"><!--imagen lista-->
+                                            <label>Sail boats</label>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li id="menu-tumb">
+                                    <div id="icon-menu">
+                                        <a href="first-class-cruises/">
+                                            <img src="img/first-class-cruise/tip-top-galapagos-cruise.jpg" class="img-loaded"><!--imagen lista-->
+                                            <label>1st class cruises</label>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li id="menu-tumb">
+                                    <div id="icon-menu">
+                                        <a href="tours-and-cruises/">
+                                            <img src="img/tours-and-cruises/galaven-economic-cruise-galapagos.jpg" class="img-loaded"><!--imagen lista-->
+                                            <label>Other cruises</label>
+                                        </a>
+                                    </div>
+                                </li>
+
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="cruises/yacht-charters/">Private Charters</a>
+                        </li>
+
+                        <li class="">
+                            <a href="tours/index.html">Tours &amp; Packages <span class="fa fa-angle-right"></span><span class="fa fa-caret-down"></span></a>
+                            <ul id="sub-menu">
+                                <li id="menu-tumb">
+                                    <div id="icon-menu">
+                                        <a href="tours/island-hopping/">
+                                            <img src="img/menu/island-hopping-galapagos-menu.jpg" class="img-loaded"><!--imagen lista-->
+                                            <label>Multi-day Tours</label>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li id="menu-tumb">
+                                    <div id="icon-menu">
+                                        <a href="tours/santa-cruz/">
+                                            <img src="img/santacruz/tours-santa-cruz-island-galapagos.jpg" class="img-loaded"><!--imagen lista-->
+                                            <label>Daily Tour From Santa Cruz</label>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li id="menu-tumb">
+                                    <div id="icon-menu">
+                                        <a href="tours/san-cristobal/">
+                                            <img src="img/sancristobal/San-Cristobal-island-tours-in-Galapagos.jpg" class="img-loaded"><!--imagen lista-->
+                                            <label>Daily Tour From San Cristobal</label>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li id="menu-tumb">
+                                    <div id="icon-menu">
+                                        <a href="tours/isabela/">
+                                            <img src="img/isabela/isabela-day-tours-in-galapagos-islands.jpg" class="img-loaded"><!--imagen lista-->
+                                            <label>Daily Tour From Isabela</label>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li id="menu-tumb">
+                                    <div id="icon-menu">
+                                        <a href="info/activities/scuba-diving.html">
+                                            <img src="img/travel/scuba-diving-in-galapagos-islands.jpg" class="img-loaded"><!--imagen lista-->
+                                            <label>Diving Tours</label>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="javascript:void">Mainland Extensions <span class="fa fa-angle-right"></span><span class="fa fa-caret-down"></span></a>
+                            <ul id="sub-menu">
+                                <li id="menu-tumb">
+                                    <div id="icon-menu">
+                                        <a href="ecuador-itineraries/">
+                                            <img src="img/menu/ecuador-travel-itineraries-menu.jpg" class="img-loaded"><!--imagen lista-->
+                                            <label>Ecuador Itineraries</label>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li id="menu-tumb">
+                                    <div id="icon-menu">
+                                        <a href="ecuador-travel-recommendations/">
+                                            <img src="img/menu/ecuador-travel-information.jpg" class="img-loaded"><!--imagen lista-->
+                                            <label>Ecuador Travel Information</label>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li id="menu-tumb">
+                                    <div id="icon-menu">
+                                        <a href="peru-itineraries/">
+                                            <img src="img/menu/peru-itineraries-menu.jpg" class="img-loaded"><!--imagen lista-->
+                                            <label>Peru Itineraries</label>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="">
+                            <a href="about/andando-tours.html">ABOUT US <span class="fa fa-angle-right"></span><span class="fa fa-caret-down"></span></a>
+                            <ul id="sub-menu">
+                                <li id="menu-tumb">
+                                    <div id="icon-menu">
+                                        <a href="about/andando-tours.html">
+                                            <img src="img/about/andando-tours-cruise-operator-galapagos.jpg" class="img-loaded"><!--imagen lista-->
+                                            <label>Andando Tours</label>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li id="menu-tumb">
+                                    <div id="icon-menu">
+                                        <a href="about/angermeyer-cruises.html">
+                                            <img src="img/about/angermeyer-cruises-galapagos.jpg" class="img-loaded"><!--imagen lista-->
+                                            <label>Angermeyer cruises</label>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li id="menu-tumb">
+                                    <div id="icon-menu">
+                                        <a href="about/10-reasons-to-choose-andando-tours.html">
+                                            <img src="img/about/andando-tours-10-reasons.jpg" class="img-loaded"><!--imagen lista-->
+                                            <label>10-reasons-to-choose-andando-tours</label>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a href="cruises/availability.html">AVAILABILITY</a>
+                        </li>
+                        <li class=""> <a href="contact/">CONTACT US</a></li>
+
+                    </ul>
+                </div>
+                <!--googleon: all-->
+            </nav>
+            <nav class="header-nav-secondary">
+                <div class="nav-inner">
+                    <ul>
+                        <li><a href="#"><b class="azuffOOTER3">Toll free US &amp; CA: +1 833 2632636 </b> </a> </li>
+                        <li><a href="blog/index.html">Blog</a></li>
+
+                        <li>
+                            <a href="info/index.html" rel="nofollow">Travel Information <span class="fa fa-angle-right"></span><span class="fa fa-caret-down"></span></a>
+                            <ul class="sub-menu">
+                                <li><a href="info/activities/index.html">Activities</a></li>
+                                <li><a href="info/history/index.html">History</a></li>
+                                <li><a href="info/nature/index.html">Nature</a></li>
+                                <li><a href="info/tips/index.html">Travel tips</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                    <style></style>
+                    <div class="header-button-search">
+                        <a href="back/tailor-made.html" data-toggle="modal" data-target="#myModal" class="h5button-nav">Inquire</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="header-button-search">
+            <a href="back/tailor-made.html" data-toggle="modal" data-target="#myModal" class="h5button-nav">Inquire</a>
+        </div>
+        <div class="header-search">
+            <form action="#" method="GET" siq_id="autopick_8049">
+                <div class="fa fa-search"></div>
+                <input type="text" name="s" placeholder="Buscar en Andandotours...">
+            </form>
+        </div>
+        <div class="header-hamburger">
+            <span class="fa fa-bars"></span>
+            <span class="fa fa-times"></span>
+        </div>
+    </header>
+    <div id="body">
+        <div class="page">
+            <div class="page-header">
+                <div class="page-header-bgs">
+                    <div class="slider slider-bg slider-dir-right">
+                        <div class="sliders">
+                            <div class="slide slide-loaded">
+                                <div class="bg bg-loaded bg-safari" style="background-image: url(&quot;img/cruises/Mary-anne-sailing-boat.jpg&quot;);">
+
+                                    <img src="img/cruises/Mary-anne-sailing-boat.jpg" alt="sailing Galapagos" class="img-loaded"><!--imagen lista-->
+                                    <div class="bg-source" style="display: none;">
+                                        <strong style="font-size:18px">
+                                            The authentic Galapagos cruise
+                                            experience
+                                        </strong><span></span>
+                                    </div>
+                                    <div class="botonSlider" style="display: none;">
+                                        <a href="galapagos-cruises/" class="h5button">Discover our Galapagos cruises</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide slide-loaded slide-active">
+                                <div class="bg bg-loaded bg-safari" style="background-image: url(&quot;img/banner/intimate-cruise-in-galapagos.jpg&quot;);">
+                                    <img src="img/banner/intimate-cruise-in-galapagos.jpg" alt="wildaid and andando tours" class="img-loaded"><!--imagen lista-->
+
+                                    <div class="bg-source" style="display: none;">
+                                        <strong style="font-size:18px">
+                                            Intimate expeditions with 12
+                                            to 16 passenger yachts
+                                        </strong><span></span>
+                                    </div>
+                                    <div class="botonSlider" style="display: none;">
+                                        <a href="galapagos-cruises/" class="h5button">Discover our Galapagos cruises</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide slide-loaded">
+                                <div class="bg bg-loaded bg-safari" style="background-image: url(&quot;img/banner/green-sea-turtle-galapagos.jpg&quot;);">
+                                    <img src="img/banner/green-sea-turtle-galapagos.jpg" alt="Luxury Galapagos cruise" class="img-loaded"><!--imagen lista-->
+
+                                    <div class="bg-source" style="display: none;">
+                                        <strong style="font-size:18px">
+                                            Visit the Galapagos with a
+                                            purpose: helping to protect the Islands
+                                        </strong><span></span>
+                                    </div>
+                                    <div class="botonSlider" style="display: none;">
+                                        <a href="galapagos-cruises/" class="h5button">Discover our Galapagos cruises</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="slider-bullets"><div class="slider-bullet"></div><div class="slider-bullet slider-bullet-active"></div><div class="slider-bullet"></div></div><div class="slider-navigation"><div class="slider-nav slider-nav-left"><span class="fa fa-angle-left"></span></div><div class="slider-nav slider-nav-right"><span class="fa fa-angle-right"></span></div></div>
+                    </div>
+                </div>
+                <div class="page-header-content">
+                    <div class="page-header-content-inner">
+                        <div class="XXXX" style="margin-bottom:270px">
+                            <h1 class="page-header-title">
+                                <span class="font-x2 font-brush">
+                                    Unique Galapagos Cruises for a Distinct
+                                    Experience
+                                </span>
+
+
+                            </h1>
+                            <div class="page-header-element page-header-source">
+                                <strong style="font-size:18px">
+                                    Intimate expeditions with 12
+                                    to 16 passenger yachts
+                                </strong><span></span>
+                            </div>
+                        </div>
+                        <div class="page-header-bullets"><div class="bullet"></div><div class="bullet bullet-active"></div><div class="bullet"></div></div>
+                    </div>
+                    <a href="#Ver"> <img src="img/scroll-down.png" class="img-loaded"></a>
+                </div>
+                <div class="page-header-elements">
+                    <div class="page-header-elements-bottom">
+                        <div class="page-header-element page-header-button">
+                            <a href="galapagos-cruises/" class="h5button">Discover our Galapagos cruises</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-nav page-nav-home" id="Ver">
+                <div class="page-nav-fixed">
+                    <div class="limit">
+                        <nav class="page-nav-anchors">
+                            <ul>
+                                <li><a href="back/tailor-made.html" data-toggle="modal" data-target="#myModal" data-goto-add="50"><span>Plan your trip</span></a></li>
+                                <li>
+                                    <a href="galapagos-cruises/" data-goto="" data-goto-add="50">
+                                        <span>
+                                            Galapagos cruise
+                                            selection
+                                        </span>
+                                    </a>
+                                </li>
+                                <li><a href="info/activities/scuba-diving.html" data-goto="" data-goto-add="50"><span>Diving tours</span></a></li>
+
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <section class="section-home-info">
+                <div class="bg bg-loaded bg-safari" style="background-image: url(img/GALAPAGOS_TAILOR-MADE_TRAVEL.jpg);"><img width="1440" height="760" src="img/GALAPAGOS_TAILOR-MADE_TRAVEL.jpg" class="attachment-1440x760x1 size-1440x760x1 wp-post-image img-loaded" alt=""></div>
+                <div class="limit  inner inner-2">
+                    <div class="dscroll dscroll-content dscroll-dirty dscroll-in">
+                        <!--The original-->
+                        <section>
+                            <div class="limit ">
+                                <h2 class="section-header-title">THE ORIGINAL GALAPAGOS CRUISE EXPERIENCE</h2>
+                                <div class="section-body dscroll dscroll-in">
+                                    <div class="content content-twocolumns StyleParrafo" style="color: black">
+                                        <p>
+                                            Thanks to a passion for the sea, Andando Tours/Angermeyer Cruises have
+                                            <b>revealed the best of the islands</b> to tourists, scientists, and photographers <b>since 1960.</b> Two generations of Angermeyer family experience in sailing and shipbuilding showcases unparalleled knowledge
+                                            in creating the best in passenger comfort and the most comprehensive vacations.
+                                        </p>
+                                        <p>
+                                            Many years have been devoted to honing the crafts that assure the perfect vacation on board our Galapagos cruises. Years of <b>
+                                                refurbishing boats and
+                                                analyzing itineraries;
+                                            </b> years of <b>
+                                                gathering the best possible
+                                                crew and staff
+                                            </b> – the most passionate, well-rounded, and big-hearted employees in the business – and years of <b>
+                                                finding the most knowledgeable
+                                                guides
+                                            </b>, the key to truly experiencing this sanctuary of unparalleled importance to the world.
+                                        </p>
+
+                                        <p>
+                                            To this day, the Angermeyer/Andando Tours legacy continues to be an emblem in the archipelago. We strive to <b>inspire</b> a standard of excellence in
+                                            <b>Galapagos travel.</b>
+                                        </p>
+
+                                        <p>
+                                            Learn more about how the Angermeyer family started the <a href="https://www.visitgalapagos.travel/info/history/angermeyer-family.html" target="_blank" style="color:#0077ba; font-weight: bold;">
+                                                tourism industry on the islands.
+                                            </a>
+                                        </p>
+                                    </div><br><br>
+                                    <h4 class="start-planning">
+                                        Start Planning an Authentic Galapagos Experience!
+                                    </h4>
+                                </div>
+                                <!--Get started button-->
+                                <center>
+                                    <a href="back/tailor-made.html" data-toggle="modal" data-target="#myModal" class="h5button" id="buton1">
+                                        CONNECT WITH AN EXPERT
+                                    </a>
+                                </center>
+                                <!--/Get started button-->
+                            </div>
+                        </section>
+                        <!--The original-->
+                    </div>
+                </div>
+            </section>
+
+            <!-- CATEGORRÍAS -->
+            <section class="barcos-categoria container-fluid">
+                <br>
+                <div class="bc-header">
+                    <h2 class="bc-title text-center">Galapagos Cruises</h2>
+                    <p class="text-center fs-14">
+                        We offer various types of vessels (from luxury yachts to sailing ships), carefully selected to provide our guests an unforgettable visit to the Galapagos.
+                    </p>
+                </div><br>
+
+                <div class="bc-contenedor">
+
+                    <div class="bc-caja">
+
+                        <div class="bc-info">
+                            <h3 class="bc-info-title">Luxury Galapagos Cruise On A Higher Level</h3>
+                            <p class="bc-text fs-14">
+                                <b>The best selection of luxury yachts</b> by Andando Tours provides quality accommodations and services so you can have a truly exceptional experience.
+                            </p>
+                            <hr class="separador">
+                            <p class="bc-recommended fs-14">
+                                <b>Recommended:</b>
+                                <a class="link-page" href="luxury-cruise/passion-yacht/" target="_blank">
+                                    M/Y Passion Yacht
+                                </a>
+                            </p><div class="bc-more">
+                                <a class="bc-more-request" href="/luxury-cruise/" target="_blank">
+                                    View More
+                                </a>
+                            </div>
+                            <p></p>
+                        </div>
+
+                        <div class="bc-container">
+                            <div class="thumbex">
+                                <div class="thumbnail">
+                                    <a href="/luxury-cruise/" target="_blank">
+                                        <img src="img/home/luxury-passion.jpg" alt="Luxury Cruises category" class="img-loaded">
+                                        <span>Luxury Cruises</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bc-caja">
+
+                        <div class="bc-info">
+                            <h3 class="bc-info-title">Classic Sailing Ships In The Galapagos</h3>
+                            <p class="bc-text fs-14">
+                                The beauty and <b>uniqueness of our sailboats</b> will assure you a genuine nautical experience. Let nature be your guide!
+                            </p>
+                            <hr class="separador">
+                            <p class="bc-recommended fs-14">
+                                <b>Recommended:</b>
+                                <a class="link-page" href="sailing-cruises/mary-anne/" target="_blank">
+                                    S/S Mary Anne
+                                </a>
+                            </p><div class="bc-more">
+                                <a class="bc-more-request" href="sailing-cruises/" target="_blank">
+                                    View More
+                                </a>
+                            </div>
+                            <p></p>
+                        </div>
+
+                        <div class="bc-container">
+                            <div class="thumbex">
+                                <div class="thumbnail">
+                                    <a target="_blank" href="sailing-cruises/">
+                                        <img src="img/home/mary.jpg" class="img-loaded">
+                                        <span>Sailing Cruises</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bc-contenedor">
+                    <div class="bc-caja">
+
+                        <div class="bc-info">
+                            <h3 class="bc-info-title">First class sailing ships in the galapagos</h3>
+                            <p class="bc-text fs-14">
+                                Integral to our Galapagos cruises is our carefully selected fleet of <b>
+                                    small to
+                                    mid-sized vessels.
+                                </b>
+                            </p>
+                            <hr class="separador">
+                            <p class="bc-recommended fs-14">
+                                <b>Recommended:</b>
+                                <a class="link-page" href="first-class-cruises/tip-top-ii/" target="_blank">
+                                    Tip Top II
+                                </a>
+                            </p><div class="bc-more">
+                                <a class="bc-more-request" href="first-class-cruises/index.html" target="_blank">
+                                    View More
+                                </a>
+                            </div>
+                            <p></p>
+                        </div>
+
+                        <div class="bc-container">
+                            <div class="thumbex">
+                                <div class="thumbnail">
+                                    <a target="_blank" href="first-class-cruises/index.html">
+                                        <img src="img/home/tip.jpg" class="img-loaded">
+                                        <span>1st Class Cruises</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bc-caja">
+
+                        <div class="bc-info">
+                            <h3 class="bc-info-title">tourist - superior cruises</h3>
+                            <p class="bc-text fs-14">
+                                An <b>economical selection of Galapagos cruises,</b> which maintain the standards Andando Tours is commited to providing.
+                            </p>
+                            <hr class="separador">
+                            <p class="bc-recommended fs-14">
+                                <b>Recommended:</b>
+                                <a class="link-page" href="cruises/budget/archipel/" target="_blank">
+                                    Archipel Catamaran
+                                </a>
+                            </p><div class="bc-more">
+                                <a class="bc-more-request" href="tours-and-cruises/" target="_blank">
+                                    View More
+                                </a>
+                            </div>
+                            <p></p>
+                        </div>
+
+                        <div class="bc-container">
+                            <div class="thumbex">
+                                <div class="thumbnail">
+                                    <a href="tours-and-cruises/" target="_blank">
+                                        <img src="img/new-design/archipel/rsz_1archipel-galapagos-catamaran.jpg" style="width: auto;" alt="Archipel galapagos Tourist superior" class="img-loaded">
+                                        <span>T. Superior Cruises</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+
+            </section>
+            <!-- /CATEGORRÍAS -->
+            <!-- TAILOR -->
+
+            <div class="page-body" style="padding: 20px;">
+                <br>
+                <!--Galapagos Tailor-->
+                <h2 class="section-header-title">GALAPAGOS TAILOR-MADE INTINERARIES</h2><br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <p class="paragraph">
+                                Galapagos cruise itineraries range from 4 to 15 days and encompass diving tours, a variety of cruise ships and hotels, daily excursions…Just name your preferences and we guarantee that your <b>
+                                    visit to the Galapagos will be exactly tailored to your
+                                    specifications.
+                                </b> We pride ourselves in professionalism, flexibility, and efficiency.
+                            </p>
+                            <p class="paragraph">
+                                All you need for an unforgettable trip are your dreams, and we will craft a perfect Galapagos travel experience for you. Our experts have a masterful knowledge about the best Galapagos cruises, itineraries, and hotels, which will provide memorable excursions
+                                and amazing wildlife encounters. We have extensively combed the islands <b>
+                                    searching for
+                                    the highest quality and most thrilling experiences
+                                </b> and can offer expert advice when planning your route.
+                            </p>
+                        </div>
+                    </div><br>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-12  text-center">
+                                <a href="back/tailor-made.html" data-toggle="modal" data-target="#myModal" class="h5button" id="buton1">
+                                    CONNECT WITH AN EXPERT
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <br>
+            <!--/Galapagos Tailor-->
+            <!--VIDEO SECTION-->
+            <div class="box box-color-2 box-page-information" style="margin-bottom: 0;">
+                <div class="cols cols-gutterx0">
+                    <div class="col-md-6">
+                        <div class="content inner content-dirty StyleParrafo" style="padding: 0;">
+                            <h2 style="margin: 0;">WHAT IS THE EXPERIENCE ABOARD A GALAPAGOS CRUISE?</h2><div></div>
+                            <p style="text-align: left; margin: 0 15px;">
+                                A typical day aboard any of the Galapagos cruises that we offer involves a couple of disembarkations every day, utilizing pangas (dinghies) and your experienced guide to discover different sites throughout the islands. Each disembarkation is followed
+                                by a visit of approximately 2 or 3 hours to tour the site, take photographs, enjoy the unique species that inhabit the archipelago, and perform activities such as snorkeling, kayaking, paddle-surfing, or simply relaxing
+                                on one of the many beaches of the Galapagos.
+                                <br> <br>Watch the 1-minute video to <b>discover a quintessential adventure</b> on the islands.
+                            </p>
+                            <center>
+                                <a href="back/tailor-made.html" data-toggle="modal" data-target="#myModal" class="h5button sv" id="buton1" style="margin-top: 2em; ">
+                                    CONNECT WITH AN EXPERT
+                                </a>
+                            </center>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="slide">
+                            <div class="cols cols-gutterx0">
+                                <div class="col-sm-12 col-md-12  ">
+                                    <article class="ifr-responsive article-loaded">
+                                        <div class="article-bg bg bg-loaded bg-safari" style="background-image: url(&quot;img/home/galapagos-fund-wildaid-passion.jpg&quot;);">
+                                            <img width="800" height="450" src="img/home/galapagos-fund-wildaid-passion.jpg" class="attachment-800x450x1 size-800x450x1 wp-post-image img-loaded">
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--VIDEO SECTION-->
+
+
+            <section class="why-andando">
+                <br>
+                <h2 class="section-header-title">WHY YOU SHOULD CRUISE TO THE GALAPAGOS WITH ANDANDO TOURS</h2>
+                <div class="container">
+                    <p class="paragraph">
+                        We are specialists in sailboats and yachts. We offer an intimate experience on board, engaging interactions with our expert guides, and unparalleled encounters with unique Galapagos wildlife in the most remote visitor sites of the archipelago.
+                    </p>
+                    <p class="paragraph">
+                        Prepared to be pampered! You won’t find a better option than our recipe for an authentic once-in-a-lifetime experience.
+                    </p>
+                </div>
+            </section>
+
+            <div class="parallax home-parallax">
+                <h2 class="section-header-title visit">PLAN YOUR VISIT TO THE GALAPAGOS</h2>
+                <div class="row">
+                    <div class="col-sm-12 col-lg-12">
+                        <a href="back/complete-guide.html" data-toggle="modal" data-target="#myModal4" class="btn-guide">
+                            <p class="text-center p-texto">
+                                Download our complete Galapagos Travel Guide here
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <section class="">
+                <div class="limit inner inner-2">
+                    <div class="section-header dscroll dscroll-in">
+                        <h2 class="section-header-title ">MORE USEFUL INFORMATION TO HELP YOU PLAN YOUR VISIT TO THE GALAPAGOS. </h2>
+                    </div>
+                    <div class="section-body dscroll dscroll-in">
+                        <div class="onebyone onebyone-items-4">
+                            <!--QUITAR ESTO  ES LO ORIGINAL onebyone-items-3-->
+                            <div class="onebyone-items">
+                                <div class="onebyone-item original current">
+                                    <article class="article-bg article-primary article-tall article-loaded">
+                                        <div class="article-bg bg bg-loaded bg-safari" style="background-image: url(&quot;img/insurance300x300.jpg&quot;);"><img width="300" height="300" src="img/insurance300x300.jpg" title="Travel insurance" class="attachment-300x300x1 size-300x300x1 wp-post-image img-loaded" alt="Travel insurance"></div>
+                                        <div class="article-cover">
+                                            <h4 class="article-title">
+                                                <a href="blog/travel-insurance.html">
+                                                    Do you need travel insurance to visit Ecuador and Galapagos?
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="onebyone-item original related-1">
+                                    <article class="article-bg article-primary article-tall article-loaded">
+                                        <div class="article-bg bg bg-loaded bg-safari" style="background-image: url(&quot;img/articles/fiddi-angermeyer-sagitta-galapagos-cruise.jpg&quot;);">
+                                            <img width="300" height="300" src="img/articles/fiddi-angermeyer-sagitta-galapagos-cruise.jpg" title="fiddi angermeyer sagitta galapagos cruise" class="attachment-300x300x1 size-300x300x1 wp-post-image img-loaded" alt="Reasons to visit galapagos islands">
+                                        </div>
+                                        <div class="article-cover">
+                                            <!-- <div class="line"></div> -->
+                                            <h4 class="article-title">
+                                                <a href="info/history/angermeyer-family.html">
+                                                    How
+                                                    the Angermeyers started cruising in Galapagos
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="onebyone-item original related-2">
+                                    <article class="article-bg article-primary article-tall article-loaded">
+                                        <div class="article-bg bg bg-loaded bg-safari" style="background-image: url(&quot;img/articles/best itinerary galapagos.png&quot;);"><img width="300" height="300" src="img/articles/best itinerary galapagos.png" title="What is the best itinerary" class="attachment-300x300x1 size-300x300x1 wp-post-image img-loaded" alt="best itinerary galapagos"></div>
+                                        <div class="article-cover">
+                                            <!-- <div class="line"></div> -->
+                                            <h4 class="article-title">
+                                                <a href="info/tips/choose-galapagos-itinerary.html">
+                                                    choosing the right
+                                                    itinerary
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="onebyone-item original related-3">
+                                    <article class="article-bg article-primary article-tall article-loaded">
+                                        <div class="article-bg bg bg-loaded bg-safari" style="background-image: url(&quot;img/articles/perfect cruise in galapagos.jpg&quot;);">
+                                            <img width="300" height="300" src="img/articles/perfect cruise in galapagos.jpg" title="We help you choose your perfect cruise" class="attachment-300x300x1 size-300x300x1 wp-post-image img-loaded" alt="perfect cruise in galapagos">
+                                        </div>
+                                        <div class="article-cover">
+                                            <!-- <div class="line"></div> -->
+                                            <h4 class="article-title">
+                                                <a href="info/tips/choose-galapagos-cruise.html">
+                                                    Choosing a Galapagos
+                                                    boat that’s right for you
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="onebyone-item original related-4">
+                                    <article class="article-bg article-primary article-tall article-loaded">
+                                        <div class="article-bg bg bg-loaded bg-safari" style="background-image: url(&quot;img/articles/gay cruises galapagos.jpg&quot;);"><img width="300" height="300" src="img/articles/gay cruises galapagos.jpg" title="gay friendly expeditions" class="attachment-300x300x1 size-300x300x1 wp-post-image img-loaded" alt="gay cruises galapagos"></div>
+                                        <div class="article-cover">
+                                            <!-- <div class="line"></div> -->
+                                            <h4 class="article-title">
+                                                <a href="blog/galapagos-gay-cruises.html">
+                                                    Gay
+                                                    friendly vacations <br>in the Galapagos Islands
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <div class="onebyone-item clone">
+                                    <article class="article-bg article-primary article-tall article-loaded">
+                                        <div class="article-bg bg bg-loaded bg-safari" style="background-image: url(&quot;img/insurance300x300.jpg&quot;);"><img width="300" height="300" src="img/insurance300x300.jpg" title="Travel insurance" class="attachment-300x300x1 size-300x300x1 wp-post-image img-loaded" alt="Travel insurance"></div>
+                                        <div class="article-cover">
+                                            <h4 class="article-title">
+                                                <a href="blog/travel-insurance.html">
+                                                    Do you need travel insurance to visit Ecuador and Galapagos?
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="onebyone-item clone">
+                                    <article class="article-bg article-primary article-tall article-loaded">
+                                        <div class="article-bg bg bg-loaded bg-safari" style="background-image: url(&quot;img/articles/fiddi-angermeyer-sagitta-galapagos-cruise.jpg&quot;);">
+                                            <img width="300" height="300" src="img/articles/fiddi-angermeyer-sagitta-galapagos-cruise.jpg" title="fiddi angermeyer sagitta galapagos cruise" class="attachment-300x300x1 size-300x300x1 wp-post-image img-loaded" alt="Reasons to visit galapagos islands">
+                                        </div>
+                                        <div class="article-cover">
+                                            <!-- <div class="line"></div> -->
+                                            <h4 class="article-title">
+                                                <a href="info/history/angermeyer-family.html">
+                                                    How
+                                                    the Angermeyers started cruising in Galapagos
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="onebyone-item clone">
+                                    <article class="article-bg article-primary article-tall article-loaded">
+                                        <div class="article-bg bg bg-loaded bg-safari" style="background-image: url(&quot;img/articles/best itinerary galapagos.png&quot;);"><img width="300" height="300" src="img/articles/best itinerary galapagos.png" title="What is the best itinerary" class="attachment-300x300x1 size-300x300x1 wp-post-image img-loaded" alt="best itinerary galapagos"></div>
+                                        <div class="article-cover">
+                                            <!-- <div class="line"></div> -->
+                                            <h4 class="article-title">
+                                                <a href="info/tips/choose-galapagos-itinerary.html">
+                                                    choosing the right
+                                                    itinerary
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="onebyone-item clone">
+                                    <article class="article-bg article-primary article-tall article-loaded">
+                                        <div class="article-bg bg bg-loaded bg-safari" style="background-image: url(&quot;img/articles/perfect cruise in galapagos.jpg&quot;);">
+                                            <img width="300" height="300" src="img/articles/perfect cruise in galapagos.jpg" title="We help you choose your perfect cruise" class="attachment-300x300x1 size-300x300x1 wp-post-image img-loaded" alt="perfect cruise in galapagos">
+                                        </div>
+                                        <div class="article-cover">
+                                            <!-- <div class="line"></div> -->
+                                            <h4 class="article-title">
+                                                <a href="info/tips/choose-galapagos-cruise.html">
+                                                    Choosing a Galapagos
+                                                    boat that’s right for you
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="onebyone-item clone">
+                                    <article class="article-bg article-primary article-tall article-loaded">
+                                        <div class="article-bg bg bg-loaded bg-safari" style="background-image: url(&quot;img/articles/gay cruises galapagos.jpg&quot;);"><img width="300" height="300" src="img/articles/gay cruises galapagos.jpg" title="gay friendly expeditions" class="attachment-300x300x1 size-300x300x1 wp-post-image img-loaded" alt="gay cruises galapagos"></div>
+                                        <div class="article-cover">
+                                            <!-- <div class="line"></div> -->
+                                            <h4 class="article-title">
+                                                <a href="blog/galapagos-gay-cruises.html">
+                                                    Gay
+                                                    friendly vacations <br>in the Galapagos Islands
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                            <div class="onebyone-navigation">	<div class="onebyone-nav onebyone-nav-prev"><span class="fa fa-angle-left"></span></div>	<div class="onebyone-nav onebyone-nav-next"><span class="fa fa-angle-right"></span></div></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--fin section-->
+        </div>
+        <section class="section-color section-newsletter" style="background:#eff0f3">
+            <div class="limit inner">
+                <div class="section-header">
+                    <h2 class="h3 section-header-title" style="color:#000">Partners &amp; Recognition</h2>
+                </div>
+                <div class="section-body">
+                        <div class="container-fluid">
+                            <div class="logos-wrapper">
+                                <img style="max-height: 100px;" class="img-responsive img-loaded" src="../../img/logos/LATA-2012.png" alt="LATA-2018">
+                                <img style="max-height: 100px;" class="img-responsive img-loaded" src="../../img/logos/central-de-receptivos.png" alt="central de receptivos">
+                                <img style="max-height: 100px;" class="img-responsive img-loaded" src="../../img/logos/logo-ecuador.png" alt="logo ecuador">
+                                <img style="max-height: 100px;" class="img-responsive img-loaded" src="../../img/logos/logo-qa.png" alt="logo q">
+                                <img style="max-height: 100px;" class="img-responsive img-loaded" src="../../img/logos/americas.png" alt="Global Hospitality Awards">
+                                <img class="img-responsive ust img-loaded" src="../img/USTOA-Associate-Logo.svg" alt="Global Hospitality Awards">
+                            </div><br>
+                        </div>
+                </div>
+            </div>
+        </section>
+        <div class="button-add-planificador"></div>
+    </div>
+
+
+    <!--PROMOCIONES PASSION-->
+    <div id="proms" style="display: none;">
+        <div class="form-wrapper" id="app-form" style="padding:15px; width: 1100px;">
+            <div class="modal-header" style="background:#179fec; height: 55px; border-radius: 10px;">
+                <button type="button" onclick="ocultar()" class="close-form pull-right" data-dismiss="modal" style="margin-top:-9px; margin-right:-10px;border:none ">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body" style="margin-top:-10px; background: white; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+                <div class="row" style="padding: 15px;">
+                    <div class="col-md-5">
+                        <div class="container" style="width: auto; border-bottom: 0.5px dotted; margin-top: 70PX;">
+                            <p style="font-size:35px">
+                                <b>
+                                    GALAPAGOS CRUISES
+                                </b>
+                            </p>
+                            <p style="font-size:35px; margin-top:15px;">
+                                <b>
+                                    WITH <a style="color:#BF7E13">50%</a> DISCOUNT
+                                </b>
+                            </p>
+                            <br>
+                            <br>
+                        </div>
+                        <div class="container" style="width: auto;">
+                            <p style="font-size:20px; color: #BF7E13;">
+                                <b>Departures on October, November and December.</b>
+                            </p>
+                            <br>
+                            <br>
+                            <center>
+                                <a href="cruises/promotions.html">
+                                    <button type="submit" id="button1" class="h5button mb-1" style="background:#EDB54C; font-size:18px; width:180px">
+                                        GET ON BOARD!
+                                    </button>
+                                </a>
+                            </center>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <img style="width:550px; height:400px;" src="img/cruises/passion-availability.jpg" class="img-loaded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Mobile-->
+    <div id="proms1">
+        <div class="form-wrapper" id="app-form" style="margin-left: 2%; margin-right: 2%; margin-top: 20%; width: auto;">
+            <div class="modal-header" style="background:#179fec; height: 55px; border-radius: 10px;">
+                <button type="button" onclick="ocultar1()" class="close-form pull-right" data-dismiss="modal" style="margin-top:-9px; margin-right:-10px;border:none ">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body" style="margin-top:-10px; background: white; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+                <div class="row" style="padding: 15px;">
+                    <div class="col-sm-12">
+                        <img style="width:300px; height:200px;" src="img/cruises/passion-availability.jpg" class="img-loaded">
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="container" style="width: auto; border-bottom: 0.5px dotted; margin-top: 10PX;">
+                            <center>
+                                <p style="font-size:25px">
+                                    <b>
+                                        GALAPAGOS CRUISES
+                                    </b>
+                                </p>
+                                <p style="font-size:25px; ">
+                                    <b>
+                                        WITH <a style="color:#BF7E13">50%</a> DISCOUNT
+                                    </b>
+                                </p>
+                            </center>
+                            <br>
+                        </div>
+                        <div class="container" style="width: auto;">
+                            <center>
+                                <p style="font-size:14px; color: #BF7E13;">
+                                    <b>Departures on October, November and December.</b>
+                                </p>
+                            </center>
+                            <br>
+                            <center>
+                                <a href="cruises/promotions.html">
+                                    <button type="submit" id="button1" class="h5button mb-1" style="background:#EDB54C; font-size:18px; width:180px">
+                                        GET ON BOARD!
+                                    </button>
+                                </a>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--FIN PROMOCIONES PASSION-->
+    <!--PROMOCIONES
+    <div id="proms">
+        <div class="form-wrapper" id="app-form" style="padding:15px;">
+            <button type="button" onclick="ocultar()" class="close-form pull-right" data-dismiss="modal" style="margin-top:-32px; margin-right:-30px;border:none ">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-body" style="margin-top:-10px">
+                <div class="row">
+                    <center>
+                        <div class="container" style="border:1px solid; width:auto; height:300px; background-image:url(../../img/promos/last-minute-deals.jpg)">
+
+                        </div>
+                    </center>
+                </div>
+                <div class="row">
+                    <center>
+                        <p style="font-size:17px">
+                            <b>
+                                Selected departures on S/S Mary Anne and M/Y Passion
+                            </b>
+                        </p>
+                    </center>
+                </div>
+                <div class="row">
+                    <center>
+                        <a href="cruises/promotions.html">
+                            <button type="submit" id="button1" class="h5button mb-1" style="background:#EDB54C; font-size:18px; width:180px">
+                                VIEW DEALS
+                            </button>
+                        </a>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+    Mobile
+    <div id="proms1" style="width:300px; height:auto;margin:25px; margin-top:100px">
+        <div class="form-wrapper" id="app-form" style="padding:5px;">
+            <button type="button" onclick="ocultar1()" class="close-form pull-right" data-dismiss="modal" style="margin-top:-25px; margin-right:-20px;border:none ">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-body" style="margin-top:-10px">
+                <div class="row">
+                    <center>
+                        <div class="container" style="border:1px solid; width:250px; height:300px; background-image:url(../../img/promos/rsz_last-minute-deals_2.jpg)">
+
+                        </div>
+                    </center>
+                </div>
+                <div class="row">
+                    <center>
+                        <p style="font-size:17px">
+                            <b>
+                                Selected departures on S/S Mary Anne and M/Y Passion
+                            </b>
+                        </p>
+                    </center>
+                </div>
+                <div class="row">
+                    <center>
+                        <a href="cruises/promotions.html">
+                            <button type="submit" id="button1" class="h5button mb-1" style="background:#EDB54C; font-size:18px; width:180px">
+                                VIEW DEALS
+                            </button>
+                        </a>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+    FIN PROMOCIONES-->
+    <footer>
+        <div class="limit inner" style="text-align:left">
+            <div class="cols">
+                <div class="col-md-4 col-lg-3">
+                    <div class="footer-logo">
+                        <img src="img/andando-tours-png-azul-horizontal.png" alt="Andando Tours" class="img-loaded">
+                        <div class="vlsaFooter">
+                            <center>
+                                <b>Toll free helpline</b> <br>US &amp; CA<br> <span class="azuffOOTER">
+                                    +1 833
+                                    2632636
+                                </span>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 col-lg-9">
+                    <div class="cols">
+                        <div class="col-sm-6 col-md-3">
+                            <div class="footer-links">
+                                <h4>Galapagos Cruises</h4>
+                                <ul class="menu">
+                                    <li><a href="luxury-cruise/">Luxury cruises</a></li>
+                                    <li><a href="sailing-cruises/">Sail boats</a></li>
+                                    <li><a href="first-class-cruises/">1st class</a></li>
+                                    <li><a href="cruises/budget/">Other cruises</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="footer-links">
+                                <h4>Other links</h4>
+                                <ul class="menu">
+                                    <li><a href="tours/island-hopping/">Island Hopping</a></li>
+                                    <li><a href="tours/isabela/">Isabella Tours</a></li>
+                                    <li><a href="tours/santa-cruz/">Santa Cruz Tours</a></li>
+                                    <li><a href="tours/san-cristobal/">San Cristobal Tours</a></li>
+                                    <li><a href="cruises/availability.html">Availability</a></li>
+                                    <li><a href="http://ishpingotours.com/" target="_blank">Gay Tours</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="footer-links">
+                                <h4>Travel info</h4>
+                                <ul class="menu">
+                                    <li><a href="info/nature/index.html">Nature</a></li>
+                                    <li><a href="info/history/index.html">History</a></li>
+                                    <li><a href="info/tips/index.html">Travel tips</a></li>
+                                    <li><a href="info/activities/index.html">Activities</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <div class="footer-contact" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+                                <h4>CONTACT</h4>
+                                <p>Moreno Bellido E6 - 167, Amazonas</p>
+                                <p>Quito Pichincha 170515</p>
+                                <p>Phone: +593 23237330</p>
+                                <p>&nbsp;</p>
+                            </div>
+                            <div class="footer-social">
+                                <a href="https://plus.google.com/b/100589937559438672244/+VisitgalapagosTravel" target="_blank"><img src="img/googlePlus.png" class="img-loaded"></a>
+                                <a href="https://twitter.com/AndandoTours" target="_blank"><img src="img/twitter.png" class="img-loaded"></a>
+                                <a href="https://www.facebook.com/VisitGalapagos" target="_blank"><img src="img/facebook.png" class="img-loaded"></a>
+                                <a href="https://www.tripadvisor.com/Attraction_Review-g294308-d8747742-Reviews-Andando_Tours-Quito_Pichincha_Province.html" target="_blank"><img src="img/tripadvisor.png" class="img-loaded"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-sub">
+                <div class="cols">
+                    <div class="col-md-4 col-lg-5">
+                        <div class="footer-sub-text1">
+                            <a href="../terms-and-conditions.html" style="padding-right:25px">Terms and Conditions</a>
+                            <a href="sitemap.html" style="padding-right:25px">Site Map</a>
+                            <a href="about/andando-tours.html" style="padding-right:10px">About us</a>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-lg-7">
+                        <div class="footer-sub-text">
+                            <div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/wp-embed.minfe9d.js"></script>
+        <script type="text/javascript" src="js/sitepressfe9d.js"></script>
+    </footer>
+
+    <div class="bs-example">
+
+        <!-- Modal HTML -->
+        <div id="myModal" class="modal fade">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <!-- Content will be loaded here from "remote.php" file -->
+                </div>
+            </div>
+        </div>
+
+        <div id="myModal4" class="modal fade">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <!-- Content will be loaded here from "remote.php" file -->
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="onload">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('#modal-iframe').iziModal('open');
+        $("#modal-iframe").iziModal({
+            title: 'Andando Tours video',
+            iframe: true,
+            iframeHeight: 600,
+            iframeURL: "https://www.youtube.com/embed/El5763TFRbw",
+            width: '90%',
+            fullscreen: true,
+            transitionIn: 'bounceInDown',
+            transitionOut: 'bounceOutDown'
+        });
+    </script><div id="modal-iframe" aria-hidden="true" aria-labelledby="modal-iframe" role="dialog" class="iziModal" style="z-index: 999; border-radius: 3px; border-bottom: 3px solid rgb(136, 160, 185); overflow: hidden; max-width: 90%;"><div class="iziModal-header iziModal-noSubtitle" style="background: rgb(136, 160, 185);"><h2 class="iziModal-header-title">Andando Tours video</h2><p class="iziModal-header-subtitle"></p><div class="iziModal-header-buttons"><a href="javascript:void(0)" class="iziModal-button iziModal-button-close" data-izimodal-close=""></a><a href="javascript:void(0)" class="iziModal-button iziModal-button-fullscreen" data-izimodal-fullscreen=""></a></div></div><div class="iziModal-wrap"><div class="iziModal-content" style="padding: 0px;"><iframe class="iziModal-iframe" style="height: 600px;"></iframe></div></div></div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script>
+        function ocultar() {
+            document.getElementById('proms').style.display = 'none';
+        }
+    </script>
+    <script>
+        function ocultar1() {
+            document.getElementById('proms1').style.display = 'none';
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#mensaje-pagando").hide();
+            $("#target").submit(function () {
+                $("#botones-pago").hide();
+                $("#mensaje-pagando").show();
+            });
+
+        });
+    </script>
+
+
+
+    <div style="display: none; visibility: hidden;">
+        <script type="text/javascript">var $zoho=$zoho||{};$zoho.salesiq=$zoho.salesiq||{widgetcode:"9703ef8f38623642ce02466b16916890ef6b727f4cdc55d6a4c47213a6c6a72975386ae459a1a15fbd737a6dece04fab",values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=!0;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);d.write("\x3cdiv id\x3d'zsiqwidget'\x3e\x3c/div\x3e");</script><div id="zsiqwidget"></div>
+        <script>$zoho.salesiq.ready=function(a){"https://www.visitgalapagos.travel/tours/index.html"==window.location.href&&$zoho.salesiq.floatbutton.visible("hide")};$zoho.salesiq.ready=function(a){"https://www.visitgalapagos.travel/tours/isabela/index.html"==window.location.href&&$zoho.salesiq.floatbutton.visible("hide")};</script>
+    </div>
+    <script type="text/javascript" id="">(function(){window.__insp=window.__insp||[];__insp.push(["wid",1159236235]);var c=function(){if("undefined"==typeof window.__inspld){window.__inspld=1;var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.id="inspsync";a.src=("https:"==document.location.protocol?"https":"http")+"://cdn.inspectlet.com/inspectlet.js?wid\x3d1159236235\x26r\x3d"+Math.floor((new Date).getTime()/36E5);var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)}};setTimeout(c,0)})();</script>
+    <div class="zsiq_floatmain zsiq_theme1 siq_bR" style="visibility: hidden; display: none;"><div id="zsiq_float" class="zsiq_float zsiq_off" style="font-family:inherit"><div class="zsiq_flt_rel"><em id="zsiq_agtpic" class="zsiq_user "><img src="https://download.zohopublic.com/public?x-service=LiveDesk&amp;event-id=1505339739878_237018000000002043&amp;x-cli-msg=%7B%22x-siq-filetype%22%3A%22fgravatar%22%2C%22x-siq-lsid%22%3A%22237018000000002043%22%2C%22x-siq-soid%22%3A%22650839391%22%2C%22x-siq-ispreview%22%3Afalse%2C%22x-siq-pfname%22%3A%22Screenshot_2.jpg%22%2C%22x-siq-downloadtype%22%3A%22default%22%7D"></em><div id="titlediv" class="zsiq_cnt"><div id="zsiq_maintitle" class="zsiq_ellips" title="We are offline">We are offline</div><p id="zsiq_byline" class="zsiq_ellips" title="Leave us a Message">Leave us a Message</p></div><em id="zsiq_unreadcnt" class="zsiq_unrdcnt" style="display: none;"></em><em id="zsiq_avcall" class="zsiqmin_unrdcnt zsiq_unrdcnt siqico-mincall" style="display: none;"></em></div></div></div>
+    <style id="zsiqcustomcss">
+        .zsiq_flt_rel {
+            background-color: #00a1ff !important;
+        }
+
+        .zsiq_seasonal .st2 {
+            fill: #00a1ff !important;
+        }
+    </style><div class="zls-sptwndw  siqembed siqtrans siqhide zsiq-mobhgt zsiq-newtheme siq_rht zsiq_size2" embedtheme="8" style="visibility: hidden; top: -10000px; display: block;"><div id="siqcht" class="zls-prelative"><iframe id="siqiframe" seamless="seamless" height="460" width="100%" scrolling="no"></iframe></div></div>
+</body>
+</html>

@@ -1,0 +1,339 @@
+﻿@{
+    Layout = "_Layout";
+
+
+
+    var item1 = ViewBag.GetContenidoVista;
+    var imgItem = ViewBag.GetContenidoMult;
+    var titulo = new List<string>();
+    Dictionary<string, int> uniqueStore = new Dictionary<string, int>();
+
+    foreach (var item in ViewBag.GetContenidoVista)
+    {
+
+        if (!uniqueStore.ContainsKey(item.Titulo))
+        {
+            uniqueStore.Add(item.Titulo, 0);
+            titulo.Add(item.Titulo);
+        }
+    }
+    var comp = titulo[titulo.Count - 1];
+    var i = 0;
+    var barcos = ViewBag.CardsCruises;
+    //BREADCRU,BS
+    var Breadcrumbitem = ViewBag.Breadcrumbitem;
+}
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<div class="container--full-width" style="overflow:hidden; width:100%" id="CruisesCategoria">
+    <div class="item active imgen-carousel">
+        <div class="fondos-imagen">
+            <img alt="@imgItem[0].NombreImagen" class="fondos-imagen" style="background-image: url('@imgItem[0].UrlImagen'); position:center; height:100%; width:100%;" />
+        </div>
+        <div class="caption texHeader" style="text-align:center; padding-bottom:40px" role="option">
+            <h1 class="font-x2 font-brush font-carousel" style="text-shadow:1px 1px 1px rgba(0, 0, 0, 0.5)">
+                <strong>@titulo[0]</strong>
+            </h1>
+            <p class="font-x2 " style="font-size:20px;margin-top:0; font-family:'BentonSans',sans-serif">
+                <span style="font-size:20px">@Html.Raw(@item1[0].Parrafo)</span>
+            </p>
+            <p>
+                <a class="btn h5button" href="#CruisesCategari" id="help_me_plan" style="padding: 6px 14px;">Find your Cruise <i class="fas fa-angle-down" style="padding-left:10px"></i></a>
+            </p>
+        </div>
+    </div>
+    <!--================================SUB MENU=========================-->
+    <div id="CruisesCategari"></div>
+    <nav class="navbar  navbarsubmenu page-nav-home" data-toggle="sticky-onscroll" id="navpagina" style="border: 1px solid rgba(0,0,0,.1);">
+        <div class="limit">
+            <nav class="page-nav-anchors" style="text-transform:none; " id="sub-menu-cruises">
+                <ul v-bind:style="{marginLeft: marginleft + '%' }">
+                    <li>
+                        <a href="#CruisesCategari"><span v-html="submenu[0]"></span> </a>
+                    </li>
+                    <li>
+                        <a :href="'#'+linkExpe"><span v-html="submenu[1]"></span></a>
+                    </li>
+                    <li>
+                        <a style="width: 300px" :href="'#'+linkcomparison"><span v-html="submenu[2]"></span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+    <nav class="page-nav page-nav-home" data-toggle="sticky-onscroll" id="navmovil">
+        <div class="limit" style="width:100%">
+            <nav class="page-nav-anchors">
+                <ul style="width:100%">
+                    <li class="activities">
+                        <a class="" href="#CruisesCategari"> <span v-bind:style="{width: widthMov + 'px',marginLeft: marginleftMov + 'px' }" v-html="submenu[0]"></span></a>
+                    </li>
+                    <li class="prepare" style="margin-left: 20px;">
+                        <a :href="'#'+linkExpe"><span v-html="submenu[1]"></span></a>
+                    </li>
+                    <li class="itineraries">
+                        <a :href="'#'+linkcomparison"> <span v-html="submenu[2]"></span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em 0; margin-top: 5px;background:white;">
+            <ol class="breadcrumb" style="" itemscope itemtype="http://schema.org/BreadcrumbList">
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a itemprop="item" style="color:#0077ba" href="../../">
+                        <span itemprop="name">Home</span>
+                    </a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a itemprop="item" style="color:#0077ba" href="../galapagos-cruises">
+                        <span itemprop="name">Galapagos Cruises</span>
+                    </a>
+                    <meta itemprop="position" content="2" />
+                </li>
+                <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span itemprop="name">@Breadcrumbitem</span>
+                    <meta itemprop="position" content="3" />
+                </li>
+            </ol>
+            <div id="FindCruise"></div>
+            <h2 class="formato-titulo" style="padding-bottom:15PX;margin-top:0"> <b>@titulo[1]</b></h2>
+            @{
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[1])
+                    {
+                        <p class="formato-parrafo">
+                            <span>@Html.Raw(item.Parrafo)</span>
+                        </p>
+
+                    }
+                }
+            }
+        </div>
+    </div>
+    <!--================================CARD CRUCEROS=========================-->
+    <div class="container f-15 text-justify" style="padding: .5em 1em; background:white; text-decoration:none;margin-top: 15px">
+        <div class="mainland-wrapper ">
+            <div class="mainland">
+                <div class="row  f-15 text-justify textoinfo parrafo" style="font-family:Arial; color: #656b6f !important; line-height:2; background:white">
+                    @{ i = 0;
+
+                        foreach (var barco in barcos)
+                        {
+                            <div class="col-xs-12 col-sm-6  col-md-4 cardsAndando">
+                                <div class="contenido-app" id="@barco.IdBarco" v-on:click="select($event)">
+                                    <a href="@barco.BarcoURL" target="_blank" style="text-decoration:none" class="anc-card">
+                                        <div class="mainland-item @(@barco.BarcoEco == true ? "cardEco" : "eco")" style="overflow:hidden;text-overflow:ellipsis">
+                                            <div class="mainland-image">
+                                                <img data-src="@barco.BarcoImagen" class="img-portada lazyload" alt="@barco.BarcoNombre">
+                                                <div class=" @(@barco.BarcoEco == true ? "wildAid" : "hide")">
+                                                    <h5>Collaborating with WildAid to protect the Islands. </h5>
+                                                </div>
+                                                <div class=" @(@barco.BarcoEco == true ? "cruise-detailsEco" : "cruise-details")">
+                                                    <span>Category: @barco.BarcoCategoriaTipoNombreEn</span>
+                                                </div>
+                                            </div>
+                                            <div class="cruise-info">
+
+                                                <h3 style="font-family:'Berlin Sans FB'">@barco.BarcoNombre</h3>
+                                                <p>
+                                                    @Regex.Replace(barco.BarcoDescripcionCortaEn, "<.*?>", String.Empty)
+                                                </p>
+                                                <div class="rest-info" :id="'ShipTypes-'+ @barco.IdBarco">
+                                                    <span class="price" style="margin-left:10px; font-family:Arial">Price from: $@barco.BarcoPrecioMin  (@barco.BarcoDiasItinerario Days).</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div> i++;
+                        }
+                    }
+
+                </div>
+            </div>
+            <a href="../galapagos-cruises" target="_blank" style="color: #398AC9;font-size:16px; padding-left: 10px; font-family: 'BentonSans-Regular'"> View all cruises >>> </a>
+        </div>
+    </div>
+    <!--================================SECCION IMG INF =========================-->
+    <div class="container  seccionItinerario">
+        <div class="col-md-6 ">
+            <img data-src="@imgItem[1].UrlImagen" alt="@imgItem[1].NombreImagen" class="img-responsive lazyload" style="margin:0;width:100%;" />
+        </div>
+        <div class="col-md-6" style="padding-left:2em">
+            <div class="row f-15 text-justify textoinfo textcrucero" style="font-family:Arial;padding: 0 1em;margin-top:-9px;margin-bottom:10px">
+                <h2 class=" formato-titulo" style="padding-top:0;margin-bottom: 10px;"> <b>@titulo[2]</b></h2>
+                <div class="formato-parrafo" style="margin-bottom:10px">
+                    @{
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[2])
+                            {
+                                <p class="formato-parrafo">
+                                    <span>@Html.Raw(item.Parrafo)</span>
+                                </p>
+
+                            }
+                        }
+                    }
+                </div>
+                <table style="margin-left:-13px;width: 103%">
+                    <tr>
+                        <td style="border:none">
+                            <div class="boxdiv1 boxCruises">
+                                <a class="btn h5button cruceros-boton" :href="urlBtnCategoria" style="margin-right:1px; font-size:15px">
+                                    <span v-html="privateChartersTex"></span>
+                                </a>
+                                <a class="btn h5button cruceros-boton" v-show="luxuryCruisesbtn" href="../galapagos-luxury-cruise" style="color:#398AC9; background:#fff; border-color:#398AC9;border: 1px solid #398AC9;font-size:15px">
+                                    <span v-html="luxuryCruisesText"></span>
+                                </a>
+                            </div><div id="YachExperience"></div>
+                        </td>
+                    </tr>
+                </table><div id="Experience"></div>
+            </div><div id="comparison"></div>
+        </div>
+    </div>
+    <!--================================INFO CRUCEROS =========================-->
+    @{
+        if (ViewBag.GetContenidoVista.Count >= 4)
+        {
+            <div class="container">
+                <div class="row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em; background:white;margin-top:0;margin-bottom:0">
+                    <h2 class="formato-titulo" style="margin-bottom: 30px;"> <b>@titulo[3]</b></h2><div id="comparisonbudget"></div>
+                    @{
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[3])
+                            {
+                                <p class="formato-parrafo">
+                                    <span>@Html.Raw(item.Parrafo)</span>
+                                </p>
+
+                            }
+                        }
+                    }
+                </div>
+                @{
+                    if (titulo.Count > 4)
+                    {
+                        <div class="row f-15 text-justify textoinfo parrafo" v-show="comparison" style="padding: .5em 1em; background:white;margin-top: 0;margin-bottom:0">
+                            <div class="col-md-6" style="padding: 0px 0;">
+                                <div class="box" id="textoDerecha">
+                                    @{
+                                        if (titulo[4] != comp)
+                                        {
+                                            <h3 class="formato-titulo" style="margin-top:0;margin-bottom: 30px;"> <b>@titulo[4]</b></h3>
+                                        }
+
+
+                                        foreach (var item in ViewBag.GetContenidoVista)
+                                        {
+                                            if (item.Titulo == titulo[4])
+                                            {
+                                                <p class="formato-parrafo">
+                                                    <span>@Html.Raw(item.Parrafo)</span>
+                                                </p>
+
+                                            }
+                                        }
+                                    }
+                                </div>
+                            </div>
+                            @{
+                                if (titulo.Count > 5)
+                                {
+                                    <div class="col-md-6" style="padding: 0px 0;">
+                                        <div class="box" id="textoIzquierda">
+                                            <h3 class="formato-titulo" style="margin-top:0;margin-bottom: 30px;"> <b>@titulo[5]</b></h3>
+                                            @{
+                                                foreach (var item in ViewBag.GetContenidoVista)
+                                                {
+                                                    if (item.Titulo == titulo[5])
+                                                    {
+                                                        <p class="formato-parrafo">
+                                                            <span>@Html.Raw(item.Parrafo)</span>
+                                                        </p>
+
+                                                    }
+                                                }
+                                            }
+                                        </div><div id="luxuryComp"></div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        if (titulo.Count > 6)
+                        {
+                            <div class="row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em;margin-top:0; background:white;" v-show="parraforCategoriaLuxuryBudget">
+                                <div class="col-md-6" style="padding: 0px 0;" v-show="parraforCategoria">
+                                    <div class="box" id="textoDerecha">
+                                        <div id="comparisonLuxury"></div>
+                                        <h3 class="formato-titulo" style="margin-top:0;margin-bottom: 30px;"> <b>@titulo[6]</b></h3>
+                                        @{
+                                            foreach (var item in ViewBag.GetContenidoVista)
+                                            {
+                                                if (item.Titulo == titulo[6])
+                                                {
+                                                    <p class="formato-parrafo">
+                                                        <span>@Html.Raw(item.Parrafo)</span>
+                                                    </p>
+
+                                                }
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-md-6" style="padding: 0px 0">
+                                    <div class="box" id="textoIzquierda">
+                                        <h3 class="formato-titulo" style="margin-top:0;margin-bottom: 30px;"> <b>@titulo[7]</b></h3>
+                                        @{
+                                            foreach (var item in ViewBag.GetContenidoVista)
+                                            {
+                                                if (item.Titulo == titulo[7])
+                                                {
+                                                    <p class="formato-parrafo">
+                                                        <span>@Html.Raw(item.Parrafo)</span>
+                                                    </p>
+
+                                                }
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                }
+            </div>
+        }
+    }
+
+    @{
+        if (imgItem.Count > 2)
+        {
+            <div class="container">
+                <div class="row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em 0; margin-top: 5px;background:white;">
+                    <h2 class="formato-titulo" style="padding-bottom:0;margin-bottom:0;"><b>@comp</b></h2>
+                    <div class="col-md-12 " style="padding-left: 0px">
+                        <img data-src="@imgItem[2].UrlImagen" alt="@imgItem[2].NombreImagen" class="img-responsive lazyload" style="margin:0;width:100%;" />
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+@*<div class="bs-example">
+        <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                </div>
+            </div>
+        </div>
+    </div>*@
+@section scripts {
+    <script src="~/lib/vue/CruisesHome-Category.js"></script>
+}

@@ -1,0 +1,356 @@
+﻿@{
+    var itemBlogPost = ViewBag.GetContenidoVista;
+    var img_BlogPost = ViewBag.GetContenidoMult;
+    var titulo = new List<string>();
+    Dictionary<string, int> uniqueStore = new Dictionary<string, int>();
+
+    foreach (var item in ViewBag.GetContenidoVista)
+    {
+
+        if (!uniqueStore.ContainsKey(item.Titulo))
+        {
+            uniqueStore.Add(item.Titulo, 0);
+            titulo.Add(item.Titulo);
+        }
+    }
+}
+<div  class="f-15" style="overflow-x:hidden;font-family:Arial">
+    <div style="overflow:hidden">
+        <div class="item active imgen-carousel">
+            <div class="fondos-imagen" style="background-image:url(@img_BlogPost[0].UrlImagen);">
+                <img src="" alt="@img_BlogPost[0].NombreImagen" class="fondos-imagen" style=" background-image:url(@img_BlogPost[0].UrlImagen); position:center; height:100%; width:100%;" />
+            </div>
+            <div class="caption" style="text-align: center; padding-bottom: 40px" role="option">
+                <h1 class="font-x2 font-brush font-carousel" style="text-shadow:1px 1px 1px rgba(0, 0, 0, 0.5);">
+                    <strong>@titulo[0]</strong>
+                </h1>
+            </div>
+        </div>
+        <div id="mc_embed_signup">
+            <!--================================SUB MENU=========================-->
+            <nav class="navbar  page-nav page-nav-home" data-toggle="sticky-onscroll" style="border: 1px solid rgba(0,0,0,.1); display:block">
+                <div class="limit">
+                    <nav class="page-nav-anchors" style="text-transform:none; " id="sub-menu-cruises">
+                        <center>
+                            <form action="https://visitgalapagos.us15.list-manage.com/subscribe/post?u=13bcb03659759e8410a67809d&amp;id=e632bf5b97" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                                <div id="mc_embed_signup_scroll" class="form-group" style="margin-bottom: 7px;">
+                                    <div class="col-md-6 menuBlogText">
+                                        <p>Explore Ecuador and Galapagos from your Inbox </p>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 col-xs-12 menuBlogSubscribe">
+                                        <div class="input-group" style="text-align:center">
+                                            <input type="email" value="" name="EMAIL" redonly class="form-control email" id="mce-EMAIL" required style="font-family:Arial;border-color: #398AC9" placeholder="Email...">
+                                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_13bcb03659759e8410a67809d_e632bf5b97" tabindex="-1" value=""></div>
+                                            <span class="input-group-btn" style="padding-right: 30px;">
+                                                <button class="btn btn-default btnEmail" redonly type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">Subscribe</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </center>
+                    </nav>
+                </div>
+            </nav>
+        </div>
+        <!--==========Redes Sociales===========-->
+        <div style="float:left">
+            <div class="social">
+                <ul>
+                    <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://www.visitgalapagos.travel/sailing-cruises/mary-anne/" onclick="window.open(this.href, '', 'resizable=yes,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=500,height=500'); return false;" target="_blank" class="icon-facebook"></a></li>
+                    <li><a href="https://twitter.com/intent/tweet?url=URL&text=https://www.visitgalapagos.travel/blog/best-time-to-visit-the-ecuadorian-amazon&via=Andandotours" class="icon-twitter" data-show-count="false" target="_blank" onclick="window.open(this.href, '', 'resizable=yes,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=500,height=500'); return false;"></a></li>
+                    <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.visitgalapagos.travel/sailing-cruises/mary-anne/" target="_blank" class="icon-googleplus" onclick="window.open(this.href, '', 'resizable=yes,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=500,height=500'); return false;"></a></li>
+                </ul>
+            </div>
+        </div>
+        <!--==========Redes Sociales MObil===========-->
+        <div style="float:left">
+            <div class="social-mob">
+                <ul>
+                    <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://www.visitgalapagos.travel/sailing-cruises/mary-anne/" target="_blank" onclick="window.open(this.href, '', 'resizable=yes,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=500,height=500'); return false;" class="icon-facebook"></a></li>
+                    <li><a href="https://twitter.com/intent/tweet?url=URL&text=https://www.visitgalapagos.travel/blog/best-time-to-visit-the-ecuadorian-amazon&via=Andandotours" onclick="window.open(this.href, '', 'resizable=yes,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=500,height=500'); return false;" class="icon-twitter" data-show-count="false" target="_blank"></a></li>
+                    <li><a href="https://plus.google.com/b/100589937559438672244/+VisitgalapagosTravel" target="_blank" class="icon-googleplus" onclick="window.open(this.href, '', 'resizable=yes,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no,width=500,height=500'); return false;"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container padd">
+            <div class="f-15">
+                <h2 class="formato-titulo" style="font-family:'BentonSans',sans-serif; text-align:center">
+                    <b><span>@Html.Raw(itemBlogPost[0].Parrafo)</span><span style="color:#5299d1"> @Html.Raw(itemBlogPost[1].Parrafo)</span></b>
+                </h2>
+                <h2 class="formato-titulo" style=" text-align:left"><b>@titulo[1]</b></h2>
+                @{
+                    foreach (var item in itemBlogPost)
+                    {
+                        if (item.Titulo == @titulo[1])
+                        {
+                            <p class="parrafo formato-parrafo" style="font-size:17px">
+                                @Html.Raw(item.Parrafo)
+                            </p>
+                        }
+                    }
+                }
+            </div>
+            <section class="tituloH3Blog formato-titulo" style="background-color:white">
+                <h2 class="formatoBlog" style=" text-align:left"><b>@titulo[2]</b></h2>
+                @{ int cont = 0;
+                    foreach (var item in itemBlogPost)
+                    {
+                        if (item.Titulo == @titulo[2])
+                        {
+                            <p class="parrafo formato-parrafo" style="font-size:17px">
+                                @Html.Raw(item.Parrafo)
+                            </p>
+                            if (cont == 0)
+                            {
+                                <table id="grid-gale-social" style="margin-left:-14px">
+                                    <tr>
+                                        <td style="border:none;padding-right:0">
+                                            <img class="lazyload" data-src="@img_BlogPost[1].UrlImagen" alt="@img_BlogPost[1].NombreImagen" style="width:724px; height:380px;" />
+                                        </td>
+                                        <td style="border:none;padding-right:0">
+                                            <img class="lazyload" data-src="@img_BlogPost[2].UrlImagen" alt="@img_BlogPost[2].NombreImagen" style=" height:380px; margin-left:2px" />
+                                        </td>
+                                    </tr>
+                                </table>
+                                @* ===============MOBILE=============== *@
+                                <div id="grid-gale-social-mob">
+                                    <div class="container" style="width:auto; padding:0;margin-top:10px">
+                                        <div class="col-md-12" style="padding:0; margin-top: 10px;">
+                                            <img data-src="@img_BlogPost[1].UrlImagen" alt="@img_BlogPost[1].NombreImagen" class="img-responsive lazyload" />
+                                        </div>
+                                        <div class="col-md-12" style="padding:0;margin-top: 10px;">
+                                            <img data-src="@img_BlogPost[2].UrlImagen" alt="@img_BlogPost[2].NombreImagen" class="img-responsive lazyload" />
+                                        </div>
+                                    </div>
+                                </div>
+                                break;
+                            }
+                        }
+                    }
+                }
+                @{ int conParrafo = 0;
+                    foreach (var item in itemBlogPost)
+                    {
+                        if (item.Titulo == @titulo[2])
+                        {
+                            conParrafo++;
+                            if (conParrafo == 2)
+                            {
+                                <p class="parrafo formato-parrafo" style="font-size:17px">
+                                    @Html.Raw(item.Parrafo)
+                                </p>
+                                <table id="grid-gale-social" style="margin-left:-14px">
+                                    <tr>
+                                        <td style="border:none;padding-right:0">
+                                            <img class="lazyload" data-src="@img_BlogPost[3].UrlImagen" alt="@img_BlogPost[3].NombreImagen" style="width:724px; height:380px;" />
+                                        </td>
+                                        <td style="border:none;padding-right:0">
+                                            <img class="lazyload" data-src="@img_BlogPost[4].UrlImagen" alt="@img_BlogPost[4].NombreImagen" style=" height:380px; margin-left:2px" />
+                                        </td>
+                                    </tr>
+                                </table>
+                                @* ===============MOBILE=============== *@
+                                <div id="grid-gale-social-mob">
+                                    <div class="container" style="width:auto; padding:0;margin-top:10px">
+                                        <div class="col-md-12" style="padding:0; margin-top: 10px;">
+                                            <img data-src="@img_BlogPost[3].UrlImagen" alt="@img_BlogPost[3].NombreImagen" class="img-responsive lazyload" />
+                                        </div>
+                                        <div class="col-md-12" style="padding:0;margin-top: 10px;">
+                                            <img data-src="@img_BlogPost[4].UrlImagen" alt="@img_BlogPost[4].NombreImagen" class="img-responsive lazyload" />
+                                        </div>
+                                    </div>
+                                </div>
+                                break;
+                            }
+                        }
+                    }
+                }
+            </section>
+            <section class="tituloH3Blog formato-titulo" style="text-align:left!important;">
+                <h2 class="formatoBlog" style=" text-align:left"><b>@titulo[3]</b></h2>
+                @{ int cont1 = 0;
+                    foreach (var item in itemBlogPost)
+                    {
+                        if (item.Titulo == @titulo[3])
+                        {
+                            <p class="parrafo formato-parrafo tituloH3Blog" style="text-align: left !important;font-size: 17px !important">
+                                @Html.Raw(item.Parrafo)
+                            </p>
+                            if (cont1 == 0)
+                            {
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <img class="img-responsive lazyload" data-src="@img_BlogPost[5].UrlImagen" alt="@img_BlogPost[5].NombreImagen" />
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <img class="img-responsive lazyload" data-src="@img_BlogPost[6].UrlImagen" alt="@img_BlogPost[6].NombreImagen" />
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top:17px">
+                                    <div class="col-xs-6">
+                                        <img class="img-responsive lazyload" data-src="@img_BlogPost[7].UrlImagen" alt="@img_BlogPost[7].NombreImagen" />
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <img class="img-responsive lazyload" data-src="@img_BlogPost[8].UrlImagen" alt="@img_BlogPost[8].NombreImagen" />
+                                    </div>
+                                </div>
+                                break;
+                            }
+                        }
+                    }
+                }
+                @{ int conParrafo1 = 0;
+                    foreach (var item in itemBlogPost)
+                    {
+                        if (item.Titulo == @titulo[3])
+                        {
+                            conParrafo1++;
+                            if (conParrafo1 == 2)
+                            {
+                                <p class="parrafo formato-parrafo" style="font-size:17px!important">
+                                    @Html.Raw(item.Parrafo)
+                                </p>
+                                <div id="grid-gale-social" style="margin-left:-12px;">
+                                    <div id="grid-prod-galery-ext">
+                                        <div id="caja-galeria-ext">
+                                            <img class="img-responsive lazyload" data-src="@img_BlogPost[9].UrlImagen" alt="@img_BlogPost[9].NombreImagen" style="width:750px; height:380px; margin-right:0" />
+                                        </div>
+                                        <div id="caja-galeria2-ext">
+                                            <img class="img-responsive lazyload" data-src="@img_BlogPost[10].UrlImagen" alt="@img_BlogPost[10].NombreImagen" style="height:380px;" />
+                                        </div>
+                                        <div id="caja-galeria3-ext">
+                                            <img class="lazyload" data-src="@img_BlogPost[11].UrlImagen" alt="@img_BlogPost[11].NombreImagen" style="margin-left:12px; height:380px;" />
+                                        </div>
+                                        <div id="caja-galeria4-ext">
+                                            <img class="lazyload" data-src="@img_BlogPost[12].UrlImagen" alt="@img_BlogPost[12].NombreImagen" style="width:750px; height:380px; margin-right:0" />
+                                        </div>
+                                    </div>
+                                </div>
+                                @* ============MOBIL======== *@
+                                <div id="grid-gale-social-mob">
+                                    <div id="grid-prod-galery-ext">
+                                        <div id="caja-galeria-ext">
+                                            <img class="img-responsive lazyload" data-src="@img_BlogPost[9].UrlImagen" alt="@img_BlogPost[9].NombreImagen" />
+                                        </div>
+                                        <div id="caja-galeria2-ext">
+                                            <img class="img-responsive lazyload" data-src="@img_BlogPost[10].UrlImagen" alt="@img_BlogPost[10].NombreImagen" />
+                                        </div>
+                                        <div id="caja-galeria3-ext">
+                                            <img class="lazyload" data-src="@img_BlogPost[11].UrlImagen" alt="@img_BlogPost[11].NombreImagen" />
+                                        </div>
+                                        <div id="caja-galeria4-ext">
+                                            <img class="lazyload" data-src="@img_BlogPost[12].UrlImagen" alt="@img_BlogPost[12].NombreImagen" />
+                                        </div>
+                                    </div>
+                                </div>
+                                break;
+                            }
+                        }
+                    }
+                }
+                <br />
+                @{ conParrafo1 = 0;
+                    foreach (var item in itemBlogPost)
+                    {
+                        if (item.Titulo == @titulo[3])
+                        {
+                            conParrafo1++;
+                            if (conParrafo1 == 3)
+                            {
+                                <p class="parrafo formato-parrafo" style="font-size:17px!important">
+                                    @Html.Raw(item.Parrafo)
+                                </p>
+                                <div id="grid-gale-social" style="margin-left:-12px;">
+                                    <div id="grid-prod-galery-ext">
+                                        <div id="caja-galeria-ext">
+                                            <img class="img-responsive lazyload" data-src="@img_BlogPost[13].UrlImagen" alt="@img_BlogPost[13].NombreImagen" style="width:750px; height:380px; margin-right:0" />
+                                        </div>
+                                        <div id="caja-galeria2-ext">
+                                            <img class="img-responsive lazyload" data-src="@img_BlogPost[14].UrlImagen" alt="@img_BlogPost[14].NombreImagen" style="height:380px;" />
+                                        </div>
+                                        <div id="caja-galeria3-ext">
+                                            <img class="lazyload" data-src="@img_BlogPost[15].UrlImagen" alt="@img_BlogPost[15].NombreImagen" style="margin-left:12px; height:380px;" />
+                                        </div>
+                                        <div id="caja-galeria4-ext">
+                                            <img class="lazyload" data-src="@img_BlogPost[16].UrlImagen" alt="@img_BlogPost[16].NombreImagen" style="width:750px; height:380px; margin-right:0" />
+                                        </div>
+                                    </div>
+                                </div>
+                                @* ============MOBIL======== *@
+                                <div id="grid-gale-social-mob">
+                                    <div id="grid-prod-galery-ext">
+                                        <div id="caja-galeria-ext">
+                                            <img class="img-responsive lazyload" data-src="@img_BlogPost[13].UrlImagen" alt="@img_BlogPost[13].NombreImagen" />
+                                        </div>
+                                        <div id="caja-galeria2-ext">
+                                            <img class="img-responsive lazyload" data-src="@img_BlogPost[14].UrlImagen" alt="@img_BlogPost[14].NombreImagen" />
+                                        </div>
+                                        <div id="caja-galeria3-ext">
+                                            <img class="lazyload" data-src="@img_BlogPost[15].UrlImagen" alt="@img_BlogPost[15].NombreImagen" />
+                                        </div>
+                                        <div id="caja-galeria4-ext">
+                                            <img class="lazyload" data-src="@img_BlogPost[16].UrlImagen" alt="@img_BlogPost[16].NombreImagen" />
+                                        </div>
+                                    </div>
+                                </div>
+                                break;
+                            }
+                        }
+                    }
+                }
+                @{ conParrafo1 = 0;
+                    foreach (var item in itemBlogPost)
+                    {
+                        if (item.Titulo == @titulo[3])
+                        {
+                            conParrafo1++;
+                            if (conParrafo1 == 4)
+                            {
+                                <p class="parrafo formato-parrafo" style="font-size:17px!important">
+                                    @Html.Raw(item.Parrafo)
+                                </p>
+                                <table id="grid-gale-social" style="margin-left:-14px">
+                                    <tr>
+                                        <td style="border:none;padding-right:0">
+                                            <img class="lazyload" data-src="@img_BlogPost[17].UrlImagen" alt="@img_BlogPost[17].NombreImagen" style="width:724px; height:380px;" />
+                                        </td>
+                                        <td style="border:none;padding-right:0">
+                                            <img class="lazyload" data-src="@img_BlogPost[18].UrlImagen" alt="@img_BlogPost[18].NombreImagen" style=" height:380px; margin-left:2px" />
+                                        </td>
+                                    </tr>
+                                </table>
+                                @* ===============MOBILE=============== *@
+                                <div id="grid-gale-social-mob">
+                                    <div class="container" style="width:auto; padding:0;margin-top:10px">
+                                        <div class="col-md-12" style="padding:0; margin-top: 10px;">
+                                            <img data-src="@img_BlogPost[17].UrlImagen" alt="@img_BlogPost[17].NombreImagen" class="img-responsive lazyload" />
+                                        </div>
+                                        <div class="col-md-12" style="padding:0;margin-top: 10px;">
+                                            <img data-src="@img_BlogPost[18].UrlImagen" alt="@img_BlogPost[18].NombreImagen" class="img-responsive lazyload" />
+                                        </div>
+                                    </div>
+                                </div>
+                                break;
+                            }
+                        }
+                    }
+                }
+                <h2 class="formatoBlog" style="margin-top: 30px; text-align:left">
+                    <b>@titulo[4]</b>
+                </h2>
+                @{
+                    foreach (var item in itemBlogPost)
+                    {
+                        if (item.Titulo == @titulo[4])
+                        {
+                            <p class="parrafo formato-parrafo" style="font-size:17px">
+                                @Html.Raw(item.Parrafo)
+                            </p>
+                        }
+                    }
+                }
+            </section>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+@{
+    ViewBag.Title = "All Roles";
+}
+<div style="font-family:Arial" class="content-wrapper">
+    <section class="container">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-5">
+                    <br />
+                    <h2>List Roles</h2>
+                    @if (Model.Any())
+                    {
+                        @*<a class="btn btn-primary mb-3" style="width:auto" asp-action="Create" asp-controller="Admin">Add new role</a>*@
+
+                        foreach (var role in Model)
+                        {
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    Role Id :@role.Id
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">@role.Name</h5>
+                                </div>
+                                <div class="card-footer">
+                                    <a  class="btn btn-primary" asp-controller="Admin" asp-action="EditRole" asp-route-id="@role.Id" >Edit</a>
+                                </div>
+                            </div>
+                        }
+
+                    }
+                    else
+                    {
+                        <div class="card">
+                            <div class="card-header">
+                                No roles created yet
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Use the button to create a role</h5>
+                                <a class="btn btn-primary" style="width:auto" asp-controller="Admin" asp-action="Create">
+                                    Create Role
+                                </a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

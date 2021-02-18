@@ -1,0 +1,179 @@
+﻿@{
+    ViewData["Title"] = "visitor_sites";
+}
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="~/css/styleAndando.css" />
+<link rel="stylesheet" type="text/css" href="~/css/styleAndando03.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha256-PZLhE6wwMbg4AB3d35ZdBF9HD/dI/y4RazA3iRDurss=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<script src="~/js/MapaVisitor.js"></script>
+<div class="container--full-width" style="overflow:hidden; width:100%">
+    <div id="myCarousel" class="carousel slide active" aria-hidden="true" data-ride="carousel" data-interval="2000">
+        <div id="VisitorSite">
+            <ol class="carousel-indicators" style="z-index:10">
+                <li v-for="(imageVisitor, index) in listaContenidoVisitor" :id="'indicador'+index" data-target="#myCarousel" :data-slide-to="index"></li>
+            </ol>
+            <div class="carousel-inner" id="altura_carousel" role="listbox" style="background-color:#2c3040;">
+                <div class="item imgen-carousel" v-for="(imageVisitor, index) in listaContenidoVisitor" :id="'imagen'+index">
+                    <div class="fondos-imagen">
+                        <img id="altura_carousel" :src="'../../images/'+imageVisitor.urlImagen" alt="sailing Galapagos" class="fondos-imagen" style="position:center; width:100%;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container"  >
+        <div  class="row formato-parrafo text-justify textoinfo parrafo" style="font-family:Arial;padding: .5em 1em; color: black !important; background:white;">
+            <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12"   >
+                <div>
+                    @foreach (var IdVisitorSite in Model)
+                    { 
+                        <p><h4 style="color:#5299D0"><b id="nameVisitor">@IdVisitorSite.NombreVisitorSite</b></h4></p>
+                        <p><h4 style="color:black"><b>About this visitor site</b></h4></p>
+                        <p>@IdVisitorSite.DescripcionVisitorSite</p>
+                        <p id="longitud" style="display:none">@IdVisitorSite.LongitudVisitorSite</p>
+                        <p id="latitud" style="display:none">@IdVisitorSite.LatitudVisitorSite</p>
+                    }
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12 col-sm-12" style="height:420px">
+                <div id='mapa2' style="margin-top:12px;height:420px;width:100%;"></div>
+            </div>
+        </div>
+        <div class="row formato-parrafo text-justify textoinfo parrafo" id="text_map" style="font-family:Arial;padding: .1em 1em; margin-top:5% ;color: black !important; background:white;">
+            <p><h4 style="color:black"><b>Wildlife</b></h4></p>
+            @foreach (var IdVisitorSite in Model)
+            {
+                <p>@IdVisitorSite.WildLifeVisitorSite</p>
+            }
+        </div>
+        <div id="image_team" class="row formato-parrafo text-justify" style="margin-top:-20px;padding: 0em 1em; color: black !important; background:white;margin-left:-15px;">
+            @foreach (var IdVisitorSite in Model)
+            {
+                <div class="col-md-6 " style="padding-left:15px;margin-top:10px;padding-right:0">
+                    @if (@IdVisitorSite.Animal1VisitorSIte != "")
+                    {
+                        <img src="~/images/@IdVisitorSite.Animal1VisitorSIte" class="img-responsive" style="margin:0;width:98%" />
+                    }
+                </div>
+                <div class="col-md-6 " style="padding-left:15px;margin-top:10px;padding-right:0">
+                    @if (@IdVisitorSite.Animal2VisitorSIte != "")
+                    {
+                        <img src="~/images/@IdVisitorSite.Animal2VisitorSIte" class="img-responsive" style="margin:0;width:98%" />
+                    }
+                </div>
+            }
+        </div>
+        <div id="image_team" class="row formato-parrafo text-justify" style="padding: 0em 1em; color: black !important; background:white;margin-left:-15px;">
+            @foreach (var IdVisitorSite in Model)
+            {
+                <div class="col-md-6 " style="padding-left:15px;margin-top:10px;padding-right:0">
+                    @if (@IdVisitorSite.Animal3VisitorSIte != "")
+                    {
+                        <img src="~/images/@IdVisitorSite.Animal3VisitorSIte" class="img-responsive" style="margin:0;width:98%" />
+                    }
+                </div>
+                <div class="col-md-6 " style="padding-left:15px;margin-top:10px;padding-right:0">
+                    @if (@IdVisitorSite.Animal4VisitorSIte != "")
+                    {
+                        <img src="~/images/@IdVisitorSite.Animal4VisitorSIte" class="img-responsive" style="margin:0;width:98%" />
+                    }
+                </div>
+            }
+        </div>
+        <div class="row formato-parrafo text-justify textoinfo parrafo" style="font-family:Arial;padding: .5em 1em; color: black !important; background:white;">
+            <p><h4 style="color:black"><b>Activities</b></h4></p>
+            <div class="col-md-6">
+                <table style="margin-left:-13px">
+                    @foreach (var IdVisitorSite in Model)
+                    {
+                    <tr>
+                        @if (IdVisitorSite.Actividad1VisitorSIte != "")
+                        {
+                            <td style="border:none;padding-right:0;">
+                                <img src="~/images/icon/@IdVisitorSite.Actividad1VisitorSIte" style="width:75px;height:75px" alt="Alternate Text" />
+                                <input id="act1i" value="@IdVisitorSite.Actividad1VisitorSIte" style="display:none" />
+                                <center><b><a id="act1" style=" font-family:SegoeUI, Segoe UI; color:#656b6f; text-decoration:none"></a></b></center>
+                            </td>
+                        }
+                        @if (IdVisitorSite.Actividad2VisitorSIte != "")
+                        {
+                            <td style="border:none;padding-right:0;">
+                                <img src="~/images/icon/@IdVisitorSite.Actividad2VisitorSIte" style="width:75px;height:75px" alt="Alternate Text" />
+                                <input id="act2i" value="@IdVisitorSite.Actividad2VisitorSIte" style="display:none" />
+                                <center><b><a id="act2" style=" font-family:SegoeUI, Segoe UI; color:#656b6f; text-decoration:none"></a></b></center>
+                            </td>
+                        }
+                        @if (IdVisitorSite.Actividad3VisitorSIte != "")
+                        {
+                            <td style="border:none;padding-right:0;">
+                                <img src="~/images/icon/@IdVisitorSite.Actividad3VisitorSIte" style="width:75px;height:75px" alt="Alternate Text" />
+                                <input id="act3i" value="@IdVisitorSite.Actividad3VisitorSIte" style="display:none" />
+                                <center><b><a id="act3" style=" font-family:SegoeUI, Segoe UI; color:#656b6f; text-decoration:none"></a></b></center>
+                            </td>
+                        }
+                        @if (IdVisitorSite.Actividad4VisitorSIte != "")
+                        {
+                            <td style="border:none;padding-right:0;">
+                                <img src="~/images/icon/@IdVisitorSite.Actividad4VisitorSIte" style="width:75px;height:75px" alt="Alternate Text" />
+                                <input id="act4i" value="@IdVisitorSite.Actividad4VisitorSIte" style="display:none" />
+                                <center><b><a id="act4" style=" font-family:SegoeUI, Segoe UI; color:#656b6f; text-decoration:none"></a></b></center>
+                            </td>
+                        }
+                        @if (IdVisitorSite.Actividad5VisitorSIte != "")
+                        {
+                            <td style="border:none;padding-right:0;">
+                                <img src="~/images/icon/@IdVisitorSite.Actividad5VisitorSIte" style="width:75px;height:75px" alt="Alternate Text" />
+                                <input id="act5i" value="@IdVisitorSite.Actividad5VisitorSIte" style="display:none" />
+                                <center><b><a id="act5" style=" font-family:SegoeUI, Segoe UI; color:#656b6f; text-decoration:none"></a></b></center>
+                            </td>
+                        }
+                        @if (IdVisitorSite.Actividad6VisitorSIte != "")
+                        {
+                            <td style="border:none;padding-right:0;">
+                                <img src="~/images/icon/@IdVisitorSite.Actividad6VisitorSIte" style="width:75px;height:75px" alt="Alternate Text" />
+                                <input id="act6i" value="@IdVisitorSite.Actividad6VisitorSIte" style="display:none" />
+                                <center><b><a id="act6" style=" font-family:SegoeUI, Segoe UI; color:#656b6f; text-decoration:none"></a></b></center>
+                            </td>
+                        }
+                    </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <br />
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDU7hYE49Aueu2BzdXz2u4gtCvVybLtJI4&callback=cargarMapa"></script>
+<script>
+    function Split() {
+        /*Actividad 1*/
+        var str = document.getElementById("act1i").value;
+        var res = str.split(".png",1);
+        document.getElementById("act1").innerHTML = res;
+        /*Actividad 2*/
+        var str2 = document.getElementById("act2i").value;
+        var res2 = str2.split(".png",1);
+        document.getElementById("act2").innerHTML = res2;
+        /*Actividad 3*/
+        var str3 = document.getElementById("act3i").value;
+        var res3 = str3.split(".png",1);
+        document.getElementById("act3").innerHTML = res3;
+        /*Actividad 4*/
+        var str4 = document.getElementById("act4i").value;
+        var res4 = str4.split(".png",1);
+        document.getElementById("act4").innerHTML = res4;
+        /*Actividad 5*/
+        var str5 = document.getElementById("act5i").value;
+        var res5 = str5.split(".png",1);
+        document.getElementById("act5").innerHTML = res5;
+        /*Actividad 6*/
+        var str6 = document.getElementById("act6i").value;
+        var res6 = str6.split(".png",1);
+        document.getElementById("act6").innerHTML = res6;
+    }
+    window.onload = Split();
+</script>

@@ -1,0 +1,149 @@
+﻿@{
+    ViewData["Title"] = "island_hopping";
+    Layout = null;
+}
+<link rel="stylesheet" type="text/css" href="~/css/styleAndando.css" />
+<link rel="stylesheet" type="text/css" href="~/font/fontello.css" />
+<link rel="stylesheet" type="text/css" href="~/css/app.css" />
+<script src="~/js/Forms.js"></script>
+<script src="~/js/email.js"></script>
+<div class="modal-header" style="height:60px">
+    <img src="~/images/logos/andando-tours-png-azul-horizontal.png" style="width:100px; height:50px; margin-top:-1%; margin-left:0px" />
+    <a class="close icon-times-circle" id="close_modal1" data-dismiss="modal" style=" color:#5299D0;font-size:30px; " href="#"></a>
+</div>
+<div class="" style="height:100%">
+    <div class="modal-body font-modal" style="height:60%;margin:0 12%;font-family:Arial;font-size:17px">
+        <h4 class="formato-titulo modal-title" style="text-align:center;font-size:27px; color:#5299D0;top:6%"><b>Star planing  your trip</b></h4><br /><br />
+        <form style="margin-top:-2%">
+            <div class="form-group col-md-6 col-sm-12 col-xs-12">
+                <b>E-mail adress *</b>
+                <input style="font-family:Arial" class="form-control" type="text" placeholder="Email@email.com" id="email" name="email" />
+            </div>
+            <div class="form-group col-md-6 col-sm-12 col-xs-12">
+                <b>Name *</b>
+                <input style="font-family:Arial" class="form-control" placeholder="Your Name" type="text" id="nombre" name="nombre" />
+                <input type="text" id="taylor" class="form-control" name="taylor" style="display:none" value="Taylor Made" />
+            </div>
+            <div class="form-group col-md-6 col-sm-12 col-xs-12">
+                <b>Select category *</b>
+                <div class="dropdown" id="dispo_dropdown1">
+                    <button class="btn btn-default dropdown-toggle formato-parrafo" type="button" id="menu1" data-toggle="dropdown" style="text-align:left;color:grey;font-size:15px">All Sites <span style="margin-left:80%; color:black" class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" ; style="width:100%; font-size:18px; border:solid 1px grey">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Enero</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Febrero</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Marzo</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-group col-md-6 col-sm-12 col-xs-12">
+                <b>Number of travelers *</b>
+                <div class="dropdown" id="dispo_dropdown1">
+                    <button class="btn btn-default dropdown-toggle formato-parrafo" type="button" id="menu1" data-toggle="dropdown" style="text-align:left;color:grey;font-size:15px">All Sites <span style="margin-left:80%; color:black" class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" ; style="width:100%; font-size:18px; border:solid 1px grey">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Enero</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Febrero</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Marzo</a></li>
+                    </ul>
+                </div>
+                <input type="text" id="taylor" class="form-control" name="taylor" style="display:none" value="Taylor Made" />
+            </div>
+            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                <b>Your travel dates *</b>
+                <input style="font-family:Arial" class="form-control" placeholder="Your Name" type="text" id="nombre" name="nombre" />
+                <input type="text" id="taylor" class="form-control" name="taylor" style="display:none" value="Taylor Made" />
+            </div>
+            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                <b>More details:*</b>
+                <textarea style="font-family:Arial; max-height:150px" class="form-control textarea-taylor" placeholder="Tell us something more we need to know about your dreamer trip" type="text" id="obser" name="obser"></textarea>
+            </div>
+            <br />
+        </form>
+        <center>
+            <button onclick="prueba();" style="font-family: Arial;font-size: 16px;padding: 5px 15px" class="h5button">Submit request</button>
+        </center>
+    </div>
+    <div class="modal-footer" id="modal_footer" style="margin-top:3%">
+        <section class="section--footer" style="padding:0;background-color:#E5E5E5">
+            <div id="grid-gale-social">
+                <table style="width:100%">
+                    <tr>
+                        <td style="border:none; text-align:left;font-size:11px">
+                            <p>
+                                Andando Tours is committed to ensuring your privacy. We dont sell the information provded. <br />
+                                <a style="color:#5299D0" href="#">Privacy Policy. </a>
+                            </p>
+                        </td>
+                        <td style="border:none; text-align:right;padding-right:45px; font-size:11px">
+                            |TERMS & CONDITIONS |  PRIVACY POLICY  |
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <section id="image_footer" class="section__logos">
+            <div class="logos-wrapper">
+                <div>
+                    <img src="~/images/logos/LATA-2012.png" class="img-responsive " style="max-height:100px;" alt="LATA-2012" />
+                </div>
+                <div>
+                    <img src="~/images/logos/logo-ecuador.png" class="img-responsive " style="max-height:100px;" alt="LATA-2012" />
+                </div>
+                <div>
+                    <img src="~/images/logos/Galapagos-Islands-Travel-Angermeyer-Cruises.png" class="img-responsive " style="max-height:100px;" alt="LATA-2012" />
+                </div>
+                <div>
+                    <img src="~/images/logos/americas.png" class="img-responsive " style="max-height:100px;" alt="LATA-2012" />
+                </div>
+                <div>
+                    <img src="~/images/logos/central-de-receptivos.png" class="img-responsive " style="max-height:100px;" alt="LATA-2012" />
+                </div>
+                <div>
+                    <img src="~/images/logos/full_color_white_background_copy.jpg" class="img-responsive " style="max-height:100px;" alt="LATA-2012" />
+                </div>
+                <div>
+                    <img src="~/images/logos/logo-qa.png" class="img-responsive " style="max-height:100px;" alt="LATA-2012" />
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="modal-footer" id="modal_footer_movile" style="display:none">
+        <div class="row" style="width:100%">
+            <table style="width:100%">
+                <tr>
+                    <td style="width:380px">
+                        <p style="text-align:justify; font-size:8px; font-family:Arial"> Andando Tours is committed to ensuring your privacy. We dont sell the information provded.</p>
+                    </td>
+                    <td style="width:200px">
+                        <p style="text-align:right;font-family:Arial;">PRIVACY POLICY </p>
+                        <p style="text-align:right;font-family:Arial; margin-top:-25px">TERMS & CONDITIONS</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <section id="image_footer" class="section__logos" style="display:none">
+            <div class="logos-wrapper">
+                <div>
+                    <img src="~/images/logos/LATA-2012.png" class="img-responsive " style="max-height:100px;" alt="LATA-2012" />
+                </div>
+                <div>
+                    <img src="~/images/logos/logo-ecuador.png" class="img-responsive " style="max-height:100px;" alt="LATA-2012" />
+                </div>
+                <div>
+                    <img src="~/images/logos/Galapagos-Islands-Travel-Angermeyer-Cruises.png" class="img-responsive " style="max-height:100px;" alt="LATA-2012" />
+                </div>
+                <div>
+                    <img src="~/images/logos/americas.png" class="img-responsive " style="max-height:100px;" alt="LATA-2012" />
+                </div>
+                <div>
+                    <img src="~/images/logos/central-de-receptivos.png" class="img-responsive " style="max-height:100px;" alt="LATA-2012" />
+                </div>
+                <div>
+                    <img src="~/images/logos/full_color_white_background_copy.jpg" class="img-responsive " style="max-height:100px;" alt="LATA-2012" />
+                </div>
+                <div>
+                    <img src="~/images/logos/logo-qa.png" class="img-responsive " style="max-height:100px;" alt="LATA-2012" />
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

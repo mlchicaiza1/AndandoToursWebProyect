@@ -1,0 +1,570 @@
+﻿@{
+    var contenido = ViewBag.GetContenidoVista;
+    var imagenItem = ViewBag.GetContenidoMult;
+    var titulo = new List<string>();
+    Dictionary<string, int> uniqueStore = new Dictionary<string, int>();
+    foreach (var item in ViewBag.GetContenidoVista)
+    {
+        if (!uniqueStore.ContainsKey(item.Titulo))
+        {
+            uniqueStore.Add(item.Titulo, 0);
+            titulo.Add(item.Titulo);
+        }
+    }
+}
+<link rel="stylesheet" href=" https://widget.reviews.io/combined/style.css?RUKcarousel">
+<div class="container--full-width" style="overflow:hidden;">
+    @*------------------------------------------------ carusel------------------------------------ *@
+    <div class="item active imgen-carousel">
+        <div class="fondos-imagen">
+            <img alt="@imagenItem[0].NombreImagen" class="fondos-imagen" style="background-image: url('@imagenItem[0].UrlImagen');position:center; height:100%; width:100%;" />
+        </div>
+        <div class="caption texHeader" style="text-align:center; padding-bottom:40px" role="option">
+            <h1 class="font-x2 font-brush font-carousel" style="text-shadow:1px 1px 1px rgba(0, 0, 0, 0.5)">
+                <strong>@titulo[0]</strong>
+            </h1>
+            <p class="font-x2 " style="font-size:18px;margin-top:0; font-family:'BentonSans',sans-serif">
+                <span>@Html.Raw(@contenido[0].Parrafo)</span>
+            </p>
+            <p>
+                <a class="btn h5button" data-toggle="modal" data-target="#exampleModalCenter" href="../form_taylorMade/form_taylorMade" id="help_me_plan" style="padding: 6px 14px;">Start Planning Here</a>
+            </p>
+        </div>
+    </div>
+    <!--================================SUB MENU=========================-->
+    <nav class="navbar navbarsubmenu page-nav-home" data-toggle="sticky-onscroll" id="navpagina" style="border: 1px solid rgba(0,0,0,.1);">
+        <div class="limit">
+            <nav class="page-nav-anchors" style="text-transform:none; " id="sub-menu-cruises">
+                <ul>
+                    <li>
+                        <a href="#about-us"><span>About Us</span> </a>
+                    </li>
+                    <li>
+                        <a href="#how_to_travel"><span>How to travel</span> </a>
+                    </li>
+                    <li>
+                        <a style="width: 300px" href="#positive-change"><span>Responsible tourism</span> </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+    <div id="about-us"></div>
+    <nav class="page-nav page-nav-home" data-toggle="sticky-onscroll" id="navmovil">
+        <div class="limit" style="width:100%">
+            <nav class="page-nav-anchors">
+                <ul style="width:100%">
+                    <li class="activities">
+                        <a class="" href="#about-us"><span>About Us</span></a>
+                    </li>
+                    <li class="prepare" style="margin-left: 20px;">
+                        <a href="#how_to_travel"><span>How to travel</span></a>
+                    </li>
+                    <li class="itineraries" style="margin-left: 10px;">
+                        <a href="#positive-change"> <span>Responsible tourism</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+    <!--imagen de fondo-->
+    <div class="row" style="font-family:'Sans'">
+        <section style="padding-bottom:0">
+            <div class=" container">
+                <div class="contenedorHome">
+                    <h2 class="formato-titulo" style="max-width:100%"><strong>@titulo[1]</strong></h2>
+                    @{int cont = 0;
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[1])
+                            {
+                                <p class="formato-parrafo">
+                                    <span>@Html.Raw(item.Parrafo)</span>
+                                </p>
+                                <p class="textoinfo parrafo formato-parrafo">
+                                    Need Galapagos travel informatión? &nbsp;&nbsp;
+                                    <a id="btn_Plan_Help" class="h5button" data-toggle="modal" href="../form_taylorMade/form_taylorMade" style="text-decoration:none;padding:5px 15px;font-size:16px" data-target="#exampleModalCenter">
+                                        Help me Plan
+                                    </a>
+                                    <br /><br />
+                                    <a id="btn_Plan" class="h5button" data-toggle="modal" href="../form_taylorMade/form_taylorMade" style="text-decoration:none;font-size:15px; padding:5px 15px" data-target="#exampleModalCenter">
+                                        Help me Plan
+                                    </a>
+                                </p>
+                                cont++;
+                                if (cont == 1)
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </section>
+        <!--Links -->
+        <div class="container ">
+            <div class="contenedorHome titulosh2 f-15">
+                @{ cont = 0;
+                    foreach (var item in ViewBag.GetContenidoVista)
+                    {
+                        if (item.Titulo == titulo[1])
+                        {
+                            cont++;
+                            if (cont == 2)
+                            {
+                                <p class="formato-parrafo">
+                                    <span style="text-align:left!important">@Html.Raw(item.Parrafo)</span>
+                                </p>
+                                break;
+                            }
+                        }
+                    }
+                }
+                <div class="row" style="padding-bottom:5px">
+                    <div class="col-lg-6 col-xs-12" style="padding-top:10px">
+                        <a href="/galapagos-cruises" target="_blank">
+                            <img data-src="@imagenItem[3].UrlImagen" alt="@imagenItem[1].NombreImagen" class="img-responsive lazyload" />
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-lg-6" style="padding-top:10px">
+                        <a href="/cruises/yacht-charters" target="_blank">
+                            <img data-src="@imagenItem[1].UrlImagen" alt="@imagenItem[2].NombreImagen" class="img-responsive lazyload" />
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-lg-6" style="padding-top:10px">
+                        <a href="/tours/island-hopping" target="_blank">
+                            <img data-src="@imagenItem[4].UrlImagen" alt="@imagenItem[3].NombreImagen" class="img-responsive lazyload" />
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-lg-6" style="padding-top:10px">
+                        <a href="/galapagos-daily-tours" target="_blank">
+                            <img data-src="@imagenItem[2].UrlImagen" alt="@imagenItem[4].NombreImagen" class="img-responsive lazyload" />
+                        </a>
+                    </div>
+                </div>
+                @{ var contaLink = 0;
+                    foreach (var item in ViewBag.GetContenidoVista)
+                    {
+                        if (item.Titulo == titulo[1])
+                        {
+                            contaLink++;
+                            if (contaLink == 3)
+                            {
+                                <p class="formato-parrafo" style="margin-bottom:0">
+                                    <span style="text-align:left!important">@Html.Raw(item.Parrafo)</span>
+                                </p>
+                                break;
+                            }
+                        }
+                    }
+                }
+
+            </div>
+        </div>
+        <section id="how_to_travel" style="background-color:white;padding:0"></section>
+        <div>
+            <div id="galapagos">
+                @* ----------scroll horizontal imágenes-------------- *@
+                <section class="container" style="padding-bottom:10px;background-color:white">
+                    <div class="contenedorHome" style="animation: slideFadeUp 0.5s ease backwards;animation-delay: 0.5s;">
+                        <h2 class="formato-titulo" style="text-align:left;margin:0;padding-top:12px; max-width:100%">
+                            <strong>@titulo[2]</strong>
+                        </h2>
+                        @{
+                            foreach (var item in ViewBag.GetContenidoVista)
+                            {
+                                if (item.Titulo == titulo[2])
+                                {
+                                    <p class="formato-parrafo">
+                                        <span>@Html.Raw(item.Parrafo)</span>
+                                    </p>
+                                }
+                            }
+                        }
+                    </div>
+                    <div class="container-fluid margenImagenes">
+                        <div id="scrollMobile">
+                            <div class="col-4 col-xl-4 ">
+                                <a style="text-decoration:none" href="/sailing-cruises/mary-anne" target="_blank">
+                                    <div class="imagenHome">
+                                        <p style="font-size:18px;text-align:center; color:#888">
+                                            <img class="img-responsive lazyload" data-src="@imagenItem[6].UrlImagen" alt="@imagenItem[6].NombreImagen" />
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-xl-4">
+                                <a style="text-decoration:none" href="/galapagos-cruises/passion-yacht" target="_blank">
+                                    <div class="imagenHome">
+                                        <p style="font-size:18px;text-align:center;color:#888">
+                                            <img class="img-responsive lazyload" data-src="@imagenItem[5].UrlImagen" alt="@imagenItem[5].NombreImagen" />
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-xl-4">
+                                <a style="text-decoration:none" href="/galapagos-cruises/tip-top-ii" target="_blank">
+                                    <div class="imagenHome">
+                                        <p style="font-size:18px;text-align:center;color:#888">
+                                            <img class="img-responsive lazyload" data-src="@imagenItem[7].UrlImagen" alt="@imagenItem[7].NombreImagen" />
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                @* ----------galapagos well-------------- *@
+                <section class="container" style="padding-bottom:10px;background-color:white">
+                    <div class="contenedorHome" style="animation: slideFadeUp 0.5s ease backwards;animation-delay: 0.5s;">
+                        <h2 class="formato-titulo" style="text-align:left;margin:0;padding-top:12px; max-width:100%">
+                            <strong>@titulo[4]</strong>
+                        </h2>
+                        <div>
+                            @{
+                                foreach (var item in ViewBag.GetContenidoVista)
+                                {
+                                    if (item.Titulo == titulo[4])
+                                    {
+                                        <p class="formato-parrafo">
+                                            <span>@Html.Raw(item.Parrafo)</span>
+                                        </p>
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="container-fluid margenImagenes">
+                        <div id="scrollMobile">
+                            <div class="col-4 col-xl-4 ">
+                                <a style="text-decoration:none" href="/ecuador-itineraries/amazon-tours-ecuador/" target="_blank">
+                                    <div class="imagenHome">
+                                        <p style="font-size:18px;text-align:center; color:#888">
+                                            <img class="img-responsive lazyload" data-src="@imagenItem[8].UrlImagen" alt="@imagenItem[8].NombreImagen" />
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-xl-4">
+                                <a style="text-decoration:none" href="/ecuador-itineraries/avenue-of-volcanoes" target="_blank">
+                                    <div class="imagenHome">
+                                        <p style="font-size:18px;text-align:center;color:#888">
+                                            <img class="img-responsive lazyload" data-src="@imagenItem[9].UrlImagen" alt="@imagenItem[9].NombreImagen" />
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-4 col-xl-4">
+                                <a style="text-decoration:none" href="/ecuador-itineraries/magical-north" target="_blank">
+                                    <div class="imagenHome">
+                                        <p style="font-size:18px;text-align:center;color:#888">
+                                            <img class="img-responsive lazyload" data-src="@imagenItem[10].UrlImagen" alt="@imagenItem[10].NombreImagen" />
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-----------===========FEATURE CRUICES----------->
+                <div class="container" style="padding-top:17px">
+                    <div class="contenedorHome" style="animation: slideFadeUp 0.5s ease backwards;animation-delay: 0.5s;">
+                        <h2 class="formato-titulo" style="text-align:left;max-width:100%">
+                            <strong>@titulo[5]</strong>
+                        </h2>
+                        @{
+                            foreach (var item in ViewBag.GetContenidoVista)
+                            {
+                                if (item.Titulo == titulo[5])
+                                {
+                                    <p class="formato-parrafo">
+                                        <span>@Html.Raw(item.Parrafo)</span>
+                                    </p>
+                                }
+                            }
+                        }
+                    </div>
+                    <div class="contenedorHome" style="animation: slideFadeUp 0.5s ease backwards;animation-delay: 0.5s;">
+                        <div id="wrapper">
+                            <div id="caja1" class="box " style="margin:0">
+                                <a href="/cruises/family" target="_blank">
+                                    <img data-src="@imagenItem[11].UrlImagen" alt="@imagenItem[11].NombreImagen" class="img-responsive lazyload" style="height:100%;width:100%" />
+                                </a>
+                            </div>
+                            <div id="caja2" class="box " style="margin:0">
+                                <a href="/blog/cruises-for-single-adventurers" target="_blank">
+                                    <img data-src="@imagenItem[12].UrlImagen" alt="@imagenItem[12].NombreImagen" class="img-responsive lazyload" style="height:100%;width:100%" />
+                                </a>
+                            </div>
+                            <div id="caja3" class="box" style="margin:0;background-image:url('@imagenItem[13].UrlImagen')">
+                                <a href="/sailing-cruises" target="_blank">
+                                    <img data-src="@imagenItem[13].UrlImagen" alt="@imagenItem[13].NombreImagen" class="img-responsive lazyload" style="margin:0; height:100%;width:100% " />
+                                </a>
+                            </div>
+                            <div id="caja4" class="box">
+                                <a href="/galapagos-luxury-cruise" target="_blank">
+                                    <img data-src="@imagenItem[14].UrlImagen" alt="@imagenItem[14].NombreImagen" class="img-responsive lazyload" style="height:100% " />
+                                </a>
+                            </div>
+                        </div>
+                        <p style="margin-bottom:0">
+                            <br />
+                            <a class="btn btn-link parrafo" style="padding:0; font-size:16px;color:#179fec;" href="/trip-types">
+                                Trip Types >>
+                            </a>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container">
+                <div class="contenedorHome" style="animation: slideFadeUp 0.5s ease backwards;animation-delay: 0.5s;">
+                    <h2 class="formato-titulo" style="text-align:left;max-width:100%">
+                        <strong>@titulo[7]</strong>
+                    </h2>
+                    @{
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[7])
+                            {
+                                if (item.Parrafo != "")
+                                {
+                                    <p class="formato-parrafo">
+                                        <span>@Html.Raw(item.Parrafo)</span>
+                                    </p>
+                                }
+                            }
+                        }
+                    }
+                </div>
+            </div>
+            <section id="positive-change" style="background-color:white;padding-bottom:0">
+                <div class="container" style="animation: slideFadeUp 0.5s ease backwards;animation-delay: 0.5s;">
+                    <div class="contenedorHome">
+                        <h2 class="formato-titulo" style="text-align:left;max-width:100%">
+                            <strong>@titulo[8]</strong>
+                        </h2>
+                        @{
+                            foreach (var item in ViewBag.GetContenidoVista)
+                            {
+                                if (item.Titulo == titulo[8])
+                                {
+                                    <p class="formato-parrafo">
+                                        <span>@Html.Raw(item.Parrafo)</span>
+                                    </p>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+            </section>
+            @*=============================SLIDE====================================== *@
+            <section style="background-color:white;padding-top:11px">
+                <div class="container">
+                    <div class="contenedorHome">
+                        <h2 class="formato-titulo"><b>More usesful information to the help you plan your visit to the Galapagos</b></h2>
+                    </div>
+                    <center>
+                        <div id="more_info" class="container" style="margin:40px 0;width:95%">
+                            <div id="myCarousel4" class="carousel slide active" style="background-color:white; height:316px; " data-interval="10000000" aria-hidden="true" data-ride="carousel">
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="item active imgen-carousel" style="height:50%;background-color:white)">
+                                        <div class="row ">
+                                            <div class="col-xs-3 img-more-information" style="width:25%;height:316px">
+                                                <a href="/plan-your-trip/ecuador-travel-recommendations/festivities-of-ecuador" target="_blank">
+                                                    <img data-src="@imagenItem[15].UrlImagen" alt="@imagenItem[15].NombreImagen" class="img-responsive lazyload" style="background-image:url('../images/articles/gay cruises galapagos.jpg'); height:100%; width:100%;" />
+                                                    <div class="carousel-caption" style="width:80%;left:25px; top:60%" role="option">
+                                                        <span class="article-title" style="color:white;" href="#">
+                                                            <strong style="text-transform:uppercase; font-size:13px; font-family:'BentonSans', sans-serif;line-height:0;">
+                                                                FESTIVITIES IN ECUADOR
+                                                            </strong>
+                                                        </span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-3 img-more-information" style="width:25%;height:316px">
+                                                <a href="/plan-your-trip/galapagos-travel-ideas" target="_blank">
+                                                    <img data-src="@imagenItem[16].UrlImagen" alt="@imagenItem[16].NombreImagen" class="img-responsive lazyload" style="height:100%; width:100%;" />
+                                                    <div class="carousel-caption" style="width:80%;left:25px; top:60%" role="option">
+                                                        <strong style="text-transform:uppercase; font-size:13px; font-family:'BentonSans', sans-serif;line-height:0;">
+                                                            WHAT TO DO IN GALAPAGOS
+                                                        </strong>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-3 img-more-information" style="width:25%;height:316px">
+                                                <a href="/blog/travel-insurance" target="_blank">
+                                                    <img data-src="@imagenItem[17].UrlImagen" alt="@imagenItem[17].NombreImagen" class="img-responsive lazyload" style="height:100%; width:100%;" />
+                                                    <div class="carousel-caption" style="width:80%;left:25px; top:60%" role="option">
+                                                        <strong style="text-transform:uppercase; font-size:13px; font-family:'BentonSans', sans-serif;line-height:0;">
+                                                            DO YOU NEED TRAVEL INSURANCE TO VISIT ECUADOR AND GALAPAGOS?
+                                                        </strong>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-3 img-more-information" style="width:25%;height:316px">
+                                                <a href="/plan-your-trip/galapagos-travel-map" target="_blank">
+                                                    <img data-src="@imagenItem[18].UrlImagen" alt="@imagenItem[18].UrlImagen" class="img-responsive lazyload" style="height:100%; width:100%;" />
+                                                    <div class="carousel-caption" style="width:80%;left:25px; top:60%" role="option">
+                                                        <strong style="text-transform:uppercase; font-size:13px; font-family:'BentonSans', sans-serif;line-height:0;">
+                                                            GALAPAGOS INTERACTIVE TRAVEL MAP
+                                                        </strong>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item imgen-carousel" style=" background-color:white">
+                                        <div class="row ">
+                                            <div class="col-xs-3 img-more-information" style="width:25%;height:316px">
+                                                <a href="/blog/travel-insurance" target="_blank">
+                                                    <img data-src="@imagenItem[15].UrlImagen" alt="@imagenItem[15].NombreImagen" class="img-responsive lazyload" style="background-image:url('../images/articles/gay cruises galapagos.jpg'); height:100%; width:100%;" />
+                                                    <div class="carousel-caption" style="width:80%;left:25px; top:60%" role="option">
+                                                        <span class="article-title" style="color:white;" href="#">
+                                                            <strong style="text-transform:uppercase; font-size:13px; font-family:'BentonSans', sans-serif;line-height:0;">
+                                                                FESTIVITIES IN ECUADOR
+                                                            </strong>
+                                                        </span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-3 img-more-information" style="width:25%;height:316px">
+                                                <a href="/plan-your-trip/galapagos-travel-ideas" target="_blank">
+                                                    <img data-src="@imagenItem[16].UrlImagen" alt="@imagenItem[16].NombreImagen" class="img-responsive lazyload" style="height:100%; width:100%;" />
+                                                    <div class="carousel-caption" style="width:80%;left:25px; top:60%" role="option">
+                                                        <strong style="text-transform:uppercase; font-size:13px; font-family:'BentonSans', sans-serif;line-height:0;">
+                                                            WHAT TO DO IN GALAPAGOS
+                                                        </strong>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-3 img-more-information" style="width:25%;height:316px">
+                                                <a href="/plan-your-trip/ecuador-travel-recommendations/festivities-of-ecuador" target="_blank">
+                                                    <img data-src="@imagenItem[17].UrlImagen" alt="@imagenItem[17].NombreImagen" class="img-responsive lazyload" style="height:100%; width:100%;" />
+                                                    <div class="carousel-caption" style="width:80%;left:25px; top:60%" role="option">
+                                                        <strong style="text-transform:uppercase; font-size:13px; font-family:'BentonSans', sans-serif;line-height:0;">
+                                                            DO YOU NEED TRAVEL INSURANCE TO VISIT ECUADOR AND GALAPAGOS?
+                                                        </strong>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col-xs-3 img-more-information" style="width:25%;height:316px">
+                                                <a href="/plan-your-trip/galapagos-travel-map" target="_blank">
+                                                    <img data-src="@imagenItem[18].UrlImagen" alt="@imagenItem[18].UrlImagen" class="img-responsive lazyload" style="height:100%; width:100%;" />
+                                                    <div class="carousel-caption" style="width:80%;left:25px; top:60%" role="option">
+                                                        <strong style="text-transform:uppercase; font-size:13px; font-family:'BentonSans', sans-serif;line-height:0;">
+                                                            GALAPAGOS INTERACTIVE TRAVEL MAP
+                                                        </strong>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="left carousel-control" style="text-shadow:none;background:none;left:-110px;height:10%;top:45%;" href="#myCarousel4" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left" style="color:#656b6f; font-size:larger" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="right carousel-control" style="text-shadow:none;background:none;right:-100px;height:10%;top:45%;" href="#myCarousel4" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right" style="color:#656b6f; font-size:larger" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        </div>
+                        @*=============================SLIDE MOBILE====================================== *@
+                        <div id="more_info_mobile" class="container" style="margin:40px 15% 40px 15%; width:auto">
+                            <div id="slide_more_info" class="carousel slide active" style="background-color:white;width:95%; height:280px; " data-interval="10000000" aria-hidden="true" data-ride="carousel">
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="item active imgen-carousel" style="height:100%;">
+                                        <div class="row">
+                                            <div class="col-xs-12 img-more-information" style="height:280px">
+                                                <a href="#">
+                                                    <img data-src="@imagenItem[15].UrlImagen" alt="@imagenItem[15].NombreImagen" class="img-responsive lazyload" style="height:100%; width:100%;" />
+                                                    <div class="carousel-caption" style="width:80%;left:25px; top:60%" role="option">
+                                                        <span class="article-title" style="color:white;" href="#">
+                                                            <strong style="text-transform:uppercase; font-size:13px; font-family:'BentonSans', sans-serif;line-height:0;">
+                                                                Do you need travel insurance
+                                                                to visit Ecuador and
+                                                                Galapagos?
+                                                            </strong>
+                                                        </span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item imgen-carousel">
+                                        <div class="row">
+                                            <div class="col-xs-12 img-more-information" style="height:280px">
+                                                <a href="#">
+                                                    <img data-src="@imagenItem[16].UrlImagen" alt="@imagenItem[16].NombreImagen" class="img-responsive lazyload" style="height:100%; width:100%;" />
+                                                    <div class="carousel-caption" style="width:80%;left:25px; top:60%" role="option">
+                                                        <strong style="text-transform:uppercase; font-size:13px; font-family:'BentonSans', sans-serif;line-height:0;">
+                                                            How the Angermeyers started cruising in Galapagos
+                                                        </strong>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item imgen-carousel">
+                                        <div class="row">
+                                            <div class="col-xs-12 img-more-information" style="height:280px">
+                                                <a href="#">
+                                                    <img data-src="@imagenItem[17].UrlImagen" alt="@imagenItem[17].NombreImagen" class="img-responsive lazyload" style="height:100%; width:100%;" />
+                                                    <div class="carousel-caption" style="width:80%;left:25px; top:60%" role="option">
+                                                        <strong style="text-transform:uppercase; font-size:13px; font-family:'BentonSans', sans-serif;line-height:0;">
+                                                            choosing
+                                                            the right itinerary
+                                                        </strong>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item imgen-carousel img-more-information">
+                                        <div class="row">
+                                            <div class="col-xs-12" style="height:280px">
+                                                <a href="#">
+                                                    <img data-src="@imagenItem[18].UrlImagen" alt="@imagenItem[18].UrlImagen" class="img-responsive lazyload" style="height:100%; width:100%;" />
+                                                    <div class="carousel-caption" style="width:80%;left:25px; top:60%" role="option">
+                                                        <strong style="text-transform:uppercase; font-size:13px; font-family:'BentonSans', sans-serif;line-height:0;">
+                                                            Choosing a Galapagos
+                                                            boat that’s right for you
+                                                        </strong>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="left carousel-control" style="text-shadow:none;background:none;left:-50px;height:10%;top:45%;" href="#slide_more_info" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left" style="color:#656b6f" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="right carousel-control" style=" text-shadow:none;background:none;right:-50px;height:10%;top:45%;" href="#slide_more_info" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right" style="color:#656b6f" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        </div>
+                    </center>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>
+<div class="bs-example">
+    <!-- Modal Galeria HTML -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/js/Home.js"></script>

@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "services_productModal";
+    var contenido = ViewBag.GetContenidoVista;
+    var getfeatures = ViewBag.GetFeatures;
+    var titulo = new List<string>();
+    Dictionary<string, int> uniqueStore = new Dictionary<string, int>();
+
+    foreach (var item in ViewBag.GetContenidoVista)
+    {
+
+        if (!uniqueStore.ContainsKey(item.Titulo))
+        {
+            uniqueStore.Add(item.Titulo, 0);
+            titulo.Add(item.Titulo);
+        }
+    }
+}
+<div class="modal fade" id="service-Product" style="overflow:hidden;padding-right:0" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-full" style="width:100%;height:100%; margin:0" role="document">
+        <div class="modal-content" style="width:100%; height:100%">
+            <div class="modal-header" style="overflow-y:hidden;height:60px">
+                <img src="~/images/logos/andando-tours-png-azul-horizontal.png" style="width:100px; height:50px; margin-top:-10px; margin-left:0px" />
+                <button type="button" class="close-form pull-right" data-dismiss="modal" style="margin-top:-40px">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body tamModal style-scroll" style="overflow-x:hidden;overflow-y:scroll;padding:0;">
+                <div class="container">
+                    <div class="contenedorHome" style="animation: slideFadeUp 1s ease backwards;animation-delay: 1.3s;">
+                        <h2 class="formato-titulo" style="margin-top:25px">
+                            <strong>@titulo[9]</strong>
+                        </h2>
+                        <p style="line-height:1.5em; margin-bottom:0" class="parrafo formato-parrafo">
+                        </p>
+                        <br />
+                        <div class="content-twocolumns StyleParrafo pa f-15 text-justify" id="galapagos_cruises">
+                            <div id="galapagos_services" style="width:100%">
+                                @{
+                                    foreach (var feature in getfeatures)
+                                    {
+                                            <div class="col-xl-3 col-md-3 col-xs-6 servicios-list">
+                                                <a href="" data-toggle="modal" data-target="#service-barco" tabindex="-1" id="item_1" style="color:black; margin:50px">
+                                                    <img class="lazyload" data-src="@feature.BarcoImagenCaracteristica" title="My Passion" alt="My Passion" style="width:171px; height:153px; ">
+                                                    <p style="text-align:center"><b>@feature.BarcoNombreCaracteristica</b></p>
+                                                </a>
+                                            </div>
+                                    }
+                                }
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

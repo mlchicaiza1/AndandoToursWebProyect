@@ -1,0 +1,69 @@
+﻿@{
+
+    var contenido = ViewBag.GetContenidoVista;
+    var imagenItem = ViewBag.GetContenidoMult;
+    var titulo = new List<string>();
+    Dictionary<string, int> uniqueStore = new Dictionary<string, int>();
+
+    foreach (var item in ViewBag.GetContenidoVista)
+    {
+
+        if (!uniqueStore.ContainsKey(item.Titulo))
+        {
+            uniqueStore.Add(item.Titulo, 0);
+            titulo.Add(item.Titulo);
+        }
+    }
+
+}
+<div class="modal fade" id="gale2-social" style="overflow:hidden;padding-right:0" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-full" style="width:100%;height:100%; margin:0" role="document">
+        <div class="modal-content" style="width:100%; height:100%">
+            <div class="modal-header" style="overflow-y:hidden;height:60px">
+                <img src="~/images/logos/andando-tours-png-azul-horizontal.png" style="width:100px; height:50px; margin-top:-10px; margin-left:0px" />
+                <button type="button" class="close-form pull-right" onclick="limp();" data-dismiss="modal" style="margin-top:-40px">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body tamModal style-scroll" style="overflow-x:hidden; overflow-y:scroll;font-family:Arial;text-align:left">
+                <div class="container">
+                    <h3 style="color:#5299D0; text-align:center">
+                        @titulo[18]
+                    </h3>
+                    <div>
+                        @*<h3 class="formato-titulo" style="text-align:left"><b>@titulo[9]</b></h3>*@
+                        @{
+                            foreach (var item in ViewBag.GetContenidoVista)
+                            {
+                                if (item.Titulo == titulo[18])
+                                {
+                                    <p class="textoinfo parrafo formato-parrafo">
+                                        <span>@Html.Raw(item.Parrafo)</span>
+                                    </p>
+                                }
+                            }
+                        }
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <img class="img-responsive lazyload" data-src="@imagenItem[13].UrlImagen" alt="@imagenItem[13].NombreImagen" />
+                            </div>
+                            <div class="col-xs-6">
+                                <img class="img-responsive lazyload" data-src="@imagenItem[14].UrlImagen" alt="@imagenItem[14].NombreImagen" />
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:17px">
+
+                            <div class="col-xs-6">
+                                <img class="img-responsive lazyload" data-src="@imagenItem[15].UrlImagen" alt="@imagenItem[15].NombreImagen" />
+                            </div>
+                            <div class="col-xs-6">
+                                <img class="img-responsive lazyload" data-src="@imagenItem[16].UrlImagen" alt="@imagenItem[16].NombreImagen" />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

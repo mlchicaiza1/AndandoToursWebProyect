@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+    var itinTodosEc = ViewBag.ItinerariosEc;
+    var itinerarioDia = new List<AndandoToursWeb.Models.ItinEcuadorDeta>();
+    Dictionary<int, int> uniqueStoreIti = new Dictionary<int, int>();
+    foreach (var item in ViewBag.ItinerariosEc)
+    {
+
+        if (!uniqueStoreIti.ContainsKey(item.DiaNumero))
+        {
+            uniqueStoreIti.Add(item.DiaNumero, 0);
+            itinerarioDia.Add(item);
+        }
+    }
+}
+<div class="container">
+    <div id="myCarousel5" class="owl-carousel contenedorHome" style="background-color:white; height:100%;">
+        @{ 
+            foreach (var itinera in itinerarioDia)
+            {
+                <div class="item" style="height:100%;">
+                    <div class="row">
+                        <div class="col-md-6" style="padding: 0 13px;">
+                            <a id="btn-galeria-iti-mob" class=" align-content-center" style="font-family:'BentonSans',sans-serif">
+                                <img style="margin: 0.5px; width:800px; height:335px" src="@itinera.ItiLinkImagenCaratula" />
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row f-15 text-justify" style="margin:0; padding: 2em 1em 0; " id="experience_text">
+                                <h3><p style=" text-align:left; color:#398AC9"><b> @itinera.ItinTituloEn</b><br /><span style="color:black"><b>Day @itinera.DiaNumero</b></span></p></h3>
+                                <div class="style-scroll" style="overflow-y:scroll;padding-top:5px;height:164px">
+                                    <div style="margin-right:17px">
+                                        <div style="margin-bottom:10px;">
+                                            <p style="text-align: left;margin-bottom:0;line-height:1.5;font-size:18px">
+                                                <br><span>@Html.Raw(@itinera.ItinDescripcionEn)</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    <div class="owl-nav">
+        <button type="button" role="presentation" class="owl-prev tamañoBtnDer">
+            <span aria-label="Previous">‹</span>
+        </button>
+        <button type="button" role="presentation" class="owl-next tamañoBtnIzq">
+            <span aria-label="Next">›</span>
+        </button>
+    </div>
+</div>
+<script src="~/js/owl.carousel.js"></script>

@@ -1,0 +1,4884 @@
+﻿/*-------------------------------------------------------*/
+@media(min-width:864px) {
+    .ModaltripEmail {
+        margin:9px 230px;
+    }
+}
+.paddingFormTrip{
+    padding:15px 100px;
+}
+.marginEcuadorSelect {
+    margin-left: 80px;
+}
+
+@media(max-width:719px) {
+    .marginEcuadorSelect {
+        margin: 0 4px;
+    }
+
+    .marginEcuadorSelect2 {
+        margin: 0 4px;
+    }
+}
+
+@media(min-with:720px) and (max-width:960px) {
+    .marginEcuadorSelect {
+        margin-left: 80px; 
+    }
+}
+
+.formato-titulo .formatoBlog {
+    font-size: 27px !important;
+}
+
+.formatoBlog2 h3 {
+    color: #398AC9 !important;
+}
+
+.style-textDayli {
+    font-family: Arial;
+    max-height: 100px;
+}
+
+#linkMapa {
+    display: none;
+}
+
+#mapa {
+    height: 500px;
+    width: 500px;
+}
+
+.modal .slideAvaila {
+    max-width: 100% !important;
+}
+
+.carousel-inner .row .textoCarouse h3 {
+    text-align: left;
+    color: #398AC9;
+}
+
+.carousel-inner .row .tituloCarouse h3 {
+    text-align: left;
+    color: #398AC9;
+}
+
+.carousel-inner .row .textoCarouse p {
+    text-align: left;
+    margin-bottom: 0;
+    font-size: 18px;
+}
+
+.carousel-inner .row .textoCarouse a {
+    text-align: left;
+    margin-bottom: 0;
+    color: #0077ba;
+    font-size: 18px
+}
+
+.modal-body-available .itinerarioBarcoAvaila .contenidoCarouselAval .scroll-info-itin {
+    height: 200px
+}
+
+@media(max-width:720px) {
+    .modal-body-available {
+        height: 72%
+    }
+
+    #filtrosHotel {
+        display: none;
+    }
+
+    #linkMapa {
+        display: none;
+    }
+
+    .modal-body-available .itinerarioBarcoAvaila {
+        height: 440px;
+    }
+
+        .modal-body-available .itinerarioBarcoAvaila .contenidoCarouselAval {
+            height: 415px;
+        }
+
+            .modal-body-available .itinerarioBarcoAvaila .contenidoCarouselAval .scroll-info-itin {
+                height: 120px
+            }
+
+    .carousel-inner .row .imageCarouseMap a img {
+        height: 200px;
+    }
+
+    .carousel-inner .row .tituloCarouse h3 {
+        text-align: left;
+        color: #398AC9;
+        font-size: 16px
+    }
+
+    .carousel-inner .row .imageCarouse a img {
+        height: 200px;
+    }
+
+    .carousel-inner .row .textoCarouse h3 {
+        text-align: left;
+        color: #398AC9;
+        font-size: 16px
+    }
+
+    .carousel-inner .row .textoCarouse p {
+        text-align: left;
+        margin-bottom: 0;
+        font-size: 14px;
+    }
+
+    .carousel-inner .row .textoCarouse a {
+        text-align: left;
+        margin-bottom: 0;
+        color: #0077ba;
+        font-size: 14px
+    }
+
+    .returnAvaila {
+        margin-top: -20px;
+    }
+}
+/*-------------------------Carucel Next Right------------------------------*/
+@media screen and (min-width: 768px) {
+    .glyphicon-chevron-right,
+    .icon-next {
+        margin-right: 2px !important;
+    }
+}
+/*-------------------------------------------------------*/
+.titulosh2 h2 {
+    text-align: inherit !important;
+}
+
+#btnItiBtn {
+    margin-bottom: 10px !important;
+}
+
+.imageTamano {
+    width: 560px;
+    height: 402px;
+}
+
+.servicios-list {
+    border: 1px solid #ffffff;
+    width: 250px!important;
+    height: 210px;
+    margin: 5px 15px 5px 0;
+}
+
+.tamañoBtnDer {
+    margin-left: 18%;
+}
+
+.tamañoBtnIzq {
+    margin-right: 18%;
+}
+
+.itiner {
+    display: none;
+}
+
+.itinerBlock {
+    display: block;
+}
+
+.formato-titulo {
+    font-family: 'BentonSans',sans-serif;
+    color: black;
+    text-align: left;
+}
+
+.texHeader p {
+    font-size: 18px;
+}
+
+.imgClick {
+    display: none;
+}
+
+.imgClickSlide {
+    display: block !important;
+}
+
+.formato-parrafo {
+    font-family: Arial;
+    font-size: 16px;
+    color: black;
+    text-align: left !important;
+    line-height: 1.5em;
+}
+
+#dispo_escritorio {
+    display: block;
+}
+
+#dispo_movil {
+    display: none;
+}
+
+@media(max-width:721px) {
+    #linkMapa {
+        display: none;
+    }
+}
+
+@media(min-width:722px) {
+    #linkfiltro {
+        display: none;
+    }
+}
+
+@media(max-width:992px) {
+    #text-banner-widget_frame {
+        height: 58px
+    }
+}
+
+@media(min-width:300px) and (max-width:375px) {
+    #text-banner-widget_frame {
+        height: 90px
+    }
+
+    #filtrosHotel {
+        display: none;
+    }
+}
+
+.helpme_plan_final {
+    padding: 2px 17px;
+    border-radius: 5px 5px 5px 5px;
+    background-color: white;
+    color: #398AC9;
+    border: 0.5px solid;
+    border-color: #398AC9;
+}
+
+.style-scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+.colorBtnItin {
+    background-color: #ffffff;
+}
+
+.colorBtnItinClick {
+    background-color: #179fec;
+    color: white;
+}
+
+.style-scrollbtn::-webkit-scrollbar {
+    width: 10px;
+    height: 7px !important;
+}
+/* Track */
+.style-scroll::-webkit-scrollbar-track {
+    border: 1px solid;
+    border-color: #707070;
+    border-radius: 10px;
+}
+/* Handle */
+.style-scroll::-webkit-scrollbar-thumb {
+    background: #8E8C8D;
+    border: 1.5px solid;
+    border-color: #707070;
+    border-radius: 10px;
+}
+
+#contenedorCruceros {
+    width: 1200px;
+    margin: 20px 70px;
+}
+
+.item .caption p {
+    margin-top: 2%;
+    font-family: 'BentonSans',sans-serif;
+}
+/*----------------------------Submenu-----------------------------------------*/
+.navbarsubmenu {
+    background-color: white;
+    height: 60px
+}
+
+    .navbarsubmenu .page-nav-anchors {
+        margin-top: 20px
+    }
+
+    .navbarsubmenu ul {
+        /*display:inline-flex;*/
+        margin-left: 19%;
+    }
+
+        .navbarsubmenu ul li {
+            margin: 0 40px;
+        }
+
+        .navbarsubmenu ul li {
+            display: inline-block;
+        }
+
+#sub-menu-cruises ul li a {
+    height: 50px
+}
+
+#sub-menu-cruises a {
+    height: 50px;
+    color: #0077ba;
+    font-size: 18px;
+    font-family: Arial;
+    text-decoration: none;
+    padding-bottom: 8px
+}
+
+    #sub-menu-cruises a:hover {
+        text-decoration: double;
+        border-bottom: 2px solid;
+        color: #398AC9
+    }
+
+
+@media(max-width:500px) {
+    .item .caption p {
+        margin-top: 10px;
+        font-family: 'BentonSans',sans-serif;
+    }
+
+        .item .caption p a .read-more {
+            display: none;
+        }
+
+    #navmovil {
+        border: 1px solid rgba(0,0,0,.1);
+        height: 50px;
+        padding-right: 0px;
+    }
+
+        #navmovil .page-nav-anchors ul li {
+            margin: 0 0;
+            width: 30%;
+        }
+
+        #navmovil .page-nav-anchors ul .activities {
+            margin: 0 0;
+            width: 68px;
+        }
+
+        #navmovil .page-nav-anchors ul .prepare {
+            margin: 0 0;
+            width: 100px;
+        }
+
+        #navmovil .page-nav-anchors ul .itineraries {
+            margin: 0 0;
+            width: 120px;
+        }
+
+        #navmovil a:hover {
+            text-decoration-line: overline;
+            border-bottom: 2px solid;
+            color: #398AC9;
+        }
+
+        #navmovil .page-nav-anchors ul li a {
+            height: 45px;
+            font-size: 15px;
+            text-transform: none;
+        }
+
+            #navmovil .page-nav-anchors ul li a span {
+                color: #398AC9;
+                font-family: Arial;
+                /*font-size: 10px;*/
+            }
+}
+
+@media screen and (min-width:800px) and (max-width:900px) {
+    .navbarsubmenu ul {
+        /* display: inline-flex; */
+        margin-left: 6%;
+    }
+}
+
+@media screen and (min-width:670px) and (max-width:800px) {
+
+    #navmovil {
+        border: 1px solid rgba(0,0,0,.1);
+        height: 50px;
+        padding-right: 0px;
+    }
+
+        #navmovil .page-nav-anchors ul .activities {
+            margin: 0 0;
+            width: 100px;
+            margin-right: 50px;
+            inline-size: auto;
+        }
+
+        #navmovil .page-nav-anchors ul .prepare {
+            margin: 0 0;
+            width: 200px;
+            margin-right: 50px;
+        }
+
+        #navmovil .page-nav-anchors ul .itineraries {
+            margin: 0 0;
+            width: 220px;
+        }
+
+        #navmovil a:hover {
+            text-decoration-line: overline;
+            border-bottom: 2px solid;
+            color: #398AC9;
+        }
+
+        #navmovil .page-nav-anchors ul li a {
+            height: 45px;
+        }
+
+            #navmovil .page-nav-anchors ul li a span {
+                color: #398AC9;
+                font-family: Arial;
+                font-size: 10px;
+            }
+
+            #navmovil .page-nav-anchors ul li a span {
+                color: #398AC9;
+                font-family: Arial;
+                font-size: 17px;
+            }
+
+    .item .caption p a .read-more {
+        display: none;
+    }
+
+    .seccionItinerario .itinerarioDaily {
+        padding-left: 2em !important;
+        padding-right: 1em !important;
+    }
+}
+
+@media screen and (min-width:500px) and (max-width:670px) {
+
+    #navmovil {
+        border: 1px solid rgba(0,0,0,.1);
+        height: 50px;
+        padding-right: 0px;
+    }
+
+        #navmovil .page-nav-anchors ul .activities {
+            margin: 0 0;
+            width: 80px;
+            margin-right: 20px;
+        }
+
+        #navmovil .page-nav-anchors ul .prepare {
+            margin: 0 0;
+            width: 180px;
+            /*margin-right: 50px;*/
+        }
+
+        #navmovil .page-nav-anchors ul .itineraries {
+            margin: 0 0;
+            width: 150px;
+        }
+
+        #navmovil a:hover {
+            text-decoration-line: overline;
+            border-bottom: 2px solid;
+            color: #398AC9;
+        }
+
+        #navmovil .page-nav-anchors ul li a {
+            height: 45px;
+        }
+
+            #navmovil .page-nav-anchors ul li a span {
+                color: #398AC9;
+                font-family: Arial;
+                font-size: 10px;
+            }
+
+            #navmovil .page-nav-anchors ul li a span {
+                color: #398AC9;
+                font-family: Arial;
+                font-size: 18px;
+            }
+
+    .item .caption p a .read-more {
+        display: none;
+    }
+
+    .seccionItinerario .itinerarioDaily {
+        padding-left: 2em !important;
+        padding-right: 1em !important;
+    }
+}
+/*----------------------------Unir menu y Submenu-----------------------------------------*/
+.sticky.is-sticky {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 40px;
+    z-index: 5;
+    width: 100%;
+}
+/*----------------------------Submenu DisponibilidadCruceros Filtros-----------------------------------------*/
+
+div#contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #c0392b;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+    div#contenedor nav {
+        max-width: 100%;
+        height: 50px;
+        overflow: hidden;
+    }
+
+        div#contenedor nav ul {
+            list-style: none;
+            display: flex;
+            overflow-x: auto;
+            padding-bottom: 20px;
+        }
+
+            div#contenedor nav ul li a {
+                text-decoration: none;
+                width: 100px;
+                display: inline-block;
+                line-height: 50px;
+                text-align: center;
+                color: white;
+            }
+
+            div#contenedor nav ul li ul {
+                /*display: block;*/
+                margin-top: 45px;
+                z-index: 1;
+            }
+
+                div#contenedor nav ul li ul a {
+                    height: 0;
+                    display: block;
+                    overflow: hidden;
+                    background: #c0392b;
+                }
+
+            div#contenedor nav ul li:hover ul li a {
+                height: 50px;
+            }
+
+
+.wrapper {
+    /*  remove overflow-x if you want the dropdowns to appear outside of the .outer element */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 100%;
+}
+
+.external-dropdown {
+    position: relative;
+}
+
+    .external-dropdown .dropdown, .external-dropdown .dropup {
+        position: static;
+    }
+
+.outer {
+    border: 1px solid rgba(0,0,0,.1);
+    display: flex;
+    height: 60px;
+    overflow-x: auto;
+    align-items: center;
+    justify-content: center;
+    background: white;
+}
+
+.side {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+/*------------Progress Bar TripPlanner------------------- */
+.progressTrip {
+    background: red;
+    display: block;
+    height: 20px;
+    text-align: center;
+    transition: width .3s;
+    width: 0;
+}
+
+    .progressTrip.hide {
+        opacity: 0;
+        transition: opacity 1.3s;
+    }
+
+/*------------Botones Filtros------------------- */
+.FiltroPlanner .side .botonFiltro {
+    background-color: #ffffff;
+    color: #747475;
+    border: 1px solid rgba(247, 243, 243, 0.1);
+    border-color: #d2d3d870;
+    padding: 6px 8px;
+    font-size: 16px;
+    font-family: Arial;
+}
+
+.FiltroPlanner .sideMovile {
+    padding-left: 10px;
+    margin-bottom: 60px
+}
+
+    .FiltroPlanner .sideMovile .botonFiltro {
+        background-color: #ffffff;
+        color: #747475;
+        border: 1px solid rgba(247, 243, 243, 0.1);
+        border-color: #d2d3d870;
+        padding: 6px 8px;
+        font-size: 16px;
+        font-family: Arial;
+        width: 170px;
+    }
+
+    .FiltroPlanner .sideMovile .filtroDate {
+        width: 253px;
+        height: 320px;
+    }
+
+.FiltroPlanner button i {
+    padding-left: 16px;
+}
+
+.FiltroPlanner .side ul {
+    margin-top: 5px;
+    border-radius: 10px 10px;
+    width: 220px;
+    height: 215px;
+}
+
+.FiltroPlanner .side .dropdownSty {
+    margin-top: 5px;
+    border-radius: 10px 10px;
+    width: 210px;
+    height: 160px;
+}
+
+.FiltroPlanner .side .filtroDate {
+    width: 525px;
+    height: 320px;
+}
+
+.FiltroPlanner .side .dropdownSty button {
+    font-family: Arial;
+}
+
+.FiltroPlanner .side .filtroDate button {
+    font-family: Arial;
+}
+
+.FiltroPlanner .btnFiltter {
+    margin-left: 22px;
+    margin-top: 6px;
+    width: 140px;
+    border-radius: 9px 20px 9px 20px;
+    padding: 8px 0px;
+    font-family: 'BentonSans-Regular';
+}
+
+.FiltroPlanner .side .filtroDate .row .ApplyDate {
+    padding-left: 140px;
+    margin-left: 0px;
+}
+/*.btnVisibleFiltro{
+    display:none;
+}*/
+
+/*----------------------Botones-Number------------------------------------------------*/
+.number-style input {
+    display: inline-block;
+    width: 30px;
+    vertical-align: middle;
+    text-align: center;
+    border: none;
+    font-size: 15px;
+    color: #000000;
+}
+
+.number-style span {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+    .number-style span.number-minus {
+        border: 2px solid #179fec;
+    }
+
+        .number-style span.number-minus::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -1px 0 0 -5px;
+            width: 10px;
+            height: 2px;
+            background-color: #179fec;
+        }
+
+    .number-style span.number-plus {
+        border: 2px solid #179fec;
+    }
+
+        .number-style span.number-plus::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -1px 0 0 -5px;
+            width: 10px;
+            height: 2px;
+            background-color: #179fec;
+        }
+
+        .number-style span.number-plus::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -5px 0 0 -1px;
+            width: 2px;
+            height: 10px;
+            background-color: #179fec;
+        }
+
+    .number-style span.disabled {
+        border: 2px solid #a4a3a0;
+    }
+
+        .number-style span.disabled::after,
+        .number-style span.disabled::before {
+            background-color: #a4a3a0;
+        }
+
+.number-style input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+.number-style input::-webkit-outer-spin-button,
+.number-style input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+@media(max-width:680px) {
+    .outer {
+        border: 1px solid rgba(0,0,0,.1);
+        display: flex;
+        overflow-x: auto;
+        justify-content: initial;
+    }
+}
+/*--------------------------------------------Slider Menu------------------------------------------*/
+.selector {
+    position: relative;
+    padding: 20px;
+    width: 400px;
+    color: #7e7e7e;
+}
+
+    .selector ul {
+        position: relative;
+        display: block;
+        overflow: auto;
+        min-width: 138px;
+        max-height: 200px;
+        background: #fff;
+        list-style: none;
+        white-space: inherit;
+        padding-right: 17px;
+        width: calc(100% + 17px)
+    }
+
+    .selector li {
+        position: relative;
+        padding: 3px 20px 3px 25px;
+        cursor: pointer
+    }
+
+        .selector li:before {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            top: 4px;
+            display: inline-block;
+            margin-right: 9px;
+            width: 17px;
+            height: 17px;
+            background-color: #f4f4f4;
+            border: 1px solid #d5d5d5;
+            content: ""
+        }
+
+        .selector li[data-selected="1"]:before {
+            border: 1px solid #d7d7d7;
+            background-color: #fff
+        }
+
+        .selector li[data-selected="1"]:after {
+            position: absolute;
+            top: 50%;
+            left: 3px;
+            top: 11px;
+            display: inline-block;
+            width: 4px;
+            height: 10px;
+            border-right: 2px solid;
+            border-bottom: 2px solid;
+            background: none;
+            color: #39c9a9;
+            content: "";
+            -webkit-transform: rotate(40deg) translateY(-50%);
+            transform: rotate(40deg) translateY(-50%)
+        }
+
+        .selector li:hover {
+            color: #aaa
+        }
+
+        .selector li .total {
+            position: absolute;
+            right: 0;
+            color: #d7d7d7
+        }
+
+    .selector .price-slider {
+        text-align: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        position: relative;
+        padding-top: 17px
+    }
+
+@media (min-width: 768px) {
+    .selector .price-slider {
+        padding-top: 8px
+    }
+}
+
+.selector .price-slider:before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: 0;
+    color: #39c9a9;
+    content: attr(data-currency);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%)
+}
+
+.selector #slider-range {
+    width: 90%;
+    margin-bottom: 30px;
+    border: none;
+    background: #398AC9;
+    height: 3px;
+    margin-left: 8px;
+    margin-right: 8px
+}
+
+.selector #slider-rangePrice {
+    width: 90%;
+    margin-bottom: 30px;
+    border: none;
+    background: #398AC9;
+    height: 3px;
+    margin-left: 8px;
+    margin-right: 8px
+}
+
+.selector #slider-range1 {
+    width: 90%;
+    margin-bottom: 30px;
+    border: none;
+    background: #398AC9;
+    height: 3px;
+    margin-left: 8px;
+    margin-right: 8px
+}
+
+@media (min-width: 768px) {
+    .selector #slider-range {
+        width: 100%
+    }
+
+    .selector #slider-rangePrice {
+        width: 100%
+    }
+
+    .selector #slider-range1 {
+        width: 100%
+    }
+}
+
+.selector .ui-slider-handle {
+    border-radius: 50%;
+    background-color: #39c9a9;
+    border: none;
+    top: -14px;
+    width: 28px;
+    height: 28px;
+    outline: none
+}
+
+@media (min-width: 768px) {
+    .selector .ui-slider-handle {
+        top: -7px;
+        width: 16px;
+        height: 16px
+    }
+}
+
+.selector .ui-slider-range {
+    background-color: #E5E5E5;
+}
+
+
+.selector .slider-price {
+    position: relative;
+    display: inline-block;
+    padding: 5px 40px;
+    width: 40%;
+    background-color: #e2f7f2;
+    line-height: 28px;
+    text-align: center
+}
+
+    .selector .slider-price:before {
+        position: absolute;
+        top: 50%;
+        left: 13px;
+        margin-top: 0;
+        color: #39c9a9;
+        content: attr(data-currency);
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%)
+    }
+
+.selector .show-all {
+    position: relative;
+    padding-left: 25px;
+    color: #39c9a9;
+    cursor: pointer;
+    line-height: 28px
+}
+
+    .selector .show-all:after, .selector .show-all:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 4px;
+        margin-top: -1px;
+        color: #39c9a9;
+        width: 10px;
+        border-bottom: 1px solid
+    }
+
+    .selector .show-all:after {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg)
+    }
+
+.selector.open ul {
+    max-height: none
+}
+
+.selector.open .show-all:after {
+    display: none
+}
+
+
+* {
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/*-----------------------------StyleIconPlay--------------------------------------------*/
+@charset "UTF-8";
+
+@font-face {
+    font-family: "untitled-font-1";
+    src: url("../font/untitled-font-1.eot");
+    src: url("../font/untitled-font-1.eot?#iefix") format("embedded-opentype"), url("../font/untitled-font-1.woff") format("woff"), url("../font/untitled-font-1.ttf") format("truetype"), url("../font/untitled-font-1.svg#untitled-font-1") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+[data-icon]:before {
+    font-family: "untitled-font-1" !important;
+    content: attr(data-icon);
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+    font-family: "untitled-font-1" !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-play:before {
+    content: "\61";
+}
+
+.icon-times-circle:before {
+    content: "\62";
+}
+
+.icon-fa-info-circle:before {
+    content: "\63";
+}
+
+.icon-location:before {
+    content: "\64";
+}
+
+.icon-clock:before {
+    content: "\65";
+}
+
+.icon-calendar:before {
+    content: "\66";
+}
+
+.icon-users:before {
+    content: "\67";
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+.showFilter {
+    display: none;
+}
+.showFilterTripPlanner {
+    display: none;
+}
+/*Panel Lateral Izquierdo*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.2s;
+    padding-top: 25px;
+}
+
+.header-hamburgerDisp {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+    text-align: center;
+    z-index: 6;
+    color: black;
+    border: 1px solid rgba(0, 0, 0, .5);
+    transition: .2s ease;
+}
+
+.FiltroPlanner .header-hamburgerDisp button i {
+    padding-left: 0;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    display: block;
+    transition: 0.3s;
+}
+
+    .sidenav a:hover {
+        color: #f1f1f1;
+    }
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}
+
+@media(max-width:500px) {
+
+    .side {
+        display: none;
+    }
+
+    .showFilter {
+        display: block;
+        width: 95px !important;
+    }
+    .showFilterTripPlanner {
+        display: block;
+        width: 95px !important;
+    }
+}
+@media(max-width:1020px) {
+
+    /*.side {
+        display: none;
+    }*/
+
+    .showFilterTripPlanner {
+        display: block;
+        width: 95px !important;
+    }
+}
+@media(min-width:1020px) {
+
+    .tripplannerTexto{
+        margin-top:70px
+    }
+}
+@media(min-width:992px) and (max-width:1199px) {
+    #mapa {
+        height: 500px;
+        width: 450px;
+    }
+}
+
+@media(min-width:721px) and (max-width:991px) {
+    #mapa {
+        height: 500px;
+        width: 340px;
+    }
+}
+
+@media(min-width:608px) and (max-width:720px) {
+    #mapa {
+        height: 500px;
+        width: 578px;
+    }
+}
+
+@media(min-width:375px) and (max-width:475px) {
+    #mapa {
+        height: 400px;
+        width: 27em;
+    }
+
+    #filtroHoteles {
+        display: none;
+    }
+}
+
+@media(max-width:940px) {
+    .FiltroPlanner .side .filtroDate {
+        width: 253px;
+        height: 320px;
+    }
+
+        .FiltroPlanner .side .filtroDate .dataPickerDesk {
+            display: none;
+        }
+
+        .FiltroPlanner .side .filtroDate .row .ApplyDate {
+            padding-left: 5px;
+            margin-left: 0;
+            margin-top: 10px;
+        }
+
+        .FiltroPlanner .side .filtroDate .row .ResettleDate {
+            margin-top: 10px;
+        }
+}
+
+.contenidoFiltroPlanner {
+    text-align: center;
+}
+
+.contenidoFiltroCategoria .filtroDate {
+    width: 525px;
+    height: 325px;
+}
+
+.dropdownDateAvaila {
+    text-align: left;
+    margin-right: 20%;
+}
+
+    .dropdownDateAvaila ul {
+        right: 0;
+    }
+
+@media(min-width:1024px) {
+    .dropdownDateAvaila {
+        text-align: left;
+        margin-left: 32%;
+    }
+}
+
+@media(max-width:500px) {
+    .dropdownDateAvaila {
+        width: 150px
+    }
+}
+
+@media(max-width:850px) {
+    .dropdownDateAvaila ul {
+        left: auto;
+        right: 0;
+    }
+}
+
+@media (max-width:1024px) {
+    .contenidoFiltroPlanner {
+        text-align: center;
+    }
+
+    .page-nav .page-nav-anchors .contenidoFiltroCategoria ul li {
+        display: contents;
+        margin: 0 40px;
+        width: 140px;
+        max-width: none
+    }
+
+    .page-nav .page-nav-anchors .contenidoFiltroTravelers ul li {
+        display: contents;
+        margin: 0 40px;
+        width: 140px;
+        max-width: none
+    }
+}
+
+@media screen and (max-width: 719px) {
+    .contenidoFiltroCategoria .filtroDate {
+        width: 260px;
+        height: 800px;
+    }
+}
+
+@media screen and (max-width: 991px) and (min-width: 720px) {
+    .contenidoFiltroCategoria .filtroDate {
+        left: -300%;
+        right: 0;
+    }
+}
+/*----------------------------Breadcrumb-----------------------------------------*/
+.breadcrumb {
+    font-family: Arial;
+    font-size: 14px;
+    text-align: left;
+}
+
+@media screen and (max-width:379px) {
+
+    .breadcrumb {
+        font-family: Arial;
+        font-size: 12px;
+        text-align: left;
+    }
+}
+
+.applied span {
+    color: #FFFFFF;
+    background-color: #0077ba;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.card-cruises {
+    /*width: 350px;*/
+    height: 380px;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 10px 10px 0px 0px;
+}
+
+.img-cruises {
+    width: 100%;
+    height: 150px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.card-cruises h5 {
+    color: #0077ba;
+    padding: 0 1em;
+    margin-bottom: 5px;
+}
+
+.card-cruises p {
+    color: #000000;
+    padding: .5em 1em;
+    margin-bottom: 0px;
+}
+
+.btn-cruises {
+    padding: 5px 15px;
+    opacity: 0.8;
+    margin-top: -20px;
+    margin-left: 10px;
+}
+
+#cruisesFiltersMobile {
+    display: none;
+}
+
+.card:hover {
+    -webkit-box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.25);
+    -moz-box-shadow: -10px 9px 40px -12px rgba(0,0,0,0.25);
+    box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.25);
+}
+
+
+/*--------------------------Estilos Cruceros Home--------------------------------*/
+.categories-item {
+    border: 1px solid rgba(0,0,0,.1);
+    height: 91px;
+    border-radius: 10px;
+}
+
+    .categories-item a {
+        text-decoration: none;
+        color: #2E86C1;
+    }
+
+        .categories-item a:hover {
+            color: #2a49de;
+        }
+
+        .categories-item a img {
+            border-radius: 10px;
+            width: 120px;
+            height: 90px;
+            margin-left: -8px;
+            text-align: right
+        }
+
+        .categories-item a p {
+            margin-left: 130px !important;
+            margin-top: -60px;
+            font-size: 15px;
+        }
+
+#imgfiltroscruisesHomeMobile {
+    display: none;
+}
+
+.bloquesimg {
+    padding-left: 0px;
+    padding-bottom: 10px;
+    font-family: 'BentonSans',sans-serif;
+}
+
+    .bloquesimg .imgBlogEc {
+        margin-bottom: 20px;
+    }
+
+.textTrip {
+    display: none
+}
+
+.margenCruises {
+    padding: 0px 30px 0px 25px
+}
+
+
+@media screen and (max-width:700px) {
+    #imgfiltroscruisesHomeMobile {
+        display: flex;
+    }
+
+    .margenCruises {
+        padding: 0px 30px 0px 0px;
+        margin-left: -5%;
+    }
+
+    #imgfiltroscruisesHome {
+        display: none;
+    }
+
+    .bloquesimg {
+        padding-left: 10px;
+        padding-bottom: 20px;
+    }
+
+        .bloquesimg b {
+            display: none
+        }
+
+    .textTrip {
+        display: flex;
+        margin-top: -40px;
+        font-family: 'BentonSans',sans-serif;
+    }
+
+    .bloquesimg .caption h4 {
+        display: none
+    }
+
+
+
+    .mainland-wrapper .mainland .row table td a p {
+        font-size: 12px;
+        color: #2E86C1;
+        font-family: 'BentonSans-Regular';
+        margin-bottom: 0;
+        height: 40px;
+    }
+}
+
+@media screen and (max-width:1400px) {
+    .tamañoBtnDer {
+        margin-left: 1%;
+        z-index: 1;
+    }
+
+    .tamañoBtnIzq {
+        margin-right: 1%;
+        z-index: 1;
+    }
+}
+
+@media screen and (max-width:1200px) {
+    .imageTamano {
+        width: auto;
+        height: auto;
+    }
+}
+
+@media screen and (min-width:1401px) and (max-width:1800px) {
+    .tamañoBtnDer {
+        margin-left: 8%;
+        z-index: 1;
+    }
+
+    .tamañoBtnIzq {
+        margin-right: 7%;
+        z-index: 1;
+    }
+}
+
+@media screen and (min-width:700px) and (max-width:992px) {
+    #imgfiltroscruisesHomeMobile {
+        display: flex;
+    }
+
+    .margenCruises {
+        padding: 0px 30px 0px 0px
+    }
+
+    #imgfiltroscruisesHome {
+        display: none;
+    }
+
+    .bloquesimg {
+        padding-left: 0;
+        padding-bottom: 20px;
+    }
+
+        .bloquesimg .imgBlogEc {
+            margin-bottom: 0px;
+            width: 100%;
+            height: 100%;
+        }
+
+
+        .bloquesimg b {
+            display: none
+        }
+
+    .textTrip {
+        display: flex;
+        margin-top: -40px;
+        font-family: 'BentonSans',sans-serif;
+    }
+
+    .bloquesimg .caption h4 {
+        display: none
+    }
+
+    .mainland-wrapper .mainland .row table td a p {
+        font-size: 12px;
+        color: #2E86C1;
+        font-family: 'BentonSans-Regular';
+        margin-bottom: 0;
+    }
+
+    .imagenBloque-blog {
+        width: 680px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .mainland-wrapper .mainland .row table td {
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+
+        .mainland-wrapper .mainland .row table td a p {
+            margin-left: -4px;
+            font-size: 12px;
+            color: #2E86C1;
+            font-family: 'BentonSans-Regular';
+        }
+
+    .btnItinerarie {
+        font-size: 15px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+}
+
+/*--------------------------Cards Cruises Categoria--------------------------------*/
+.wildAid {
+    background-color: rgba(64,133,24,.77);
+    width: 100%;
+    height: 35px;
+    top: 0%;
+    color: white;
+    font-family: Arial;
+    border-radius: 8px 8px 0px 0px;
+    display: flex;
+    position: absolute;
+    -webkit-box-align: baseline;
+    align-items: baseline;
+    transition: .5s ease-in;
+}
+
+    .wildAid h5 {
+        padding-left: 10px;
+        display: flex;
+    }
+
+
+.cardEco {
+    border: 1px solid rgba(64,133,24,.77) !important;
+}
+
+    .cardEco .mainland-image .cruise-details {
+        border-radius: 8px 20px 8px 20px;
+        color: #fff;
+        display: flex;
+        -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+        align-items: baseline;
+        position: absolute;
+        background-color: rgba(64,133,24,.77);
+        font-family: 'Berlin Sans FB';
+        width: 150px;
+        font-weight: 400;
+        padding: .2em .75em;
+        font-size: 14px;
+        top: 48.5%;
+        left: 12px;
+        transition: .5s ease-in;
+    }
+
+    .cardEco .cruise-info h3 {
+        font-weight: 200;
+        margin-top: 1.5em;
+        font-size: 17px;
+        padding: .5em 1em;
+        text-align: left;
+        color: #398AC9;
+    }
+
+    .cardEco .cruise-info p {
+        margin-top: -.5em;
+        padding: 0 1.5em;
+        text-align: justify;
+        margin-left: -5px;
+        font-family: Arial;
+        line-height: 1.6
+    }
+
+    .cardEco .cruise-info .rest-info {
+        margin-top: .75em;
+        padding: .25em .5em;
+        color: #0077ba;
+    }
+
+@media(max-width:720px) {
+    .mainland-wrapper .mainland {
+        display: flex;
+        margin-left: -10px;
+    }
+
+
+    .wildAid h5 {
+        font-size: 12px;
+    }
+}
+
+@media(max-width:780px) {
+
+    .wildAid {
+        padding-right: 10px
+    }
+
+        .wildAid h5 {
+            font-size: 12px;
+        }
+}
+
+@media(max-width:1050px) {
+
+    .wildAid {
+        padding-right: 10px
+    }
+
+        .wildAid h5 {
+            font-size: 12px;
+        }
+}
+
+.mainland-item .mainland-image .cruise-details {
+    border-radius: 8px 20px 8px 20px;
+    color: #fff;
+    display: flex;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    position: absolute;
+    background-color: rgba(57,138,201,.77) !important;
+    font-family: 'Berlin Sans FB';
+    width: 174px;
+    font-weight: 400;
+    padding: .2em .75em;
+    font-size: 14px;
+    top: 93%;
+    left: 12px;
+    transition: .5s ease-in;
+    text-align: initial;
+}
+
+.mainland-item .mainland-image .cruise-detailsEco {
+    border-radius: 8px 20px 8px 20px;
+    color: #fff;
+    display: flex;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    position: absolute;
+    background-color: rgba(64,133,24,.77) !important;
+    font-family: 'Berlin Sans FB';
+    width: 174px;
+    font-weight: 400;
+    padding: .2em .75em;
+    font-size: 14px;
+    top: 93%;
+    left: 12px;
+    transition: .5s ease-in;
+    text-align: initial;
+}
+
+.mainland-item .cruise-info h3 {
+    font-weight: 200;
+    margin-top: 1.5em;
+    font-size: 17px;
+    padding: .5em 1em;
+    text-align: left;
+    color: #398AC9;
+    height: 33px;
+}
+
+@media (min-width:720px) and (max-width:991px) {
+    .mainland-item .cruise-info p {
+        height: 170px;
+    }
+}
+
+@media (min-width:585px) and (max-width:720px) {
+    .mainland-item .cruise-info p {
+        height: 145px;
+    }
+}
+
+@media (min-width:522px) and (max-width:585px) {
+    .mainland-item .cruise-info p {
+        height: 170px;
+    }
+
+    .mainland-item .cruise-info .rest-info {
+        font-size: 13px;
+    }
+}
+
+@media (min-width:480px) and (max-width:522px) {
+    .mainland-item .cruise-info p {
+        height: 195px;
+    }
+
+    .mainland-item .cruise-info .rest-info {
+        font-size: 13px;
+    }
+}
+
+@media (min-width:992px) {
+    .mainland-item .cruise-info p {
+        height: 98px;
+    }
+}
+
+.mainland-item .cruise-info p {
+    margin-top: -.5em;
+    padding: 0 1.5em;
+    text-align: justify;
+    margin-left: -5px;
+    font-family: Arial;
+    line-height: 1.6;
+}
+
+.mainland-item .cruise-info .rest-info {
+    margin-top: .75em;
+    padding: .25em .5em;
+    color: #0077ba;
+}
+
+@media (max-width:992px) and (min-width:720px) {
+    .mainland-item .cruise-info .rest-info span {
+        font-size: 13px
+    }
+}
+
+@media (max-width:992px) and (min-width:600px) {
+    .filterIcon {
+        padding-right: 9%;
+    }
+}
+/*----------------------------Enlaces All Our Cruises Cruceros Categoria ------------------------------*/
+.mainland .row .AllCruises {
+    margin-top: 20px;
+}
+
+    .mainland .row .AllCruises h4 a {
+        color: #398AC9;
+        text-decoration: none;
+        font-family: Arial;
+        margin-left: 20px;
+    }
+/*----------------------------Enlaces All Our Cruises Cruceros Categoria ------------------------------*/
+
+.container .row .contenedorHome .row p {
+    text-align: justify;
+    font-family: Arial;
+    font-size: 17px;
+    color: #747475 !important;
+    line-height: 2;
+    background: white;
+}
+
+.col-md-3 {
+    margin-bottom: 12px;
+}
+
+.col-md-6 img {
+    height: 305px;
+    width: 450px;
+}
+
+.caption {
+    color: #ffffff
+}
+
+#navmovil {
+    display: none;
+}
+/*----------------------------GRID  CRUISES CATEGORIA------------------------------*/
+.containerGrid {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100px 100px;
+}
+/*----------------------------FILTROS CRUCEROS CHARTES ------------------------------*/
+#btnCategories {
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 10px 10px 0 0;
+    padding: 5px 10px;
+    border-style: inset;
+    color: rgba(0,0,0,0.75);
+    background: rgb(255, 255, 255);
+    width: 200px;
+    text-align-last: center;
+}
+
+section .contenedorHome div .btnCategoriesMobile {
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 10px 10px 0 0;
+    padding: 5px 0px;
+    border-style: inset;
+    color: rgba(0,0,0,0.75);
+    background: rgb(255, 255, 255);
+    width: 160px;
+    font-size: 16px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.parrafo h3 {
+    text-align: left;
+}
+
+.parrafo ul {
+    list-style-type: disc;
+    padding-left: 16px;
+    font-family: Arial;
+    font-size: 16px;
+    line-height: 1.5em;
+}
+
+.parrafo a {
+    color: #337ab7;
+}
+
+.contenedorHome p a {
+    color: #337ab7;
+}
+
+.Charters h2 {
+    padding: .4em 0.7em;
+}
+
+@media (min-width:300px) and (max-width:370px) {
+    .Charters h2 {
+        padding: .4em 1.5em;
+    }
+}
+
+@media screen and (min-width:720px) and (max-width:800px) {
+    section .contenedorHome div .btnCategoriesMobile {
+        margin-bottom: 10px;
+        font-size: 15px;
+    }
+
+    #textoDerecha {
+        margin-right: 30px
+    }
+
+    #textoIzquierda {
+        margin-left: 30px
+    }
+
+    .productoImg {
+        padding-left: 20px;
+        padding-right: 8px;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 800px) {
+    .item .caption p {
+        margin-top: 80px;
+    }
+}
+
+
+
+@media (min-width: 320px) and (max-width: 450px) {
+    #textoDerecha {
+        margin-right: 0px !important
+    }
+
+    #textoIzquierda {
+        margin-left: 0px !important
+    }
+
+    .seccionItinerario .itinerarioDaily {
+        padding-left: 2em !important;
+        padding-right: 0px !important;
+    }
+}
+
+@media (min-width:320px) and (max-width:360px) {
+
+    .rowCards .text-justify h2 {
+        padding: .4em 1.5em;
+    }
+}
+
+@media (min-width:360px) and (max-width:390px) {
+
+    .rowCards .text-justify h2 {
+        padding: .4em 1em;
+    }
+}
+
+@media (min-width:390px) and (max-width:700px) {
+
+    .rowCards .text-justify h2 {
+        padding: .4em 1em;
+    }
+}
+
+@media (min-width:700px) and (max-width:850px) {
+
+    .rowCards .text-justify h2 {
+        padding: .4em 1.6em;
+    }
+}
+
+@media (min-width:450px) and (max-width:720px) {
+
+    .rowCards .text-justify h2 {
+        padding: .4em 1.6em;
+    }
+}
+
+@media (min-width:850px) and (max-width:1024px) {
+
+    .rowCards .text-justify h2 {
+        padding: .4em .5em;
+    }
+}
+
+@media (min-width:1024px) {
+
+    .rowCards .text-justify h2 {
+        padding: .4em 1em;
+    }
+}
+
+@media (max-width:800px) {
+    .tamLetra {
+        font-size: 20px
+    }
+
+    .cruceros-boton {
+        border-radius: 10px 22px 10px 22px !important;
+        padding: 3px 10px !important;
+        font-size: 15px;
+    }
+
+    .seccionItinerario {
+        padding: 0 10px 0 30px;
+        margin-top: 20px;
+    }
+}
+/*----------------------------Daily tours ------------------------------*/
+.imgen-section {
+    position: relative;
+    height: 80vh;
+}
+
+.selectdiv {
+    position: relative;
+    /*Don't really need this just for demo styling*/
+    float: left;
+    min-width: 200px;
+    margin: 50px 69% 0;
+}
+
+    .selectdiv .dropdown button p {
+        width: 150px;
+        display: inherit;
+        margin-bottom: 0;
+    }
+
+.dropdown-backdrop {
+    position: relative;
+}
+
+.boxdiv {
+    position: relative;
+    float: left;
+    min-width: 290px;
+    margin: 15px 68% 0;
+    font-family: Arial;
+    color: black;
+    line-height: 1.3;
+    font-size: 16px;
+    text-align: justify;
+}
+
+    .boxdiv p {
+        opacity: 1;
+        color: #ffffff;
+        /*-webkit-text-stroke: 0.5px #605f5f;*/
+        padding-left: 15px;
+        /*background-image: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, .8) 0%, rgba(255, 255, 255, .6) 90%, transparent 98%);*/
+    }
+
+    .boxdiv a {
+        font-family: 'BentonSans-Regular';
+        padding: 2.5px 17px;
+        border-radius: 5px 15px 5px 15px;
+        background-color: white;
+        color: #179FEB;
+        font-size: 16px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        margin-left: 12px;
+    }
+
+
+
+/*.selectdiv:after {
+    content: '\f078';
+    font: normal normal normal 16px/1 FontAwesome;
+    color: black;
+    right: 11px;
+    top: 6px;
+    height: 40px;
+    padding: 12px 0px 0px 12px;
+    position: absolute;
+    pointer-events: none;
+
+}*/
+
+/* IE11 hide native button (thanks Matt!) */
+select::-ms-expand {
+    display: none;
+}
+
+.selectdiv select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* Add some styling */
+    display: block;
+    width: 220px;
+    max-width: 320px;
+    height: 30px;
+    float: right;
+    margin: 5px 0px;
+    padding-right: 75px;
+    font-size: 16px;
+    line-height: 1.75;
+    color: #000000;
+    background: none;
+    border-bottom: 2px solid currentcolor;
+    -ms-word-break: normal;
+    word-break: normal;
+    font-family: 'BentonSans-Regular';
+    font-weight: bold;
+}
+
+#dropdownIsland {
+    border-bottom: 2px solid;
+    width: 220px;
+}
+
+    #dropdownIsland button {
+        font-family: 'BentonSans-Regular';
+        border-bottom: 2px solid currentcolor;
+        -webkit-appearance: none;
+        background: transparent;
+        color: #000000;
+        font-weight: bold;
+        padding-left: 0;
+        border: none;
+        font-size: 18px
+    }
+
+        #dropdownIsland button i {
+            padding-left: 50px;
+            font-size: 20px
+        }
+
+.itinerarioCol {
+    padding: 40px 40px 0;
+}
+
+.textoTravel {
+    padding-left: 2em
+}
+
+.seccionItinerario {
+    padding: 0 -1px 20px 30px;
+}
+
+    .seccionItinerario .col-md-6 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+        .seccionItinerario .col-md-6 h2 {
+            color: black;
+            padding-top: 0px;
+        }
+
+        .seccionItinerario .col-md-6 p {
+            text-align: justify;
+            margin-bottom: 0px;
+        }
+
+.boxdiv1 a {
+    font-family: 'BentonSans-Regular';
+    padding: 2.5px 17px;
+    border-radius: 5px 15px 5px 15px;
+    /*background-color: white;
+        color: #179FEB;*/
+    font-size: 14px;
+    padding-top: 6px;
+    padding-bottom: 6px
+}
+
+.btnRead {
+    font-family: 'BentonSans-Regular';
+    padding: 2.5px 17px;
+    border-radius: 5px 15px 5px 15px;
+    background-color: #398AC9;
+    color: #fff;
+    font-size: 15px;
+    padding-top: 6px;
+    padding-bottom: 6px
+}
+
+.contenedorHome .textDailyTours {
+    padding-left: 25px;
+}
+
+.contenedorHome .textDailyToursOp {
+    padding-left: 15px;
+}
+
+.textoDerecha {
+    margin-right: 60px
+}
+
+.textoIzquierda {
+    margin-left: 60px
+}
+
+.btnTravel {
+    margin-top: 20px;
+}
+
+.imgTravel {
+    padding-left: 20px;
+    padding-right: 0;
+}
+
+    .imgTravel img {
+        padding-left: 15px;
+        margin: 0;
+        width: 100%
+    }
+
+.tituloTravelMobile {
+    display: none;
+}
+
+.imgblog1 {
+    display: none
+}
+
+.itinerarioColImg img {
+    height: 380px;
+}
+/*--------------------blogPost--------------*/
+
+.padd ul {
+    list-style-type: disc;
+    padding-left: 16px;
+    font-family: Arial;
+    font-size: 16px;
+}
+
+.tituloH3Blog h3 {
+    text-align: inherit;
+    color: #3498db !important;
+    padding: 25px 0 0 0;
+}
+
+
+@media screen and (min-width:1200px) and (max-width:2560px) {
+    .prodcutoImagen {
+        margin-left: -50px;
+    }
+
+    .imagenBloque-blog {
+        width: 1100px
+    }
+
+    .redSocial .iconRedSocialTablet {
+        display: none;
+    }
+
+    .cruisesCatDes {
+        display: none;
+    }
+
+    .textcrucero {
+        margin-top: -9px;
+    }
+
+    .imgCruisesHome img {
+        height: 360px;
+    }
+}
+
+@media screen and (min-width:801px) {
+
+    .cruisesCatDes {
+        display: none;
+    }
+}
+
+
+@media screen and (min-width:1600px) and (max-width:1950px) {
+    .boxdiv1 {
+        position: relative;
+        float: left;
+        min-width: 300px;
+        margin: 15px 40% 0 0 !important;
+        font-family: Arial;
+        color: #747475;
+        font-size: 15px;
+    }
+
+    .item .caption p img {
+        margin-top: 19% !important;
+    }
+}
+
+@media screen and (max-width: 1920px) and (min-width:1860px) {
+    .rowCards {
+        padding-left: 15.5%;
+        padding-right: 15%;
+    }
+}
+
+@media screen and (min-width:2360px) and (max-width:2560px) {
+    .boxdiv1 {
+        position: relative;
+        float: left;
+        min-width: 300px;
+        margin: 15px 55% 0 0;
+        font-family: Arial;
+        color: #747475;
+        font-size: 15px;
+    }
+
+    .redSocial {
+        width: 250px
+    }
+
+    .margenCruises {
+        padding: 0px 30px 0px 25%;
+    }
+
+    .boxdivread {
+        position: relative;
+        float: left;
+        min-width: 240px;
+        margin: 20% 45% 0;
+        font-family: Arial;
+        color: #747475;
+        line-height: 1em;
+        font-size: 13px;
+    }
+
+    .item .caption p img {
+        margin-top: 14% !important;
+    }
+
+    .seccionItinerario {
+        padding: 15px 20px 30px 30px;
+    }
+
+    .imgBlog img {
+        height: 255px
+    }
+}
+
+@media screen and (min-width:1400px) and (max-width:2000px) {
+    .boxdiv1 {
+        position: relative;
+        float: left;
+        min-width: 300px;
+        margin: 15px 18% 0 0;
+        font-family: Arial;
+        color: #747475;
+        font-size: 15px;
+    }
+
+    .margenCruises {
+        padding: 0px 30px 0px 5%;
+    }
+
+    .redSocial {
+        width: 250px
+    }
+
+    .boxdivread {
+        position: relative;
+        float: left;
+        min-width: 240px;
+        margin: 18% 40% 0;
+        font-family: Arial;
+        color: #747475;
+        line-height: 1em;
+        font-size: 13px;
+    }
+
+    .seccionItinerario {
+        padding: 15px 20px 30px 30px !important;
+    }
+
+    .imgBlog img {
+        height: 255px
+    }
+
+    .imgBlog_1 img {
+        height: 300px
+    }
+
+    .imgBlog_2 img {
+        height: 280px
+    }
+
+    .item .caption p img {
+        margin-top: 11%;
+    }
+
+    .rowCards {
+        padding-left: 4.5%;
+        padding-right: 6%;
+    }
+}
+
+@media screen and (min-width:1230px) and (max-width:1400px) {
+
+    .redSocial {
+        width: 230px
+    }
+
+    .seccionItinerario .itinerarioDaily {
+        padding-left: 2em !important;
+        padding-right: 2em !important;
+    }
+
+    .item .caption p img {
+        margin-top: 10% !important;
+    }
+
+    .imgBlog img {
+        height: 255px
+    }
+
+    .rowCards {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .productoImg {
+        padding-left: 30px;
+        padding-right: 25px;
+    }
+
+    .seccionItinerario .itinerarioDaily {
+        padding-left: 2em !important;
+        padding-right: 2em !important;
+    }
+}
+
+@media screen and (min-width:1024px) and (max-width:1400px) {
+    .boxdiv1 {
+        position: relative;
+        float: left;
+        min-width: 240px;
+        margin: 15px 11% 0 0;
+        font-family: Arial;
+        color: #747475;
+        font-size: 15px;
+    }
+
+    .boxdivread {
+        position: relative;
+        float: left;
+        min-width: 240px;
+        margin: 25% 38% 0;
+        font-family: Arial;
+        color: #747475;
+        line-height: 1em;
+        font-size: 13px;
+    }
+
+    .imagenBloque-blog {
+        width: 1100px
+    }
+
+    .redSocial .iconRedSocialTablet {
+        display: none;
+    }
+
+    .cruisesCatDes {
+        display: none;
+    }
+
+    .imgCruisesHome img {
+        height: 360px;
+    }
+
+    .seccionItinerario {
+        padding: 10px 20px 30px 30px !important;
+    }
+}
+
+@media screen and (min-width:1024px) and (max-width:1200px) {
+    .imgBlog img {
+        height: 300px
+    }
+
+    .item .caption p img {
+        margin-top: 9% !important;
+    }
+
+    .imgCruisesHome img {
+        height: 410px;
+    }
+}
+
+@media screen and (min-width:700px) and (max-width:2560px) {
+    .boxdivMobile {
+        display: none;
+    }
+
+    .bloquesimg a {
+        color: #398AC9;
+        font-size: 17px;
+        text-decoration: none;
+        font-family: Arial;
+    }
+
+    .container .textBlog {
+        color: black;
+        text-align: center;
+        font-family: 'BentonSans',sans-serif;
+    }
+
+    .btnItinerarie {
+        font-size: 15px;
+        margin-left: 20px
+    }
+
+    .cruisesBloqImg {
+        padding-left: 10px;
+    }
+}
+
+.contenedorHome .texto-blogPost p {
+    margin-top: 10px;
+    height: 50px;
+    font-size: 14px;
+    margin: 10px 30px 0px
+}
+
+
+@media screen and (max-width:800px) {
+    .contenedorHome .texto-blogPost p {
+        height: 50px;
+        font-size: 12px;
+        margin: 10px 0 17px;
+    }
+}
+
+.centradoImagBlog {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    color: white;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+@media (max-witdh:800px) {
+    .daily-boton {
+        border-radius: 10px 22px 10px 22px !important;
+        padding: 3px 10px !important;
+        font-size: 15px;
+    }
+}
+
+@media screen and (min-width:720px) and (max-width:900px) {
+    .seccionItinerario img {
+        min-height: 325px !important;
+        height: 320px !important;
+    }
+
+        .seccionItinerario img.luxuaryImg {
+            height: 250px;
+        }
+
+    .imgTravel img {
+        padding-left: 0px;
+        margin: 0;
+        width: 100%
+    }
+
+    .imgBlog_1 img {
+        height: 400px
+    }
+
+    .imgBlog_2 img {
+        height: 350px
+    }
+
+    .imgen-section {
+        position: relative;
+        height: 70vh;
+    }
+
+    .selectdiv {
+        position: relative;
+        /*Don't really need this just for demo styling*/
+        float: left;
+        min-width: 200px;
+        margin: 20px 60% 0;
+    }
+
+    .boxdiv {
+        margin: 15px 60% 0;
+    }
+
+    .btnTravel {
+        margin-top: 0px;
+    }
+
+    .imgBlog img {
+        height: 350px
+    }
+
+    .boxdivread {
+        position: relative;
+        float: left;
+        margin: 28% 40% 0;
+    }
+
+    .seccionItinerario {
+        padding-left: 0px;
+        padding-right: 30px;
+        background-color: #EDEDED;
+        width: 100%
+    }
+
+    .seccionItinerarioImg {
+        padding-bottom: 0;
+    }
+
+    .seccionItinerario .col-md-6 {
+        padding-left: 0;
+    }
+
+    .itinerarioCol {
+        padding: 20px 28px 0;
+    }
+
+    .itinerarioColImg img {
+        height: 356px !important;
+    }
+
+    .redSocial {
+        width: 115px
+    }
+
+    .redSocialTablet .iconRedSocial {
+        display: none;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .servicios-list {
+        border: 1px solid #ffffff;
+        width: 50%!important;
+        margin: 0;
+    }
+}
+
+@media screen and (min-width:370px) and (max-width:600px) {
+    .imgTravel img {
+        padding-left: 0px;
+        margin: 0;
+        width: 100%
+    }
+
+    .boxdivread {
+        position: relative;
+        float: left;
+        margin: 37% 32% 0;
+    }
+
+    .imgen-section {
+        position: relative;
+        height: 50vh;
+    }
+
+    .selectdiv {
+        position: relative;
+        /*Don't really need this just for demo styling*/
+        float: left;
+        min-width: 200px;
+        margin: 20px 8% 0;
+    }
+
+    .boxdiv {
+        display: none;
+    }
+
+        .boxdiv p {
+            display: none;
+        }
+
+        .boxdiv a {
+            display: none;
+        }
+
+    .seccionItinerario {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        background-color: #EDEDED;
+    }
+
+        .seccionItinerario .col-md-6 {
+            padding-left: 0;
+            padding-bottom: 20px
+        }
+
+            .seccionItinerario .col-md-6 p {
+                padding-right: 20px;
+            }
+
+    .boxdivMobile {
+        display: inline-block;
+        font-family: Arial;
+    }
+
+    .descripDailyTour p {
+        display: none !important;
+    }
+
+    .descripDailyTour a {
+        display: none !important;
+    }
+
+    .boxdivMobile a {
+        font-family: 'BentonSans-Regular';
+        border: 2px solid #1592E6;
+        padding: 2.5px 17px;
+        border-radius: 10px 22px 10px 22px;
+        background-color: white;
+        color: #179FEB;
+        font-size: 15px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        margin: 10px 0 0;
+    }
+
+    .boxdiv1 {
+        display: inline-block;
+        font-family: Arial;
+        padding: 10px 0px 0px;
+    }
+
+        .boxdiv1 a {
+            font-family: 'BentonSans-Regular';
+            padding: 2.5px 17px;
+            border-radius: 10px 22px 10px 22px;
+            /*background-color: white;
+                color: #179FEB;*/
+            font-size: 15px;
+            padding-top: 6px;
+            padding-bottom: 6px
+        }
+
+    .itinerarioCol {
+        padding: 20px 15px 0;
+    }
+
+    .itinerarioColImg img {
+        height: 34vh;
+    }
+
+    .contenedorHome .textDailyTours {
+        padding-left: 10px;
+    }
+
+    .contenedorHome .textDailyToursOp {
+        padding-left: 0px;
+    }
+
+    .textoDerecha {
+        margin-right: 0px
+    }
+
+    .textoIzquierda {
+        margin-left: 0px
+    }
+
+    .btnTravel {
+        margin-top: 0px;
+    }
+
+    .imgTravel {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .textoTravel {
+        padding: 25px;
+        margin-bottom: 30px;
+    }
+
+    .tituloTravel {
+        display: none;
+    }
+
+    .tituloTravelMobile {
+        display: inline-block;
+    }
+
+    .btnRead {
+        font-family: 'BentonSans-Regular';
+        padding: 2.5px 17px;
+        border-radius: 10px 22px 10px 22px;
+        background-color: #398AC9;
+        color: #fff;
+        font-size: 15px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+    /*--------------------------Blog mobile suscribir--------------------------------*/
+    .form-group .col-sm-10 .input-group .email {
+        width: 150px;
+        float: right;
+    }
+
+    .colorBlog {
+        background-color: #EDEDED;
+        padding-bottom: 0px;
+    }
+
+    .container .textBlog {
+        color: black;
+        text-align: inherit;
+        font-family: 'BentonSans',sans-serif;
+    }
+
+    .bloquesimg a {
+        margin-bottom: 0px;
+        color: #398AC9;
+        font-size: 11px;
+        text-decoration: none;
+        font-family: Arial;
+    }
+
+    .bloquesimg .imgBlogEc {
+        margin-bottom: 0px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .imgblog1 {
+        display: inline-block;
+    }
+
+    .btnItinerarie {
+        font-size: 15px;
+        margin-left: 20px
+    }
+}
+
+
+@media screen and (min-width:300px) and (max-width:370px) {
+    .imgTravel img {
+        padding-left: 0px;
+        margin: 0;
+        width: 100%
+    }
+
+    .boxdivread {
+        position: relative;
+        float: left;
+        margin: 42% 32% 0;
+    }
+
+    .imgen-section {
+        position: relative;
+        height: 50vh;
+    }
+
+    .selectdiv {
+        position: relative;
+        /*Don't really need this just for demo styling*/
+        float: left;
+        min-width: 200px;
+        margin: 20px 8% 0;
+    }
+
+    .boxdiv {
+        display: none;
+    }
+
+        .boxdiv p {
+            display: none;
+        }
+
+        .boxdiv a {
+            display: none;
+        }
+
+    .seccionItinerario {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        background-color: #EDEDED;
+        /*margin-top: 30px;*/
+    }
+
+
+
+        .seccionItinerario .col-md-6 {
+            padding-left: 0;
+            padding-bottom: 20px
+        }
+
+            .seccionItinerario .col-md-6 p {
+                padding-left: 5px;
+                padding-right: 40px;
+            }
+
+    .boxdivMobile {
+        display: inline-block;
+        font-family: Arial;
+        font-size: 16px;
+        color: black;
+        line-height: 1.5em;
+        padding-bottom: 15px;
+    }
+
+    .descripDailyTour p {
+        display: none !important;
+    }
+
+    .descripDailyTour a {
+        display: none !important;
+    }
+
+    .boxdivMobile a {
+        font-family: 'BentonSans-Regular';
+        border: 2px solid #1592E6;
+        padding: 2.5px 17px;
+        border-radius: 10px 22px 10px 22px;
+        background-color: white;
+        color: #179FEB;
+        font-size: 15px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        margin: 10px 0 0;
+    }
+
+    .boxdiv1 {
+        display: inline-block;
+        font-family: Arial;
+        padding: 0 0px 0px;
+    }
+
+    .boxCruises {
+        padding-left: 8px
+    }
+
+    .boxdiv1 a {
+        font-family: 'BentonSans-Regular';
+        padding: 2.5px 17px;
+        border-radius: 10px 22px 10px 22px;
+        /*background-color: white;
+        color: #179FEB;*/
+        font-size: 15px;
+        padding-top: 6px;
+        padding-bottom: 6px
+    }
+
+
+    .itinerarioCol {
+        padding: 20px 15px 0;
+    }
+
+    .itinerarioColImg img {
+        height: 34vh;
+    }
+
+    .contenedorHome .textDailyTours {
+        padding-left: 10px;
+    }
+
+    .contenedorHome .textDailyToursOp {
+        padding-left: 0px;
+    }
+
+    .textoDerecha {
+        margin-right: 0px
+    }
+
+    .textoIzquierda {
+        margin-left: 0px
+    }
+
+    .btnTravel {
+        margin-top: 0px;
+    }
+
+    .imgTravel {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .textoTravel {
+        padding: 25px;
+        margin-bottom: 30px;
+    }
+
+    .tituloTravel {
+        display: none;
+    }
+
+    .tituloTravelMobile {
+        display: inline-block;
+    }
+
+    .btnRead {
+        font-family: 'BentonSans-Regular';
+        padding: 2.5px 17px;
+        border-radius: 10px 22px 10px 22px;
+        background-color: #398AC9;
+        color: #fff;
+        font-size: 15px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+    /*--------------------------Blog mobile suscribir--------------------------------*/
+    .form-group .col-sm-10 .input-group .email {
+        width: 150px;
+        float: right;
+    }
+
+    .colorBlog {
+        background-color: #EDEDED;
+        padding-bottom: 0px;
+    }
+
+    .container .textBlog {
+        color: black;
+        text-align: inherit;
+        font-family: 'BentonSans',sans-serif;
+    }
+
+    .bloquesimg a {
+        margin-bottom: 0px;
+        color: #398AC9;
+        font-size: 11px;
+        text-decoration: none;
+        font-family: 'BentonSans-Regular';
+    }
+
+    .bloquesimg .imgBlogEc {
+        margin-bottom: 0px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .imgblog1 {
+        display: inline-block;
+    }
+}
+/*--------------------------Blog--------------------------------*/
+.boxdivblog {
+    position: relative;
+    float: left;
+    min-width: 240px;
+    margin: 15px 20% 0;
+    font-family: Arial;
+    color: #747475;
+    font-size: 15px;
+}
+
+.input-group .email {
+    width: 200px;
+    float: right;
+    border-radius: 10px 0 0 10px;
+}
+
+.input-group .btnEmail {
+    background-color: #398AC9;
+    color: white;
+    width: 100px;
+    font-family: 'BentonSans-Regular';
+    border-radius: 0px 10px 10px;
+}
+
+#comentario {
+    display: block;
+}
+
+#comentario-mob {
+    display: none;
+}
+
+.pagination-btn {
+    cursor: pointer;
+}
+/*--------------------------HOME--------------------------------*/
+.contenedorHome {
+    margin-left: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-family: 'BentonSans',sans-serif;
+}
+
+    .contenedorHome p {
+        font-family: Arial;
+        font-size: 16px;
+        color: black;
+        line-height: 1.5em;
+    }
+
+.containeRead a {
+    color: #0077ba;
+}
+
+.fondos-imagen {
+    position: absolute;
+    margin: 0;
+    width: 100%;
+    height: 100% !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0;
+    background-position: center;
+    background-attachment: scroll;
+    display: block;
+    z-index: -1;
+}
+
+.parrafo {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    font-family: Arial !important;
+}
+
+.parrafoDailyTour {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    font-family: Arial !important;
+}
+
+    .parrafoDailyTour p {
+        font-size: 16px;
+        color: black;
+        line-height: 1.5em;
+    }
+
+    .parrafoDailyTour a {
+        color: #337ab7;
+    }
+
+    .parrafoDailyTour ul {
+        list-style-type: disc;
+        padding-left: 16px;
+        font-family: Arial;
+        font-size: 16px;
+        line-height: 1.5em;
+    }
+
+#wrapperLinkHome {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 10px;
+    align-content: center;
+}
+
+#cajaLink {
+    text-align: right;
+}
+
+#cajaLink2 {
+    text-align: center;
+}
+
+#cajaLink3 {
+    text-align: left;
+}
+
+#cajaLink4 {
+    text-align: center;
+}
+
+#btn_Plan_Help {
+    display: inline-block;
+    padding: 5px 17px;
+    border-radius: 5px 15px 5px 15px;
+    background-color: #398AC9;
+    color: white;
+}
+
+    #btn_Plan_Help:hover {
+        background-color: #179fec;
+        color: white;
+    }
+
+#btn_Plan {
+    display: none;
+}
+
+.imagenHome {
+    width: 100%;
+    height: 100%;
+}
+
+#scrollMobile {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 10px;
+    align-content: center;
+}
+
+#videoHome {
+    height: 75%;
+    margin-left: 2px;
+    top: 55px;
+    margin-right: 2px;
+}
+
+.imgen-carousel {
+    position: relative;
+    height: 80vh;
+}
+
+.imgen-carousel1 {
+    position: relative;
+    height: 50vh;
+}
+
+.btn-carousel {
+    font-family: Arial;
+    margin-top: 3% !important;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.font-links {
+    font-size: 30px;
+}
+
+.font-carousel {
+    font-size: 58px !important;
+    font-family: 'BentonSans', sans-serif !important;
+    animation: slideFadeUp 1s ease backwards;
+    animation-delay: 1.0s;
+    color: white;
+    padding: 15px;
+}
+
+.margenImagenes {
+    padding: 0px 0px !important;
+}
+
+#more_info {
+    display: block;
+}
+
+#more_info_mobile {
+    display: none;
+}
+
+.img-more-information {
+    background-position: center;
+}
+
+    .img-more-information:hover {
+        transition: 0.5s ease-in;
+        position: center;
+        text-decoration: none;
+        cursor: pointer;
+        opacity: 0.8;
+    }
+
+/*-----------------CRUCERO Categoria-----------*/
+#textoDerecha {
+    margin-right: 30px
+}
+
+
+@media(min-width:720px) {
+    #textoIzquierda {
+        margin-left: 30px
+    }
+}
+
+#textoDerecha1 {
+    margin-right: 32px;
+    margin-left: 15px;
+}
+
+#textoAngermeyer {
+    margin-left: 10px;
+    margin-right: 27px
+}
+
+#textoIzquierda1 {
+    margin-right: 15px;
+    margin-left: 20px
+}
+
+.boxAllCruises {
+    padding-top: 10px;
+    padding-left: 10px;
+    font-family: Arial;
+}
+
+    .boxAllCruises a {
+        text-decoration: none
+    }
+
+.cruceros-boton {
+    border-radius: 5px 15px 5px 15px !important;
+    padding: 6px 20px !important;
+    font-size: 15px;
+}
+
+.dailyTour-boton {
+    border-radius: 5px 15px 5px 15px !important;
+    padding: 6px 20px !important;
+    font-size: 15px;
+    margin-left: 20px;
+}
+
+@media(max-width:900px) {
+    #textoDerecha1 {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    #textoIzquierda1 {
+        margin-right: 10px;
+        margin-left: 10px
+    }
+
+    #textoAngermeyer {
+        margin-left: 10px;
+        margin-right: 10px
+    }
+}
+
+#imgMore {
+    margin-top: 150px
+}
+
+@media (min-width: 500px) and (max-width: 800px) {
+    .item .caption p {
+        margin-top: 80px;
+    }
+}
+
+@media (min-width: 720px) and (max-width: 800px) {
+    #textoDerecha {
+        margin-right: 30px
+    }
+
+    #textoIzquierda {
+        margin-left: 30px
+    }
+}
+
+@media (max-width:800px) {
+    .tamLetra {
+        font-size: 20px
+    }
+
+    .cruceros-boton {
+        border-radius: 10px 22px 10px 22px !important;
+        padding: 5px 15px !important;
+        font-size: 15px;
+        background-color: #398AC9;
+        color: white;
+        font-family: 'BentonSans',sans-serif;
+    }
+
+    .dailyTour-boton {
+        border-radius: 10px 22px 10px 22px !important;
+        padding: 5px 15px !important;
+        font-size: 15px;
+        margin-left: 0px;
+    }
+
+    .cruisesCatMov {
+        display: none;
+    }
+}
+/*-----------------CRUCERO PRODUCTO-----------*/
+.wrapper-menu {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 10px;
+    align-content: center;
+}
+
+.btn-videoCarousel {
+    margin-left: 300px;
+    margin-top: 100px;
+    text-align: justify;
+}
+
+.tamModal {
+    max-height: 40em;
+}
+
+#contenedorGaleriaMobile {
+    display: none;
+}
+
+#contenedorGaleria {
+    display: none;
+}
+
+#sub-menuProd-Mobil {
+    display: none;
+}
+
+#sub-menu-productos {
+    display: block;
+}
+
+#sub-menu-product {
+}
+
+    #sub-menu-product:hover {
+        text-decoration-line: overline;
+        z-index: 20;
+        border-bottom: 2px solid;
+        color: #398AC9;
+        margin-top: 10px;
+    }
+
+.video-product {
+    margin-top: 10%;
+    font-size: 18px;
+}
+
+.dropdownDate {
+    text-align: right;
+    margin-right: 8%;
+    margin-top: 38px !important;
+}
+
+    .dropdownDate ul {
+        left: auto;
+        right: 0;
+    }
+
+#related_prod {
+    display: block;
+}
+
+.galeria-prod {
+    padding-left: 0;
+    height: 362px;
+    width: 280px;
+}
+
+.galeria-prod-II {
+    height: 362px;
+    width: 280px;
+}
+/* The closeVideo Button */
+.close-boton {
+    position: absolute;
+    top: 18px;
+    right: 9%;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #0077ba;
+    opacity: 0.7;
+    z-index: 4000;
+    background-color: rgba(255, 255, 255, 0.00);
+}
+
+    .close-boton:hover,
+    .close-boton:focus {
+        color: #179fec;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+#slider-itinerary-prod {
+    display: block;
+}
+
+#slider-itinerary-prod-mov {
+    display: none;
+}
+
+#services {
+    display: block;
+}
+
+#services-mobile {
+    display: none;
+}
+
+.submenu {
+    border: none;
+    margin-left: 15%;
+    width: 100%
+}
+
+#btn-itineraries {
+    display: block;
+}
+
+#btn-itineraries-mobile {
+    display: none;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 65%;
+    min-height: 80%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+    .popup h2 {
+        margin-top: 0;
+        color: #333;
+        font-family: Tahoma, Arial, sans-serif;
+    }
+
+    .popup .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        transition: all 200ms;
+        font-size: 30px;
+        font-weight: bold;
+        text-decoration: none;
+        color: deepskyblue;
+    }
+
+        .popup .close:hover {
+            color: #808080;
+        }
+
+    .popup .content {
+        max-height: 30%;
+        overflow: auto;
+    }
+
+.izquierda {
+    margin-right: 90%;
+}
+
+@media screen and (max-width: 700px) {
+    .box2 {
+        width: 70%;
+    }
+
+    .popup {
+        width: 70%;
+    }
+    /*-------------Footer--------------*/
+    .redSocial {
+        /*display: none;*/
+    }
+
+    .redSocialMov {
+        margin-top: -20px;
+        display: flex;
+    }
+}
+
+.modalVideo {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* modalVideo Content */
+.modalVideo-content {
+    background-color: #fefefe;
+    margin: 0px;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The closeVideo Button */
+.closeVideo {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px !important;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fefefe;
+    opacity: 0.7;
+}
+
+    .closeVideo:hover,
+    .closeVideo:focus {
+        color: #fefefe;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+/*===grid galera productos====*/
+#grid-gale-social {
+    display: block;
+}
+
+#grid-gale-social-mob {
+    display: none;
+}
+
+#grid-prod-galery-ext {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 15px;
+    align-content: center;
+}
+
+#grid-prod-galery-ext-Passion {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 1fr;
+    grid-gap: 15px;
+    align-content: center;
+}
+
+#caja-galeria-ext {
+    grid-column: 1/3;
+}
+
+#caja-galeria2-ext {
+}
+
+#caja-galeria3-ext {
+}
+
+#caja-galeria4-ext {
+    grid-column: 2/4;
+}
+
+#grid-gale-exp {
+    display: block;
+}
+
+#grid-gale-exp-mob {
+    display: none;
+}
+
+#grid-prod-galery-exp {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 171px 171px;
+    grid-gap: 38px;
+    align-content: center;
+}
+
+#caja-galeria-exp {
+    grid-area: 1;
+}
+
+#caja-galeria2-exp {
+    /*filas/columnas/filas/columnas*/
+    grid-area: 1/2/3/3;
+}
+
+#caja-galeria3-exp {
+    grid-area: 2/1;
+}
+
+.margenModal {
+    width: 100%;
+    height: 100%
+}
+/*================FORM TAYLOR MADE*/
+.font-modal {
+    font-family: Arial;
+    font-size: 15px;
+    color: #5B5A5A;
+}
+
+.footer-taylor {
+    margin-top: 0;
+}
+
+.textarea-taylor {
+    height: 231px !important;
+}
+/*=============DAILY TOURS PRODUCT==============*/
+.text-bullet {
+    color: #0077ba;
+    font-size: 18px;
+}
+
+#isabela-operations {
+    display: block;
+}
+
+#isabela-operations-mob {
+    display: none;
+}
+
+#tours-details {
+    display: block;
+}
+
+#tours-details-mob {
+    display: none;
+}
+
+.listDailyTours ul {
+    list-style-type: disc;
+    padding-left: 16px;
+    font-family: Arial;
+    font-size: 16px;
+}
+
+    .listDailyTours ul li {
+        margin-bottom: 12px;
+    }
+
+.itinerMargin p {
+    margin: 2%;
+}
+
+.itinerLocation p {
+    width: 100%
+}
+
+.listTourDetails h3 {
+    color: white;
+    font-family: 'BentonSans',sans-serif;
+    text-align: inherit
+}
+
+.listTourDetails ul {
+    list-style-type: disc;
+    padding-left: 16px;
+    font-family: Arial;
+    font-size: 16px;
+    color: white;
+}
+
+.listTourDetails p {
+    color: white;
+    line-height: 1.5em;
+    text-align: justify
+}
+
+.Includes {
+}
+
+.listTourDetails .Includes h3 {
+    color: #0077BA;
+    font-family: 'BentonSans',sans-serif;
+    text-align: inherit
+}
+
+.listTourDetails .Includes p strong {
+    color: #0077BA;
+    font-family: 'BentonSans',sans-serif;
+    text-align: inherit
+}
+
+.listTourDetails .Includes ul {
+    color: black;
+    font-family: 'BentonSans',sans-serif;
+    text-align: inherit;
+    list-style-type: disc;
+    padding-left: 16px;
+    font-size: 16px;
+}
+/*Cards Tours DailyTourIsland*/
+.cruise-info .DailyCardPrice {
+    text-align: left;
+    font-family: Arial;
+    font-size: 15px;
+    line-height: 1.2;
+    padding: 0.5em 1.5em !important;
+    margin-top: -10px !important;
+}
+
+.tourDetails p {
+    color: black;
+}
+
+.tourDetailsIsabela p {
+    line-height: 1.2;
+    margin-bottom: 10px;
+    color: black;
+}
+
+@media (max-width:480px) {
+    .mainland-item .tourDetails p {
+        height: 110px;
+    }
+
+    .mainland-item .cruise-info .rest-info {
+        font-size: 14px;
+    }
+}
+/*==============ecuador-itineraries========*/
+#ecuador-eve-mob {
+    display: none !important;
+}
+
+#ecuador-eve {
+    display: block !important;
+}
+
+.social {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 200px;
+    z-index: 2000;
+}
+
+    .social ul {
+        list-style: none;
+    }
+
+        .social ul li a {
+            display: inline-block;
+            color: #fff;
+            background: #000;
+            padding: 12px 25px;
+            text-decoration: none;
+            -webkit-transition: all 500ms ease;
+            -o-transition: all 500ms ease;
+            transition: all 500ms ease; /*/* Establecemos una transición a todas las propiedades */
+        }
+
+        .social ul li .icon-facebook {
+            background: #3b5999;
+            background-image: url('../images/RedesSociales/face.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        /* Establecemos los colores de cada red social, aprovechando su class */
+        .social ul li .icon-twitter {
+            background: #00abf0;
+            background-image: url('../images/RedesSociales/twitter.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .social ul li .icon-googleplus {
+            background: #51a0ed;
+            background-image: url('../images/RedesSociales/linkedin.png');
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .social ul li .icon-intagram {
+            background: #00abf0;
+            background-image: url('../images/RedesSociales/instagram.png');
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .social ul li .tripadvisor {
+            background: #00abf0;
+            background-image: url('../images/RedesSociales/linkedin.png');
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .social ul li a:hover {
+            /* Cambiamos el fondo cuando el usuario pase el mouse */
+            padding: 15px 30px; /* Hacemos mas grande el espacio cuando el usuario pase el mouse */
+        }
+
+#contactostailor_made {
+    display: block;
+}
+
+#contactos {
+    display: block;
+}
+
+    #contactos .freeHelp {
+        font-size: 19px
+    }
+
+    #contactos .numHelp {
+        font-size: 25px
+    }
+
+#contactosMob {
+    display: none;
+}
+
+#disponibilidad {
+    display: block;
+}
+
+#dispo-movil {
+    display: none;
+}
+
+.listadomap {
+    display: none;
+}
+/*=================VISTA TABLET=================*/
+
+@media screen and (min-width:300px) and (max-width:375px) {
+    .cruceroMobile {
+        padding-left: 27px;
+    }
+}
+
+/*-----------------VISTA MOVIL---------------*/
+@media screen and (max-width:992px) {
+    #cruisesFiltersDesktop {
+        display: none;
+    }
+
+    #cruisesFiltersMobile {
+        display: flex;
+        /*margin-left: 0px;*/
+        /*margin-bottom: 10px;*/
+    }
+}
+
+.btnItinerarieMovil {
+    display: none;
+}
+
+.navbar .menuBlogText p {
+    color: black;
+    text-align: end;
+    font-size: 18px;
+    font-family: Arial;
+    margin-top: 5px
+}
+
+.navbar .menuBlogSubscribe {
+    padding-right: 300px;
+}
+
+@media screen and (max-width:500px) {
+    .btnItinerarieDesktop {
+        display: none;
+    }
+
+    .btnItinerarieMovil {
+        display: block;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .text-bullet {
+        color: #0077ba;
+        font-size: 17px;
+    }
+
+    .mapa {
+        display: none;
+    }
+
+    .listadomap {
+        display: block;
+    }
+
+    .navbar .menuBlogText {
+        display: none;
+    }
+
+    .navbar .menuBlogSubscribe {
+        padding-right: 0px;
+    }
+
+    #disponibilidad {
+        display: block;
+    }
+
+    #dispo_escritorio {
+        display: none;
+    }
+
+    #dispo-movil {
+        display: block;
+    }
+
+    .margenBlog {
+        margin: 0 22% 0 10%;
+    }
+
+    #imgCruises {
+        width: 100%;
+        height: 400px;
+    }
+
+    .sticky.is-sticky {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 50px;
+        z-index: 5;
+        width: 100%;
+    }
+
+    #navpagina {
+        display: none;
+    }
+
+    #navmovil {
+        display: flex;
+    }
+
+    #contenedorCruceros {
+        width: 100%;
+        margin: 0;
+        padding: 0 15px 10px 25px;
+    }
+
+
+    .navbar-nav {
+        margin: 0 0;
+    }
+
+    #contactosMob {
+        display: block;
+    }
+
+    #contactostailor_made {
+        display: none;
+    }
+
+    #contactos {
+        display: block;
+    }
+
+        #contactos .freeHelp {
+            font-size: 14px
+        }
+
+        #contactos .numHelp {
+            font-size: 18px
+        }
+    /*#cruisesFiltersDesktop {
+        display: none;
+    }*/
+    /*#cruisesFiltersMobile {
+        display: flex;
+        margin-left: 0px;
+        margin-bottom: 10px;
+    }*/
+    #cruisesFiltersMobile .card {
+        width: 300px;
+        height: 400px;
+    }
+
+    #btnfilters {
+        border-radius: 10px 10px 0 0;
+        padding: 5px 15px;
+        border-style: inset;
+        border-top-color: #ff0000;
+        color: rgba(0,0,0,0.75);
+        background: #ede6e6;
+    }
+
+    #filterScroll {
+        overflow-x: auto;
+    }
+    /*----------------HOME-------------*/
+    .contenedorHome {
+        width: 100%;
+        margin: 0;
+        padding: 0 10px 10px 10px;
+    }
+
+    .font-links {
+        font-size: 15px;
+    }
+    /*-----------------CRUCERO Categoria-----------*/
+    #imgMore {
+        margin-top: 40px;
+    }
+
+
+
+    #wrapperLinkHome {
+        display: grid;
+        grid-template-columns: 28% 55% 5%;
+        grid-gap: 5px;
+        align-content: center;
+        margin-right: 0;
+    }
+
+
+
+    #cajaLink {
+        text-align: right;
+    }
+
+    #cajaLink2 {
+        text-align: center;
+    }
+
+    #cajaLink3 {
+        text-align: center;
+    }
+
+    #btn_Plan {
+        display: inline-block;
+        padding: 5px 17px;
+        border-radius: 5px 15px 5px 15px;
+        background-color: #398AC9;
+        color: white;
+    }
+
+        #btn_Plan:hover {
+            background-color: #179fec;
+            color: white;
+        }
+
+    #btn_Plan_Help {
+        display: none;
+    }
+
+    #scrollMobile {
+        display: flex;
+        margin-left: 15px;
+        overflow-x: auto;
+    }
+
+    .imagenHome {
+        width: 290px;
+        height: auto;
+        margin-right: 20px;
+        margin-bottom: 15px;
+    }
+
+    .imgen-carousel {
+        height: 70vh;
+    }
+
+    .imgen-carousel1 {
+        height: 70vh;
+    }
+
+    .btn-carousel {
+        font-family: 'Gill Sans';
+        margin-top: 10%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .font-carousel {
+        font-size: 45px !important;
+        font-family: 'BentonSans', sans-serif;
+        animation: slideFadeUp 1s ease backwards;
+        animation-delay: 1.0s;
+    }
+
+    .margenImagenes {
+    }
+
+    #more_info {
+        display: none;
+    }
+
+    #more_info_mobile {
+        display: block;
+    }
+    /*===================CRUSEROS PRODUCTOS==================*/
+    .btn-videoCarousel {
+        margin-left: 0;
+        margin-top: 0;
+        text-align: center;
+    }
+
+    #contenedorGaleriaMobile {
+        display: block !important;
+    }
+
+    #contenedorGaleria {
+        display: none;
+    }
+
+    #sub-menuProd-Mobil {
+        display: block;
+    }
+
+    #sub-menu-productos {
+        display: none;
+    }
+
+    .video-product {
+        margin: -20px;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .galeria-prod {
+        padding: 0;
+        height: 362px;
+        width: 100%;
+    }
+
+    .galeria-prod-II {
+        padding: 0;
+        height: 362px;
+        width: 100%;
+    }
+
+    #related_prod {
+        display: block;
+    }
+
+    #slider-itinerary-prod {
+        display: none;
+    }
+
+    #slider-itinerary-prod-mov {
+        display: block;
+    }
+
+    #services {
+        display: none;
+    }
+
+    #services-mobile {
+        display: block;
+    }
+
+    #services {
+        display: none;
+    }
+
+    #services-mobile {
+        display: block;
+    }
+
+    #btn-itineraries {
+        display: none;
+    }
+
+    #btn-itineraries-mobile {
+        display: block;
+    }
+    /*===grid galera productos====*/
+    #grid-gale-social {
+        display: none;
+    }
+
+    #grid-gale-social-mob {
+        display: block;
+    }
+
+    #grid-prod-galery-ext {
+        display: grid;
+        display: block;
+        grid-template-columns: 1fr;
+        grid-template-rows: 300px 300px 300px 300px;
+        grid-gap: 15px;
+        align-content: center;
+    }
+
+    #grid-prod-galery-ext-Passion {
+        display: grid;
+        display: block;
+        grid-template-columns: 1fr;
+        grid-template-rows: 300px 300px;
+        grid-gap: 15px;
+        align-content: center;
+    }
+
+    #caja-galeria-ext {
+        grid-area: 1/ 1 / 1/ 2;
+        margin-top: 15px;
+    }
+
+    #caja-galeria2-ext {
+        grid-area: 2/ 1 / 2/ 2;
+        margin-top: 15px;
+    }
+
+    #caja-galeria3-ext {
+        grid-area: 3/ 1 / 3/ 2;
+        margin-top: 15px;
+    }
+
+    #caja-galeria4-ext {
+        grid-area: 4/ 1 / 4/ 2;
+        margin-top: 15px;
+    }
+
+
+    .availabilityProduct .container {
+        margin-top: 15px;
+        border-bottom: groove;
+        font-family: Arial;
+        border-width: 0.5px;
+        border-bottom-color: rgba(0, 0, 0, 0.24);
+    }
+
+        .availabilityProduct .container .col-xs-6 {
+            text-align: center;
+            line-height: 0.6
+        }
+
+        .availabilityProduct .container .col-xs-12 {
+            text-align: center;
+            border-right: none;
+            line-height: 0.6
+        }
+
+
+
+    /*==========DAILY TOURS============*/
+    #isabela-operations {
+        display: none;
+    }
+
+    #isabela-operations-mob {
+        display: block;
+    }
+
+    .font-modal {
+        font-family: Arial;
+        font-size: 15px;
+        color: #5B5A5A;
+        margin: 0 !important;
+    }
+
+    #tours-details {
+        display: none;
+    }
+
+    #tours-details-mob {
+        display: block;
+    }
+    /*==============ecuador-itineraries========*/
+    #ecuador-eve-mob {
+        display: block !important;
+    }
+
+    #ecuador-eve {
+        display: none !important;
+    }
+    /*===============redes sociales blog======*/
+    #comentario {
+        display: none;
+    }
+
+    #comentario-mob {
+        display: block;
+    }
+
+    .social {
+        display: none;
+    }
+
+    .social-mob {
+        display: block;
+        position: fixed; /* Hacemos que la posición en pantalla sea fija para que siempre se muestre en pantalla*/
+        left: 0; /* Establecemos la barra en la izquierda */
+        top: 200px; /* Bajamos la barra 200px de arriba a abajo */
+        z-index: 2000;
+    }
+
+        .social-mob ul {
+            list-style: none;
+        }
+
+            .social-mob ul li a {
+                display: inline-block;
+                color: #fff;
+                background: #000;
+                padding: 10px 15px;
+                text-decoration: none;
+                -webkit-transition: all 500ms ease;
+                -o-transition: all 500ms ease;
+                transition: all 500ms ease; /* Establecemos una transición a todas las propiedades */
+            }
+
+            .social-mob ul li .icon-facebook {
+                background: #00abf0;
+                background-image: url('../images/RedesSociales/face.jpg');
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            /* Establecemos los colores de cada red social, aprovechando su class */
+            .social-mob ul li .icon-twitter {
+                background: #00abf0;
+                background-image: url('../images/RedesSociales/twitter.jpg');
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
+            .social-mob ul li .icon-googleplus {
+                background: #51a0ed;
+                background-image: url('../images/RedesSociales/linkedin.png');
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
+    .padd {
+        padding-left: 30px;
+    }
+
+    .tamModal {
+        max-height: 45em !important;
+    }
+}
+/*=================Pantallas largas width================*/
+@media screen and (min-width:905px) and (max-width:1184px) {
+    .galeria-prod {
+        padding-left: 10px;
+        height: 362px;
+        width: 450px;
+        padding-right: 5px;
+    }
+
+    .galeria-prod-II {
+        padding-right: 5px;
+        height: 362px;
+        width: 450px;
+    }
+
+    .font-links {
+        font-size: 15px;
+    }
+
+    .tamModal {
+        max-height: 40em;
+    }
+}
+
+@media screen and (width:1500px)and (height:667px) {
+    .tamModal {
+        max-height: 40em !important;
+    }
+}
+
+@media screen and (width:1920px)and (height:947px) {
+    .tamModal {
+        max-height: 65em !important;
+    }
+}
+
+@media screen and (width:1280px)and (height:923px) {
+    .tamModal {
+        max-height: 52em !important;
+    }
+}
+/*=================Pantallas tablet =========================*/
+@media screen and (width:768px) and (height:1024px) {
+    .tamModal {
+        max-height: 70em !important;
+    }
+
+
+    .MarAdd {
+        padding-top: 10px;
+    }
+
+    .mapa {
+        display: none;
+    }
+
+    .listadomap {
+        display: block;
+    }
+
+    #disponibilidad {
+        display: block;
+    }
+
+    #dispo-movil {
+        display: block;
+    }
+
+    .item .caption p a .read-more {
+        margin-top: 45%
+    }
+}
+
+@media screen and (width:1024px) and (height:1366px) {
+    .tamModal {
+        max-height: 90em;
+    }
+
+    #disponibilidad {
+        display: block;
+    }
+
+    #dispo-movil {
+        display: block;
+    }
+
+    .cardsAndando {
+        width: 300px
+    }
+}
+
+@media screen and ( min-width:1250) {
+    .tamModal {
+        max-height: 45em;
+    }
+}
+/*=================Pantallas MAX-largas width================*/
+@media screen and (min-width:1250px) and (max-width:1919px) {
+    .submenu {
+        border: none;
+        margin-left: 26%;
+        width: 100%
+    }
+
+    .social {
+        position: fixed;
+        left: 0;
+        top: 200px;
+        z-index: 2000;
+    }
+
+    .margenModal {
+        width: 75%;
+        height: 100%
+    }
+    /*================FORM TAYLOR MADE*/
+    .footer-taylor {
+        margin-top: 1%;
+    }
+
+    .textarea-taylor {
+        height: 150px !important;
+    }
+
+    .video-product {
+        margin-top: 3% !important;
+        font-size: 18px;
+    }
+}
+/*=================Pantallas MAX-HD width================*/
+@media screen and (min-width:1920px) and (max-width:1999px) {
+    .video-product {
+        margin-top: 20% !important;
+        font-size: 18px;
+    }
+
+    .tamModal {
+        max-height: 70em;
+    }
+
+    .submenu {
+        border: none;
+        margin-left: 26%;
+        width: 100%
+    }
+
+    .rowCards {
+        padding-left: 16.5%;
+        padding-right: 17.5%;
+    }
+}
+
+@media screen and (min-width:2000px) and (max-width:3000PX) {
+    .submenu {
+        border: none;
+        margin-left: 32%;
+        width: 100%
+    }
+
+    .margenModal {
+        width: 75%;
+        height: 100%
+    }
+
+    .social {
+        position: fixed;
+        left: 0;
+        top: 200px;
+        z-index: 2000;
+    }
+    /*================FORM TAYLOR MADE*/
+    .footer-taylor {
+        margin-top: 1%;
+    }
+
+    .textarea-taylor {
+        height: 231px !important;
+    }
+
+    .video-product {
+        margin-top: 20% !important;
+        font-size: 18px;
+    }
+
+    .tamModal {
+        max-height: 70em;
+    }
+
+    .rowCards {
+        padding-left: 24.5%;
+        padding-right: 25.5%;
+    }
+}
+/*-----------------PANTALLAS GRANDES -------------------*/
+@media screen and (min-height:905px) {
+    #videoHome {
+        height: 90%;
+        margin-left: 2px;
+        top: 55px;
+        margin-right: 2px;
+    }
+    /*================FORM TAYLOR MADE*/
+    .footer-taylor {
+        margin-top: 4%;
+    }
+
+    .textarea-taylor {
+        height: 231px !important;
+    }
+}
+
+/*-----------------Cards----------------------------*/
+.mainland-wrapper {
+    width: 100%;
+    position: relative;
+    margin-top: -4em
+}
+
+    .mainland-wrapper .mainland {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap
+    }
+
+        .mainland-wrapper .mainland .col-lg-4 {
+            padding-left: 20px;
+        }
+
+@media (max-width:500px) {
+    .mainland-wrapper .mainland {
+        display: flex;
+    }
+}
+
+@media (max-width:1200px) {
+    .mainland-wrapper .mainland .mainland-item {
+        /*width: 280px !important;*/
+    }
+}
+
+@media (min-width:480px) and (max-width:800px) {
+    .mainland-wrapper {
+        width: 100%;
+    }
+
+        .mainland-wrapper .mainland .mainland-item {
+            /*width: 235px !important;*/
+        }
+
+    .container-fluid {
+        padding-left: 5px;
+    }
+
+    .mainland-wrapper .mainland .col-lg-4 {
+        padding-left: 0px;
+    }
+}
+
+@media (min-width:400px) and (max-width:470px) {
+
+    .mainland-wrapper .mainland .mainland-item {
+        width: 350px !important;
+    }
+
+    .blogimg {
+        padding-right: 10px;
+        padding-left: 32px;
+    }
+}
+
+@media (min-width:330px) and (max-width:400px) {
+
+    .mainland-wrapper .mainland .mainland-item {
+        width: 325px !important;
+    }
+
+    .blogimg {
+        padding-right: 2px;
+        padding-left: 22px;
+    }
+}
+
+@media (max-width:320px) {
+
+    .mainland-wrapper .mainland .mainland-item {
+        width: 290px !important;
+    }
+
+    .blogimg {
+        padding-right: 0px;
+    }
+}
+
+.mainland-wrapper .mainland .mainland-item {
+    border: 1px solid rgba(0,0,0,.1);
+    /*width: 350px;*/
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1em .5em;
+    -webkit-transition: top .1s linear,-webkit-box-shadow;
+    transition: top .1s linear,-webkit-box-shadow;
+    transition: box-shadow,top .1s linear;
+    transition: box-shadow,top .1s linear,-webkit-box-shadow;
+    position: relative
+}
+
+    .mainland-wrapper .mainland .mainland-item:hover .mainland-image .main-info {
+        background: rgba(44,48,64,.9);
+        color: #fff
+    }
+
+    .mainland-wrapper .mainland .mainland-item:hover {
+        -webkit-box-shadow: 0 1em 1rem 0 hsla(0,0%,50%,.5);
+        box-shadow: 0 1em 1rem 0 hsla(0,0%,90%,.8);
+        top: -.5rem
+    }
+
+    .mainland-wrapper .mainland .mainland-item .mainland-image {
+        max-width: 100%;
+        position: relative
+    }
+
+        .mainland-wrapper .mainland .mainland-item .mainland-image .img-portada {
+            width: 420px !important;
+            height: 240px !important
+        }
+
+        .mainland-wrapper .mainland .mainland-item .mainland-image .main-info {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: baseline;
+            -ms-flex-align: baseline;
+            align-items: baseline;
+            font-size: 12px;
+            position: absolute;
+            background: rgba(64,133,24,.78);
+            border-radius: 8px 20px 8px 20px;
+            color: #fff;
+            padding: .5em .75em;
+            top: 90%;
+            left: 12px;
+            -webkit-transition: .5s ease-in;
+            transition: .5s ease-in;
+            font-weight: 700
+        }
+
+        .mainland-wrapper .mainland .mainland-item .mainland-image .main-info1 {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: baseline;
+            -ms-flex-align: baseline;
+            align-items: baseline;
+            font-size: 12px;
+            position: absolute;
+            background: rgba(57,138,201,.77);
+            border-radius: 8px 20px 8px 20px;
+            color: #fff;
+            padding: .5em .75em;
+            top: 90%;
+            left: 12px;
+            -webkit-transition: .5s ease-in;
+            transition: .5s ease-in;
+            font-weight: 700
+        }
+
+        .mainland-wrapper .mainland .mainland-item .mainland-image .main-info:hover {
+            background: rgba(44,48,64,.9)
+        }
+
+        .mainland-wrapper .mainland .mainland-item .mainland-image .main-info1:hover {
+            background: rgba(44,48,64,.9)
+        }
+
+@media(max-width:720px) {
+    .mainland-wrapper .mainland {
+        display: flex;
+        margin-left: 0px;
+    }
+
+        .mainland-wrapper .mainland .mainland-item {
+            border: 1px solid rgba(0,0,0,.1);
+            /*width: 290px;*/
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 1em .5em;
+            -webkit-transition: top .1s linear,-webkit-box-shadow;
+            transition: top .1s linear,-webkit-box-shadow;
+            transition: box-shadow,top .1s linear;
+            transition: box-shadow,top .1s linear,-webkit-box-shadow;
+            position: relative
+        }
+}
+
+@media (min-width:480px) and (max-width:700px) {
+
+    .mainland-wrapper .mainland {
+        padding-left: 25px;
+        padding-right: 10px;
+    }
+}
+
+.mainland-wrapper .mainland .mainland-item .mainland-info h3 {
+    margin-top: 1em;
+    font-size: 17px;
+    padding: .5em 1em;
+    text-align: left;
+    color: #0077ba;
+}
+
+.mainland-wrapper .mainland .mainland-item .mainland-info p {
+    margin-top: -.5em;
+    padding: 0 1.5em;
+}
+
+.mainland-wrapper .mainland .mainland-item .mainland-info .rest-info {
+    margin-top: .75em;
+    padding: .25em .5em;
+    color: #0077ba
+}
+
+    .mainland-wrapper .mainland .mainland-item .mainland-info .rest-info .price {
+        margin-left: 1em
+    }
+
+/*----------------------------Textos----------------*/
+.f-15 {
+    line-height: 2;
+    text-align: justify !important;
+    font-size: 15px !important
+}
+
+    .f-15 p {
+        line-height: 1.5em;
+        font-family: Arial;
+        font-size: 16px;
+    }
+
+        .f-15 p a {
+            color: #337ab7;
+        }
+
+            .f-15 p a:hover {
+                color: #337ab7;
+                text-decoration: none;
+            }
+
+.close-form {
+    background: rgba(20,104,164,.7);
+    color: #fff;
+    border-radius: 50%;
+    padding: .65rem;
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 20px;
+}
+
+
+.owl-next, .owl-prev {
+    position: absolute;
+    color: #0077ba !important;
+    font-size: 60px !important;
+    top: 50%;
+    margin-top: -10px;
+    font-family: Open_Sans_Regular;
+    font-weight: 300;
+    line-height: 20px;
+}
+
+    .owl-next:hover, .owl-prev:hover {
+        background: #fff !important
+    }
+
+.owl-prev {
+    left: 0
+}
+
+.owl-next {
+    right: 0
+}

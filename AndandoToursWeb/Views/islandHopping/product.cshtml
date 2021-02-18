@@ -1,0 +1,818 @@
+﻿@{
+    Layout = "_Layout";
+}
+<link rel="stylesheet" type="text/css" href="~/font/fontello.css" />
+<link rel="stylesheet" href="~/css/owl.carousel.css" />
+<link rel="stylesheet" href="~/css/owl.theme.default.css" />
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<div style="overflow-x:hidden;font-family:Arial">
+    <div style="overflow:hidden">
+        <div class="item active imgen-carousel">
+            <div class="fondos-imagen" style="background-image:url(../../images/Cruceros-Productos/ss-mary-anne-galapagos-sailing-cruise.jpg);">
+                <img src="" alt="sailing Galapagos" class="fondos-imagen" style=" background-image:url(../../images/Cruceros-Productos/ss-mary-anne-galapagos-sailing-cruise.jpg); position:center; height:100%; width:100%;" />
+            </div>
+            <div class="caption" style="text-align:center; padding-bottom:40px" role="option">
+                <h1 class="font-x2 font-brush font-carousel" style="text-shadow:1px 1px 1px rgba(0, 0, 0, 0.5)">
+                    <strong>WildAid's Passion Galapagos Cruise</strong>
+                </h1>
+                <p class="font-x2 " style="font-size:18px; margin-top:0; font-family:'BentonSans',sans-serif">
+                    Turning a luxury cruise into one of the most indulgent experiences of your life.
+                </p><br /><br /><br /><br />
+                <div class="container  ">
+                    <p class="text-left video-product" style="transition:1s; ">
+                        <a id="btnVideoLinkProd" class="btnVIDEO2" style="background-color:#F8F8F8;font-family:Arial" href="#videostoryProd">
+                            <span class="fa fa-play"></span>&nbsp;&nbsp;VIEW VIDEO
+                        </a>
+                    </p>
+                    <div id="videostoryProd" tabindex="-1" class="modalVideo embed-responsive embed-responsive-16by9" style=" position:fixed; height:100%; width:100%; overflow:hidden;z-index:10000;background-color:black">
+                        <iframe id="videoHome" class="embed-responsive-item " style="top:5px;" src="https://www.youtube.com/embed/UCIiazShjUM?rel=0" frameborder="0" allowfullscreen></iframe>
+                        <span class="btn icon-cancel-circled closeVideo" style="right:-5px"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--======================== FIXED SUBMENU=====================-->
+        <nav class="navbar  navbarsubmenu page-nav-home" data-toggle="sticky-onscroll" id="navpagina" style="background-color:white; font-family: Arial; border: 1px solid rgba(0,0,0,.1);border-top:0px;">
+            <div class="limit" style="max-width:100%">
+                <nav class="page-nav-anchors" style="text-transform:none;margin:0" id="sub-menu-productos">
+                    <table class="submenu">
+                        <tr>
+                            <td style="border:none;width:100px; margin:0 0;">
+                                <a id="sub-menu-product" class="nav-item nav-link " style="text-decoration:none; color:#0077ba; width:100px; font-size:15px" href="#Overview"><span>Overview</span> </a>
+                            </td>
+                            <td style="border:none;width:100px;margin:0 0;">
+                                <a id="sub-menu-product" class="nav-item nav-link  " style="text-decoration:none; color:#0077ba; width:100px;  font-size:15px" href="#Gallery"><span>Gallery</span></a>
+                            </td>
+                            <td style="border:none;width:100px;margin:0 0;">
+                                <a id="sub-menu-product" class="nav-item nav-link  " style="text-decoration:none; color:#0077ba; width:100px; font-size:15px " href="#Itineraries"><span>Itineraries</span></a>
+                            </td>
+                            <td style="border:none;width:100px;margin:0 0;">
+                                <a id="sub-menu-product" class="nav-item nav-link  " style="text-decoration:none; color:#0077ba; width:100px; font-size:15px " href="#Disponibilidad"><span>Availability</span></a>
+                            </td>
+                            <td style="border:none;background-color:#0077ba;width:100%;padding:11px 15px">
+                                <p style="color:white;font-size:15px;text-align:left; margin:0px 0px 0px 25px ">
+                                    <b>
+                                        From $2600 (4 Days)
+                                    </b> &nbsp;
+                                    <a class="btn h5button-nav" style="font-family:SegoeUI, Segoe UI; padding:8px 25px;margin:0; " href="#Disponibilidad" id="help_me_plan2">INQUIRE</a>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </nav>
+            </div>
+        </nav>
+        <!--======================== FIXED SUBMENU MOvil=====================-->
+        <nav id="navmovil" class=" page-nav page-nav-anchors" data-toggle="sticky-onscroll" style="width:100%; ">
+            <table style="border:none;width:100%;height:100%">
+                <tr>
+                    <td style="border:none;width:50%; margin:0 0;padding:5px 23px">
+                        <select class="botonFiltro" onchange="location = this.value;" style="font-size:17px;font-family: Arial; width:100%;text-align:center;color:#4A70E2; background-color:white; padding:0;">
+                            <option value="#Overview">Overview</option>
+                            <option value="#Gallery-mobil">Gallery</option>
+                            <option value="#Itineraries">Itineraries</option>
+                            <option value="#Disponibilidad">Availability</option>
+                        </select>
+                    </td>
+                    <td style="border:none;background-color:#CCCCCC;width:100%;padding:8px 15px">
+                        <center>
+                            <p style="color:black;margin:0" class="">
+                                From <span class="pr"><b>$2600 (4 Days)</b></span>
+                            </p>
+                        </center>
+                    </td>
+                </tr>
+            </table>
+        </nav>
+        <!--======================CONTENIDO=============================-->
+        <div class="container" style="animation: slideFadeUp 1s ease backwards;animation-delay: 1.3s;line-height:2">
+            <div class="contenedorHome">
+                <h2 id="Overview" class="formato-titulo" style="text-align:left">
+                    <strong> The M/Y Passion Overview</strong>
+                </h2>
+                <p class="textoinfo parrafo formato-parrafo">
+                    An operation as seamless as WildAid´s Passion for Galapagos has taken many years to perfect.
+                    Years of analyzing itineraries, years of gathering the best possible staff and crew: the most passionate, well-rounded and generous employees in the business.
+                </p>
+                <p class="textoinfo parrafo formato-parrafo">
+                    The experience abroad the M/Y Passion has been conceived to create a unique balance between you and your surroundings, turning service into effortless courtesy
+                    and a luxury cruise across the Galapagos archipelago into one of the most indulging experiences of your life.
+                </p>
+                <p class="textoinfo parrafo formato-parrafo">
+                    The biggest yacht for its category, offering spacious and comfortable social áreas in its four decks so that each of our passengers can find its privacy outside as well as inside of the cabins.
+                    A luxury experience should for sure include very personalized services and enough space to feel comfort and privacy while you travel; our ample social áreas and a ratio of almost one crew member
+                    for each passenger ensure that you have both while cruising on board the M/Y Passion.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="overflow:hidden">
+        <div class="contenedorHome" style="animation: slideFadeUp 1s ease backwards;animation-delay: 1.3s;">
+            <h2 class="formato-titulo" style="text-align:left">
+                <strong>Why it is feature</strong>
+            </h2>
+            <p class="textoinfo parrafo formato-parrafo">
+                -Somos dueños  y operarios de barcos, habiendo tenido 12 barcos en islas , ademas de tener acuerdos inigualables con otros operadores.
+                <br />
+                -Contacta con nosotros tendrás un contacto directo en Ecuador y en Galapagos para tu viaje.<br />
+                -Somos dueños  y operarios de barcos, habiendo tenido 12 barcos en islas , ademas de tener acuerdos inigualables con otros operadores.
+                <br />
+                -Contacta con nosotros tendrás un contacto directo en Ecuador y en Galapagos para tu viaje.
+            </p>
+            <div class="col-md-6 textoinfo parrafo formato-parrafo" style="padding:0 10px 0 0;">
+                <img src="~/images/icon/icon-hotel.png" style=" display:inline-flex; width:20px;height:25px" alt="Alternate Text" />
+                One-Night pre-cruise stay at a deluxe hotel in Quito
+            </div>
+            <div class="col-md-6 textoinfo parrafo formato-parrafo" style="padding:0;">
+                <img src="~/images/icon/icon-carro.png" style=" display:inline-flex; width:25px;height:25px" alt="Alternate Text" />
+                Transfer to and from the airport in Quito or Guayaquil
+                <br />
+            </div>
+        </div>
+    </div>
+    <!--======================GALLERY=============================-->
+    <section id="Gallery" style="background-color:white;padding-top:5px;padding-bottom:0">
+        <div id="contenedorGaleriaMobil" class="container">
+            <div class="contenedorHome">
+                <h2 style="text-align:left" class="formato-titulo parrafo"><strong>Gallery</strong></h2>
+                <p class="formato-parrafo">
+                    She has been completely refurbished while retaining many of its original features such as the rose-colored marble bathrooms and teak wood decks that make the vessel one of a kind.
+                </p>
+                <div class="col-md-3 galeria-prod">
+                    <a id="btnGaleria" class=" align-content-center" href="../../form_taylorMade/galeria_productModal" data-toggle="modal" data-target="#gale-ModalScrollable">
+                        <img src="~/images/Cruceros-Productos/Galeria/mary-anne-cabin.jpg" alt="sailing Galapagos" class="img-fluid" style="height:100%; width:100%;" />
+                        <div class="caption justify-content-center" style="font-family:Arial; margin-top:100px; text-align:center;padding:25px">
+                            <strong class="parrafo">Cabins</strong>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 galeria-prod-II">
+                    <a id="btnGaleria2" class=" align-content-center" href="../../form_taylorMade/galeria2_productModal" data-toggle="modal" data-target="#gale2-ModalScrollable">
+                        <img src="~/images/Cruceros-Productos/Galeria/mary-anne-deck-area.jpg" alt="sailing Galapagos" class="img-fluid" style="height:100%; width:100%;" />
+                        <div class="caption justify-content-center" style="margin-top:100px; text-align:center;padding:25px">
+                            <strong class="parrafo">Social Areas</strong>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 galeria-prod-II">
+                    <a id="btnGaleria3" class=" align-content-center" href="../../form_taylorMade/galeria3_productModal" data-toggle="modal" data-target="#gale3-ModalScrollable">
+                        <img src="~/images/Cruceros-Productos/Galeria/mary-anne-dining-area.jpg" alt="sailing Galapagos" class="img-fluid" style="height:100%; width:100%;" />
+                        <div class="caption justify-content-center" style="margin-top:100px; text-align:center;padding:25px">
+                            <strong class="parrafo">Gourmet food</strong>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 galeria-prod-II">
+                    <a id="btnGaleria4" class=" align-content-center" href="../../form_taylorMade/galeria4_productModal" data-toggle="modal" data-target="#gale4-ModalScrollable">
+                        <img src="~/images/Cruceros-Productos/Galeria/mary-anne-galapagos-deck-plan-small.jpg" alt="sailing Galapagos" class="img-fluid" style="height:100%; width:100%;" />
+                        <div class="caption justify-content-center" style="margin-top:100px; text-align:center;padding:25px">
+                            <strong class="parrafo">Deck Plan</strong>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    @*============================= GALERIA MOBILE====================================== *@
+    <section id="Gallery-mobil" style="background-color:white;">
+        <div id="contenedorGaleriaMobil" class="container">
+            <div class="contenedorHome">
+                <h2 class="formato-titulo parrafo" style="text-align:left"><strong>Gallery</strong><br />  <br /></h2>
+                <p class="formato-parrafo">
+                    She has been completely refurbished while retaining many of its original features such as the rose-colored marble bathrooms and teak wood decks that make the vessel one of a kind.
+                </p>
+                <div class="col-md-6 col-xs-12" style="padding-left:0">
+                    <img src="~/images/Cruceros-Productos/Galeria/mary-anne-cabin.jpg" alt="sailing Galapagos" class="img-fluid" style="height:75%; width:100%;" />
+                    <br />
+                    <strong class="parrafo" style="font-size:17px"> Cabins &emsp;</strong>
+                    <a id="btnGaleria" onclick="limp()" class="h5button cruceros-boton" style="text-decoration:none; padding:3px 17px !important; font-family:Arial" href="../form_taylorMade/galeria_productModal" data-toggle="modal" data-target="#gale-ModalScrollable">
+                        View More
+                    </a>
+                    <br /><br />
+                    <p class="text-justify">
+                        Blablá blablá baygayha guysguyjgsujgs
+                        guhijklkojihuytyrft ghujhjkjoih hhhj uji
+                        tfyguhjklñ,k.
+                    </p>
+                    <br />
+                </div>
+                <div class="col-md-6 col-xs-12" style="padding-left:0">
+                    <img src="~/images/Cruceros-Productos/Galeria/mary-anne-deck-area.jpg" alt="sailing Galapagos" class="img-fluid" style="height:75%; width:100%;" />
+                    <br />
+                    <strong class="parrafo" style="font-size:17px">Social Areas &emsp;</strong>
+                    <a id="btnGaleria2" class="h5button cruceros-boton" style="text-decoration:none;padding:3px 17px !important; font-family:Arial" href="../form_taylorMade/galeria2_productModal" data-toggle="modal" data-target="#gale2-ModalScrollable">
+                        View More
+                    </a>
+                    <br /><br />
+                    <p class="text-justify">
+                        Blablá blablá baygayha guysguyjgsujgs
+                        guhijklkojihuytyrft ghujhjkjoih hhhj uji
+                        tfyguhjklñ,k.
+                    </p>
+                    <br />
+                </div>
+                <div class="col-md-6 col-xs-12" style="padding-left:0">
+                    <img src="~/images/Cruceros-Productos/Galeria/mary-anne-dining-area.jpg" alt="sailing Galapagos" class="img-fluid" style="height:75%; width:100%;" />
+                    <br />
+                    <strong class="parrafo" style="font-size:17px">Gourmet food &emsp;</strong>
+                    <a id="btnGaleria3" class="h5button cruceros-boton" style="text-decoration:none;padding:3px 17px !important; font-family:Arial" href="../form_taylorMade/galeria2_productModal" data-toggle="modal" data-target="#gale3-ModalScrollable">
+                        View More
+                    </a>
+                    <br /><br />
+                    <p class="text-justify">
+                        Blablá blablá baygayha guysguyjgsujgs
+                        guhijklkojihuytyrft ghujhjkjoih hhhj uji
+                        tfyguhjklñ,k.
+                    </p>
+                    <br />
+                </div>
+                <div class="col-md-6 col-xs-12" style="padding-left:0">
+                    <img src="~/images/Cruceros-Productos/Galeria/mary-anne-galapagos-deck-plan-small.jpg" alt="sailing Galapagos" class="img-fluid" style="height:75%; width:100%;" />
+                    <br />
+                    <strong class="parrafo" style="font-size:17px">Deck Plan &emsp;</strong>
+                    <a id="btnGaleria4" class="h5button cruceros-boton" style="text-decoration:none;padding:3px 17px !important; font-family:Arial" href="../form_taylorMade/galeria2_productModal" data-toggle="modal" data-target="#gale4-ModalScrollable">
+                        View More
+                    </a>
+                    <br /><br />
+                    <p class="text-justify">
+                        Blablá blablá baygayha guysguyjgsujgs
+                        guhijklkojihuytyrft ghujhjkjoih hhhj uji
+                        tfyguhjklñ,k.
+                    </p>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </section>
+    @*================================== Itinerarios======================= *@
+    <div id="itinerBarco">
+        <div>
+            <div id="Itineraries" class="container">
+                <div class="contenedorHome">
+                    <h2 class="formato-titulo" style="margin-top:25px"><strong>M/Y Passion - Galapagos Itineraries</strong></h2>
+                    <p style="font-size:17px;margin:0" class="parrafo formato-parrafo">
+                        These itineraries have been created by Fiddi Angermeyer, a pioneer in Galapagos cruising. He has extensive experience and knowledge of the islands— having guided a large number of passengers
+                        and scientists from all around the world, he possesses an impressive understanding of the currents and winds, which he combines to give people the most enjoyable experience of the island possible
+                    </p>
+                    <br />
+                    <div class="style-scroll style-scrollbtn" style="overflow-x:auto;display:flex">
+
+                        <div class="parrafo" v-for="(itiBarc,index) in itiBarco">
+
+                            <div class="col-md-3">
+                                <a class="btn h5button-BEIGE colorBtnItin" :id="itiBarc.idBarcoItinerario" v-on:click="getEast($event)" style="font-family:SegoeUI, Segoe UI; border:1px groove;border-color:#998787;">CENTRAL AND {{itiBarc.itinNombreCor}} ISLANDS</a>
+                                &emsp;
+                            </div>
+
+                        </div>
+                    </div>
+                    <div style="display:none" id="btn-itineraries-mobile">
+                        <div class="col-md-5 col-xs-12" style="margin-bottom:20px">
+                            <a class="h5button" style="margin:0" href="#">CENTRAL AND EASTERN ISLANDS</a>
+                        </div>
+                        <div class="col-md-4 col-xs-12">
+                            <a class="btn h5button-BEIGE" style="font-family:SegoeUI, Segoe UI; border:1px groove; border-color:#998787;" href="#">CENTRAL AND WESTERN ISLANDS</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*=============================SLIDE====================================== *@
+        <section id="slider-itinerary-prod" style="background-color:white;padding:0">
+            <div class="container">
+                <div id="myCarousel4" class="carousel slide active" style="background-color:white; height:400px; " data-interval="10000000" aria-hidden="true" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div :key="index" v-bind:class="index == 0 ? active : '',noActivo" v-for="(itinerarioBarco, index) in itiBarcoBtn " class="item imgen-carousel" style="height:50%;background-image:url('../../wwwroot/images/Cruceros-Productos/Itinerarios/East/day-1-black-turtle-cove.jpg')">
+                            <div class="row parrafo">
+                                <div class="col-md-6">
+                                    <div class="row f-15 text-justify" style="margin:0; padding: 2em 1em 0; " id="experience_text">
+                                        <h3><p style=" text-align:left; color:#398AC9"><b>{{itinerarioBarco.descripcionEn}}</b><br /> <span style="color:black"><b>{{itinerarioBarco.diaNumero}} DAYS</b></span></p></h3>
+                                        <div v-if="itinerarioBarco.diaNumero == index" class="style-scroll" style="overflow-y:scroll;height:200px">
+                                            <p style=" text-align: left;margin-bottom:0;  font-size:18px">
+                                                AM
+                                            </p>
+                                            <div v-if="busqAm.diaNumero == index" v-for="busqAm in buscarItiAm">
+                                                <a style=" text-align: left;margin-bottom:0;color:#0077ba;  font-size:18px">
+                                                    {{busqAm.itiCompNombre}}
+                                                </a>
+                                            </div>
+                                            <p style=" text-align: left;margin-bottom:0;  font-size:18px">
+                                                PM
+                                            </p>
+                                            <div v-if="busqPm.diaNumero == index" v-for="busqPm in buscarItiPm">
+
+                                                <a style=" text-align: left;margin-bottom:0;color:#0077ba;  font-size:18px">
+                                                    {{busqPm.itiCompNombre}}
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <table style="margin-left:-13px">
+                                            <tr>
+                                                <td style="border:none;padding-right:0">
+                                                    <img src="~/images/icon/icon-walk.jpg" class="img-circle" style="background-color:rgba(0, 0, 0, 0.43);width:35px;height:35px" />
+                                                    <p style="font-size:14px;color:#656b6f">Walks & Hikes</p>
+                                                </td>
+                                                <td style="border:none; padding-top:-10px;padding-right:0 ">
+                                                    <img src="~/images/icon/icon-snork2.jpg" class="img-circle" style="background-color:rgba(0, 0, 0, 0.43); width:35px;height:35px" alt="Alternate Text" />
+                                                    <p style="font-size:14px; color:#656b6f">Snorkeling</p>
+                                                </td>
+                                                <td style="border:none;padding-right:0">
+                                                    <img src="~/images/icon/icon-snork.jpg" class="img-circle" style="background-color:rgba(0, 0, 0, 0.43); width:35px;height:35px" alt="Alternate Text" />
+                                                    <p style="font-size:14px; color:#656b6f">Dinghy Ride</p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" style="padding: 4em 1em;">
+                                    <a v-bind:class="'btn-galeria-itineraries'+(index+1)" class="align-content-center" v-on:click="getModalIti">
+                                        <img style="margin: 0.5px; width:800px; height:368px" src="../../images/Cruceros-Productos/Itinerarios/East/day-2-maryanne-itinerary-east.jpg" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" style="background:none;left:-100px" href="#myCarousel4" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" style="color:#0077ba" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" style="background:none;right:-100px" href="#myCarousel4" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" style="color:#0077ba" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        @*=============================SLIDE MOBILE====================================== *@
+        <section id="slider-itinerary-prod-mov" style="background-color:white;font-family:Arial;padding-bottom:0">
+            <div class="container">
+                <div id="myCarousel5" class="owl-carousel" style="background-color:white; height:100%; ">
+
+                    <div class="item" v-bind:class="index == 0 ? caruActivo : caruNoActiv" v-for="(itinMobBarco, index) in itiBarcoBtn" style="height:100%;">
+                        <div class="row">
+                            <div class="col-md-6" style="padding: 0 13px;">
+                                <a id="btn-galeria-iti-mob" class=" align-content-center" v-on:click="getModalIti" style="font-family:'BentonSans',sans-serif">
+                                    <img style="margin: 0.5px; width:800px; height:335px" src="~/images/Cruceros-Productos/Itinerarios/East/day-1-black-turtle-cove.jpg" />
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row text-justify" style="padding: 2em 1em 0 1em;  line-height:1.5; " id="experience_text">
+                                    <h3 style="margin:0;font-size:16px"><br /><p style="font-family:'BentonSans',sans-serif; color:#0077ba">{{itinMobBarco.diaNumero}} DAYS <span> {{itinMobBarco.descripcionEn}}</span></p></h3>
+                                    <div v-if="itinMobBarco.diaNumero == index" class="style-scroll" style="overflow-y:scroll;height:200px">
+                                        <p style=" text-align: left;margin-bottom:0;  font-size:18px">
+                                            AM
+                                        </p>
+                                        <div v-if="busqAm.diaNumero == index" v-for="busqAm in buscarItiAm">
+                                            <a style=" text-align: left;margin-bottom:0;color:#0077ba;  font-size:18px">
+                                                {{busqAm.itiCompNombre}}
+                                            </a>
+                                        </div>
+                                        <p style=" text-align: left;margin-bottom:0;  font-size:18px">
+                                            PM
+                                        </p>
+                                        <div v-if="busqPm.diaNumero == index" v-for="busqPm in buscarItiPm">
+
+                                            <a style=" text-align: left;margin-bottom:0;color:#0077ba;  font-size:18px">
+                                                {{busqPm.itiCompNombre}}
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <table style="margin-left:-13px">
+                                        <tr>
+                                            <td style="border:none;padding-right:0">
+                                                <img src="~/images/icon/icon-walk.jpg" class="img-circle" style="background-color:rgba(0, 0, 0, 0.43);width:35px;height:35px" />
+                                                <p style="font-size:14px;color:#656b6f">Walks & Hikes</p>
+                                            </td>
+                                            <td style="border:none; padding-top:-10px;padding-right:0 ">
+                                                <img src="~/images/icon/icon-snork2.jpg" class="img-circle" style="background-color:rgba(0, 0, 0, 0.43); width:35px;height:35px" alt="Alternate Text" />
+                                                <p style="font-size:14px; color:#656b6f">Snorkeling</p>
+                                            </td>
+                                            <td style="border:none;padding-right:0">
+                                                <img src="~/images/icon/icon-snork.jpg" class="img-circle" style="background-color:rgba(0, 0, 0, 0.43); width:35px;height:35px" alt="Alternate Text" />
+                                                <p style="font-size:14px; color:#656b6f">Dinghy Ride</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="owl-nav">
+                    <button type="button" role="presentation" class="owl-prev">
+                        <span aria-label="Previous">‹</span>
+                    </button>
+                    <button type="button" role="presentation" class="owl-next">
+                        <span aria-label="Next">›</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!--================================SCRIPT REVIEWA=========================-->
+    <section class="" style="background: #fff; margin-top:20px;padding-top:0">
+        <div class="container">
+            <div class="section-header dscroll dscroll-in" style="background: #fff">
+                <h2 class="formato-titulo"><b>Why the M/Y Passion is the best Luxury Cruise in Galapagos - Passenger´s Reviews</b></h2>
+                <p>Powered by <img style="max-width: 100px;" src="https://www.reviews.io/cw-assets/img/logo.svg" class="img-loaded"></p>
+            </div>
+            <div id="carousel-widget" class="container" style="background: #fff"><iframe name="carousel-widget_frame" id="carousel-widget_frame" frameborder="0" style="width:100%" scrolling="no" height="299" title="Reviews Widget" src="https://widget.reviews.io/rich-snippet-reviews-widgets/widget?version=13b&amp;store=visitgalapagos-travel&amp;primaryClr=%23f47e27&amp;neutralClr=%23cccccc&amp;reviewTextClr=%23333333&amp;widgetName=carousel&amp;layout=fullWidth&amp;numReviews=40&amp;contentMode=product&amp;sku=ma&amp;hideDates=false&amp;elementId=carousel-widget&amp;origin=https%3A%2F%2Fwww.visitgalapagos.travel%2Fsailing-cruises%2Fmary-anne%2F"></iframe></div>
+        </div>
+    </section>
+    <!--======================  SERVICES =============================-->
+    <section id="services" style="padding:0; background-color:#f9f8f8">
+        <div class="container">
+            <div class="contenedorHome" style="animation: slideFadeUp 1s ease backwards;animation-delay: 1.3s;">
+                <h2 class="formato-titulo" style="margin-top:25px">
+                    <strong>Facilities on the M/Y Passion Galapagos Cruise</strong>
+                </h2>
+                <p style="line-height:1.5em; margin-bottom:0" class="parrafo formato-parrafo">
+                </p>
+                <br />
+                <div class="content-twocolumns StyleParrafo pa f-15 text-justify" id="galapagos_cruises">
+                    <div id="galapagos_services" style="width:100%">
+                        <div class="col-md-3" style="border:1px solid #ffffff;width:250px;height:210px;margin:5px 15px 5px 0;">
+                            <a href="../../form_taylorMade/services_productModal" data-toggle="modal" data-target="#services-ModalScrollable" tabindex="-1" id="item_1" style="color:black; margin:50px">
+                                <img src="~/images/product services.jpg" title="My Passion" alt="My Passion" style="width:171px; height:153px; ">
+                                <p style="text-align:center"><b>Air Conditioning</b></p>
+                            </a>
+                        </div>
+                        <div class="col-md-3" style="border:1px solid #ffffff;width:250px;height:210px; margin:5px 15px">
+                            <a href="../../form_taylorMade/services_productModal" data-toggle="modal" data-target="#services-ModalScrollable" tabindex="-1" id="item_1" style="color:black;margin:50px">
+                                <img src="~/images/products services.jpg" title="My Passion" alt="My Passion" style="width:171px; height:153px; ">
+                                <p style="text-align:center"><b>Toiletries</b></p>
+                            </a>
+                        </div>
+                        <div class="col-md-3" style="border:1px solid #ffffff;width:250px;height:210px; margin:5px 15px">
+                            <a href="../../form_taylorMade/services_productModal" data-toggle="modal" data-target="#services-ModalScrollable" tabindex="-1" data-toggle="modal" data-target="#services-ModalScrollable" tabindex="-1" id="item_1" style="color:black;margin:50px">
+                                <img src="~/images/products services.jpg" title="My Passion" alt="My Passion" style="width:171px; height:153px; ">
+                                <p style="text-align:center"><b>Room Towels</b></p>
+                            </a>
+                        </div>
+                        <div class="col-md-3" style="border:1px solid #ffffff;width:250px;height:210px; margin:5px 15px">
+                            <a href="../../form_taylorMade/services_productModal" data-toggle="modal" data-target="#services-ModalScrollable" tabindex="-1" style="color:black;margin:50px">
+                                <img src="~/images/product services.jpg" title="My Passion" alt="My Passion" style="width:171px; height:153px; ">
+                                <p style="text-align:center"><b>Beach Towels</b></p>
+                            </a>
+                        </div>
+                        <div class="col-md-3" style="border:1px solid #ffffff;width:250px;height:210px; margin:5px 15px 5px 0">
+                            <a href="../../form_taylorMade/services_productModal" data-toggle="modal" data-target="#services-ModalScrollable" tabindex="-1" style="color:black;margin:50px">
+                                <img src="~/images/products services.jpg" title="My Passion" alt="My Passion" style="width:171px; height:153px; ">
+                                <p style="text-align:center"><b>Hair Dryer</b></p>
+                            </a>
+                        </div>
+                        <div class="col-md-3" style="border:1px solid #ffffff;width:250px;height:210px; margin:5px 15px">
+                            <a href="../../form_taylorMade/services_productModal" data-toggle="modal" data-target="#services-ModalScrollable" tabindex="-1" id="item_1" style="color:black;margin:50px">
+                                <img src="~/images/product services.jpg" title="My Passion" alt="My Passion" style="width:171px; height:153px; ">
+                                <p style="text-align:center"><b>Safe deposit box</b></p>
+                            </a>
+                        </div>
+                        <div class="col-md-3" style="border:1px solid #ffffff;width:250px;height:210px; margin:5px 15px">
+                            <a href="../../form_taylorMade/services_productModal" data-toggle="modal" data-target="#services-ModalScrollable" tabindex="-1" style="color:black;margin:50px">
+                                <img src="~/images/products services.jpg" title="My Passion" alt="My Passion" style="width:171px; height:153px; ">
+                                <p style="text-align:center"><b>Reading Material</b></p>
+                            </a>
+                        </div>
+                        <div class="col-md-3" style="border:1px solid #ffffff;;width:250px;height:210px; margin:5px 15px">
+                            <a href="../../form_taylorMade/services_productModal" data-toggle="modal" data-target="#services-ModalScrollable" tabindex="-1" id="item_1" style="color:black;margin:50px">
+                                <img src="~/images/product services.jpg" title="My Passion" alt="My Passion" style="width:171px; height:153px; ">
+                                <p style="text-align:center"><b>Emergency Satelite Phone</b></p>
+                            </a>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="padding-bottom:25px">
+            <div class="contenedorHome">
+                <br /><br />
+                <a href="../../form_taylorMade/services_productModal" data-toggle="modal" data-target="#services-ModalScrollable" tabindex="-1" style="padding:15px 0;color:#0077ba" class="btn-link formato-parrafo">View all services>> </a>
+            </div>
+        </div>
+    </section>
+    <!--======================  SERVICES MOBILE =============================-->
+    <section id="services-mobile" style="padding:0;background-color:#f9f8f8">
+        <div class="container">
+            <div class="contenedorHome" style="animation: slideFadeUp 1s ease backwards;animation-delay: 1.3s;">
+                <h2 class="formato-titulo" style="margin-top:25px">
+                    <strong>Services</strong>
+                </h2>
+                <p style=" margin-bottom:0" class="parrafo formato-parrafo">
+                    Private charters allow us Private charters allow us to offer services not included on a
+                    normal cruise within the restrictions imposed by the national
+                    park authorities: professional.
+                    Private charters allow us to offer services not included on a
+                    normal cruise within the restrictions imposed by the national
+                    park authorities: professional.
+                </p>
+                <br />
+                <div id="galapagos_cruises">
+                    <div id="galapagos_services" style="margin:0 4%;width:100%">
+                        <div class="row" style="display:flex; margin:0; margin-left:-8%;">
+                            <div class="col-xs-6" style="border:1px solid #ffffff;margin:5px;">
+                                <a href="../luxury-cruise/" id="item_serv1" style="color:black; margin:50px">
+                                    <img src="~/images/product services.jpg" title="My Passion" alt="My Passion" style="width:171px; height:153px; ">
+                                    <p style="text-align:center"><b>Emergency Satelite Phone</b></p>
+                                </a>
+                            </div>
+                            <div class="col-xs-6" style="border:1px solid #ffffff; margin:5px">
+                                <a href="../luxury-cruise/" id="item_serv2" style="color:black;margin:50px">
+                                    <img src="~/images/products services.jpg" title="My Passion" alt="My Passion" style="width:171px; height:153px; ">
+                                    <p style="text-align:center"><b>Air Conditioning</b></p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row" style="display:flex; margin:0; margin-left:-8%;">
+                            <div class="col-xs-6" style="border:1px solid #ffffff;margin:5px;">
+                                <a href="../luxury-cruise/" id="item_serv3" style="color:black; margin:50px">
+                                    <img src="~/images/product services.jpg" title="My Passion" alt="My Passion" style="width:171px; height:153px; ">
+                                    <p style="text-align:center"><b>Toiletries</b></p>
+                                </a>
+                            </div>
+                            <div class="col-xs-6" style="border:1px solid #ffffff; margin:5px">
+                                <a href="../luxury-cruise/" id="item_serv4" style="color:black;margin:50px">
+                                    <img src="~/images/products services.jpg" title="My Passion" alt="My Passion" style="width:171px; height:153px; ">
+                                    <p style="text-align:center"><b>Room Towels</b></p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row" style="display:flex; margin:0; margin-left:-8%;">
+                            <div class="col-xs-6" style="border:1px solid #ffffff;margin:5px;">
+                                <a href="../luxury-cruise/" id="item_serv5" style="color:black; margin:50px">
+                                    <img src="~/images/product services.jpg" title="My Passion" alt="My Passion" style="width:171px; height:153px; ">
+                                    <p style="text-align:center"><b>Hair Dryer</b></p>
+                                </a>
+                            </div>
+                            <div class="col-xs-6" style="border:1px solid #ffffff; margin:5px">
+                                <a href="../luxury-cruise/" id="item_serv6" style="color:black;margin:50px">
+                                    <img src="~/images/products services.jpg" title="My Passion" alt="My Passion" style="width:171px; height:153px; ">
+                                    <p style="text-align:center"><b>Reading Material</b></p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row" style="display:flex; margin:0; margin-left:-8%;">
+                            <div class="col-xs-6" style="border:1px solid #ffffff;margin:5px;">
+                                <a href="../luxury-cruise/" id="item_serv7" style="color:black; margin:50px">
+                                    <img src="~/images/product services.jpg" title="My Passion" alt="My Passion" style="width:171px; height:153px; ">
+                                    <p style="text-align:center"><b>Emergency Satelite Phone</b></p>
+                                </a>
+                            </div>
+                            <div class="col-xs-6" style="border:1px solid #ffffff; margin:5px">
+                                <a href="../luxury-cruise/" id="item_serv8" style="color:black;margin:50px">
+                                    <img src="~/images/products services.jpg" title="My Passion" alt="My Passion" style="width:171px; height:153px; ">
+                                    <p style="text-align:center"><b>Luxury</b></p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="contenedorHome">
+                <a id="btnGaleria" class=" align-content-center" style="font-size:15px; color:#398AC9;text-decoration:none; font-family:'Noto Sans',sans-serif" href="~/form_taylorMade/services_productModal" data-toggle="modal" data-target="#services-ModalScrollable">
+                    View all services>>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!--============================================Availability========================================-->
+    <section style="max-height:500px;background:white;padding-top:0" id="Disponibilidad">
+        <div class="container">
+            <h2 class="formato-titulo"><b>WildAid´s M/Y Passion Availability</b></h2>
+            <div class="container" style="padding:0">
+                <div class="col-md-6 col-xs-12" style="padding:0">
+                    <p class="formato-parrafo">Available Departure</p>
+                </div>
+                <div class="col-md-6 col-xs-12" style="padding:0">
+                    <div class="formato-parrafo" style="font-family:Arial;color: black !important; background:white;">
+                        <div class="dropdown" id="dispo_dropdown1">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" style="font-family:Arial; color:#398AC9;font-size:18px">Select your travel dates<span style="margin-left:17px" class="caret"></span></button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" ; style="width:100%; font-size:18px; border:solid 1px grey">
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Enero</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Febrero</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Marzo</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Abril</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Mayo</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Junio</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Julio</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Agosto</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Septiembre</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Octubre</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Noviembre</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Diciembre</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div><br />
+            <div>
+                <div id="dispo">
+                    <div id="disponibilidad" class="col-md-12 style-scroll" style="overflow-y:scroll; padding:0; overflow-x:hidden; max-height:300px">
+
+                        <div v-if="filDispoBarcos.length">
+                            <div class="container" style="margin-top:15px; border-bottom:groove;font-family:Arial; border-width:0.5px; border-bottom-color:rgba(0, 0, 0, 0.24)" v-for="dispon in filDispoBarcos">
+                                <div class="col-xs-6 col-md-4 col-lg-2" style="text-align:center; line-height:0.6">
+                                    <p style="color:black;font-size:20px">{{dispon.salFechaSalida | format_date}}<p>
+                                    <p style="font-size:14px;">{{dispon.noches}} Night<p>
+                                </div>
+                                <div class="col-xs-6 col-md-4 col-lg-2" style="text-align:center; line-height:0.6">
+                                    <p style="color:black;font-size:20px">{{dispon.barcoNombre}}<p>
+                                    <p style="font-size:14px; color:#398AC9">{{dispon.itinNombre}}<p>
+                                </div>
+                                <div class="col-xs-6 col-md-4 col-lg-2" style="text-align:center; line-height:0.6" id="precio">
+                                    <p style="color:black;font-size:20px">{{dispon.totalDisponibilidad}}<p>
+                                    <p style="font-size:14px;">Availability<p>
+                                </div>
+                                <div class="col-xs-6 col-md-4 col-lg-2" style="text-align:center; line-height:0.6">
+                                    <p style="color:black;font-size:20px">$ {{dispon.cabinaPrecio1}}<p>
+                                    <p style="font-size:14px">From<p>
+                                </div>
+                                <div class="col-xs-12 col-md-4 col-lg-4" style="text-align:center; border-right:none; line-height:0.6">
+                                    <p :id="dispon.salFechaSalida"><a class="btn h5button" v-on:click="getDispoMod" style="font-family:SegoeUI, Segoe UI; " id="help_me_plan5"><b>Request Booking</b></a><p>
+                                    <p style="font-size:14px; color:#F29F67;margin-top:-6px">More Information<p>
+                                </div>
+                                <div class="col-md-12" v-else>
+                                    !NO EXISTE DISPONIBILIDAD!</>
+                                </div>
+                            </div>
+                        </div>
+                        <partial name="~/Views/form_taylorMade/availabilityModal.cshtml" />
+                        <partial name="~/Views/form_taylorMade/itinerary.cshtml" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!--=================================  DECK PLAN  ===========================================================-->
+    <div class="box box-page-information" style="background-color:rgba(219, 211, 211, 0.17)">
+        <div id="app" class="container" style="margin-bottom:1.5em;">
+            <div class="cols cols-gutterx0 contenedorHome">
+                <div class="col-md-6">
+                    <div class="content inner content-dirty StyleParrafo" style="padding-left:0;padding-top:0">
+                        <div class="line">
+                            <h2 class="formato-titulo" style="margin-top:35px;text-transform:none;text-align:left;color:black; padding:0"><strong>Inclusion:</strong></h2>
+                        </div>
+                        <div class="col-md-12" style="margin-left:0; padding-left:0">
+                            <br>
+                            <div class="StyleParrafo" style="text-align: left;">
+                                <ul class="formato-parrafo" style="padding-bottom: 0; padding-left:3.5%; margin-left:0">
+                                    <li v-for="inclu in incluyeBarco" v-if="inclu.length">
+                                        {{inclu}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 pre">
+                    <div class="content inner content-dirty StyleParrafo" style="padding-left:0;padding-top:0">
+                        <div class="line">
+                            <h2 class="formato-titulo" style="margin-top:35px;color:black;text-transform:none;text-align:left;padding:0"><strong>Exclusion:</strong></h2>
+                        </div>
+                        <div class="col-md-12" style="margin-left:0; padding-left:0">
+                            <br>
+                            <div class="StyleParrafo" style="text-align: left;">
+                                <ul class="formato-parrafo" style="padding-bottom:0; padding-left:3.5%; margin-left:0">
+                                    <li v-for="noInclu in noIncluyeBarco" v-if="noInclu.length" type="">
+                                        {{noInclu}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--================================// RELATED PRODUCTS //=============================================================-->
+    <section id="related_prod" class="related" style="background-color:white;padding-top:0">
+        <div class="container">
+            <div class="contenedorHome">
+                <h2 class="section-header-title formato-titulo" style="text-align:left;" id="gallery"><strong>Related Products</strong></h2><br>
+                <div id="tabs" class="content content-twocolumns" style="margin:0">
+                    <div class="col-md-4" style="margin-bottom:15px">
+                        <article class="article-event article-loaded" id="tabs_1">
+                            <div class="article-image"><img src="~/images/articles/perfect cruise in galapagos.jpg" class="attachment-400x300x1 size-400x300x1 wp-post-image img-loaded" alt=""></div>
+                            <div class="article-main">
+                                <div class="article-date" style="width:auto; height:31px;">
+                                    <div style="padding:5px; font-size:8px; margin-top:-30px; padding-left:10px; padding-right:10px">
+                                        <strong>M/Y Theory</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="article-body" style="color:black">
+                                <p style="height:100%;margin-bottom:0">
+                                    Step on board the MV Theory Galapagos Cruise for an eco-friendly, high-end journey to the exciting Galapagos Islands.
+                                </p>
+                                <a style="color:#398AC9" href="../../galapagos-cruises/theory/">View Cruises >></a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-4" style="margin-bottom:15px">
+                        <article class="article-event article-loaded" id="tabs_1">
+                            <div class="article-image"><img src="~/images/articles/galapagos islands reasons.jpg" class="attachment-400x300x1 size-400x300x1 wp-post-image img-loaded" alt=""></div>
+                            <div class="article-main">
+                                <div class="article-date" style="width:auto; height:31px">
+                                    <div style="padding:5px; font-size:8px; margin-top:-30px; padding-left:10px; padding-right:10px">
+                                        <strong>M/C Ocean Spray</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="article-body" style="color:black">
+                                <p style="margin:0">
+                                    This Mega-Catamaran offers the best performance and comfort in Galapagos Luxury Cruising.
+                                </p>
+                                <a style="color:#398AC9" href="../../galapagos-cruises/ocean-spray/">View Cruise >></a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-4">
+                        <article class="article-event article-loaded" id="tabs_1">
+                            <div class="article-image"><img src="~/images/articles/galapagos paradise.jpg" class="attachment-400x300x1 size-400x300x1 wp-post-image img-loaded" alt=""></div>
+                            <div class="article-main">
+                                <div class="article-date" style="width:auto; height:31px">
+                                    <div style="padding:5px; font-size:8px; margin-top:-30px; padding-left:10px; padding-right:10px">
+                                        <strong>M/Y Odyssey</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="article-body" style="color:black">
+                                <p style="margin:0">This yacht offers unparalleled stability comfort and the guarantee of a tranquil and relaxed cruise. It features 9 double cabins with ample ocean views from each one.</p>
+                                <a href="../../galapagos-cruises/odyssey/" style="color:#398AC9">View Cruise >></a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+    </section>
+</div>
+<div class="bs-example">
+    <div class="modal fade" id="gale-ModalScrollable" style="overflow-y:hidden" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-full" style="width:100%;height:100%; margin:0" role="document">
+            <div class="modal-content" style="width:100%; height:100%">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bs-example" id="exampleModalScrollable">
+    <div class="modal fade" id="gale2-ModalScrollable" style="overflow-y:hidden" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-full" style="width:100%;height:100%; margin:0" role="document">
+            <div class="modal-content" style="width:100%; height:100%">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bs-example" id="exampleModalScrollable">
+    <div class="modal fade" id="gale3-ModalScrollable" style="overflow-y:hidden" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-full" style="width:100%;height:100%; margin:0" role="document">
+            <div class="modal-content" style="width:100%; height:100%">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bs-example" id="exampleModalScrollable">
+    <div class="modal fade" id="gale4-ModalScrollable" style="overflow-y:hidden" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-full" role="document">
+            <div class="modal-content" style="width:100%; height:100%">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bs-example" id="exampleModalScrollable">
+    <div class="modal fade" id="services-ModalScrollable" style="overflow-y:hidden" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-full" style="width:100%;height:100%; margin:0" role="document">
+            <div class="modal-content" style="width:100%; height:100%">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bs-example" id="exampleModalScrollable">
+    <div class="modal fade" id="availabilityModal" style="overflow-y:hidden" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-full" style="width:100%;height:100%; margin:0" role="document">
+            <div class="modal-content" style="width:100%; height:100%">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bs-example">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+</div>
+<partial name="~/Views/form_taylorMade/galeriaItiner.cshtml" />
+<script src="~/js/Cruises.js"></script>
+<script src="~/js/owl.carousel.js"></script>
+<script></script>
