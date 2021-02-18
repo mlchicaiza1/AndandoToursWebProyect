@@ -26,11 +26,6 @@
             <link rel="stylesheet" href="~/css/site.css" />*@
     </environment>
     <environment exclude="Development">
-        @*<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-                  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-                  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-            <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />*@
-
         <!-- Font Awesome -->
         <link href="~/theme/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
         <!-- Ionicons -->
@@ -53,7 +48,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="../../cms" class="nav-link">Home</a>
+                    <a href="../../CmsWebAndando" class="nav-link">Home</a>
                 </li>
             </ul>
         </nav>
@@ -61,7 +56,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar desAct sidebar-dark-primary elevation-4" style="position: fixed;" id="menuLateralCms">
             <!-- Brand Logo -->
-            <a href="../../" class="brand-link">
+            <a href="../../CmsWebAndando" class="brand-link">
                 <img src="~/theme/dist/img/logo.jpg"
                      alt="AdminLTE Logo"
                      class="brand-image img-circle elevation-3"
@@ -95,49 +90,49 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../../cms/PaginasWeb/CmsText" v-on:click="getIdPageMenu($event)" class="nav-link">
+                                    <a href="../../PaginasWeb/CmsText" v-on:click="getIdPageMenu($event)" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p :id="1010">Home AndandoTours</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../../cms/PaginasWeb" v-on:click="getCategoriaMenu" class="nav-link">
+                                    <a href="../../PaginasWeb" v-on:click="getCategoriaMenu" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p :id="'galapagos-cruises'">Galapagos Cruises</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../../cms/PaginasWeb" v-on:click="getCategoriaMenu" class="nav-link">
+                                    <a href="../../PaginasWeb" v-on:click="getCategoriaMenu" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p :id="'barco'">Barcos</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../../cms/PaginasWeb/CmsText" v-on:click="getIdPageMenu" class="nav-link">
+                                    <a href="../../PaginasWeb/CmsText" v-on:click="getIdPageMenu" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p :id="1011">Cruises Yacht Charters</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../../cms/PaginasWeb/CmsText" v-on:click="getIdPageMenu" class="nav-link">
+                                    <a href="../../PaginasWeb/CmsText" v-on:click="getIdPageMenu" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p :id="2047">Availability</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../../cms/PaginasWeb" v-on:click="getCategoriaMenu" class="nav-link">
+                                    <a href="../../PaginasWeb" v-on:click="getCategoriaMenu" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p :id="'daily-tours'">Daily-Tours</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../../cms/PaginasWeb" v-on:click="getCategoriaMenu" class="nav-link">
+                                    <a href="../../PaginasWeb" v-on:click="getCategoriaMenu" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p :id="'ecuador-tours'">Ecuador Tours</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../../cms/PaginasWeb" v-on:click="getCategoriaMenu" class="nav-link">
+                                    <a href="../../PaginasWeb" v-on:click="getCategoriaMenu" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p :id="'blog'">Blogs</p>
                                     </a>
@@ -156,19 +151,19 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="../../cms/Admin/ListUsers" class="nav-link">
+                                        <a href="../../Admin/ListUsers" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>List User</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="../../cms/Admin/ListRoles" class="nav-link">
+                                        <a href="../../Admin/ListRoles" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>List Roles</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="../../cms/AndandoCms/ActividadUsuarios" class="nav-link">
+                                        <a href="../../AndandoCms/ActividadUsuarios" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>User Activity</p>
                                         </a>
