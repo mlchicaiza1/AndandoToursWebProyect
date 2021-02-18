@@ -1,17 +1,33 @@
 ﻿@page
 @model RegisterModel
 @{
+    Layout = null;
     ViewData["Title"] = "Register";
 }
 
 <link rel="stylesheet" href="~/css/Login.css" />
+
+<link rel="stylesheet" href="~/css/site.css" />
+<!-- Font Awesome -->
+<link href="~/theme/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/owl.carousel.css" />
+<!-- Ionicons -->
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- overlayScrollbars -->
+<link rel="stylesheet" href="~/theme/dist/css/adminlte.min.css">
+<!-- summernote -->
+<link rel="stylesheet" href="~/theme/plugins/summernote/summernote-bs4.css">
+<!-- Google Font: Source Sans Pro -->
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+<link rel="stylesheet" href="~/theme/dist/css/StyleCMSAndando/StyleCMSAndado.css" />
+
 <div class="container register">
     <div class="row">
         <div class="col-md-3 register-left">
             <img src="~/theme/dist/img/logo.jpg" alt="" />
             <h3>Welcome</h3>
             <h2>@ViewData["Title"]</h2>
-            <input type="submit" name="" value="Login" onclick="window.location='/Identity/Account/Login'"/><br />
+            <input type="submit" name="" value="Login" onclick="window.location='/Identity/Account/Login'" /><br />
         </div>
         <div class="col-md-9 register-right">
             <div class="tab-content" id="myTabContent">
@@ -55,6 +71,27 @@
     </div>
 
 </div>
+
+
+<script src="~/theme/plugins/jquery/jquery.min.js"></script>
+<script src="~/lib/owl.carousel.js"></script>
+@*<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>*@
+<!-- Bootstrap 4 -->
+<script src="~/theme/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="~/theme/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="~/theme/dist/js/demo.js"></script>
+<!-- DataTables -->
+<script src="~/theme/plugins/datatables/jquery.dataTables.js"></script>
+<script src="~/theme/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+@*<script src="https://code.jquery.com/jquery-3.3.1.js"></script>*@
+<script src=" https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<!-- Summernote -->
+<script src="~/theme/plugins/summernote/summernote-bs4.min.js"></script>
+<script src="~/ckeditor/ckeditor.js"></script>
+
+<script src="~/js/cms.js"></script>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
