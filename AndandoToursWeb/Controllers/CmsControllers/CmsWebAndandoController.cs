@@ -122,7 +122,7 @@ namespace AndandoToursWeb.Controllers
                 var imagenPath = @""+ruta+ "/";
                 var uploadPath = _env.WebRootPath + imagenPath;
                 //ruta del la imagen 
-                var imagenPathWeb = @"C:\\inetpub\\wwwroot\WebSite\\Principal\\wwwroot\\" + imagenPath+ "/";
+                //var imagenPathWeb = @"C:\\inetpub\\wwwroot\WebSite\\Principal\\wwwroot\\" + imagenPath+ "/";
                 var uploadPathWeb = uploadPath;
                 //create directory
                 if (!Directory.Exists(uploadPath))
@@ -148,23 +148,16 @@ namespace AndandoToursWeb.Controllers
                 string fullPath = uploadPath + filenam + extension;
                 //web
                 string fullPathWeb = uploadPathWeb + filenam + extension;
-                imagenPathWeb = imagenPathWeb + @"\";
-                var filePathWeb = @".." + Path.Combine(imagenPathWeb, filenam + extension);
-
+                
                 imagenPath = imagenPath + @"\";
                 var filePath = @".." + Path.Combine(imagenPath, filenam + extension);
-                   
+                //web    
                 using (var fileStream = new FileStream(fullPath, FileMode.Create))
                 {
                     await files.CopyToAsync(fileStream);
                 }
-                //web
-                using (var fileStreamWeb = new FileStream(fullPathWeb, FileMode.Create))
-                {
-                    await files.CopyToAsync(fileStreamWeb);
-                }
-
-                jsonResult = Json(new { status = "ok" });
+               
+               jsonResult = Json(new { status = "ok" });
                 ViewData["FileLocation"] = filePath;
                 //Registro de actividad
                 var urlData = getUrlPage(HttpContext);
