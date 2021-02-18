@@ -121,9 +121,9 @@ namespace AndandoToursWeb.Controllers
             {
                 var imagenPath = @""+ruta+ "/";
                 var uploadPath = _env.WebRootPath + imagenPath;
-                //ruta del la pagina 
+                //ruta del la imagen 
                 var imagenPathWeb = @"C:\\inetpub\\wwwroot\WebSite\\Principal\\wwwroot\\" + imagenPath+ "/";
-                var uploadPathWeb = imagenPathWeb;
+                var uploadPathWeb = uploadPath;
                 //create directory
                 if (!Directory.Exists(uploadPath))
                 {
@@ -176,7 +176,7 @@ namespace AndandoToursWeb.Controllers
                 RegActividad.Texto = false;
                 RegActividad.Imagen = true;
 
-                return Redirect("../../cms/PaginasWeb/CmsImagen");
+                return Redirect("../../../PaginasWeb/CmsImagen");
             }
             else
             {
