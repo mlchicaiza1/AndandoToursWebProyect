@@ -4,9 +4,6 @@
     @inject SignInManager<ApplicationUser> signInManager
     @inject UserManager<ApplicationUser> userManager
 
-
-
-
     @if (signInManager.IsSignedIn(User))
     {
         Layout = "~/Views/Shared/_LayoutCms.cshtml";

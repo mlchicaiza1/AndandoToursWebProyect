@@ -1,560 +1,564 @@
-﻿
-    <div class="" style="overflow:hidden; width:100%">
-        <!--=========================SUB MENU FILTROS TRIPPLANNER================================-->
-        <div id="tripPlanner">
-            <nav class="navbar  page-nav page-nav-home" data-toggle="sticky-onscroll" id="navpagina" style="border: 1px solid rgba(0,0,0,.1);">
-                <div class="limit">
-                    <nav class="page-nav-anchors" style="text-transform:none;">
-                        <div class="container" style="z-index:4000">
-                            <div class="contenidoFiltroPlanner unselectable bloq" style="background-color:#ffffff; text-align:center;">
-                                <div id="tripFinder">
-                                    <div class="btn-group ">
-                                        <button type="button" class="btn btn-default dropdown-toggle h5button botonFiltro"
-                                                data-toggle="dropdown" style="color:#747475">
-                                            {{triptype}}  &middot; {{contTrip}}   <i class="fas fa-angle-down" style="color:#7B7979;"> </i>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li v-for="(value, key) in  object">
-                                                <label class="containe">
-                                                    <span :style="{color: checkColor}" :id="key" :name="value">{{value}} </span>
-                                                    <input type="checkbox" :value="value" :id="key" v-model="checkedTrip" @@change="checkTripType($event)">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default dropdown-toggle h5button botonFiltro" style="color:#747475;"
-                                                data-toggle="dropdown">
-                                            {{travelersTot}}<i class="fas fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu dropdownSty" role="menu" style="width:290px">
-                                            <li>
-                                                <div class="row">
-                                                    <div class="col-md-6 ">
-                                                        <h4 style="padding:15px 0px 0 25px">Adults</h4>
+﻿@{
+    Layout = "_Layout";
+    
+    
+}
+<div class="" style="overflow:hidden; width:100%">
+    <!--=========================SUB MENU FILTROS TRIPPLANNER================================-->
+    <div id="tripPlanner">
+        <nav class="navbar  page-nav page-nav-home" data-toggle="sticky-onscroll" id="navpagina" style="border: 1px solid rgba(0,0,0,.1);">
+            <div class="limit">
+                <nav class="page-nav-anchors" style="text-transform:none;">
+                    <div class="container" style="z-index:4000">
+                        <div class="contenidoFiltroPlanner unselectable bloq" style="background-color:#ffffff; text-align:center;">
+                            <div id="tripFinder">
+                                <div class="btn-group ">
+                                    <button type="button" class="btn btn-default dropdown-toggle h5button botonFiltro"
+                                            data-toggle="dropdown" style="color:#747475">
+                                        {{triptype}}  &middot; {{contTrip}}   <i class="fas fa-angle-down" style="color:#7B7979;"> </i>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li v-for="(value, key) in  object">
+                                            <label class="containe">
+                                                <span :style="{color: checkColor}" :id="key" :name="value">{{value}} </span>
+                                                <input type="checkbox" :value="value" :id="key" v-model="checkedTrip" @@change="checkTripType($event)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle h5button botonFiltro" style="color:#747475;"
+                                            data-toggle="dropdown">
+                                        {{travelersTot}}<i class="fas fa-angle-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdownSty" role="menu" style="width:290px">
+                                        <li>
+                                            <div class="row">
+                                                <div class="col-md-6 ">
+                                                    <h4 style="padding:15px 0px 0 25px">Adults</h4>
+                                                </div>
+                                                <div class="col-md-6" style="padding:21px 0 0 5px">
+                                                    <div class="number-style" style="font-size:18px">
+                                                        <span class="number-minus" v-on:click="minusTravelersAdu" v-bind:class="colorAdu"></span>
+                                                        <p style="display:contents;font-family:Arial;color:#787778" :value="2"> {{ count }}</p>
+                                                        <span class="number-plus" v-on:click="moreTravelersAdu"></span>
                                                     </div>
-                                                    <div class="col-md-6" style="padding:21px 0 0 5px">
-                                                        <div class="number-style" style="font-size:18px">
-                                                            <span class="number-minus" v-on:click="minusTravelersAdu" v-bind:class="colorAdu"></span>
-                                                            <p style="display:contents;font-family:Arial;color:#787778" :value="2"> {{ count }}</p>
-                                                            <span class="number-plus" v-on:click="moreTravelersAdu"></span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h4 style="padding:0 0 0 25px; margin-top:2px">Children</h4>
+                                                    <h5 style="padding:0px 0 0 25px;margin-top:-15px">From 4 to 12</h5>
+                                                </div>
+                                                <div class="col-md-6" style="padding:5px 0 0 5px" id="ChildrenDesk">
+                                                    <div class="number-style" style="font-size:18px">
+                                                        <span class="number-minus" v-on:click="minusTravelersChild" v-bind:class="colorChild"></span>
+                                                        <p style="display:contents;font-family:Arial;color:#787778"> {{ count1 }}</p>
+                                                        <span class="number-plus" v-on:click="moreTravelersChild"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="row" style="margin-top: 10px;">
+                                                <div class="col-md-6">
+                                                    <button class="h5button" id="btnResettleEs" v-on:click="resettleTravel">
+                                                        Resettle
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button class="apply applyTravelerPlanner" id="applyTravel" v-on:click="applyTravel">
+                                                        Apply
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle h5button botonFiltro" style="color:#747475;"
+                                            data-toggle="dropdown">
+                                        {{price}} <i class="fas fa-angle-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdownSty" role="menu" style="width:290px" v-bind:style="{display:menu}">
+                                        <li>
+                                            <div class="row">
+                                                <div class="col-md-12 ">
+                                                    <p>
+                                                        <label for="amountPrice" style="margin:10px 0 0px 15px;  font-size:17px; font-weight:normal">The averange price is $3500:</label>
+                                                    </p>
+                                                    <div class="selector" style="width:280px; padding-top:0">
+                                                        <div class="price-slider">
+                                                            <div id="slider-rangePrice" v-on:click="priceRange" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content slider-rangePrice" style="margin-bottom:0px;">
+                                                                <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
+                                                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="top:-4px;background:#FFFFFF;border:1px solid #E5E5E5"></span>
+                                                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="top:-4px;background:#FFFFFF;border:1px solid #E5E5E5"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <p>
+                                                        <input type="text" class="amountPrice" id="" readonly style="border:0; font-family:Arial;color:#787778; font-size:17px; margin:5px 0 0 20px">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <button class="h5button" id="btnResettleEs" style="margin-top:-8px;" onclick="resettlePricePlanner()" v-on:click="resettlePric">
+                                                        Resettle
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button class="apply applyPricePlanner" style="width:125px;margin-left:0" v-on:click="applyPrice">
+                                                        Apply Filter
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle h5button  botonFiltro" style="color:#747475;"
+                                            data-toggle="dropdown">
+                                        {{filterDate}}  <i class="fas fa-angle-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdownSty" role="menu" style="width:525px; height:325px;">
+                                        <li>
+                                            <div class="input-group input-daterange">
+                                                <div class="row">
+                                                    <div class="col-md-6" style="padding-right:0px; width:260px">
+                                                        <div class="input-group dates datepickerFilter" data-provide="datepicker-inline" id="datepickerFilterPlanner" style="padding-left:0px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6" style="padding-left:0px; width:260px">
+                                                        <div class="input-group dates datepickerFilter1" data-provide="" id="datepickerFilterPlanner_1" style="margin-left:10px;">
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </li>
-                                            <li>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <h4 style="padding:0 0 0 25px; margin-top:2px">Children</h4>
-                                                        <h5 style="padding:0px 0 0 25px;margin-top:-15px">From 4 to 12</h5>
-                                                    </div>
-                                                    <div class="col-md-6" style="padding:5px 0 0 5px" id="ChildrenDesk">
-                                                        <div class="number-style" style="font-size:18px">
-                                                            <span class="number-minus" v-on:click="minusTravelersChild" v-bind:class="colorChild"></span>
-                                                            <p style="display:contents;font-family:Arial;color:#787778"> {{ count1 }}</p>
-                                                            <span class="number-plus" v-on:click="moreTravelersChild"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="row" style="margin-top: 10px;">
-                                                    <div class="col-md-6">
-                                                        <button class="h5button" id="btnResettleEs" v-on:click="resettleTravel">
+                                                        <button class="h5button" id="btnResettleEs" style="margin-top:-8px;margin-left:8px" v-on:click="resettleDate">
                                                             Resettle
                                                         </button>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <button class="apply applyTravelerPlanner" id="applyTravel" v-on:click="applyTravel">
+                                                        <button class="apply applyDatePlanner" style="padding-left: 40px;margin-left: 150px;" v-on:click="applyDate">
                                                             Apply
                                                         </button>
                                                     </div>
                                                 </div>
-                                            </li>
-                                        </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle h5button botonFiltro" style=" color:#747475;"
+                                            data-toggle="dropdown">
+                                        Lenght{{lenghtDay}} <i class="fas fa-angle-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdownSty" role="menu" style="width:290px;height:120px">
+                                        <li>
+                                            <div class="row">
+                                                <div class="col-md-6 " style="width:150px">
+                                                    <h4 style="padding:15px 0px 0 25px">Numbers of days</h4>
+                                                </div>
+                                                <div class="col-md-6" style="padding:21px 0 0 0px;width:150px;" id="leng">
+                                                    <div class="number-style" style="font-size:18px">
+                                                        <span class="number-minus" v-on:click="minusLenght" v-bind:class="colorLenght"></span>
+                                                        <p style="display:contents;font-family:Arial;color:#787778"> {{ countLen }}</p>
+                                                        <span class="number-plus" v-on:click="moreLenght"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <button class="h5button" id="btnResettleEs" style="margin-top:-8px;" v-on:click="resettlelenght">
+                                                        Resettle
+                                                    </button>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button class="apply applyLenghtPlanner" v-on:click="applyLenght">
+                                                        Apply
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <a class="btn h5button btnFiltter" v-on:click="getDisponibilidad($event)">
+                                    Apply filters
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </nav>
+        <nav class="page-nav page-nav-home" data-toggle="sticky-onscroll" id="navmovil">
+            <div class="limit" style="width:100%">
+                <nav class="page-nav-anchors">
+                    <div class="outer FiltroPlanner">
+                        <div class="pull-right">
+                            <a class="btn h5buttonFilters btnFiltter showFilterTripPlanner" onclick="openNavMovile()">
+                                Filters
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </nav>
+        <!--================================SUB MENU FILTROS MOVILE=========================-->
+        <div id="mySidenavMovile" class="sidenav FiltroPlanner">
+            <button id="btn-cerrar-menu" class="btn-menu-cerrar" style="background-color: white;margin:10px 10px 60px">
+                <div class="header-hamburgerDisp in" style="margin-top: 10px;margin-right:20px">
+                    <span onclick="closeNavMovile()"><i class='fas fa-times-circle' style='font-size:30px;color:#179fec;padding-left:0;padding-top:5px'></i></span>
+                </div>
+            </button>
+            <div class="sideMovile">
+                <div class="dropdown" style="text-align: center;">
+                    <button class="btn btn-default dropdown-toggle h5button botonFiltro" type="button" data-toggle="dropdown">
+                        {{triptype}} {{contTrip}}  <i class="fas fa-angle-down" style="color:#7B7979;"> </i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu_cruises">
+                        <li v-for="(value, key) in  object">
+                            <label class="containe" style="font-size: 16px;margin-right:10px">
+                                <span :style="{color: checkColor}" :id="key+'Mov'" :name="value">{{value}} </span>
+                                <input type="checkbox" :value="value" :id="key" v-model="checkedTrip" @@change="checkTripType($event)">
+                                <span class="checkmark"></span>
+                            </label>
+                        </li>
+                        <li>
+                            <div class="row" style="margin-top: 18px;font-family:Arial">
+                                <div class="col-md-6 col-xs-6">
+                                    <button class="h5button" id="btnResettleEs" v-on:click="resettleTripPlanner">
+                                        Resettle
+                                    </button>
+                                </div>
+                                <div class="col-md-6 col-xs-6">
+                                    <button class="apply applyTravelerPlanner" id="applyTravel" style="margin-left:0;width:90px" v-on:click="applyTripPlanner">
+                                        Apply
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sideMovile">
+                <div class="dropdown" style="text-align:center">
+                    <button class="btn btn-default dropdown-toggle h5button botonFiltro" type="button" data-toggle="dropdown">
+                        {{travelersTot}}<i class="fas fa-angle-down"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdownSty dropdown-menu_cruises" role="menu" style="width:270px">
+                        <li>
+                            <div class="row">
+                                <div class="col-md-6 col-xs-6 ">
+                                    <h4 style="padding:15px 0px 0 25px">Adults</h4>
+                                </div>
+                                <div class="col-md-6 col-xs-6" style="padding:21px 0 0 5px">
+                                    <div class="number-style" style="font-size:18px">
+                                        <span class="number-minus" v-on:click="minusTravelersAdu" v-bind:class="colorAdu"></span>
+                                        <p style="display:contents;font-family:Arial;color:#787778" :value="2"> {{ count }}</p>
+                                        <span class="number-plus" v-on:click="moreTravelersAdu"></span>
                                     </div>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default dropdown-toggle h5button botonFiltro" style="color:#747475;"
-                                                data-toggle="dropdown">
-                                            {{price}} <i class="fas fa-angle-down"></i>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <div class="col-md-6 col-xs-6">
+                                    <h4 style="padding:0 0 0 25px; margin-top:2px">Children</h4>
+                                    <h5 style="padding:0px 0 0 25px;margin-top:-15px">From 4 to 12</h5>
+                                </div>
+                                <div class="col-md-6 col-xs-6" style="padding:5px 0 0 5px" id="ChildrenDesk">
+                                    <div class="number-style" style="font-size:18px">
+                                        <span class="number-minus" v-on:click="minusTravelersChild" v-bind:class="colorChild"></span>
+                                        <p style="display:contents;font-family:Arial;color:#787778"> {{ count1 }}</p>
+                                        <span class="number-plus" v-on:click="moreTravelersChild"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <div class="col-md-6 col-xs-6" style="padding-top:10px">
+                                    <button class="h5button" id="btnResettleEs" v-on:click="resettleTravel">
+                                        Resettle
+                                    </button>
+                                </div>
+                                <div class="col-md-6 col-xs-6" style="padding-top:10px">
+                                    <button class="apply applyTravelerPlanner" id="applyTravel" v-on:click="applyTravel">
+                                        Apply
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sideMovile">
+                <div class="dropdown contenidoFiltroCategoria" style="text-align:center">
+                    <button type="button" class="btn btn-default dropdown-toggle h5button botonFiltro"
+                            data-toggle="dropdown">
+                        {{price}} <i class="fas fa-angle-down" style="color:#7B7979;"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdownSty" role="menu" style="width:275px;height: 190px;" v-bind:style="{display:menu}">
+                        <li>
+                            <div class="row">
+                                <div class="col-md-12 ">
+                                    <p>
+                                        <label for="amountPrice" style="margin:10px 0 0px 15px;  font-size:17px; font-weight:normal">The averange price is $3500:</label>
+                                    </p>
+                                    <div class="selector" style="width:280px; padding-top:0">
+                                        <div class="price-slider">
+                                            <div id="slider-rangePrice" v-on:click="priceRange" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content slider-rangePrice" style="margin-bottom:0px;">
+                                                <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
+                                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="top:-4px;background:#FFFFFF;border:1px solid #E5E5E5"></span>
+                                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="top:-4px;background:#FFFFFF;border:1px solid #E5E5E5"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        <input type="text" class="amountPrice" id="" readonly style="border:0; font-family:Arial;color:#787778; font-size:17px; margin:5px 0 0 20px">
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <div class="col-md-6 col-xs-6">
+                                    <button class="h5button" id="btnResettleEs" style="margin-top:-8px;" onclick="resettlePricePlanner()" v-on:click="resettlePric">
+                                        Resettle
+                                    </button>
+                                </div>
+                                <div class="col-md-6 col-xs-6">
+                                    <button class="apply applyPricePlanner" style="padding-left: 50px;" v-on:click="applyPrice">
+                                        Apply
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sideMovile">
+                <div class="dropdown contenidoFiltroCategoria" style="text-align:center">
+                    <button class="btn btn-default dropdown-toggle h5button botonFiltro" type="button" data-toggle="dropdown">
+                        {{filterDate}}  <i class="fas fa-angle-down" style="color:#7B7979;"> </i>
+                    </button>
+                    <ul class="dropdown-menu  filtroDate dropdown-menu_cruises" role="menu" style="height: 290px;">
+                        <li>
+                            <div class="input-group input-daterange">
+                                <div class="row">
+                                    <div class="col-md-6" style="padding: 5px 5px 5px 10px;">
+                                        <div class="input-group dates datepickerFilter datepickerProduct" data-provide="datepicker-inline" id="datepickerDispMovile" style="padding-left:0px;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-6 ResettleDate">
+                                        <button class="h5button" id="btnResettleEs" style="margin-top:-8px;margin-left:8px" v-on:click="resettleDate">
+                                            Resettle
                                         </button>
-                                        <ul class="dropdown-menu dropdownSty" role="menu" style="width:290px" v-bind:style="{display:menu}">
-                                            <li>
-                                                <div class="row">
-                                                    <div class="col-md-12 ">
-                                                        <p>
-                                                            <label for="amountPrice" style="margin:10px 0 0px 15px;  font-size:17px; font-weight:normal">The averange price is $3500:</label>
-                                                        </p>
-                                                        <div class="selector" style="width:280px; padding-top:0">
-                                                            <div class="price-slider">
-                                                                <div id="slider-rangePrice" v-on:click="priceRange" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content slider-rangePrice" style="margin-bottom:0px;">
-                                                                    <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
-                                                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="top:-4px;background:#FFFFFF;border:1px solid #E5E5E5"></span>
-                                                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="top:-4px;background:#FFFFFF;border:1px solid #E5E5E5"></span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <p>
-                                                            <input type="text" class="amountPrice" id="" readonly style="border:0; font-family:Arial;color:#787778; font-size:17px; margin:5px 0 0 20px">
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <button class="h5button" id="btnResettleEs" style="margin-top:-8px;" onclick="resettlePricePlanner()" v-on:click="resettlePric">
-                                                            Resettle
-                                                        </button>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <button class="apply applyPricePlanner" style="width:125px;margin-left:0" v-on:click="applyPrice">
-                                                            Apply Filter
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
                                     </div>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default dropdown-toggle h5button  botonFiltro" style="color:#747475;"
-                                                data-toggle="dropdown">
-                                            {{filterDate}}  <i class="fas fa-angle-down"></i>
+                                    <div class="col-md-6 col-xs-6 ApplyDate">
+                                        <button class="apply applyDatePlanner" v-on:click="applyDate" style="margin-left:10px">
+                                            Apply
                                         </button>
-                                        <ul class="dropdown-menu dropdownSty" role="menu" style="width:525px; height:325px;">
-                                            <li>
-                                                <div class="input-group input-daterange">
-                                                    <div class="row">
-                                                        <div class="col-md-6" style="padding-right:0px; width:260px">
-                                                            <div class="input-group dates datepickerFilter" data-provide="datepicker-inline" id="datepickerFilterPlanner" style="padding-left:0px;">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6" style="padding-left:0px; width:260px">
-                                                            <div class="input-group dates datepickerFilter1" data-provide="" id="datepickerFilterPlanner_1" style="margin-left:10px;">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <button class="h5button" id="btnResettleEs" style="margin-top:-8px;margin-left:8px" v-on:click="resettleDate">
-                                                                Resettle
-                                                            </button>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <button class="apply applyDatePlanner" style="padding-left: 40px;margin-left: 150px;" v-on:click="applyDate">
-                                                                Apply
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
                                     </div>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default dropdown-toggle h5button botonFiltro" style=" color:#747475;"
-                                                data-toggle="dropdown">
-                                            Lenght{{lenghtDay}} <i class="fas fa-angle-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu dropdownSty" role="menu" style="width:290px;height:120px">
-                                            <li>
-                                                <div class="row">
-                                                    <div class="col-md-6 " style="width:150px">
-                                                        <h4 style="padding:15px 0px 0 25px">Numbers of days</h4>
-                                                    </div>
-                                                    <div class="col-md-6" style="padding:21px 0 0 0px;width:150px;" id="leng">
-                                                        <div class="number-style" style="font-size:18px">
-                                                            <span class="number-minus" v-on:click="minusLenght" v-bind:class="colorLenght"></span>
-                                                            <p style="display:contents;font-family:Arial;color:#787778"> {{ countLen }}</p>
-                                                            <span class="number-plus" v-on:click="moreLenght"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <button class="h5button" id="btnResettleEs" style="margin-top:-8px;" v-on:click="resettlelenght">
-                                                            Resettle
-                                                        </button>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <button class="apply applyLenghtPlanner" v-on:click="applyLenght">
-                                                            Apply
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sideMovile">
+                <div class="dropdown contenidoFiltroCategoria" style="text-align:center">
+                    <button class="btn btn-default dropdown-toggle h5button botonFiltro" type="button" data-toggle="dropdown">
+                        Lenght{{lenghtDay}} <i class="fas fa-angle-down"></i>
+                    </button>
+                    <ul class="dropdown-menu  filtroDate dropdown-menu_cruises" role="menu" style="height:155px">
+                        <li>
+                            <div class="row">
+                                <div class="col-md-6 ">
+                                    <h4 style="padding: 10px 0px 10px 12px;color: #787778;">Numbers of days</h4>
+                                </div>
+                                <div class="col-md-6" style="padding-bottom:15px" id="leng">
+                                    <div class="number-style" style="font-size:18px">
+                                        <span class="number-minus" v-on:click="minusLenght" v-bind:class="colorLenght"></span>
+                                        <p style="display:contents;font-family:Arial;color:#787778"> {{ countLen }}</p>
+                                        <span class="number-plus" v-on:click="moreLenght"></span>
                                     </div>
-                                    <a class="btn h5button btnFiltter" v-on:click="getDisponibilidad($event)">
-                                        Apply filters
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <div class="col-md-6 col-xs-6">
+                                    <button class="h5button" id="btnResettleEs" v-on:click="resettlelenght" style="margin-left: 0;">
+                                        Resettle
+                                    </button>
+                                </div>
+                                <div class="col-md-6 col-xs-6">
+                                    <button class="apply applyLenghtPlanner" v-on:click="applyLenght" style="margin-left: 0;">
+                                        Apply
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sideMovile">
+                <a class="btn h5button btnFiltter" href="#productos-dispo" v-on:click="getDisponibilidad($event)">
+                    Apply filters
+                </a>
+            </div>
+        </div>
+
+        <div class="container tripplannerTexto">
+
+            <ol class="breadcrumb" style="" itemscope itemtype="http://schema.org/BreadcrumbList">
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a itemprop="item" style="color:#0077ba" href="../../">
+                        <span itemprop="name">Home</span>
+                    </a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span itemprop="name">Trip Finder</span>
+                    <meta itemprop="position" content="2" />
+                </li>
+            </ol>
+            <div class="progressTrip"></div>
+            <div class="row f-15 text-justify textoinfo parrafo" style="font-family:Arial;padding: .5em 1em; color: #656b6f !important; line-height:2; background:white;">
+                <h2 style="text-align:left;padding:20px 0 20px 0">
+                    We Have Found  <span style="color:red" v-html="listServices.length"></span> Experiences for You
+                </h2>
+                <p style="padding:10px 0 20px 0">
+                    On this page you will find tours and cruises of different durations and for different budgets. Use the filters at the top of this page to see the available departures in the destination that you choose. Remember that all our tours are flexible and can be customized depending on your interests.
+                </p>
+                <p>
+                    <h2 style="color:#787677;text-align: left;">
+                        <b>Need Galapagos travel information ?</b>
+                        <a class="btn h5button" data-toggle="modal" href="../form_taylorMade/form_taylorMade" id="help_me_plan" style="font-size:15px;padding-top:6px;padding-bottom:6px" data-target="#exampleModalCenter">Hepl me plan </a>
+                    </h2>
+                </p>
+                <p style="margin-top:20px;margin-bottom:30px">
+                </p>
+                <div style="padding-top:20px" v-if="dispoBarcosFiltros || dispoIslandHopping">
+                    <p><span style="font-size:24px; font-weight:700" v-html="results"></span></p>
+                    <p><span style="font-size:18px" v-html="respuestaBarcos"></span></p>
+                    <p><span style="font-size:18px" v-html="respuestaIslandHopping"></span></p>
+                </div>
+                @*<div v-else="dispoBarcosFiltros || dispoIslandHopping">
+                        <p><span v-html="results"></span></p>
+                        <p><span v-html="respuestaBarcos"></span></p>
+                        <p><span v-html="respuestaIslandHopping"></span></p>
+                    </div>*@
+            </div>
+        </div>
+        <br />
+        <!--================================CARD CRUCEROS=========================-->
+        <div class="container f-15 textoinfoTrip text-justify" style="padding: .5em 1em; background:white; text-decoration:none;margin-top: 42px;">
+            <div class="mainland-wrapper ">
+                <div class="row">
+                    <div class="mainland" style="justify-content: flex-start">
+                        <div v-if="ShowCardsIslandHopping.length == 0">
+                            <div class="col-xs-12 col-sm-6  col-md-4 cardsAndando" v-for="value in cargaDatos">
+                                <div class="contenido-app">
+                                    <a style="text-decoration:none" class="anc-card">
+                                        <div class="mainland-item">
+                                            <div class="mainland-image">
+                                                <img src="/images/Galapagos.jpg" style="background-color:#f1f1f1" class="img-portada" alt="">
+                                                <div class="cruise-details">
+                                                    <span>{{value}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="cruise-info">
+                                                <h3 style="font-family:'Berlin Sans FB'"></h3>
+                                                <p style="text-align:justify; margin-left:-5px; font-family:Arial;color:black">
+                                                    {{value}}
+                                                </p>
+                                                <div class="rest-info">
+                                                    <span class="price" style="margin-left:10px; font-family:Arial">{{value}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                    </nav>
-                </div>
-            </nav>
-            <nav class="page-nav page-nav-home" data-toggle="sticky-onscroll" id="navmovil">
-                <div class="limit" style="width:100%">
-                    <nav class="page-nav-anchors">
-                        <div class="outer FiltroPlanner">
-                            <div class="pull-right">
-                                <a class="btn h5buttonFilters btnFiltter showFilterTripPlanner" onclick="openNavMovile()">
-                                    Filters
-                                </a>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </nav>
-            <!--================================SUB MENU FILTROS MOVILE=========================-->
-            <div id="mySidenavMovile" class="sidenav FiltroPlanner">
-                <button id="btn-cerrar-menu" class="btn-menu-cerrar" style="background-color: white;margin:10px 10px 60px">
-                    <div class="header-hamburgerDisp in" style="margin-top: 10px;margin-right:20px">
-                        <span onclick="closeNavMovile()"><i class='fas fa-times-circle' style='font-size:30px;color:#179fec;padding-left:0;padding-top:5px'></i></span>
-                    </div>
-                </button>
-                <div class="sideMovile">
-                    <div class="dropdown" style="text-align: center;">
-                        <button class="btn btn-default dropdown-toggle h5button botonFiltro" type="button" data-toggle="dropdown">
-                            {{triptype}} {{contTrip}}  <i class="fas fa-angle-down" style="color:#7B7979;"> </i>
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu_cruises">
-                            <li v-for="(value, key) in  object">
-                                <label class="containe" style="font-size: 16px;margin-right:10px">
-                                    <span :style="{color: checkColor}" :id="key+'Mov'" :name="value">{{value}} </span>
-                                    <input type="checkbox" :value="value" :id="key" v-model="checkedTrip" @@change="checkTripType($event)">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                            <li>
-                                <div class="row" style="margin-top: 18px;font-family:Arial">
-                                    <div class="col-md-6 col-xs-6">
-                                        <button class="h5button" id="btnResettleEs" v-on:click="resettleTripPlanner">
-                                            Resettle
-                                        </button>
-                                    </div>
-                                    <div class="col-md-6 col-xs-6">
-                                        <button class="apply applyTravelerPlanner" id="applyTravel" style="margin-left:0;width:90px" v-on:click="applyTripPlanner">
-                                            Apply
-                                        </button>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="sideMovile">
-                    <div class="dropdown" style="text-align:center">
-                        <button class="btn btn-default dropdown-toggle h5button botonFiltro" type="button" data-toggle="dropdown">
-                            {{travelersTot}}<i class="fas fa-angle-down"></i>
-                        </button>
-                        <ul class="dropdown-menu dropdownSty dropdown-menu_cruises" role="menu" style="width:270px">
-                            <li>
-                                <div class="row">
-                                    <div class="col-md-6 col-xs-6 ">
-                                        <h4 style="padding:15px 0px 0 25px">Adults</h4>
-                                    </div>
-                                    <div class="col-md-6 col-xs-6" style="padding:21px 0 0 5px">
-                                        <div class="number-style" style="font-size:18px">
-                                            <span class="number-minus" v-on:click="minusTravelersAdu" v-bind:class="colorAdu"></span>
-                                            <p style="display:contents;font-family:Arial;color:#787778" :value="2"> {{ count }}</p>
-                                            <span class="number-plus" v-on:click="moreTravelersAdu"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-md-6 col-xs-6">
-                                        <h4 style="padding:0 0 0 25px; margin-top:2px">Children</h4>
-                                        <h5 style="padding:0px 0 0 25px;margin-top:-15px">From 4 to 12</h5>
-                                    </div>
-                                    <div class="col-md-6 col-xs-6" style="padding:5px 0 0 5px" id="ChildrenDesk">
-                                        <div class="number-style" style="font-size:18px">
-                                            <span class="number-minus" v-on:click="minusTravelersChild" v-bind:class="colorChild"></span>
-                                            <p style="display:contents;font-family:Arial;color:#787778"> {{ count1 }}</p>
-                                            <span class="number-plus" v-on:click="moreTravelersChild"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-md-6 col-xs-6" style="padding-top:10px">
-                                        <button class="h5button" id="btnResettleEs" v-on:click="resettleTravel">
-                                            Resettle
-                                        </button>
-                                    </div>
-                                    <div class="col-md-6 col-xs-6" style="padding-top:10px">
-                                        <button class="apply applyTravelerPlanner" id="applyTravel" v-on:click="applyTravel">
-                                            Apply
-                                        </button>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="sideMovile">
-                    <div class="dropdown contenidoFiltroCategoria" style="text-align:center">
-                        <button type="button" class="btn btn-default dropdown-toggle h5button botonFiltro"
-                                data-toggle="dropdown">
-                            {{price}} <i class="fas fa-angle-down" style="color:#7B7979;"></i>
-                        </button>
-                        <ul class="dropdown-menu dropdownSty" role="menu" style="width:275px;height: 190px;" v-bind:style="{display:menu}">
-                            <li>
-                                <div class="row">
-                                    <div class="col-md-12 ">
-                                        <p>
-                                            <label for="amountPrice" style="margin:10px 0 0px 15px;  font-size:17px; font-weight:normal">The averange price is $3500:</label>
-                                        </p>
-                                        <div class="selector" style="width:280px; padding-top:0">
-                                            <div class="price-slider">
-                                                <div id="slider-rangePrice" v-on:click="priceRange" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content slider-rangePrice" style="margin-bottom:0px;">
-                                                    <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
-                                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="top:-4px;background:#FFFFFF;border:1px solid #E5E5E5"></span>
-                                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="top:-4px;background:#FFFFFF;border:1px solid #E5E5E5"></span>
+                        <div v-show="ShowCardsIslandHopping">
+                            <div class="col-xs-12 col-sm-6  cardsAndando" v-bind:class="classObject" v-for="post in ShowCardsIslandHopping" v-bind:currentPage="currentPage">
+                                <div class="contenido-app">
+                                    <a v-on:click="getIslandHoppingPaq($event)" :id="post.idItinerario" style="text-decoration:none;cursor:pointer" class="anc-card">
+                                        <div class="mainland-item " style="overflow:hidden;text-overflow:ellipsis">
+                                            <div class="mainland-image">
+                                                <img :src="post.fotoPrincipal" class="img-portada" alt="">
+
+                                                <div class="cruise-details">
+                                                    <span>Duration: {{post.numeroDiasTexto}} days</span>
+                                                </div>
+                                            </div>
+                                            <div class="cruise-info">
+                                                <h3 style="font-family:'Berlin Sans FB'">{{post.nombreIslandHoppingYPaquete}}</h3>
+                                                <p style="line-height: 1.4;color:black">
+                                                    {{post.descripcionCorta}}
+
+                                                </p>
+                                                <div class="rest-info" style="margin-top: 4.5em">
+                                                    <span class="price" style="margin-left:10px; font-family:Arial">Price from: ${{post.precio}} </span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <p>
-                                            <input type="text" class="amountPrice" id="" readonly style="border:0; font-family:Arial;color:#787778; font-size:17px; margin:5px 0 0 20px">
-                                        </p>
-                                    </div>
+                                    </a>
                                 </div>
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-md-6 col-xs-6">
-                                        <button class="h5button" id="btnResettleEs" style="margin-top:-8px;" onclick="resettlePricePlanner()" v-on:click="resettlePric">
-                                            Resettle
-                                        </button>
-                                    </div>
-                                    <div class="col-md-6 col-xs-6">
-                                        <button class="apply applyPricePlanner" style="padding-left: 50px;" v-on:click="applyPrice">
-                                            Apply
-                                        </button>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="sideMovile">
-                    <div class="dropdown contenidoFiltroCategoria" style="text-align:center">
-                        <button class="btn btn-default dropdown-toggle h5button botonFiltro" type="button" data-toggle="dropdown">
-                            {{filterDate}}  <i class="fas fa-angle-down" style="color:#7B7979;"> </i>
-                        </button>
-                        <ul class="dropdown-menu  filtroDate dropdown-menu_cruises" role="menu" style="height: 290px;">
-                            <li>
-                                <div class="input-group input-daterange">
-                                    <div class="row">
-                                        <div class="col-md-6" style="padding: 5px 5px 5px 10px;">
-                                            <div class="input-group dates datepickerFilter datepickerProduct" data-provide="datepicker-inline" id="datepickerDispMovile" style="padding-left:0px;">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6 col-xs-6 ResettleDate">
-                                            <button class="h5button" id="btnResettleEs" style="margin-top:-8px;margin-left:8px" v-on:click="resettleDate">
-                                                Resettle
-                                            </button>
-                                        </div>
-                                        <div class="col-md-6 col-xs-6 ApplyDate">
-                                            <button class="apply applyDatePlanner" v-on:click="applyDate" style="margin-left:10px">
-                                                Apply
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="sideMovile">
-                    <div class="dropdown contenidoFiltroCategoria" style="text-align:center">
-                        <button class="btn btn-default dropdown-toggle h5button botonFiltro" type="button" data-toggle="dropdown">
-                            Lenght{{lenghtDay}} <i class="fas fa-angle-down"></i>
-                        </button>
-                        <ul class="dropdown-menu  filtroDate dropdown-menu_cruises" role="menu" style="height:155px">
-                            <li>
-                                <div class="row">
-                                    <div class="col-md-6 ">
-                                        <h4 style="padding: 10px 0px 10px 12px;color: #787778;">Numbers of days</h4>
-                                    </div>
-                                    <div class="col-md-6" style="padding-bottom:15px" id="leng">
-                                        <div class="number-style" style="font-size:18px">
-                                            <span class="number-minus" v-on:click="minusLenght" v-bind:class="colorLenght"></span>
-                                            <p style="display:contents;font-family:Arial;color:#787778"> {{ countLen }}</p>
-                                            <span class="number-plus" v-on:click="moreLenght"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-md-6 col-xs-6">
-                                        <button class="h5button" id="btnResettleEs" v-on:click="resettlelenght" style="margin-left: 0;">
-                                            Resettle
-                                        </button>
-                                    </div>
-                                    <div class="col-md-6 col-xs-6">
-                                        <button class="apply applyLenghtPlanner" v-on:click="applyLenght" style="margin-left: 0;">
-                                            Apply
-                                        </button>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="sideMovile">
-                    <a class="btn h5button btnFiltter" href="#productos-dispo" v-on:click="getDisponibilidad($event)">
-                        Apply filters
-                    </a>
-                </div>
-            </div>
-            
-            <div class="container tripplannerTexto">
+                            </div>
+                        </div>
 
-                <ol class="breadcrumb" style="" itemscope itemtype="http://schema.org/BreadcrumbList">
-                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" style="color:#0077ba" href="../../">
-                            <span itemprop="name">Home</span>
-                        </a>
-                        <meta itemprop="position" content="1" />
-                    </li>
-                    <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <span itemprop="name">Trip Finder</span>
-                        <meta itemprop="position" content="2" />
-                    </li>
-                </ol>
-                <div class="progressTrip"></div>
-                <div class="row f-15 text-justify textoinfo parrafo" style="font-family:Arial;padding: .5em 1em; color: #656b6f !important; line-height:2; background:white;">
-                    <h2 style="text-align:left;padding:20px 0 20px 0">
-                        We Have Found  <span style="color:red" v-html="listServices.length"></span> Experiences for You
-                    </h2>
-                    <p style="padding:10px 0 20px 0">
-                        On this page you will find tours and cruises of different durations and for different budgets. Use the filters at the top of this page to see the available departures in the destination that you choose. Remember that all our tours are flexible and can be customized depending on your interests.
-                    </p>
-                    <p>
-                        <h2 style="color:#787677;text-align: left;">
-                            <b>Need Galapagos travel information ?</b>
-                            <a class="btn h5button" data-toggle="modal" href="../form_taylorMade/form_taylorMade" id="help_me_plan" style="font-size:15px;padding-top:6px;padding-bottom:6px" data-target="#exampleModalCenter">Hepl me plan </a>
-                        </h2>
-                    </p>
-                    <p style="margin-top:20px;margin-bottom:30px">
-                    </p>
-                    <div style="padding-top:20px" v-if="dispoBarcosFiltros || dispoIslandHopping">
-                        <p><span style="font-size:24px; font-weight:700" v-html="results"></span></p>
-                        <p><span style="font-size:18px" v-html="respuestaBarcos"></span></p>
-                        <p><span style="font-size:18px" v-html="respuestaIslandHopping"></span></p>
                     </div>
-                    @*<div v-else="dispoBarcosFiltros || dispoIslandHopping">
-            <p><span v-html="results"></span></p>
-            <p><span v-html="respuestaBarcos"></span></p>
-            <p><span v-html="respuestaIslandHopping"></span></p>
-        </div>*@
                 </div>
             </div>
             <br />
-            <!--================================CARD CRUCEROS=========================-->
-            <div class="container f-15 textoinfoTrip text-justify" style="padding: .5em 1em; background:white; text-decoration:none;margin-top: 42px;">
-                <div class="mainland-wrapper ">
-                    <div class="row">
-                        <div class="mainland" style="justify-content: flex-start">
-                            <div v-if="ShowCardsIslandHopping.length == 0">
-                                <div class="col-xs-12 col-sm-6  col-md-4 cardsAndando" v-for="value in cargaDatos">
-                                    <div class="contenido-app">
-                                        <a style="text-decoration:none" class="anc-card">
-                                            <div class="mainland-item">
-                                                <div class="mainland-image">
-                                                    <img src="/images/Galapagos.jpg" style="background-color:#f1f1f1" class="img-portada" alt="">
-                                                    <div class="cruise-details">
-                                                        <span>{{value}}</span>
-                                                    </div>
-                                                </div>
-                                                <div class="cruise-info">
-                                                    <h3 style="font-family:'Berlin Sans FB'"></h3>
-                                                    <p style="text-align:justify; margin-left:-5px; font-family:Arial;color:black">
-                                                        {{value}}
-                                                    </p>
-                                                    <div class="rest-info">
-                                                        <span class="price" style="margin-left:10px; font-family:Arial">{{value}}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div v-show="ShowCardsIslandHopping">
-                                <div class="col-xs-12 col-sm-6  cardsAndando" v-bind:class="classObject" v-for="post in ShowCardsIslandHopping" v-bind:currentPage="currentPage">
-                                    <div class="contenido-app">
-                                        <a v-on:click="getIslandHoppingPaq($event)" :id="post.idItinerario"  style="text-decoration:none;cursor:pointer" class="anc-card">
-                                            <div class="mainland-item " style="overflow:hidden;text-overflow:ellipsis">
-                                                <div class="mainland-image">
-                                                    <img :src="post.fotoPrincipal" class="img-portada" alt="">
-
-                                                    <div class="cruise-details">
-                                                        <span>Duration: {{post.numeroDiasTexto}} days</span>
-                                                    </div>
-                                                </div>
-                                                <div class="cruise-info">
-                                                    <h3 style="font-family:'Berlin Sans FB'">{{post.nombreIslandHoppingYPaquete}}</h3>
-                                                    <p style="line-height: 1.4;color:black">
-                                                        {{post.descripcionCorta}}
-
-                                                    </p>
-                                                    <div class="rest-info" style="margin-top: 4.5em">
-                                                        <span class="price" style="margin-left:10px; font-family:Arial">Price from: ${{post.precio}} </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+            <nav v-if="totalPages()>0" style="text-align:center">
+                <ul class="pagination justify-content-center " style="margin:20px 0">
+                    <li class="pagination-btn" v-on:click="updatePage(0)"><a href="#tripp">&laquo;</a></li>
+                    <li v-if="showPrevioustLink()" class="pagination-btn" v-on:click="updatePage(currentPage-1)"><a href="#tripp">&lt;</a></li>
+                    <li class="active" v-on:click="updatePage(currentPage)"><a href="#tripp">{{showPages(currentPage,1)}}</a></li>
+                    <li v-on:click="updatePage(currentPage+1)" v-if="showNextLink()"><a href="#tripp">{{showPages(currentPage,2)}}</a></li>
+                    <li v-on:click="updatePage(currentPage+2)" v-if="totalPages()>=showPages(currentPage,3)"><a href="#tripp">{{showPages(currentPage,3)}}</a></li>
+                    <li v-on:click="updatePage(currentPage+1)" v-if="showNextLink()" class="pagination-btn"><a href="#tripp">&gt;</a></li>
+                    <li class="pagination-btn" v-on:click="updatePage(totalPages()-1)"><a href="#tripp">&raquo;</a></li>
+                </ul>
                 <br />
-                <nav v-if="totalPages()>0" style="text-align:center">
-                    <ul class="pagination justify-content-center " style="margin:20px 0">
-                        <li class="pagination-btn" v-on:click="updatePage(0)"><a href="#tripp">&laquo;</a></li>
-                        <li v-if="showPrevioustLink()" class="pagination-btn" v-on:click="updatePage(currentPage-1)"><a href="#tripp">&lt;</a></li>
-                        <li class="active" v-on:click="updatePage(currentPage)"><a href="#tripp">{{showPages(currentPage,1)}}</a></li>
-                        <li v-on:click="updatePage(currentPage+1)" v-if="showNextLink()"><a href="#tripp">{{showPages(currentPage,2)}}</a></li>
-                        <li v-on:click="updatePage(currentPage+2)" v-if="totalPages()>=showPages(currentPage,3)"><a href="#tripp">{{showPages(currentPage,3)}}</a></li>
-                        <li v-on:click="updatePage(currentPage+1)" v-if="showNextLink()" class="pagination-btn"><a href="#tripp">&gt;</a></li>
-                        <li class="pagination-btn" v-on:click="updatePage(totalPages()-1)"><a href="#tripp">&raquo;</a></li>
-                    </ul>
-                    <br />
-                </nav>
-            </div>
-            <partial name="~/Views/forms/ModalTripPlanner/IslandHoppingPaquete.cshtml" />
-            <partial name="~/Views/forms/ModalTripPlanner/tripPlannerPassionMary.cshtml" />
-            <partial name="~/Views/forms/ModalTripPlanner/tripPlannerOtrosBarcos.cshtml" />
-            <partial name="~/Views/Forms/ModalsCabina/detailsCabinaPaMa.cshtml" />
-            <partial name="~/Views/Forms/ModalsCabina/detailsCabinaOtrosBarcos.cshtml" />
-            <partial name="~/Views/Forms/Modals/TripPlanner/form_tripEmail.cshtml" />
-            @*<partial name="~/Views/form_taylorMade/availabilityModal.cshtml" />
+            </nav>
+        </div>
+        <partial name="~/Views/forms/ModalTripPlanner/IslandHoppingPaquete.cshtml" />
+        <partial name="~/Views/forms/ModalTripPlanner/tripPlannerPassionMary.cshtml" />
+        <partial name="~/Views/forms/ModalTripPlanner/tripPlannerOtrosBarcos.cshtml" />
+        <partial name="~/Views/Forms/ModalsCabina/detailsCabinaPaMa.cshtml" />
+        <partial name="~/Views/Forms/ModalsCabina/detailsCabinaOtrosBarcos.cshtml" />
+        <partial name="~/Views/Forms/Modals/TripPlanner/form_tripEmail.cshtml" />
+        @*<partial name="~/Views/form_taylorMade/availabilityModal.cshtml" />
             <partial name="~/Views/form_taylorMade/itinerary.cshtml" />*@
-        </div>
     </div>
-    <div class="bs-example">
-        <!-- Modal Galeria HTML -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                </div>
+</div>
+<div class="bs-example">
+    <!-- Modal Galeria HTML -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
             </div>
         </div>
     </div>
+</div>
 <script>
     function openNavMovile() {
         document.getElementById("mySidenavMovile").style.width = "300px";

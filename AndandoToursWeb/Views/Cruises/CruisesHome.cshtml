@@ -1,22 +1,23 @@
 ﻿@{
+    Layout = "_Layout";
     @*@model List<AndandoTour3_0Core.Models.BarcoWeb>*@
-    var item1 = ViewBag.GetContenidoVista;
-    var imgItem = ViewBag.GetContenidoMult;
-    var titulo = new List<string>();
-    Dictionary<string, int> uniqueStore = new Dictionary<string, int>();
-    foreach (var item in ViewBag.GetContenidoVista)
+var item1 = ViewBag.GetContenidoVista;
+var imgItem = ViewBag.GetContenidoMult;
+var titulo = new List<string>();
+Dictionary<string, int> uniqueStore = new Dictionary<string, int>();
+foreach (var item in ViewBag.GetContenidoVista)
+{
+    if (!uniqueStore.ContainsKey(item.Titulo))
     {
-        if (!uniqueStore.ContainsKey(item.Titulo))
-        {
-            uniqueStore.Add(item.Titulo, 0);
-            titulo.Add(item.Titulo);
-        }
+        uniqueStore.Add(item.Titulo, 0);
+        titulo.Add(item.Titulo);
     }
+}
 
-    var i = 0;
-    //var barcos = new List<AndandoTour3_0Core.Models.BarcoWeb>(Model);
+var i = 0;
+//var barcos = new List<AndandoTour3_0Core.Models.BarcoWeb>(Model);
 
-    var barcos = ViewBag.CardsCruises;
+var barcos = ViewBag.CardsCruises;
 
 }
 <div class="container--full-width" style="overflow-x:hidden; width:100%" id="CruisesCategoria">

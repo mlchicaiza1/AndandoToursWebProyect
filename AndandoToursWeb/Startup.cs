@@ -115,14 +115,14 @@ namespace AndandoToursWeb
                     defaults: new { Controller = "galapagos_daily_tours", action = "dailyHome" }
                     );
             });
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "EcuadorHome",
-                    template: "Ecuador-itineraries",
-                    defaults: new { Controller = "ecuador_itineraries", action = "EcuadorHome" }
-                    );
-            });
+            //app.UseMvc(routes =>
+            //{
+            //    routes.MapRoute(
+            //        name: "EcuadorHome",
+            //        template: "Ecuador-itineraries",
+            //        defaults: new { Controller = "ecuador_itineraries", action = "EcuadorHome" }
+            //        );
+            //});
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

@@ -17,7 +17,7 @@ namespace AndandoToursWeb.Controllers
 
         }
 
-        [Route("blog")]
+        //[Route("blog")]
         public async Task<ActionResult>  blogHome()
         {
             var urlData =  _repo.getUrlPage(HttpContext);
