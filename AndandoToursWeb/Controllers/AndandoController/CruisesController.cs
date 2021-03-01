@@ -195,6 +195,32 @@ namespace AndandoToursWeb.Controllers
             return View();
         }
         
+        [Route("/galapagos-cruises/high-end")]
+        public async Task<ActionResult> CruisesHigh_End()
+        {
+            var idVista = 3;
+            var urlData = _repo.getUrlPage(HttpContext);
+            string urlCanonica = urlData[0];
+            var cards = new List<int> { 73, 122, 125 };
+            var cardsCruises = await CruisesCardsOrden(cards);
+           
+
+            List<GetContenidoVista> contendido = await _repo.GetContenidoPaginaWeb(idVista);
+            List<GetContenidoMultimedia> contenidoMultimedia = await _repo.GetContenidoMultimedia(idVista);
+            //Imagenes Menu
+            List<GetContenidoMultimedia> ImgMenu = await _repo.GetImgMenu();
+            ViewBag.ImagenesMenu = ImgMenu;
+            var metadatos = await _repo.GetMetadata(idVista);
+            ViewBag.Title = metadatos[0].MetaTitulo;
+            ViewBag.MetaDescription = metadatos[0].MetaDescripcion;
+            ViewBag.CanonicalURL = urlCanonica + metadatos[0].MetaURL;
+            ViewBag.GetContenidoVista = contendido;
+            ViewBag.GetContenidoMult = contenidoMultimedia;
+            ViewBag.CardsCruises = cardsCruises;
+            ViewBag.Breadcrumbitem = "High End";
+            return View();
+        }
+
         [Route("galapagos-luxury-cruise")]
         public async Task<ActionResult> CruisesLuxury(int idbarco, string url)
         {

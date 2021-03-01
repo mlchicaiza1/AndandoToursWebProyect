@@ -729,14 +729,7 @@ namespace AndandoToursWeb
                     defaults: new { Controller = "Cruises", action = "CruisesCategoria" }
                     );
             });
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "CruisesCategoriaHighEnd",
-                    template: "galapagos-cruises/high-end",
-                    defaults: new { Controller = "Cruises", action = "CruisesCategoria" }
-                    );
-            });
+           
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

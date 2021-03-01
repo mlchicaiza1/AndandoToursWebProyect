@@ -81,6 +81,7 @@ body {
 }
 
 #myProgress {
+    z-index: 500;
     position: relative;
     width: 100%;
     height: 3px;
@@ -14974,7 +14975,7 @@ section.section-newsletter {
 }
 
 .input-iconoError {
-    background-image: url('http://assets.stickpng.com/images/5a5798809538462e5a82d431.png');
+    background-image: url('../images/icon/errorIcon.png');
     background-repeat: no-repeat;
     background-position: 98% center;
     background-size: 20px;

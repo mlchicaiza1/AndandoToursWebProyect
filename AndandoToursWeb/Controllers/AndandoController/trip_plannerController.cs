@@ -9,6 +9,7 @@ namespace AndandoToursWeb.Controllers
 {
     public class trip_plannerController : Controller
     {
+        [Route("/trip_planner")]
         public async Task<IActionResult> tri_planner()
         {
             var cardsCruises = new List<BarcoWeb>();

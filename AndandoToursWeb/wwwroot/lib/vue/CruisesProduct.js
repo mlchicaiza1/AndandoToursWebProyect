@@ -317,7 +317,7 @@ var ItinerBarco = new Vue({
 
             });
 
-            window.location.href = "../thank-you-galapagos";
+            window.location.href = "../thank-you-page-availability/";
 
 
         },
@@ -406,7 +406,7 @@ var ItinerBarco = new Vue({
 
             });
 
-            window.location.href = "../thank-you-galapagos";
+            window.location.href = "../thank-you-page-availability/";
 
 
         },

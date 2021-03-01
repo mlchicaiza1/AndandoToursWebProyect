@@ -6,6 +6,9 @@
 <div class="" style="overflow:hidden; width:100%">
     <!--=========================SUB MENU FILTROS TRIPPLANNER================================-->
     <div id="tripPlanner">
+        <div id="myProgress">
+            <div id="myBar"></div>
+        </div>
         <nav class="navbar  page-nav page-nav-home" data-toggle="sticky-onscroll" id="navpagina" style="border: 1px solid rgba(0,0,0,.1);">
             <div class="limit">
                 <nav class="page-nav-anchors" style="text-transform:none;">
@@ -458,10 +461,10 @@
                     <p><span style="font-size:18px" v-html="respuestaIslandHopping"></span></p>
                 </div>
                 @*<div v-else="dispoBarcosFiltros || dispoIslandHopping">
-                        <p><span v-html="results"></span></p>
-                        <p><span v-html="respuestaBarcos"></span></p>
-                        <p><span v-html="respuestaIslandHopping"></span></p>
-                    </div>*@
+                    <p><span v-html="results"></span></p>
+                    <p><span v-html="respuestaBarcos"></span></p>
+                    <p><span v-html="respuestaIslandHopping"></span></p>
+                </div>*@
             </div>
         </div>
         <br />
@@ -547,16 +550,7 @@
         <partial name="~/Views/Forms/ModalsCabina/detailsCabinaOtrosBarcos.cshtml" />
         <partial name="~/Views/Forms/Modals/TripPlanner/form_tripEmail.cshtml" />
         @*<partial name="~/Views/form_taylorMade/availabilityModal.cshtml" />
-            <partial name="~/Views/form_taylorMade/itinerary.cshtml" />*@
-    </div>
-</div>
-<div class="bs-example">
-    <!-- Modal Galeria HTML -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-            </div>
-        </div>
+        <partial name="~/Views/form_taylorMade/itinerary.cshtml" />*@
     </div>
 </div>
 <script>

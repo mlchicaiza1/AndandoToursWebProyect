@@ -20,8 +20,6 @@
     var comp = titulo[titulo.Count - 1];
     var i = 0;
     var barcos = ViewBag.CardsCruises;
-    //BREADCRU,BS
-    var Breadcrumbitem = ViewBag.Breadcrumbitem;
 }
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -94,7 +92,7 @@
                     <meta itemprop="position" content="2" />
                 </li>
                 <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span itemprop="name">@Breadcrumbitem</span>
+                    <span itemprop="name">@ViewBag.Breadcrumbitem</span>
                     <meta itemprop="position" content="3" />
                 </li>
             </ol>
@@ -199,8 +197,7 @@
     </div>
     <!--================================INFO CRUCEROS =========================-->
     @{
-        if (ViewBag.GetContenidoVista.Count >= 4)
-        {
+        
             <div class="container">
                 <div class="row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em; background:white;margin-top:0;margin-bottom:0">
                     <h2 class="formato-titulo" style="margin-bottom: 30px;"> <b>@titulo[3]</b></h2><div id="comparisonbudget"></div>
@@ -217,115 +214,20 @@
                         }
                     }
                 </div>
-                @{
-                    if (titulo.Count > 4)
-                    {
-                        <div class="row f-15 text-justify textoinfo parrafo" v-show="comparison" style="padding: .5em 1em; background:white;margin-top: 0;margin-bottom:0">
-                            <div class="col-md-6" style="padding: 0px 0;">
-                                <div class="box" id="textoDerecha">
-                                    @{
-                                        if (titulo[4] != comp)
-                                        {
-                                            <h3 class="formato-titulo" style="margin-top:0;margin-bottom: 30px;"> <b>@titulo[4]</b></h3>
-                                        }
-
-
-                                        foreach (var item in ViewBag.GetContenidoVista)
-                                        {
-                                            if (item.Titulo == titulo[4])
-                                            {
-                                                <p class="formato-parrafo">
-                                                    <span>@Html.Raw(item.Parrafo)</span>
-                                                </p>
-
-                                            }
-                                        }
-                                    }
-                                </div>
-                            </div>
-                            @{
-                                if (titulo.Count > 5)
-                                {
-                                    <div class="col-md-6" style="padding: 0px 0;">
-                                        <div class="box" id="textoIzquierda">
-                                            <h3 class="formato-titulo" style="margin-top:0;margin-bottom: 30px;"> <b>@titulo[5]</b></h3>
-                                            @{
-                                                foreach (var item in ViewBag.GetContenidoVista)
-                                                {
-                                                    if (item.Titulo == titulo[5])
-                                                    {
-                                                        <p class="formato-parrafo">
-                                                            <span>@Html.Raw(item.Parrafo)</span>
-                                                        </p>
-
-                                                    }
-                                                }
-                                            }
-                                        </div><div id="luxuryComp"></div>
-                                    </div>
-                                }
-                            }
-                        </div>
-                        if (titulo.Count > 6)
-                        {
-                            <div class="row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em;margin-top:0; background:white;" v-show="parraforCategoriaLuxuryBudget">
-                                <div class="col-md-6" style="padding: 0px 0;" v-show="parraforCategoria">
-                                    <div class="box" id="textoDerecha">
-                                        <div id="comparisonLuxury"></div>
-                                        <h3 class="formato-titulo" style="margin-top:0;margin-bottom: 30px;"> <b>@titulo[6]</b></h3>
-                                        @{
-                                            foreach (var item in ViewBag.GetContenidoVista)
-                                            {
-                                                if (item.Titulo == titulo[6])
-                                                {
-                                                    <p class="formato-parrafo">
-                                                        <span>@Html.Raw(item.Parrafo)</span>
-                                                    </p>
-
-                                                }
-                                            }
-                                        }
-                                    </div>
-                                </div>
-                                <div class="col-md-6" style="padding: 0px 0">
-                                    <div class="box" id="textoIzquierda">
-                                        <h3 class="formato-titulo" style="margin-top:0;margin-bottom: 30px;"> <b>@titulo[7]</b></h3>
-                                        @{
-                                            foreach (var item in ViewBag.GetContenidoVista)
-                                            {
-                                                if (item.Titulo == titulo[7])
-                                                {
-                                                    <p class="formato-parrafo">
-                                                        <span>@Html.Raw(item.Parrafo)</span>
-                                                    </p>
-
-                                                }
-                                            }
-                                        }
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                    }
-                }
+               
             </div>
-        }
+       
     }
-
-    @{
-        if (imgItem.Count > 2)
-        {
-            <div class="container">
-                <div class="row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em 0; margin-top: 5px;background:white;">
-                    <h2 class="formato-titulo" style="padding-bottom:0;margin-bottom:0;"><b>@comp</b></h2>
-                    <div class="col-md-12 " style="padding-left: 0px">
-                        <img data-src="@imgItem[2].UrlImagen" alt="@imgItem[2].NombreImagen" class="img-responsive lazyload" style="margin:0;width:100%;" />
-                    </div>
-                </div>
+    <div class="container">
+        <div class="row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em 0; margin-top: 5px;background:white;">
+            <div class="col-md-12 " style="padding-left: 0px">
+                <img data-src="@imgItem[2].UrlImagen" alt="@imgItem[2].NombreImagen" class="img-responsive lazyload" style="margin:0;width:100%;" />
             </div>
-        }
-    }
+        </div>
+    </div>
 </div>
 @section scripts {
     <script src="~/lib/vue/CruisesHome-Category.js"></script>
 }
+
+

@@ -142,15 +142,15 @@
     },
     created: function () {
         this.getDisponibilidad();
-
+        
 
     },
     methods: {
         progressBar: function () {
             var elem = document.getElementById("myBar");
-            document.getElementById("myProgress").style.height = '3px';
+            document.getElementById("myProgress").style.height = '6px';
             var width = 1;
-            var id = setInterval(frame, 80);
+            var id = setInterval(frame, 150);
             function frame() {
                 if (width >= 100) {
                     clearInterval(id);
@@ -287,7 +287,6 @@
         },
         updatePage(pageNumber) {
             this.currentPage = pageNumber;
-            //this.getDisponibilidad();
         },
         getDisponibilidad(event) {
             var vm = this;
@@ -312,8 +311,7 @@
                     this.triptype = this.dataTripPlanner[0][0].substring(9);
                 }
 
-                console.log("ljlj")
-
+               
 
                 this.travelersTot = "Travelers " + this.dataTripPlanner[1];
                 this.price = "$ " + this.dataTripPlanner[2][0] + "- " + "$" + this.dataTripPlanner[2][1];
@@ -328,18 +326,11 @@
                 localStorage.setItem('datosTrip', JSON.stringify(this.dataTripPlanner));
             }
 
-            var data = [];
-            for (var i = 0; i < 100000; i++) {
-                var tmp = [];
-                for (var i = 0; i < 100000; i++) {
-                    tmp[i] = 'hue';
-                }
-                data[i] = tmp;
-            };
+           
 
 
             $.ajax({
-                url: "/IslandHoppingPaquetes", method: "POST", data: data,
+                url: "/IslandHoppingPaquetes", method: "POST",
                 success: function (data) {
                     var galapLanBase = [];
                     var listaCardsDispo = [];
@@ -352,14 +343,11 @@
                             date = vm.dataTripPlanner[3];
                             days = vm.dataTripPlanner[4];
 
-
-
                             if (Number(item.precio.replace(",", ".")) >= price[0] && Number(item.precio.replace(",", ".")) <= price[1]) {
                                 if (item.numeroDias >= days) {
                                     galapLanBase.push(item);
                                 }
                             }
-
 
 
                             if (item.islandHoppingYPaqueteTipo == 'BC') {
@@ -517,11 +505,6 @@
 
                                     }
 
-
-
-
-
-
                                 }).fail(function (jqXHR, textStatus, errorThrown) {
                                     if (console && console.log) {
                                         vm.dispVerficarOtrosBarcos = "We couldn´t load the available departures. Please, try later";
@@ -536,9 +519,14 @@
 
                         vm.listServices = galapLanBase
 
+                        
+                        Promise.all([galapLanBase]).then(values => {
+                            vm.progressBar();
+                        });
 
 
                     } else {
+                        
 
                         for (let tripType of vm.dataTripPlanner[0]) {
 
@@ -551,144 +539,160 @@
 
                                     if (item.islandHoppingYPaqueteTipo == '' || item.islandHoppingYPaqueteTipo == 'BC') {
 
-                                        //Cargar datos de la  Api disponibilidad de los barcos, del controlador asi la vista 
-                                        $.ajax({ url: "/DisponibilidadBarcoPaMa", method: "GET" }).done(function (data) {
-                                            if (vm.disponibilidadBarcosPaMa.length == 0) {
+                                      
 
-                                                vm.disponibilidadBarcosPaMa = data;
+                                        $.when(
 
-                                                //Verificar disponobilidad de los barcos
-                                                for (let filBarco of vm.disponibilidadBarcosPaMa) {
-                                                    if (new Date(filBarco.salFechaSalida).getTime() >= new Date(date[0]).getTime() && new Date(filBarco.salFechaSalida).getTime() <= new Date(date[1]).getTime()) {
-                                                        if (filBarco.cabinaPrecio1.replace(',', '.') >= parseFloat(price[0]) && filBarco.cabinaPrecio1.replace(',', '.') <= parseFloat(price[1])) {
+                                            //Cargar datos de la  Api disponibilidad de los barcos, del controlador asi la vista 
+                                            $.ajax({ url: "/DisponibilidadBarcoPaMa", method: "GET" }).done(function (data) {
+                                                if (vm.disponibilidadBarcosPaMa.length == 0) {
 
+                                                    vm.disponibilidadBarcosPaMa = data;
 
-                                                            if (parseInt(filBarco.totalDisponibilidad) >= travelers) {
-
-
-                                                                if (parseInt(filBarco.noches) >= days) {
-
-                                                                    vm.listDisponibilidadBarcosPaMa.push(filBarco);
+                                                    //Verificar disponobilidad de los barcos
+                                                    for (let filBarco of vm.disponibilidadBarcosPaMa) {
+                                                        if (new Date(filBarco.salFechaSalida).getTime() >= new Date(date[0]).getTime() && new Date(filBarco.salFechaSalida).getTime() <= new Date(date[1]).getTime()) {
+                                                            if (filBarco.cabinaPrecio1.replace(',', '.') >= parseFloat(price[0]) && filBarco.cabinaPrecio1.replace(',', '.') <= parseFloat(price[1])) {
 
 
-                                                                }
-
-                                                            }
-
-                                                        }
-
-                                                    }
-                                                }
-                                            }
-
-                                            for (let dat of vm.listDisponibilidadBarcosPaMa) {
-                                                idBarcofiltro.push(dat.idBarco)
-
-                                            }
-                                            //Eliminar id´s repetidos de los barcos
-                                            var listaCardsDispo = idBarcofiltro.filter(function (value, index, self) {
-                                                return self.indexOf(value) === index;
-                                            });
-                                            for (let idBarcoDispo of listaCardsDispo) {
-
-                                                if (idBarcoDispo == item.idItinerario) {
-                                                    //agregar barcos filtrados a la lista
-                                                    galapLanBase.push(item);
-
-                                                }
-                                            }
-
-                                        }).fail(function (jqXHR, textStatus, errorThrown) {
-                                            if (console && console.log) {
-                                                vm.dispBarcosVerficarInf = "We couldn´t load the available departures. Please, try later";
-
-                                            }
-                                        });
-                                        $.ajax({ url: "/DispoOtrosBarcos", method: "GET" }).done(function (data) {
-                                            if (vm.disponibilidadOtrosBarcos.length == 0) {
-                                                vm.disponibilidadOtrosBarcos = data;
-                                                for (let filBarco of vm.disponibilidadOtrosBarcos) {
-                                                    if (new Date(filBarco.salFechaSalida).getTime() >= new Date(date[0]).getTime() && new Date(filBarco.salFechaSalida).getTime() <= new Date(date[1]).getTime()) {
-                                                        if (filBarco.cabinaPrecio1.replace(',', '.') >= parseFloat(price[0]) && filBarco.cabinaPrecio1.replace(',', '.') <= parseFloat(price[1])) {
+                                                                if (parseInt(filBarco.totalDisponibilidad) >= travelers) {
 
 
-                                                            if (parseInt(filBarco.salDispoTotalOtrosBarcos) >= travelers) {
+                                                                    if (parseInt(filBarco.noches) >= days) {
+
+                                                                        vm.listDisponibilidadBarcosPaMa.push(filBarco);
 
 
-                                                                if (parseInt(filBarco.noches) >= days) {
-
-                                                                    vm.listDisponibilidadOtrosBarcos.push(filBarco);
+                                                                    }
 
                                                                 }
 
                                                             }
 
                                                         }
-
                                                     }
                                                 }
-                                            }
 
-                                            for (let dat of vm.listDisponibilidadOtrosBarcos) {
-
-                                                idOtrosBarcofiltro.push(dat.idBarco)
-
-                                            }
-
-                                            //Eliminar id´s repetidos de los barcos
-                                            var listaCardsDispo = idOtrosBarcofiltro.filter(function (value, index, self) {
-                                                return self.indexOf(value) === index;
-                                            });
-                                            for (let idBarcoDispo of listaCardsDispo) {
-
-                                                if (idBarcoDispo == item.idItinerario) {
-                                                    //agregar barcos filtrados a la lista
-                                                    galapLanBase.push(item);
+                                                for (let dat of vm.listDisponibilidadBarcosPaMa) {
+                                                    idBarcofiltro.push(dat.idBarco)
 
                                                 }
-                                            }
-
-                                            if (galapLanBase.length === 0) {
-                                                vm.respuestaBarcos = "To get more results, try adjusting your search"
-                                                vm.results = "No results"
-                                                vm.dispoBarcosFiltros = false
-                                                var listaBarcos = vm.disponibilidadBarcosPaMa.concat(vm.disponibilidadOtrosBarcos)
-                                                vm.listDisponibilidadBarcosPaMa = vm.disponibilidadBarcosPaMa
-                                                vm.listDisponibilidadOtrosBarcos = vm.disponibilidadOtrosBarcos
-
-                                                for (let dat of listaBarcos) {
-                                                    idOtrosBarcofiltro.push(dat.idBarco)
-                                                }
-
                                                 //Eliminar id´s repetidos de los barcos
-                                                var listaCardsDispo = idOtrosBarcofiltro.filter(function (value, index, self) {
+                                                var listaCardsDispo = idBarcofiltro.filter(function (value, index, self) {
                                                     return self.indexOf(value) === index;
                                                 });
-
                                                 for (let idBarcoDispo of listaCardsDispo) {
 
                                                     if (idBarcoDispo == item.idItinerario) {
-
                                                         //agregar barcos filtrados a la lista
                                                         galapLanBase.push(item);
 
                                                     }
                                                 }
 
-                                            } else {
-                                                vm.dispoBarcosFiltros = true
+                                            }).fail(function (jqXHR, textStatus, errorThrown) {
+                                                if (console && console.log) {
+                                                    vm.dispBarcosVerficarInf = "We couldn´t load the available departures. Please, try later";
 
-                                            }
+                                                }
+                                            }),
 
-                                        }).fail(function (jqXHR, textStatus, errorThrown) {
-                                            if (console && console.log) {
-                                                vm.dispVerficarOtrosBarcos = "We couldn´t load the available departures. Please, try later";
+                                            $.ajax({ url: "/DispoOtrosBarcos", method: "GET" }).done(function (data) {
+                                                if (vm.disponibilidadOtrosBarcos.length == 0) {
+                                                    vm.disponibilidadOtrosBarcos = data;
+                                                    for (let filBarco of vm.disponibilidadOtrosBarcos) {
+                                                        if (new Date(filBarco.salFechaSalida).getTime() >= new Date(date[0]).getTime() && new Date(filBarco.salFechaSalida).getTime() <= new Date(date[1]).getTime()) {
+                                                            if (filBarco.cabinaPrecio1.replace(',', '.') >= parseFloat(price[0]) && filBarco.cabinaPrecio1.replace(',', '.') <= parseFloat(price[1])) {
 
-                                            }
-                                        });
 
+                                                                if (parseInt(filBarco.salDispoTotalOtrosBarcos) >= travelers) {
+
+
+                                                                    if (parseInt(filBarco.noches) >= days) {
+
+                                                                        vm.listDisponibilidadOtrosBarcos.push(filBarco);
+
+                                                                    }
+
+                                                                }
+
+                                                            }
+
+                                                        }
+                                                    }
+                                                }
+
+                                                for (let dat of vm.listDisponibilidadOtrosBarcos) {
+
+                                                    idOtrosBarcofiltro.push(dat.idBarco)
+
+                                                }
+
+                                                //Eliminar id´s repetidos de los barcos
+                                                var listaCardsDispo = idOtrosBarcofiltro.filter(function (value, index, self) {
+                                                    return self.indexOf(value) === index;
+                                                });
+                                                for (let idBarcoDispo of listaCardsDispo) {
+
+                                                    if (idBarcoDispo == item.idItinerario) {
+                                                        //agregar barcos filtrados a la lista
+                                                        galapLanBase.push(item);
+
+                                                    }
+                                                }
+
+                                                if (galapLanBase.length === 0) {
+                                                    vm.respuestaBarcos = "To get more results, try adjusting your search"
+                                                    vm.results = "No results"
+                                                    vm.dispoBarcosFiltros = false
+                                                    var listaBarcos = vm.disponibilidadBarcosPaMa.concat(vm.disponibilidadOtrosBarcos)
+                                                    vm.listDisponibilidadBarcosPaMa = vm.disponibilidadBarcosPaMa
+                                                    vm.listDisponibilidadOtrosBarcos = vm.disponibilidadOtrosBarcos
+
+                                                    for (let dat of listaBarcos) {
+                                                        idOtrosBarcofiltro.push(dat.idBarco)
+                                                    }
+
+                                                    //Eliminar id´s repetidos de los barcos
+                                                    var listaCardsDispo = idOtrosBarcofiltro.filter(function (value, index, self) {
+                                                        return self.indexOf(value) === index;
+                                                    });
+
+                                                    for (let idBarcoDispo of listaCardsDispo) {
+
+                                                        if (idBarcoDispo == item.idItinerario) {
+
+                                                            //agregar barcos filtrados a la lista
+                                                            galapLanBase.push(item);
+
+                                                        }
+                                                    }
+
+                                                } else {
+                                                    vm.dispoBarcosFiltros = true
+
+                                                }
+
+                                            }).fail(function (jqXHR, textStatus, errorThrown) {
+                                                if (console && console.log) {
+                                                    vm.dispVerficarOtrosBarcos = "We couldn´t load the available departures. Please, try later";
+
+                                                }
+                                            })
+
+                                        ).then(
+                                            
+                                            
+                                        );
+
+                                        
+
+                                        
+
+
+                                        
                                     }
-
+                                   
                                 });
                             }
 
@@ -756,6 +760,9 @@
 
                         vm.listServices = galapLanBase;
 
+                        Promise.all([galapLanBase]).then(values => {
+                            vm.progressBar();
+                        });
                     }
                 }
             });
@@ -774,12 +781,10 @@
                     vm.desBarco.push({ id: dat.idBarco, barcoDesp: texto });
 
                 }
-
+                
             });
 
-            window.addEventListener('DOMContentLoaded', (event) => {
-                console.log('DOM fully loaded and parsed');
-            });
+           
 
 
         },
@@ -1483,6 +1488,8 @@
             if (this.visibleTodos.length > 1 && this.listServices.length > 1) {
                 this.classObject = 'col-md-4';
             }
+
+
 
             return this.visibleTodos;
         },
