@@ -450,7 +450,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12" style="padding-left:0">
                     <div class="col-md-12" style="padding-left: 0">
-                        <div class="dropdown" ; style=" box-shadow:none">
+                        <div class="dropdown" ; style=" box-shadow:none; padding-bottom: 15px;">
                             <select class="btn btn-default" style="font-family:Arial; font-size:18px; color:#3487c8" onchange="fitroRegion(value)" v-on:click="onClickMap($event)" id="selecRegion">
                                 <option value="All">All</option>
                                 @{
@@ -464,7 +464,7 @@
                         </div>
                     </div>
                     <div id="filtrosHotel">
-                        <div class="col-md-12 style-scroll" style="height:460px;overflow-y:scroll" id="descripcionHoteles">
+                        <div class="col-md-12 style-scroll" style="height:448px;overflow-y:scroll" id="descripcionHoteles">
                             @{ var conMapa = 1;
                                 @foreach (var mapaHotel in mapa)
                                 {
