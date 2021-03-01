@@ -134,9 +134,9 @@
                                 <input class="form-control  " placeholder="Start date" autocomplete="off" type="text" id="fecha" name="fecha">
                                 @*<div class="  " id="datepicker">
 
-                                <span class="input-group-addon">To</span>
-        <input class="form-control" placeholder="End date	" autocomplete="off" type="text" id="end" name="end" />
-                            </div>*@
+                                                            <span class="input-group-addon">To</span>
+                                    <input class="form-control" placeholder="End date	" autocomplete="off" type="text" id="end" name="end" />
+                                                        </div>*@
 
                             </div>
 
@@ -203,206 +203,12 @@
                     }
                 </style>
 
-                <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-                <script>
 
-                    var date = new Date();
-                    date.setDate(date.getDate());
-                    $("#fecha").datepicker({
-                        format: 'yyyy/mm/dd',
-                        autoclose: true,
-                        startDate: date,
-                        todayHighlight: true,
-
-                    }).on('changeDate', function (selected) {
-                        var minDate2 = new Date(selected.date.valueOf());
-                        $('#end').datepicker('setStartDate', minDate2);
-                    });
-
-                    $("#end").datepicker({
-                        format: 'yyyy/mm/dd',
-
-                        startDate: date,
-                        todayHighlight: '#fecha',
-
-
-
-
-                    }).on('changeDate', function (selected) {
-                        var minDate = new Date(selected.date.valueOf());
-                        $('#fecha').datepicker('setEndDate', minDate);
-
-                    });
-
-                    $('#sandbox-container .input-daterange').datepicker({
-                    });
-
-
-
-
-                    var userTarget = "";
-                    var exit = false;
-                    $('.input-daterange').datepicker({
-
-                    });
-                    $('.input-daterange').focusin(function (e) {
-                        userTarget = e.target.name;
-                    });
-                    $('.input-daterange').on('changeDate', function (e) {
-                        if (exit) return;
-                        if (e.target.name != userTarget) {
-                            exit = true;
-                            $(e.target).datepicker('clearDates');
-                        }
-                        exit = false;
-                    });
-
-
-
-
-                    function ValidEmail1() {
-                        var EmailTxt = document.getElementById("emailEcItin");
-                        if ($(EmailTxt).val().length == 0) {
-                            EmailTxt.className = "ValidTInyp input-iconoError";
-                        } else {
-                            EmailTxt.className = "form-control input-icono";
-                        }
-                    }
-
-
-                    function ValidNombre1() {
-                        var NombreTxt = document.getElementById("nombreEcItin");
-                        if ($(NombreTxt).val().length == 0) {
-                            NombreTxt.className = "ValidTInyp input-iconoError";
-                        } else {
-                            NombreTxt.className = "form-control input-icono";
-                        }
-                    }
-
-
-                    function ValidFechaStard1() {
-                        var TXtstart = document.getElementById("fecha");
-                        if ($(TXtstart).val().length == 0) {
-                            TXtstart.className = "ValidTInyp input-iconoError";
-                        } else {
-                            TXtstart.className = "form-control input-icono";
-                        }
-                    }
-
-
-
-
-                    function ValidFechaNumeroPax1() {
-                        var travelers = document.getElementById("travelersEcItin");
-                        if ($(travelers).val().length == 0) {
-                            travelers.className = "ValidTInyp input-iconoError";
-                        } else {
-                            travelers.className = "form-control input-icono";
-                        }
-                    }
-                    function ValidarFormulario1() {
-                        ValidEmail1();
-                        ValidNombre1();
-                        ValidFechaStard1();
-
-                        ValidFechaNumeroPax1();
-                    }
-
-                    function EnviarFormulario1() {
-
-
-
-                        var NombreTxt = document.getElementById("nombreEcItin");
-                        var EmailTxt = document.getElementById("emailEcItin");
-                        var TXtstart = document.getElementById("fecha");
-
-                        var travelers = document.getElementById("travelersEcItin");
-
-
-                        if (($(EmailTxt).val().length == 0) || ($(NombreTxt).val().length == 0) || ($(TXtstart).val().length == 0) || ($(travelers).val().length == 0)) {
-                            ValidarFormulario1();
-                        } else {
-                            AprobarFormulario1();
-                        }
-
-                        //if ($(EmailTxt).val().length == 0) {
-                        //EmailTxt.className = "ValidTInyp input-iconoError";
-                        //}
-                        //else if ($(NombreTxt).val().length == 0) {
-                        //NombreTxt.className = "ValidTInyp input-iconoError";
-                        //}
-                        //else if ($(TXtstart).val().length == 0) {
-                        //TXtstart.className = "ValidTInyp input-iconoError";
-                        //}
-                        //else if ($(Txtend).val().length == 0) {
-                        //Txtend.className = "ValidTInyp input-iconoError";
-                        //}
-                        //else if ($(travelers).val().length == 0) {
-                        //travelers.className = "ValidTInyp input-iconoError";
-                        //}
-                        //else
-                        //{
-                        //EmailTxt.className = "form-control input-icono";
-                        //NombreTxt.className = "form-control input-icono";
-                        //travelers.className = "form-control input-icono";
-                        //TXtstart.className = "form-control input-icono";
-                        //Txtend.className = "form-control input-icono";
-
-                        /////  AprobarFormulario1();
-                        //}
-
-
-
-
-
-
-                    }
-
-                    //function pruebaemail(valor) {
-                    //re = /^([\da-z_\.-]+)@@([\da-z\.-]+)\.([a-z\.]{2,6})$/
-                    //if (!re.exec(valor)) {
-
-                    //    //'email no valido
-
-                    //    var ValiCo = document.getElementById("ValiEmail");
-
-
-                    //    var ValiCo = 1;
-                    //}
-                    //else
-                    //    //'email valido
-                    //      var ValiCo = document.getElementById("ValiEmail");
-
-                    //    var ValiCo = 0;
-
-
-
-                    function AprobarFormulario1() {
-                        var Email = document.getElementById('emailEcItin').value;
-                        var Name = document.getElementById('nombreEcItin').value;
-                        var FechaDesde = document.getElementById('fecha').value;
-
-                        var NumeroPax = document.getElementById('travelersEcItin').value;
-                        var Category = document.getElementById('BugetDetermi').value;
-
-                        var taylor = document.getElementById('taylorDeter').value;
-                        //IP
-                        var IP = document.getElementById('ipAddress1').innerHTML;
-                        var CountryCode = document.getElementById('countryCode1').innerHTML;
-                        var CityName = document.getElementById('cityName1').innerHTML;
-
-                        var TipoTours = "TpoTours";
-
-
-
-                        window.location.href = "../thank_you_page/thank_you_page_Andando?Email=" + Email + "&Name=" + Name + "&FechaDesde=" + FechaDesde + "&NumeroPax=" + NumeroPax + "&Category=" + Category + "&taylor=" + taylor + "&IP=" + IP + "&CountryCode=" + CountryCode + "&CityName=" + CityName + "&TipoTours=" + TipoTours;
-                    }
-
-                </script>
             </form>
         </div>
     </div>
 </div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script>
     $(document).ready(function () {
         var fecha = new Date();
@@ -410,4 +216,200 @@
             startDate: fecha
         });
     });
+</script>
+
+<script>
+
+    var date = new Date();
+    date.setDate(date.getDate());
+    $("#fecha").datepicker({
+        format: 'yyyy/mm/dd',
+        autoclose: true,
+        startDate: date,
+        todayHighlight: true,
+
+    }).on('changeDate', function (selected) {
+        var minDate2 = new Date(selected.date.valueOf());
+        $('#end').datepicker('setStartDate', minDate2);
+    });
+
+    $("#end").datepicker({
+        format: 'yyyy/mm/dd',
+
+        startDate: date,
+        todayHighlight: '#fecha',
+
+
+
+
+    }).on('changeDate', function (selected) {
+        var minDate = new Date(selected.date.valueOf());
+        $('#fecha').datepicker('setEndDate', minDate);
+
+    });
+
+    $('#sandbox-container .input-daterange').datepicker({
+    });
+
+
+
+
+    var userTarget = "";
+    var exit = false;
+    $('.input-daterange').datepicker({
+
+    });
+    $('.input-daterange').focusin(function (e) {
+        userTarget = e.target.name;
+    });
+    $('.input-daterange').on('changeDate', function (e) {
+        if (exit) return;
+        if (e.target.name != userTarget) {
+            exit = true;
+            $(e.target).datepicker('clearDates');
+        }
+        exit = false;
+    });
+
+
+
+
+    function ValidEmail1() {
+        var EmailTxt = document.getElementById("emailEcItin");
+        if ($(EmailTxt).val().length == 0) {
+            EmailTxt.className = "ValidTInyp input-iconoError";
+        } else {
+            EmailTxt.className = "form-control input-icono";
+        }
+    }
+
+
+    function ValidNombre1() {
+        var NombreTxt = document.getElementById("nombreEcItin");
+        if ($(NombreTxt).val().length == 0) {
+            NombreTxt.className = "ValidTInyp input-iconoError";
+        } else {
+            NombreTxt.className = "form-control input-icono";
+        }
+    }
+
+
+    function ValidFechaStard1() {
+        var TXtstart = document.getElementById("fecha");
+        if ($(TXtstart).val().length == 0) {
+            TXtstart.className = "ValidTInyp input-iconoError";
+        } else {
+            TXtstart.className = "form-control input-icono";
+        }
+    }
+
+
+
+
+    function ValidFechaNumeroPax1() {
+        var travelers = document.getElementById("travelersEcItin");
+        if ($(travelers).val().length == 0) {
+            travelers.className = "ValidTInyp input-iconoError";
+        } else {
+            travelers.className = "form-control input-icono";
+        }
+    }
+    function ValidarFormulario1() {
+        ValidEmail1();
+        ValidNombre1();
+        ValidFechaStard1();
+
+        ValidFechaNumeroPax1();
+    }
+
+    function EnviarFormulario1() {
+
+
+
+        var NombreTxt = document.getElementById("nombreEcItin");
+        var EmailTxt = document.getElementById("emailEcItin");
+        var TXtstart = document.getElementById("fecha");
+
+        var travelers = document.getElementById("travelersEcItin");
+
+
+        if (($(EmailTxt).val().length == 0) || ($(NombreTxt).val().length == 0) || ($(TXtstart).val().length == 0) || ($(travelers).val().length == 0)) {
+            ValidarFormulario1();
+        } else {
+            AprobarFormulario1();
+        }
+
+        //if ($(EmailTxt).val().length == 0) {
+        //EmailTxt.className = "ValidTInyp input-iconoError";
+        //}
+        //else if ($(NombreTxt).val().length == 0) {
+        //NombreTxt.className = "ValidTInyp input-iconoError";
+        //}
+        //else if ($(TXtstart).val().length == 0) {
+        //TXtstart.className = "ValidTInyp input-iconoError";
+        //}
+        //else if ($(Txtend).val().length == 0) {
+        //Txtend.className = "ValidTInyp input-iconoError";
+        //}
+        //else if ($(travelers).val().length == 0) {
+        //travelers.className = "ValidTInyp input-iconoError";
+        //}
+        //else
+        //{
+        //EmailTxt.className = "form-control input-icono";
+        //NombreTxt.className = "form-control input-icono";
+        //travelers.className = "form-control input-icono";
+        //TXtstart.className = "form-control input-icono";
+        //Txtend.className = "form-control input-icono";
+
+        /////  AprobarFormulario1();
+        //}
+
+
+
+
+
+
+    }
+
+    //function pruebaemail(valor) {
+    //re = /^([\da-z_\.-]+)@@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+    //if (!re.exec(valor)) {
+
+    //    //'email no valido
+
+    //    var ValiCo = document.getElementById("ValiEmail");
+
+
+    //    var ValiCo = 1;
+    //}
+    //else
+    //    //'email valido
+    //      var ValiCo = document.getElementById("ValiEmail");
+
+    //    var ValiCo = 0;
+
+
+
+    function AprobarFormulario1() {
+        var Email = document.getElementById('emailEcItin').value;
+        var Name = document.getElementById('nombreEcItin').value;
+        var FechaDesde = document.getElementById('fecha').value;
+
+        var NumeroPax = document.getElementById('travelersEcItin').value;
+        var Category = document.getElementById('BugetDetermi').value;
+
+        var taylor = document.getElementById('taylorDeter').value;
+        //IP
+        var IP = document.getElementById('ipAddress1').innerHTML;
+        var CountryCode = document.getElementById('countryCode1').innerHTML;
+        var CityName = document.getElementById('cityName1').innerHTML;
+
+        var TipoTours = "TpoTours";
+
+
+
+        window.location.href = "../thank-you-andando?Email=" + Email + "&Name=" + Name + "&FechaDesde=" + FechaDesde + "&NumeroPax=" + NumeroPax + "&Category=" + Category + "&taylor=" + taylor + "&IP=" + IP + "&CountryCode=" + CountryCode + "&CityName=" + CityName + "&TipoTours=" + TipoTours;
+    }
+
 </script>

@@ -52,6 +52,11 @@ body {
     opacity: 0.4;
     z-index: -1;
 }
+.imgnormalizada .fondos-imagen {
+    width: auto;
+    height: 225px;
+    max-height: 225px;
+}
 #contact_container {
     width:70%;
 }

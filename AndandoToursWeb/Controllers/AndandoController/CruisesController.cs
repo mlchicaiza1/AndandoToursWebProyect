@@ -936,7 +936,7 @@ namespace AndandoToursWeb.Controllers
         [Route("/sailing-cruises/nemo-ii/{id?}/{idItinerario?}", Name = "/sailing-cruises/nemo-ii")]
         [Route("/galapagos-cruises/ocean-spray/{id?}/{idItinerario?}", Name = "/galapagos-cruises/ocean-spray")]
         [Route("/galapagos-cruises/theory/{id?}/{idItinerario?}", Name = "/galapagos-cruises/theory")]
-        [Route("/galapagos-cruises/alya/{id?}/{idItinerario?}", Name = "/galapagos-cruises/alya")]
+        [Route("/galapagos-cruises/alya-catamaran/{id?}/{idItinerario?}", Name = "/galapagos-cruises/alya-catamaran")]
         public async Task<ActionResult> CruisesProductGroup_1(int? id, int? idItinerario)
         {
             var urlProducto = _repo.getUrlPage(HttpContext);
@@ -981,7 +981,7 @@ namespace AndandoToursWeb.Controllers
                         cards = new List<int> { 111, 103, 73 };
                         cardsCruises = await CruisesCardsOrden(cards);
                         break;
-                    case "alya":
+                    case "alya-catamaran":
                         idVista = 10;
                         idBarco = 103;
                         cards = new List<int> { 115, 92, 70 };

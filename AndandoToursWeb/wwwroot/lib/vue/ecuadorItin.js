@@ -94,7 +94,8 @@ var datosSelect = new Vue({
         datosModal: [],
         selectCategoria:[],
         select: [],
-        titulo:"",
+        titulo: "",
+        tituloItinerario: "",
     },
     created: function () {
         this.loadCategoria
@@ -103,9 +104,11 @@ var datosSelect = new Vue({
         onClickCategoria: function (event,idVista) {
             var fil = this;
             var vista = idVista;
+            
             switch (vista) {
                 case 2050:
                     fil.titulo = "Amazon Tours Ecuador"
+                    
                     fil.select = event;
                     break;
                 case 2051:
@@ -125,11 +128,11 @@ var datosSelect = new Vue({
                     fil.select = event;
                     break;
             }
-            document.getElementById("BugetDetermi").disabled = true;
+            document.getElementById("BugetDetermi").disabled = true;     
             $("#formEcModal").modal('show');
         },
 
-        loadCategoria(idVista) {
+        loadCategoria: function(idVista) {
             var fil = this;
             var vista = idVista;
             switch (vista) {
@@ -157,8 +160,9 @@ var datosSelect = new Vue({
             }
         },
 
-        onClickCategoriaForm1(){
-            
+        onClickCategoriaForm1(idVista){
+
+            this.loadCategoria(idVista)
             $("#formEcModalCabecera").modal('show');
         },
     }
