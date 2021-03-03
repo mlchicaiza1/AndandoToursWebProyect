@@ -18,7 +18,8 @@
             contTrip: "",
             contCheckTrip: 0,
             triptype: 'Trip type',
-            checkColor: "#787778",
+            
+            checkColor: "#747475", 
             checkedTrip: [],
             object: {
                 GalapagosCruises: 'Galapagos Cruises',
@@ -138,6 +139,8 @@
             dataApi: 0,
             counter: 1,
             counterEnd: 140,
+            //Direccion thank you page
+            urlThankPage:"",
         }
     },
     created: function () {
@@ -148,7 +151,7 @@
     methods: {
         progressBar: function () {
             var elem = document.getElementById("myBar");
-            document.getElementById("myProgress").style.height = '6px';
+            document.getElementById("myProgress").style.height = '15px';
             var width = 1;
             var id = setInterval(frame, 150);
             function frame() {
@@ -858,9 +861,20 @@
                         $('#avaiModal').modal('show');
                         break;
                 }
-
+                
             } else {
-                $('#itinerarioModal').modal('show');
+                if (this.datoCardBarco[0].islandHoppingYPaqueteTipo == 'IH') {
+                    this.urlThankPage ="../thank-you-tours/"
+                    $('#itinerarioModal').modal('show');
+                    
+                }
+
+                if (this.datoCardBarco[0].islandHoppingYPaqueteTipo == 'MD') {
+                    this.urlThankPage = "../thank-you-andando/"
+                    $('#itinerarioModal').modal('show');
+                    
+                }
+                
             }
 
 
@@ -1404,7 +1418,7 @@
                 },
 
             });
-            window.location.href = "../thank-you-page-availability/";
+            window.location.href = this.urlThankPage;
         },
         SendleadTrip: function (nombrePaqueteTrip, Categoria, numDias) {
             //validar email

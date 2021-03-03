@@ -49,7 +49,7 @@
                 </button>
                 <ul class="dropdown-menu dropdown-menu_cruises">
                     <li v-for="(value, index) in  maintripType">
-                        <label class="containe">
+                        <label class="containe" style="font-weight: 500;">
                             <span :style="{color: checkColor}" :id="index" :name="value">{{value.barcoCategoriaTipoNombreEn}}</span>
                             <input type="checkbox" :value="value.barcoCategoriaTipoNombreEn" :id="index" v-model="checkedBarcos" @@change="checkTripType($event)">
                             <span class="checkmark"></span>

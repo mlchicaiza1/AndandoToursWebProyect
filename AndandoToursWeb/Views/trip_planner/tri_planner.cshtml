@@ -6,9 +6,7 @@
 <div class="" style="overflow:hidden; width:100%">
     <!--=========================SUB MENU FILTROS TRIPPLANNER================================-->
     <div id="tripPlanner">
-        <div id="myProgress">
-            <div id="myBar"></div>
-        </div>
+        
         <nav class="navbar  page-nav page-nav-home" data-toggle="sticky-onscroll" id="navpagina" style="border: 1px solid rgba(0,0,0,.1);">
             <div class="limit">
                 <nav class="page-nav-anchors" style="text-transform:none;">
@@ -230,7 +228,7 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu_cruises">
                         <li v-for="(value, key) in  object">
-                            <label class="containe" style="font-size: 16px;margin-right:10px">
+                            <label class="containe" style="font-size: 16px;margin-right:10px;font-weight: 500;">
                                 <span :style="{color: checkColor}" :id="key+'Mov'" :name="value">{{value}} </span>
                                 <input type="checkbox" :value="value" :id="key" v-model="checkedTrip" @@change="checkTripType($event)">
                                 <span class="checkmark"></span>
@@ -440,10 +438,15 @@
                 </li>
             </ol>
             <div class="progressTrip"></div>
-            <div class="row f-15 text-justify textoinfo parrafo" style="font-family:Arial;padding: .5em 1em; color: #656b6f !important; line-height:2; background:white;">
-                <h2 style="text-align:left;padding:20px 0 20px 0">
+            <div class="row f-15 text-justify textoinfo parrafo" style="font-family:Arial;padding:0 1em; color: #656b6f !important; line-height:2; background:white;">
+                <h2 style="text-align:left;padding:10px 0 20px 0">
                     We Have Found  <span style="color:red" v-html="listServices.length"></span> Experiences for You
                 </h2>
+                <div id="myProgress" style="">
+                    <div id="myBar" style="">
+                       @* <img src="~/images/icon/pngegg.png"  />*@
+                    </div>
+                </div>
                 <p style="padding:10px 0 20px 0">
                     On this page you will find tours and cruises of different durations and for different budgets. Use the filters at the top of this page to see the available departures in the destination that you choose. Remember that all our tours are flexible and can be customized depending on your interests.
                 </p>
@@ -461,10 +464,10 @@
                     <p><span style="font-size:18px" v-html="respuestaIslandHopping"></span></p>
                 </div>
                 @*<div v-else="dispoBarcosFiltros || dispoIslandHopping">
-                    <p><span v-html="results"></span></p>
-                    <p><span v-html="respuestaBarcos"></span></p>
-                    <p><span v-html="respuestaIslandHopping"></span></p>
-                </div>*@
+            <p><span v-html="results"></span></p>
+            <p><span v-html="respuestaBarcos"></span></p>
+            <p><span v-html="respuestaIslandHopping"></span></p>
+        </div>*@
             </div>
         </div>
         <br />

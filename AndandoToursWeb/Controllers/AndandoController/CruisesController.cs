@@ -1203,8 +1203,13 @@ namespace AndandoToursWeb.Controllers
         {
             return await _repo.GetDispoOtrosBarcos();
         }
+        [Route("/DispoCharter")]
+        [HttpGet]
+        public async Task<ActionResult<List<Availability>>> GetDispoCharter()
+        {
+            return await _repo.GetDispoCharter();
+        }
 
-       
         [Route("/ContenidoVista/{idVista}")]
         [HttpGet]
         public async Task<ActionResult<List<GetContenidoVista>>> GetContenidoPagina(int idVista)

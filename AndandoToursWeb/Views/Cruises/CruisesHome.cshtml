@@ -389,7 +389,7 @@ var barcos = ViewBag.CardsCruises;
                 }
             }
             <p style="margin-top:20px;margin-bottom:15px">
-                <a class="btn h5button downloadCruises" style="padding-top:6px;padding-bottom:6px;color: #fff; " data-toggle="modal" href="https://www.visitgalapagos.travel/back/cruises/cruising_guide.html" data-target="#taylorMade-Modal">DOWNLOAD OUR CRUISING GUIDE</a>
+                <a class="btn h5button downloadCruises" style="padding-top:6px;padding-bottom:6px;color: #fff; " data-toggle="modal" href="https://www.visitgalapagos.travel/back/cruises/cruising_guide.html" data-target="#ModalDescarga">DOWNLOAD OUR CRUISING GUIDE</a>
             </p>
         </div>
         <div class=" row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em; background:white;margin-top:0;margin-bottom:0">
@@ -483,7 +483,7 @@ var barcos = ViewBag.CardsCruises;
 </div>
 <div class="bs-example" style="padding:0">
     <!-- Modal Help me Plan HTML -->
-    <div class="modal fade" id="taylorMade-Modal" style="max-width:100%;overflow-y:hidden; padding:0 " tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="ModalDescarga" style="max-width:100%;overflow-y:hidden; padding:0 " tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog " role="document">
             <div class="modal-content" style="width:100%; height:100%">
                 <div class="modal-header" style="height:60px">
@@ -499,6 +499,14 @@ var barcos = ViewBag.CardsCruises;
                     <script type="text/javascript">var ifr = document.getElementById("lf-iframe-embed-code-74271"); if (window.location.href && window.location.href.indexOf('?') > -1) { var get = window.location.href.substr(window.location.href.indexOf('?') + 1); if (ifr && get.length > 0) { var src = ifr.src; src = src.indexOf('?') > -1 ? src + '&' + get : src + '?' + get; ifr.src = src; } } var iframePosition = function (e) { var n = ifr.getBoundingClientRect().top + pageYOffset; ifr.contentWindow.postMessage(JSON.stringify({ type: 'iframeTop', value1: n }), '*'); }, onTestScroll = function (e) { window.pageYOffset || document.documentElement.scrollTop; var n = ifr.getBoundingClientRect(); ifr.contentWindow.postMessage(JSON.stringify({ type: 'windowTop', value2: n.y || n.top, value3: window.innerHeight }), '*'); }; window.addEventListener ? (window.addEventListener('scroll', onTestScroll, !1), window.addEventListener('load', onTestScroll, !1), window.addEventListener('scroll', iframePosition, !1), window.addEventListener('load', iframePosition, !1), window.addEventListener('DOMContentLoaded', iframePosition, !1)) : window.attachEvent && (window.addEventListener('DOMContentLoaded', iframePosition), window.attachEvent('scroll', onTestScroll), window.addEventListener('load', onTestScroll)); window.handleIFrameMessage = function (e) { if (e.data.length > 0) { try { var args = JSON.parse(e.data); var iframe = document.getElementById("lf-iframe-embed-code-74271"); var formIds = ["74271"]; if (formIds.indexOf(args.formID) !== -1) { switch (args.case) { case 'redirectTo': window.open(decodeURI(args.redirectToURL), '_self'); ifr.src = ifr.src; break; case 'resizeIframe': iframe.width = args.scrollWidth + 'px', iframe.height = args.scrollHeight + 'px'; break; case 'stepChanged': var elCoords = getCoords(ifr), isFormOnScreen = isOnScreen(ifr, false); if (!isFormOnScreen) { window.scrollTo(0, elCoords.top); } break; case 'scrollTo': window.scrollTo({ top: args.scrollToPosition }); break; } } if ('contentWindow' in iframe && 'postMessage' in iframe.contentWindow) { var urls = { 'docurl': encodeURIComponent(document.URL), 'referrer': encodeURIComponent(document.referrer), }; iframe.contentWindow.postMessage(JSON.stringify({ 'type': 'urls', 'value': urls }), '*'); } } catch (e) { } } }; if (window.addEventListener) { window.addEventListener('message', handleIFrameMessage, false); } else if (window.attachEvent) { window.attachEvent('onmessage', handleIFrameMessage); } var getCoords = function (elem) { var box = elem.getBoundingClientRect(); var body = document.body; var docEl = document.documentElement; var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop; var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft; var clientTop = docEl.clientTop || body.clientTop || 0; var clientLeft = docEl.clientLeft || body.clientLeft || 0; var top = box.top + scrollTop - clientTop; var left = box.left + scrollLeft - clientLeft; return { top: Math.round(top), left: Math.round(left) }; }; var isOnScreen = function (_this, partial) { var t = _this; var box = t.getBoundingClientRect(); var win = { h: window.innerHeight, w: window.innerWidth }; var topEdgeInRange = box.top >= 0 && box.top <= win.h; var bottomEdgeInRange = box.bottom >= 0 && box.bottom <= win.h; var leftEdgeInRange = box.left >= 0 && box.left <= win.w; var rightEdgeInRange = box.right >= 0 && box.right <= win.w; var coverScreenHorizontally = (box.left <= 0 ^ box.right >= win.w); var coverScreenVertically = (box.top <= 0 ^ box.bottom >= win.h); var topEdgeInScreen = topEdgeInRange && (leftEdgeInRange || rightEdgeInRange || coverScreenHorizontally); var bottomEdgeInScreen = bottomEdgeInRange && (leftEdgeInRange || rightEdgeInRange || coverScreenHorizontally); var leftEdgeInScreen = leftEdgeInRange && (topEdgeInRange || bottomEdgeInRange || coverScreenVertically); var rightEdgeInScreen = rightEdgeInRange && (topEdgeInRange || bottomEdgeInRange || coverScreenVertically); var isPartiallyOnScreen = topEdgeInScreen || bottomEdgeInScreen || leftEdgeInScreen || rightEdgeInScreen; var isEntirelyOnScreen = topEdgeInScreen && bottomEdgeInScreen && leftEdgeInScreen && rightEdgeInScreen; return partial ? isPartiallyOnScreen : isEntirelyOnScreen; };</script>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="taylorMade-Modal" style="max-width:100%;overflow-y:hidden; padding:0 " tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content" style="width:100%; height:100%">
+
+
         </div>
     </div>
 </div>

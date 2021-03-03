@@ -1043,6 +1043,17 @@ namespace AndandoToursWeb.Data
             List<Availability> dispoList = JsonConvert.DeserializeObject<List<Availability>>(json);
             return dispoList;
         }
+
+        public async Task<List<Availability>> GetDispoCharter()
+        {
+            string url = "http://www.api.galapagobookings.com/api/Availability/Charter";
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvQGdtYWlsLmNvbSIsIkpMQ29kZSI6IlR1RnV0dXJvU2VFbmN1ZW50cmEgQXF1aSIsImp0aSI6IjM5YWQ2Y2RmLTZjMGItNDNjZC04YjAxLTc5YjZlZDM0ZjY0ZiIsImV4cCI6MTYzNjIyMTI1Nn0.EvO7k48fbZXmxAMrERHROh3HAaszHppIu4ym90TVXBk");
+            var json = await httpClient.GetStringAsync(url);
+            List<Availability> dispoList = JsonConvert.DeserializeObject<List<Availability>>(json);
+            return dispoList;
+        }
+
         public async Task<List<GetFeaturesProduct>> GetFeaturesProduct(int idBarco)
         {
             using (SqlConnection sql = new SqlConnection(_connectionString))

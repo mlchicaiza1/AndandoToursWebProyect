@@ -2,7 +2,7 @@
     el: "#CruisesCharter",
     data: {
         cabinas: [],
-        disponibilidadBarcosPaMa: [],
+        disponibilidadBarcosCharter: [],
         dispoOtrosBarcos: [],
 
 
@@ -13,22 +13,7 @@
         limitDisponibilidad: 720,
         dateTrip: 'Select your travel dates',
         barcoFiltroFecha: null,
-        barcosCapacidad: [{ idBarco: 73, nombreBarco: 'Passion', capacidad: 14 },
-        { idBarco: 85, nombreBarco: 'Mary Anne', capacidad: 16 },
-        { idBarco: 87, nombreBarco: 'TREASURE OF GALAPAGOS', capacidad: 16 },
-        { idBarco: 88, nombreBarco: 'ODYSSEY', capacidad: 16 },
-        { idBarco: 90, nombreBarco: 'GOLONDRINA', capacidad: 16 },
-        { idBarco: 92, nombreBarco: 'OCEAN SPRAY', capacidad: 16 },
-        { idBarco: 93, nombreBarco: 'NEMO II', capacidad: 14 },
-        { idBarco: 96, nombreBarco: 'ARCHIPEL II', capacidad: 16 },
-        { idBarco: 98, nombreBarco: 'FRAGATA', capacidad: 16 },
-        { idBarco: 103, nombreBarco: 'ALYA', capacidad: 16 },
-        { idBarco: 105, nombreBarco: 'NEMO III', capacidad: 16 },
-        { idBarco: 115, nombreBarco: 'THEORY', capacidad: 20 },
-        { idBarco: 110, nombreBarco: 'ENDEMIC', capacidad: 16 },
-        { idBarco: 111, nombreBarco: 'ELITE', capacidad: 16 },
-        { idBarco: 122, nombreBarco: 'INFINITY', capacidad: 20 },
-        { idBarco: 125, nombreBarco: 'GRAND MAJESTIC', capacidad: 16 }],
+       
 
         //Seleccionar cabinas
         passengSelect: 'passengers',
@@ -48,40 +33,14 @@
     methods: {
         getDispon: function () {
             var vm = this;
-            $.ajax({ url: "/Dispo", method: "GET" }).done(function (data) {
-                vm.disponibilidadBarcosPaMa = data;
+            $.ajax({ url: "/DispoCharter", method: "GET" }).done(function (data) {
+                vm.disponibilidadBarcosCharter = data;
             });
-            $.ajax({ url: "/DispoOtrosBarcos", method: "GET" }).done(function (data) {
-                vm.dispoOtrosBarcos = data;
-            });
+            //$.ajax({ url: "/DispoOtrosBarcos", method: "GET" }).done(function (data) {
+            //    vm.dispoOtrosBarcos = data;
+            //});
 
-            var dateApiRoyal = ["2021", "1"]
-
-            //Disponibilidad de la Api Royal: Barco Infinity
-            $.ajax({ url: "/DisponibilidadApiRoyalInfinity/" + dateApiRoyal + "/" + null, method: "GET" }).done(function (data) {
-                vm.disApiRoyalInfinity = data;
-
-
-
-            }).fail(function (jqXHR, textStatus, errorThrown) {
-                if (console && console.log) {
-                    console.log("La solicitud a fallado: " + textStatus);
-                }
-
-
-            });
-
-            //Disponibilidad de la Api Royal: Barco Gran Majestic
-            $.ajax({ url: "/DisponibilidadApiRoyalGrandMajestic/" + dateApiRoyal + "/" + null, method: "GET" }).done(function (data) {
-                vm.disApiRoyalGranMajestic = data;
-
-
-            }).fail(function (jqXHR, textStatus, errorThrown) {
-                if (console && console.log) {
-                    console.log("La solicitud a fallado: " + textStatus);
-                }
-
-            });
+            
 
         },
 
@@ -104,13 +63,7 @@
                     return item;
                 }
             });
-            this.disponibilidadToTalBarcos = this.barcosCapacidad.filter(function (item) {
-                for (let itemBarcoCap of vm.barcosCapacidad) {
-                    if (itemBarcoCap.idBarco == idSalidaBarco) {
-                        return item
-                    }
-                }
-            });
+
 
             
         },
@@ -183,6 +136,13 @@
 
                 });
 
+            var emailStorage = new Object();
+            emailStorage.Correo = document.getElementById("emailCharter").value;
+            emailStorage.Nombre = document.getElementById("nameCharter").value;
+            localStorage.removeItem('datosTripEmail');
+            localStorage.setItem('datosTripEmail', JSON.stringify(emailStorage));
+
+
             document.getElementById("emailCharter").value="";
             document.getElementById("nameCharter").value="";
             document.getElementById("obserCharter").value = "";
@@ -193,6 +153,8 @@
             $("#nameCharter").removeClass("input-icono");
             $('#nameCharter').addClass("form-control");
             $("#TailorMadeCharter").modal('hide');
+
+            
 
             window.location.href = "../thank-you-page-availability/";
         },
@@ -241,102 +203,31 @@
             var dataIdbarco = $('#idBarco').val();
             var date = this.dateTrip;
             var vm = this;
-            //var dispoBarcosTotal = vm.disponibilidadBarcos.concat(vm.dispoOtrosBarcos);
-            var dispoBarcosMaPa = [];
-            var dispoOtrosBarcos = [];
-            var dispoBarcoGranMajestic = [];
-            var dispoBarcoInfinity = [];
+            //var dispoBarcosMaPa = [];
+            //var dispoOtrosBarcos = [];
+            //var dispoBarcoGranMajestic = [];
+            //var dispoBarcoInfinity = [];
             var f, f1, f2, fechaInicio, fechaFin;
 
 
             if (this.dateTrip == "Select your travel dates" || this.dateTrip == "") {
 
-                dispoBarcosMaPa = vm.disponibilidadBarcosPaMa.filter(function (item) {
-                    for (let itemBarcoCap of vm.barcosCapacidad) {
-                        if (itemBarcoCap.idBarco == item.idBarco) {
-                            if (itemBarcoCap.capacidad == item.totalDisponibilidad) {
-                                return item;
-                            }
-                           
-                        }
-                    }
-                    
-                });
-                dispoOtrosBarcos = vm.dispoOtrosBarcos.filter(function (item) {
-                    for (let itemBarcoCap of vm.barcosCapacidad) {
-                        if (itemBarcoCap.idBarco == item.idBarco) {
-                            if (itemBarcoCap.capacidad == item.salDispoTotalOtrosBarcos) {
-                                return item;
-                            }
-
-                        }
-                    }
-                });
-
-
-                this.disApiRoyalGranMajestic.forEach(function (elem) {
-
-                    elem.availability.forEach(function (item) {
-                        if (item.avail >= 16) {
-
-                            dispoBarcoGranMajestic.push(item);
-
-                        }
-
-
-                    });
-
-                });
-
-                this.disApiRoyalInfinity.forEach(function (elem) {
-
-                    elem.availability.forEach(function (item) {
-                        if (item.avail >= 20) {
-
-                            dispoBarcoInfinity.push(item);
-
-                        }
-
-
-                    });
-
-                });
-
-                this.barcoFiltroFecha = dispoBarcosMaPa.slice(0, 15).concat(dispoOtrosBarcos.slice(0, 30));
-                //this.barcoFiltroFecha = dispoBarcosMaPa.concat(dispoOtrosBarcos);
-                //dato = dispoBarcosMaPa.concat(dispoOtrosBarcos);
-                //console.log(dato);
+                this.barcoFiltroFecha = vm.disponibilidadBarcosCharter.slice(0, 30);        
+                
             } else {
                 if (this.dateTrip.split(',').length == 1) {
                     f = this.dateTrip.split(',')[0].split("-");
                     fechaInicio = new Date(f[0] + "-" + "20" + f[1]);
-                    dispoBarcosMaPa = vm.disponibilidadBarcosPaMa.filter(function (item) {
-                        for (let itemBarcoCap of vm.barcosCapacidad) {
-                            if (itemBarcoCap.idBarco == item.idBarco) {
-                                if (itemBarcoCap.capacidad == item.totalDisponibilidad) {
-                                    if (new Date(item.salFechaSalida).getTime() >= new Date(fechaInicio).getTime()) {
-                                        return item;
-                                    }
-                                }
-
-                            }
-                        }
-
-                    });
-                    dispoOtrosBarcos = vm.dispoOtrosBarcos.filter(function (item) {
-                        for (let itemBarcoCap of vm.barcosCapacidad) {
-                            if (itemBarcoCap.idBarco == item.idBarco) {
-                                if (itemBarcoCap.capacidad == item.salDispoTotalOtrosBarcos) {
-                                    if (new Date(item.salFechaSalida).getTime() >= new Date(fechaInicio).getTime()) {
-                                        return item;
-                                    }
-                                }
-                            }
+                    this.barcoFiltroFecha = vm.disponibilidadBarcosCharter.filter(function (item) {
+                        
+                        if (new Date(item.salFechaSalida).getTime() >= new Date(fechaInicio).getTime()) {
+                            return item;
                         }
                     });
+                   
                 }
 
-                this.barcoFiltroFecha = dispoBarcosMaPa.concat(dispoOtrosBarcos);
+                 
 
                 if (this.dateTrip.split(',').length == 2) {
                     f = this.dateTrip.split(',');
@@ -345,32 +236,13 @@
                     fechaInicio = new Date(f1[0] + "-" + "20" + f1[1]);
                     fechaFin = new Date(f2[0] + "-" + "20" + f2[1]);
                     fechaFin.setMonth(fechaFin.getMonth() + 1, 0);
-                    dispoBarcosMaPa = vm.disponibilidadBarcosPaMa.filter(function (item) {
-                        for (let itemBarcoCap of vm.barcosCapacidad) {
-                            if (itemBarcoCap.idBarco == item.idBarco) {
-                                if (itemBarcoCap.capacidad == item.totalDisponibilidad) {
-                                    if (new Date(item.salFechaSalida).getTime() >= new Date(fechaInicio).getTime() && new Date(item.salFechaSalida).getTime() <= new Date(fechaFin).getTime()) {
-                                        return item;
-                                    }
-                                }
-
-                            }
-                        }
-
-                    });
-                    dispoOtrosBarcos = vm.dispoOtrosBarcos.filter(function (item) {
-                        for (let itemBarcoCap of vm.barcosCapacidad) {
-                            if (itemBarcoCap.idBarco == item.idBarco) {
-                                if (itemBarcoCap.capacidad == item.salDispoTotalOtrosBarcos) {
-                                    if (new Date(item.salFechaSalida).getTime() >= new Date(fechaInicio).getTime() && new Date(item.salFechaSalida).getTime() <= new Date(fechaFin).getTime()) {
-                                        return item;
-                                    }
-                                }
-
-                            }
+                    this.barcoFiltroFecha = vm.disponibilidadBarcosCharter.filter(function (item) {
+                        
+                        if (new Date(item.salFechaSalida).getTime() >= new Date(fechaInicio).getTime() && new Date(item.salFechaSalida).getTime() <= new Date(fechaFin).getTime()) {
+                            return item;
                         }
                     });
-                    this.barcoFiltroFecha = dispoBarcosMaPa.slice(0, 30).concat(dispoOtrosBarcos.slice(0, 30));
+                    
                 }
 
             }
