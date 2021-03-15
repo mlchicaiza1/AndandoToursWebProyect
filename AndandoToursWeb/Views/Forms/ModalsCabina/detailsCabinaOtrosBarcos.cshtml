@@ -6,10 +6,10 @@
                 <a class="close icon-times-circle" id="close_modal" v-on:click="closeModalCabinaOtroBarco"  style="color:#5299D0;font-size:30px; " ></a>
             </div>
             <div class="" style="height:100%">
-                <div id="modal_dispo" class="modal-body font-modal" style="height:60%;margin:0 0">
+                <div id="modal_dispo" class="modal-body font-modal" >
                     <div id="row_cabina" class="row" style="margin-top:10px;">
-                        <div class="container" style=" margin-bottom:15px; border-bottom:1px solid; border-bottom-color:black" v-for="cabina in cabinas">
-                            <div class="row" style="overflow-y:scroll;height: 80%;">
+                        <div class="container" style=" margin-bottom:4%; padding-bottom:4%;height:418px; border-bottom:1px solid; border-bottom-color:black" v-for="cabina in cabinas">
+                            <div class="row" style="overflow-y:scroll;height: 110%;">
                                 <div class="col-md-12" v-if="cabinas.length">
                                     <div class="col-md-4">
                                         <img class="img-responsive " :src="cabina.barcoCabinaFoto1" :title="cabina.barcoNombre" :alt="cabina.barcoNombre" style="border:1px solid">
@@ -167,7 +167,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" style="margin-bottom:3%">
                         <div class="container">
                             <div class="col-md-12 sendEmail">
                                 <div class=" col-md-2">
@@ -210,30 +210,7 @@
                                 </div>
                             </div>
                         </section>
-                        <div class="container" style=" padding-top: 10px;">
-                            <div class="row">
-                                <div class="col-md-12 col-xs-12">
-                                    <div class="col-md-2 col-xs-2">
-                                        <img class="img-responsive lazyload" data-src="/images/logos/LATA-2012.png" style="max-height:100px;" alt="LATA-2012" />
-                                    </div>
-                                    <div class="col-md-2 col-xs-2">
-                                        <img class="img-responsive lazyload" data-src="/images/logos/central-de-receptivos.png" style="max-height:100px;" alt="central-de-receptivos" />
-                                    </div>
-                                    <div class="col-md-2 col-xs-2">
-                                        <img class="img-responsive lazyload" data-src="/images/logos/USTOA-Associate-Logo.svg" style="max-height:100px;padding-top: 25%;" alt="logo USTOA" />
-                                    </div>
-                                    <div class="col-md-2 col-xs-2">
-                                        <img class="img-responsive lazyload" data-src="/images/logos/luxLife.svg" style="max-height:100px;" alt="luxLife" />
-                                    </div>
-                                    <div class="col-md-2 col-xs-2">
-                                        <img class="img-responsive lazyload" data-src="/images/logos/logo-ecuador.png" style="max-height:100px;" alt="logo-ecuador" />
-                                    </div>
-                                    <div class="col-md-2 col-xs-2">
-                                        <img class="img-responsive lazyload" data-src="/images/logos/logo-qa.png" style="max-height:100px;" alt="logo-qa" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

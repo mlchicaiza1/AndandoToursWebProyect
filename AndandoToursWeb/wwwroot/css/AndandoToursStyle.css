@@ -2529,11 +2529,12 @@ select::-ms-expand {
     position: absolute;
     top: 20%;
     left: 50%;
-    color: white;
+    color: #0b0b0ba6;
     transform: translate(-50%, -50%);
     text-align: center;
     font-weight: 600;
     line-height: 1.5;
+    text-shadow: 0.1em 0.1em 0.2em #816e6e;
 }
 
 @media (max-witdh:800px) {

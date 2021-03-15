@@ -269,7 +269,7 @@
                             <a class="btn tripFinderMov" href="#" data-categoria="finder_ Lenght">
                                 Lenght{{lenghtDay}} <i class="fas fa-angle-down" style="display:flex;color:#7B7979" data-categoria="finder_ Lenght"></i>
                             </a>
-                            <a class="btn h5button" v-on:click="getDisponibilidad()" style="padding: 5px 30px;margin-left:40px;border-radius:10px 20px 10px 20px;border-bottom: 0; background-color:#0077ba; color:#ffffff; width:140px" href="../../trip_planner/tri_planner">
+                            <a class="btn h5button" v-on:click="getDisponibilidad()" style="padding: 5px 30px;margin-left:40px;border-radius:10px 20px 10px 20px;border-bottom: 0; background-color:#0077ba; color:#ffffff; width:140px" href="../../trip-planner">
                                 Search trip
                             </a>
                         </div>
@@ -635,7 +635,7 @@
                                     </a>
                                     <ul style="padding-right: 10px;">
                                         <li v-for="(trip,index) in maintripType">
-                                            <label class="containe">
+                                            <label class="containe" style="font-size: 16px;margin-right:10px;font-weight: 500;">
                                                 <span :style="{color: checkColor}" :id="trip.labeltrip" name="tripType">{{trip.labeltrip}} </span>
                                                 <input type="checkbox" :value="trip.labeltrip" :id="trip.labeltrip" v-model="checkedTrip" @@change="checkTripType($event)">
                                                 <span class="checkmark" v-bind:class="trip.labeltrip"></span>
@@ -776,7 +776,7 @@
                     </button>
                     <ul class="dropdown-menu" role="menu">
                         <li v-for="(value, key) in  object">
-                            <label class="containe">
+                            <label class="containe" style="font-size: 16px;margin-right:10px;font-weight: 500;">
                                 <span :style="{color: checkColor}" :id="key" name="tripType1">{{value}} </span>
                                 <input type="checkbox" :value="value" :id="key" v-model="checkedTrip" @@change="checkTripType($event)">
                                 <span class="checkmark"></span>
