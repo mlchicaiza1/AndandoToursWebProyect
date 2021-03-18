@@ -15,6 +15,7 @@ using Newtonsoft.Json;
 using System.Dynamic;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace AndandoToursWeb.Controllers
 {
@@ -22,7 +23,7 @@ namespace AndandoToursWeb.Controllers
     public class CmsWebAndandoController : Controller
     {
         IHostingEnvironment _env;
-
+        private readonly IMemoryCache cacheImg;
         
         public IActionResult Index()
         {
@@ -168,8 +169,10 @@ namespace AndandoToursWeb.Controllers
                 RegActividad.ImagenNombre = nombreDefecto;
                 RegActividad.Texto = false;
                 RegActividad.Imagen = true;
-
-                return Redirect("../../../PaginasWeb/CmsImagen");
+                MemoryCacheEntryOptions cacheExpiration = new MemoryCacheEntryOptions();
+                cacheExpiration.AbsoluteExpiration = DateTime.Now.AddMinutes(1);
+                cacheExpiration.Priority = CacheItemPriority.High;
+                return jsonResult;
             }
             else
             {
