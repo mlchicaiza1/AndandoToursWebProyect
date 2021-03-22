@@ -77,68 +77,60 @@
                 </div>
                 <!-- Sidebar Menu -->
                 <nav class="mt-2" id="menu1">
+                    <ul class="nav nav-pills nav-sidebar flex-column"  role="menu" >
+                        <li class="nav-item">
+                            <a href="@Url.Action("CmsTextoWebAndando", "CmsWebAndando", new { id = "1010"  })" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p :id="1010">Home AndandoTours</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("PaginasAndandoWeb", "CmsWebAndando", new { categoria = "galapagos-cruises"  })" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p :id="'galapagos-cruises'">Galapagos Cruises</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("PaginasAndandoWeb", "CmsWebAndando", new { categoria = "barco"  })" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p :id="'barco'">Barcos</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("CmsTextoWebAndando", "CmsWebAndando", new { id = "1011"  })" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p :id="1011">Cruises Yacht Charters</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("CmsTextoWebAndando", "CmsWebAndando", new { id = "2047"  })" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p :id="2047">Availability</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("PaginasAndandoWeb", "CmsWebAndando", new { categoria = "daily-tours"  })" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p :id="'daily-tours'">Daily-Tours</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("PaginasAndandoWeb", "CmsWebAndando", new { categoria = "ecuador-tours"  })" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p :id="'ecuador-tours'">Ecuador Tours</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("PaginasAndandoWeb", "CmsWebAndando", new { categoria = "blog"  })" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p :id="'blog'">Blogs</p>
+                            </a>
+                        </li>
+                    </ul>
+
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                        with font-awesome or any other icon font library -->
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Pages Categories
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="../../PaginasWeb/CmsText" v-on:click="getIdPageMenu($event)" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p :id="1010">Home AndandoTours</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../../PaginasWeb" v-on:click="getCategoriaMenu" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p :id="'galapagos-cruises'">Galapagos Cruises</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../../PaginasWeb" v-on:click="getCategoriaMenu" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p :id="'barco'">Barcos</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../../PaginasWeb/CmsText" v-on:click="getIdPageMenu" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p :id="1011">Cruises Yacht Charters</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../../PaginasWeb/CmsText" v-on:click="getIdPageMenu" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p :id="2047">Availability</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../../PaginasWeb" v-on:click="getCategoriaMenu" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p :id="'daily-tours'">Daily-Tours</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../../PaginasWeb" v-on:click="getCategoriaMenu" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p :id="'ecuador-tours'">Ecuador Tours</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../../PaginasWeb" v-on:click="getCategoriaMenu" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p :id="'blog'">Blogs</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+        with font-awesome or any other icon font library -->
                         @if (SignInManager.IsSignedIn(User) && User.IsInRole("Administrator"))
                         {
                             <li class="nav-item has-treeview">
@@ -195,21 +187,10 @@
             <script src="~/js/site.js" asp-append-version="true"></script>*@
     </environment>
     <environment exclude="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
-        </script>
-        <script src="~/js/cms.js" asp-append-version="true"></script>
+       
+        
     </environment>
-
+    <script src="~/ckeditor/ckeditor.js"></script>
     <script src="~/theme/plugins/jquery/jquery.min.js"></script>
     <script src="~/lib/owl.carousel.js"></script>
     @*<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>*@
@@ -224,17 +205,13 @@
     <script src="~/theme/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
     <!-- page script -->
     <script src="~/lib/vue/vue.min.js"></script>
-    <script src="~/lib/vue/VueData.js"></script>
+    @*<script src="~/lib/vue/VueData.js"></script>*@
     @*<script src="https://code.jquery.com/jquery-3.3.1.js"></script>*@
     <script src=" https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <!-- Summernote -->
     <script src="~/theme/plugins/summernote/summernote-bs4.min.js"></script>
-    <script src="~/ckeditor/ckeditor.js"></script>
 
     <script src="~/js/cms.js"></script>
-
-
-
 
     @RenderSection("Scripts", required: false)
 </body>
