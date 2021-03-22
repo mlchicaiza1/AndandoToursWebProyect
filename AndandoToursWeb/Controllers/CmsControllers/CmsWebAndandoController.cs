@@ -172,7 +172,7 @@ namespace AndandoToursWeb.Controllers
                 MemoryCacheEntryOptions cacheExpiration = new MemoryCacheEntryOptions();
                 cacheExpiration.AbsoluteExpiration = DateTime.Now.AddMinutes(1);
                 cacheExpiration.Priority = CacheItemPriority.High;
-                return jsonResult;
+                return Redirect("../../../PaginasWeb/CmsImagen");
             }
             else
             {
