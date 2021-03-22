@@ -45,20 +45,23 @@ namespace AndandoToursWeb.Controllers
         }
 
         [Route("/PaginasWeb")]
-        public ActionResult PaginasAndandoWeb()
+        public ActionResult PaginasAndandoWeb(string categoria)
         {
+            ViewBag.categoria = categoria;
             return View();
         }
 
         [Route("/PaginasWeb/CmsText")]
-        public ActionResult CmsTextoWebAndando()
+        public ActionResult CmsTextoWebAndando(string id)
         {
+            ViewBag.id = id;
             return View();
         }
 
         [Route("/PaginasWeb/CmsImagen")]
-        public ActionResult CmsImagenesAndando()
+        public ActionResult CmsImagenesAndando(string id)
         {
+            ViewBag.id = id;
             return View();
         }
         public ActionResult editaImagen_modal()

@@ -2,17 +2,17 @@
     ViewData["Title"] = "Home Page";
 }
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper" id="paginasAndandoWeb">
+<div class="content-wrapper" id="PageAndandoWeb">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Paginas-Andando</h1>
+                    <h1>Pages-Andando</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="../">Home</a></li>
+                        <li class="breadcrumb-item"><a href="../CmsWebAndando">Home</a></li>
                     </ol>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                             <div class="row">
                                 <div class="col-sm-4 border-right">
                                     <div class="description-block">
-                                        <a href="../PaginasWeb/CmsText" :id="1010" v-on:click="getIdPage">Ver Contenido</a>
+                                        <a href="@Url.Action("CmsTextoWebAndando", "CmsWebAndando", new { id = "1010"  })" >View Text</a>
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
@@ -42,14 +42,14 @@
                                 <div class="col-sm-4 border-right">
                                     <div class="description-block">
                                         <h5 class="description-header"></h5>
-                                        <span class="description-text">PAGINAS</span>
+                                        <span class="description-text">Page</span>
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
                                 <!-- /.col -->
                                 <div class="col-sm-4">
                                     <div class="description-block">
-                                        <a href="../PaginasWeb/CmsImagen" :id="1010" v-on:click="getIdPage">Ver Imagenes</a>
+                                        <a href="@Url.Action("CmsImagenesAndando", "CmsWebAndando", new { id = "1010"  })" >View Image</a>
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
@@ -73,7 +73,7 @@
                             <div class="row">
                                 <div class="col-sm-4 border-right">
                                     <div class="description-block">
-                                        <a href="../PaginasWeb" :id="'galapagos-cruises'" v-on:click="getCategoria">Ver Pagina</a>
+                                        <a href="@Url.Action("PaginasAndandoWeb", "CmsWebAndando", new { categoria = "galapagos-cruises"  })" >View Page</a>
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
@@ -81,7 +81,7 @@
                                 <div class="col-sm-4 border-right">
                                     <div class="description-block">
                                         <h5 class="description-header"></h5>
-                                        <span class="description-text">PAGINAS</span>
+                                        <span class="description-text">Page</span>
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
@@ -112,7 +112,7 @@
                             <div class="row">
                                 <div class="col-sm-4 border-right">
                                     <div class="description-block">
-                                        <a href="../PaginasWeb" :id="'barco'" v-on:click="getCategoria">Ver Pagina</a>
+                                        <a href="@Url.Action("PaginasAndandoWeb", "CmsWebAndando", new { categoria = "barco"  })"  >View Page</a>
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
@@ -120,7 +120,7 @@
                                 <div class="col-sm-4 border-right">
                                     <div class="description-block">
                                         <h5 class="description-header"></h5>
-                                        <span class="description-text">PAGINAS</span>
+                                        <span class="description-text">Page</span>
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
@@ -151,7 +151,7 @@
                             <div class="row">
                                 <div class="col-sm-4 border-right">
                                     <div class="description-block">
-                                        <a href="../PaginasWeb/CmsText" :id="1011" v-on:click="getIdPage">Ver Pagina</a>
+                                        <a href="@Url.Action("CmsTextoWebAndando", "CmsWebAndando", new { id = "1011"  })" >View Text</a>
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
@@ -159,14 +159,14 @@
                                 <div class="col-sm-4 border-right">
                                     <div class="description-block">
                                         <h5 class="description-header"></h5>
-                                        <span class="description-text">PAGINAS</span>
+                                        <span class="description-text">Page</span>
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
                                 <!-- /.col -->
                                 <div class="col-sm-4">
                                     <div class="description-block">
-                                        <a href="../PaginasWeb/CmsImagen" :id="1011" v-on:click="getIdPage">Ver Imagenes</a>
+                                        <a href="@Url.Action("CmsImagenesAndando", "CmsWebAndando", new { id = "1011"  })" >View Image</a>
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
@@ -190,7 +190,7 @@
                             <div class="row">
                                 <div class="col-sm-4 border-right">
                                     <div class="description-block">
-                                        <a href="../PaginasWeb/CmsText" :id="2047" v-on:click="getIdPage">Ver Pagina</a>
+                                        <a href="@Url.Action("CmsTextoWebAndando", "CmsWebAndando", new { id = "2047"  })" >View Text</a>
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
@@ -198,14 +198,14 @@
                                 <div class="col-sm-4 border-right">
                                     <div class="description-block">
                                         <h5 class="description-header"></h5>
-                                        <span class="description-text">PAGINAS</span>
+                                        <span class="description-text">Page</span>
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
                                 <!-- /.col -->
                                 <div class="col-sm-4">
                                     <div class="description-block">
-                                        <a href="../PaginasWeb/CmsImagen" :id="2047" v-on:click="getIdPage">Ver Imagenes</a>
+                                        <a href="@Url.Action("CmsImagenesAndando", "CmsWebAndando", new { id = "2047"  })" >View Image</a>
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
@@ -229,7 +229,7 @@
                             <div class="row">
                                 <div class="col-sm-4 border-right">
                                     <div class="description-block">
-                                        <a href="../PaginasWeb" :id="'daily-tours'" v-on:click="getCategoria">Ver Pagina</a>
+                                        <a href="@Url.Action("PaginasAndandoWeb", "CmsWebAndando", new { categoria = "daily-tours"  })"  >View Page</a>
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
@@ -237,7 +237,7 @@
                                 <div class="col-sm-4 border-right">
                                     <div class="description-block">
                                         <h5 class="description-header"></h5>
-                                        <span class="description-text">PAGINAS</span>
+                                        <span class="description-text">Page</span>
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
@@ -268,7 +268,7 @@
                             <div class="row">
                                 <div class="col-sm-4 border-right">
                                     <div class="description-block">
-                                        <a href="../PaginasWeb" :id="'ecuador-tours'" v-on:click="getCategoria">Ver Pagina</a>
+                                        <a href="@Url.Action("PaginasAndandoWeb", "CmsWebAndando", new { categoria = "ecuador-tours"  })"  >View Page</a>
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
@@ -276,7 +276,7 @@
                                 <div class="col-sm-4 border-right">
                                     <div class="description-block">
                                         <h5 class="description-header"></h5>
-                                        <span class="description-text">PAGINAS</span>
+                                        <span class="description-text">Page</span>
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
@@ -307,7 +307,7 @@
                             <div class="row">
                                 <div class="col-sm-4 border-right">
                                     <div class="description-block">
-                                        <a href="../PaginasWeb" :id="'blog'" v-on:click="getCategoria">Ver Pagina</a>
+                                        <a href="@Url.Action("PaginasAndandoWeb", "CmsWebAndando", new { categoria = "blog"  })"   >View Page</a>
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
@@ -315,7 +315,7 @@
                                 <div class="col-sm-4 border-right">
                                     <div class="description-block">
                                         <h5 class="description-header"></h5>
-                                        <span class="description-text">PAGINAS</span>
+                                        <span class="description-text">Page</span>
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
@@ -337,7 +337,6 @@
         </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-
     <a id="back-to-top" href="#" class="btn btn-primary back-to-top" role="button" aria-label="Scroll to top">
         <i class="fas fa-chevron-up"></i>
     </a>
