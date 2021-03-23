@@ -31,10 +31,20 @@ var imagen = new Vue({
             console.log(idVista)
             var owl = $('.owl-carousel');
             owl.trigger('destroy.owl.carousel');
-            $.ajax({ url: "../ContenidoImagenes/" + idVista, method: "GET" }).done(function (data) {
-                vm.imgGestion = data;
 
-            });
+            if (idVista == 'menu') {
+                $.ajax({ url: "../ImgMenu" , method: "GET" }).done(function (data) {
+                    vm.imgGestion = data;
+
+                });
+            } else {
+                $.ajax({ url: "../ContenidoImagenes/" + idVista, method: "GET" }).done(function (data) {
+                    vm.imgGestion = data;
+
+                });
+            }
+
+           
         },
         getNombre: function () {
             var vm = this;

@@ -738,14 +738,14 @@ namespace AndandoToursWeb
                     defaults: new { Controller = "Cruises", action = "CruisesCategoria" }
                     );
             });
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "CruisesCategoriaSailing-cruises",
-                    template: "sailing-cruises",
-                    defaults: new { Controller = "Cruises", action = "CruisesCategoria" }
-                    );
-            });
+            //app.UseMvc(routes =>
+            //{
+            //    routes.MapRoute(
+            //        name: "CruisesCategoriaSailing-cruises",
+            //        template: "sailing-cruises",
+            //        defaults: new { Controller = "Cruises", action = "CruisesCategoria" }
+            //        );
+            //});
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

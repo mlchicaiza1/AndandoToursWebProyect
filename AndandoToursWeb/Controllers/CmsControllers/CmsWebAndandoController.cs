@@ -16,6 +16,7 @@ using System.Dynamic;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Caching.Memory;
+using AndandoToursWeb.Data;
 
 namespace AndandoToursWeb.Controllers
 {
@@ -24,7 +25,8 @@ namespace AndandoToursWeb.Controllers
     {
         IHostingEnvironment _env;
         private readonly IMemoryCache cacheImg;
-        
+        private readonly AndandoRepositorio _repoAndando;
+
         public IActionResult Index()
         {
             var userId = _userManager.GetUserId(HttpContext.User);
@@ -82,9 +84,10 @@ namespace AndandoToursWeb.Controllers
             return Content(r, "text/html");
         }
 
-        public CmsWebAndandoController(CmsAndandoRepositorio repositorio, INodeServices nodeServices, IHostingEnvironment enviroment, UserManager<ApplicationUser> userManeger)
+        public CmsWebAndandoController(CmsAndandoRepositorio repositorio, AndandoRepositorio repoAndando, INodeServices nodeServices, IHostingEnvironment enviroment, UserManager<ApplicationUser> userManeger)
         {
             this._repo = repositorio;
+            this._repoAndando = repoAndando;
             this._nodeServices = nodeServices;
             this._userManager = userManeger;
             this._env = enviroment;
@@ -116,6 +119,14 @@ namespace AndandoToursWeb.Controllers
         {
             return await _repo.GetMetadata(idVista);
         }
+
+        [Route("/ImgMenu")]
+        [HttpGet]
+        public async Task<ActionResult<List<GetContenidoMultimedia>>> GetMenu()
+        {
+            return await _repoAndando.GetImgMenu();
+        }
+
         
         [HttpPost]
         public async Task<IActionResult> ImageUploadInsert(IFormFile files, string name, string nombreDefecto, string ruta,int idImagen)
