@@ -12,13 +12,14 @@ using Microsoft.CodeAnalysis;
 
 namespace AndandoToursWeb.Controllers
 {
-    [Authorize(Roles = "Administrator")]
+    //[Authorize(Roles = "Administrator")]
     public class AdminController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;
         private ApplicationDbContext _application;
         private readonly UserManager<ApplicationUser> userManager;
-
+        
+        [Authorize(Roles = "Administrator")]
         public IActionResult Index()
         {
             return View(roleManager.Roles.ToList());
@@ -31,6 +32,7 @@ namespace AndandoToursWeb.Controllers
             _application = application;
         }
 
+        [Authorize(Roles = "Administrator")]
         public IActionResult Create()
         {
             var datos = "ewwe";
@@ -39,6 +41,7 @@ namespace AndandoToursWeb.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Administrator,User")]
         [HttpGet]
         public ViewResult Edit(string id)
         {
@@ -55,6 +58,7 @@ namespace AndandoToursWeb.Controllers
             return View(editUsers);
         }
 
+        [Authorize(Roles = "Administrator,User")]
         [HttpPost]
         public async Task<IActionResult> Edit(EditUsers model)
         {
@@ -77,7 +81,15 @@ namespace AndandoToursWeb.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("ListUsers");
+                    if (User.IsInRole("Administrator"))
+                    {
+                        return RedirectToAction("ListUsers");
+                    }
+                    else
+                    {
+                        return View(model);
+                    }
+                    
                 }
 
                 foreach (var error in result.Errors)
@@ -89,6 +101,7 @@ namespace AndandoToursWeb.Controllers
             }
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public async Task<IActionResult> DeleteUser(string id)
         {
@@ -117,6 +130,7 @@ namespace AndandoToursWeb.Controllers
             }
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public async Task<IActionResult> Create(ProjectRole role)
         {
@@ -129,18 +143,22 @@ namespace AndandoToursWeb.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Administrator")]
         public IActionResult ListUsers()
         {
             ViewBag.User = _application.Users.ToList();
             return View();
         }
 
+        [Authorize(Roles = "Administrator")]
         public IActionResult ListRoles()
         {
             var roles = roleManager.Roles;
             return View(roles);
         }
 
+
+        [Authorize(Roles = "Administrator")]
         [HttpGet]
         public async Task<IActionResult> EditRole(string id)
         {
@@ -169,6 +187,8 @@ namespace AndandoToursWeb.Controllers
             return View(model);
         }
 
+
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public async Task<IActionResult> EditRole(EditRoleViewModel model)
         {
@@ -198,6 +218,8 @@ namespace AndandoToursWeb.Controllers
             }
         }
 
+
+        [Authorize(Roles = "Administrator")]
         [HttpGet]
         public async Task <IActionResult> EditUsersInRole(string roleId)
         {
@@ -235,7 +257,7 @@ namespace AndandoToursWeb.Controllers
             return View(model);
         }
 
-
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public async Task<IActionResult> EditUsersInRole(List<UserRoleViewModel> model, string roleId)
         {

@@ -26,6 +26,9 @@ namespace AndandoToursWeb.Controllers
         IHostingEnvironment _env;
         private readonly IMemoryCache cacheImg;
         private readonly AndandoRepositorio _repoAndando;
+        private readonly CmsAndandoRepositorio _repo;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly INodeServices _nodeServices;
 
         public IActionResult Index()
         {
@@ -70,9 +73,8 @@ namespace AndandoToursWeb.Controllers
         {
             return View();
         }
-        private readonly CmsAndandoRepositorio _repo;
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly INodeServices _nodeServices;
+
+
 
         public async Task<IActionResult> IndexAsync()
         {

@@ -53,7 +53,15 @@
                         <div class="form-group row">
                             <div class="col-sm-10">
                                 <button type="submit" class="btn btn-primary">Update</button>
-                                <a asp-action="ListUsers" asp-controller="Admin" class="btn btn-primary">Cancel</a>
+                                @if (User.IsInRole("Administrator"))
+                                {
+                                    <a asp-action="ListUsers" asp-controller="Admin" class="btn btn-primary">Cancel</a>
+                                }
+                                else
+                                {
+                                    <a href="../CmsWebAndando" class="btn btn-primary">Cancel</a>
+                                }
+
                             </div>
                         </div>
                     </form>
