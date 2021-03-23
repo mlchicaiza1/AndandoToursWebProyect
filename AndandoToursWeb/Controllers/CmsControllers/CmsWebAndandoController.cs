@@ -118,7 +118,7 @@ namespace AndandoToursWeb.Controllers
         }
         
         [HttpPost]
-        public async Task<IActionResult> ImageUploadInsert(IFormFile files, string name, string nombreDefecto, string ruta,int idImagen)
+        public async Task<IActionResult> ImageUploadInsert(IFormFile files, string name, string nombreDefecto, string ruta,int idImagen, String idImage)
         {
             var jsonResult = Json(new { status = "Error" });
             if (files != null && files.Length > 0)
@@ -175,7 +175,8 @@ namespace AndandoToursWeb.Controllers
                 MemoryCacheEntryOptions cacheExpiration = new MemoryCacheEntryOptions();
                 cacheExpiration.AbsoluteExpiration = DateTime.Now.AddMinutes(1);
                 cacheExpiration.Priority = CacheItemPriority.High;
-                return Redirect("../../../PaginasWeb/CmsImagen");
+
+                return Redirect("../../../PaginasWeb/CmsImagen?id="+ idImage);
             }
             else
             {

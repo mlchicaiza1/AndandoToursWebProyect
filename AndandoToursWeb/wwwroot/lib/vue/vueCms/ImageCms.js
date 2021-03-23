@@ -45,9 +45,6 @@ var imagen = new Vue({
         },
         subirImagen: function () {
             var files = $("#files").val();
-            if (files != "") {
-                alert("Agregado Correctamente");
-            }
             var ruta = $("#ruta").val();
             var nombreDefecto = $("#nombreDefecto").val();
             var name = $("#name").val();
