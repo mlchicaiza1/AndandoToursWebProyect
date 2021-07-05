@@ -6,7 +6,9 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting.Server;
-
+using AndandoToursWeb.Models.ModelsCMS;
+using AndandoToursWeb.Models.ModelsAndandoTours;
+using System.Data;
 
 namespace AndandoToursWeb.DataCMS
 {
@@ -39,6 +41,169 @@ namespace AndandoToursWeb.DataCMS
                 }
             }
         }
+
+
+        //=================Crear Contenido Paginas Web========================
+        public String NewContenidoPaginaWeb(CreateContenido nPagina)
+        {
+            string id = "";
+
+            try
+            {
+
+                using (SqlConnection sql = new SqlConnection(_connectionString))
+                {
+                    sql.Open();
+                    using (SqlCommand cmd = new SqlCommand("dbo.sp_CreaateContenido", sql))
+                    {
+                        cmd.Parameters.Add("@NombreVista", System.Data.SqlDbType.VarChar).Value = nPagina.NombreVista;
+                        cmd.Parameters.Add("@UrlVista", System.Data.SqlDbType.VarChar).Value = nPagina.UrlVista;
+                        cmd.Parameters.Add("@Categoria", System.Data.SqlDbType.VarChar).Value = nPagina.Categoria;
+                        cmd.Parameters.Add("@TituloMeta", System.Data.SqlDbType.VarChar).Value = nPagina.TituloMeta;
+                        cmd.Parameters.Add("@Descripcion", System.Data.SqlDbType.VarChar).Value = nPagina.DescripcionMeta;
+                        cmd.Parameters.Add("@numTitulos", System.Data.SqlDbType.Int).Value = nPagina.NumeroTitulo;
+                        cmd.Parameters.Add("@numImagenes", System.Data.SqlDbType.Int).Value = nPagina.NumeroImagenes;
+                        //cmd.Parameters.Add("@IdVista", SqlDbType.Int).Direction = ParameterDirection.Output;
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                        //SqlParameter RuturnValue = new SqlParameter("@IdVista", SqlDbType.Int);
+
+                        var returnParameter = cmd.Parameters.Add("@IdVista", SqlDbType.Int);
+                        returnParameter.Direction = ParameterDirection.ReturnValue;
+
+                       
+                        //cmd.Parameters.Add(RuturnValue);
+                        
+                        cmd.ExecuteNonQuery();
+                        id = returnParameter.Value.ToString();
+                        sql.Close();
+
+                        return id;
+                    }
+                }
+
+               
+            }
+            catch(Exception ex)
+            {
+                return "Error";
+            }
+
+           
+        }
+
+
+        public void AddItinearioEcu(ItinEcuadorBtn model)
+        {
+            
+
+            try
+            {
+
+                using (SqlConnection sql = new SqlConnection(_connectionString))
+                {
+                    sql.Open();
+                    using (SqlCommand cmd = new SqlCommand("dbo.sp_CreateItinerarioEcuador", sql))
+                    {
+                        
+                        cmd.Parameters.Add("@ItinNombre", System.Data.SqlDbType.VarChar).Value = model.ItinNombre;
+                        cmd.Parameters.Add("@ItinNomCorto", System.Data.SqlDbType.VarChar).Value = model.ItinNombreCor;
+                        //cmd.Parameters.Add("@NombreVista", System.Data.SqlDbType.VarChar).Value = model.NombreVista;
+                        cmd.Parameters.Add("@numItin", System.Data.SqlDbType.Int).Value = model.numItiner;
+                        cmd.Parameters.Add("@IdVista", System.Data.SqlDbType.Int).Value = model.IdVista;
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+                       
+                        sql.Close();
+
+                        
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                
+            }
+
+
+        }
+
+        //=================Crear Cards========================
+        public void CreateCards(CardsAndando cards)
+        {
+            using (SqlConnection sql = new SqlConnection(_connectionString))
+            {
+
+                try
+                {
+                    sql.Open();
+
+                    using (SqlCommand cmd = new SqlCommand("dbo.sp_CreateCards", sql))
+                    {
+                        cmd.Parameters.Add("@IdVista", System.Data.SqlDbType.Int).Value = cards.IdVista;
+                        cmd.Parameters.Add("@CardCategoria", System.Data.SqlDbType.VarChar).Value = cards.CardCategoria;
+                        cmd.Parameters.Add("@CardDetalles", System.Data.SqlDbType.VarChar).Value = cards.CardDetalles;
+                        cmd.Parameters.Add("@CardPrecio", System.Data.SqlDbType.VarChar).Value = cards.CardPrecio;
+                        cmd.Parameters.Add("@CardDuracion", System.Data.SqlDbType.VarChar).Value = cards.CardDuracion;
+                        cmd.Parameters.Add("@CardUrl", System.Data.SqlDbType.VarChar).Value = cards.CardUrl;
+                        cmd.Parameters.Add("@CardDepartures", System.Data.SqlDbType.VarChar).Value = cards.CardDepartures;
+                        cmd.Parameters.Add("@CardImgNombre", System.Data.SqlDbType.VarChar).Value = cards.CardImgNombre;
+                        cmd.Parameters.Add("@CardImgUrl", System.Data.SqlDbType.VarChar).Value = cards.CardImgUrl;
+                        cmd.Parameters.Add("@CardImgTamano", System.Data.SqlDbType.VarChar).Value = cards.CardImgTamano;
+                        cmd.Parameters.Add("@IdVista", SqlDbType.Int).Direction = ParameterDirection.Output;
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                        cmd.ExecuteReader();
+
+                        string id = cmd.Parameters["@IdVista"].Value.ToString();
+
+                        sql.Close();
+                    }
+                }
+                catch
+                {
+
+                }
+
+               
+            }
+        }
+
+
+        //=================Actualizar Cards========================
+        public void UpdateCards(CardsAndando cards)
+        {
+
+            using (SqlConnection sql = new SqlConnection(_connectionString))
+            {
+                sql.Open();
+
+                using (SqlCommand cmd = new SqlCommand("dbo.sp_UpdateCards", sql))
+                {
+                    cmd.Parameters.AddWithValue("@IdVista", cards.IdVista);
+                    cmd.Parameters.AddWithValue("@CardCategoria", cards.CardCategoria);
+                    cmd.Parameters.AddWithValue("@CardDetalles", cards.CardDetalles);
+                    cmd.Parameters.AddWithValue("@CardPrecio", cards.CardPrecio) ;
+                    cmd.Parameters.AddWithValue("@CardDuracion", cards.CardDuracion) ;
+                    cmd.Parameters.AddWithValue("@CardUrl", cards.CardUrl);
+                    cmd.Parameters.AddWithValue("@CardDepartures", cards.CardDepartures) ;
+                    cmd.Parameters.AddWithValue("@CardImgNombre", cards.CardImgNombre);
+                    cmd.Parameters.AddWithValue("@CardImgUrl", cards.CardImgUrl) ;
+                    cmd.Parameters.AddWithValue("@CardImgTamano", cards.CardImgTamano) ;
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                  
+
+                    cmd.ExecuteReader();
+                    sql.Close();
+                }
+            }
+        }
+
+      
+
         //=================Cargar MetaDatos Paginas Web========================
         public async Task<List<MetadataCMS>> GetMetadata(int idVista)
         {
@@ -94,6 +259,9 @@ namespace AndandoToursWeb.DataCMS
                 }
             }
         }
+
+        
+
         public VistaAndando MapGetVistaAndando(SqlDataReader reader)
         {
             return new VistaAndando()
@@ -229,6 +397,24 @@ namespace AndandoToursWeb.DataCMS
             }
             cnn.Close();
         }
+
+        public void UpdateImagenesMenu(int IdImagen, string NombreImagen)
+        {
+            SqlConnection cnn;
+            cnn = new SqlConnection(_connectionString);
+            cnn.Open();
+            if (cnn.State == System.Data.ConnectionState.Open)
+            {
+                SqlCommand cmd = new SqlCommand("dbo.sp_UpdateImagenesMenu", cnn);
+                cmd.Parameters.AddWithValue("@IdImagen", IdImagen);
+                cmd.Parameters.AddWithValue("@NombreImagen", NombreImagen);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                var reader = cmd.ExecuteReader();
+
+            }
+            cnn.Close();
+        }
+
         //=================Cargar MetaDatos Paginas Web========================
         //public async Task<List<Usuario>> GetUsuario(string usuario, string password)
         //{

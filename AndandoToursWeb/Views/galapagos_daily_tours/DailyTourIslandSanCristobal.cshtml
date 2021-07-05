@@ -17,6 +17,9 @@
         }
     }
 
+    var datoCards = ViewBag.Cards;
+    int i = 2;
+
     //Quitar tags de los 3 Tours de cada Isla
     var textoCms = ItemDaily[5].Parrafo;
     string[] textCards = textoCms.Split('*');
@@ -151,85 +154,35 @@
         <div class="mainland-wrapper ">
             <div class="mainland">
                 <div class="row  f-15 text-justify textoinfo parrafo" style="font-family:Arial; color: #656b6f !important; line-height:2; background:white;">
-                    <div class="col-xs-12 col-sm-6 col-md-4 cardsAndando">
-                        <!--ELEMENTO 1-->
-                        <div class="contenido-app">
-                            <a href="@cardsTours[5]" style="text-decoration:none" target="_blank" class="anc-card">
-                                <div class="mainland-item">
-                                    <div class="mainland-image">
-                                        <img class="img-portada lazyload" data-src="@imgDaily[2].UrlImagen" alt="@imgDaily[2].NombreImagen" >
-                                        <div class="cruise-details">
-                                            <span>@cardsTours[1]</span>
+                    @foreach (var cr in datoCards)
+                    {
+                        <div class="col-xs-12 col-sm-6  col-md-4 cardsAndando">
+                            <div class="contenido-app">
+                                <a href="@cr.CardUrl" target="_blank" style="text-decoration:none" class="anc-card">
+                                    <div class="mainland-item" style="overflow:hidden;text-overflow:ellipsis">
+                                        <div class="mainland-image">
+                                            <img class="lazyload img-portada " data-src="@cr.CardImgUrl" alt="@cr.CardImgNombre">
+
+                                            <div class="cruise-details">
+                                                <span>@cr.CardDuracion</span>
+                                            </div>
+                                        </div>
+                                        <div class="cruise-info tourDetails">
+                                            <h3 style="font-family:'Berlin Sans FB'">@cr.CardCategoria</h3>
+                                            <p style="line-height: 1.2;margin-bottom: 10px">
+
+                                                @cr.CardDetalles
+                                            </p>
+                                            <div class="rest-info DailyCardPrice" id="Moretours" style="padding-bottom:20px">
+                                                <span class="price">Price from: $@cr.CardPrecio</span><br>
+                                                <span class="price">@cr.CardDepartures</span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="cruise-info tourDetails">
-                                        <h3 style="font-family:'Berlin Sans FB'">@titulo[5]</h3>
-                                        <p style="line-height: 1.2;margin-bottom: 15px">
-                                            @cardsTours[2]
-                                        </p>
-                                        <div class="rest-info DailyCardPrice">
-                                            <span class="price">@cardsTours[3]</span><br>
-                                            <span class="price">@cardsTours[4]</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <!--ELEMENTO 1-->
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 cardsAndando">
-                        <!--ELEMENTO 2-->
-                        <div class="contenido-app">
-                            <a href="@cardsTours_1[5]" style="text-decoration:none" target="_blank" class="anc-card">
-                                <div class="mainland-item">
-                                    <div class="mainland-image">
-                                        <img class="img-portada lazyload" data-src="@imgDaily[3].UrlImagen" alt="@imgDaily[3].NombreImagen">
-                                        <div class="cruise-details">
-                                            <span>@cardsTours_1[1]</span>
-                                        </div>
-                                    </div>
-                                    <div class="cruise-info tourDetails">
-                                        <h3 style="font-family:'Berlin Sans FB'">@titulo[6]</h3>
-                                        <p style="line-height: 1.2;margin-bottom: 0px">
-                                            @Html.Raw(@cardsTours_1[2])
-                                        </p>
-                                        <div class="rest-info DailyCardPrice">
-                                            <span class="price">@cardsTours_1[3]</span><br>
-                                            <span class="price">@cardsTours_1[4]</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <!--ELEMENTO 2-->
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 cardsAndando">
-                        <!--ELEMENTO 3-->
-                        <div class="contenido-app">
-                            <a href="@cardsTours_2[5]" style="text-decoration:none" target="_blank" class="anc-card">
-                                <div class="mainland-item">
-                                    <div class="mainland-image">
-                                        <img class="img-portada lazyload" data-src="@imgDaily[4].UrlImagen" alt="@imgDaily[4].NombreImagen" >
-                                        <div class="cruise-details">
-                                            <span>@cardsTours_2[1]</span>
-                                        </div>
-                                    </div>
-                                    <div class="cruise-info tourDetails">
-                                        <h3 style="font-family:'Berlin Sans FB'">@titulo[7]</h3>
-                                        <p style="line-height: 1.2;margin-bottom: 15px">
-                                            @Html.Raw(@cardsTours_2[2])
-                                        </p>
-                                        <div class="rest-info DailyCardPrice" id="Moretours">
-                                            <span class="price">@cardsTours_2[3]</span><br>
-                                            <span class="price">@cardsTours_2[4]</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <!--ELEMENTO 3-->
-                        <div></div>
-                    </div>
+                                </a>
+                            </div>
+                        </div>i++;
+                    }
                 </div>
             </div>
         </div>

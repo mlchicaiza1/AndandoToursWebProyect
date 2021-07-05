@@ -48,6 +48,9 @@ namespace AndandoToursWeb.Controllers
             string[] words = urlProducto[1].Split('/');
             var idVista = 2040;
             var breadcrumb = "Santa Cruz";
+            //Cards 
+            var cards = await _repo.GetCards(2040);
+            ViewBag.Cards = cards;
             //Cargar Contenido texto e imagenes
             List<GetContenidoVista> contendido = await _repo.GetContenidoPaginaWeb(idVista);
             List<GetContenidoMultimedia> contenidoMultimedia = await _repo.GetContenidoMultimedia(idVista);
@@ -63,6 +66,7 @@ namespace AndandoToursWeb.Controllers
             ViewBag.GetContenidoVista = contendido;
             ViewBag.GetContenidoMult = contenidoMultimedia;
             ViewBag.breadcrumb = breadcrumb;
+            
             return View();
         }
 
@@ -75,6 +79,9 @@ namespace AndandoToursWeb.Controllers
             string[] words = urlProducto[1].Split('/');
             var idVista = 2038;
             var breadcrumb = "Isabela";
+            //Cards 
+            var cards = await _repo.GetCards(2038);
+            ViewBag.Cards = cards;
             //Cargar Contenido texto e imagenes
             List<GetContenidoVista> contendido = await _repo.GetContenidoPaginaWeb(idVista);
             List<GetContenidoMultimedia> contenidoMultimedia = await _repo.GetContenidoMultimedia(idVista);
@@ -102,6 +109,9 @@ namespace AndandoToursWeb.Controllers
             string[] words = urlProducto[1].Split('/');
             var idVista = 2039;
             var breadcrumb = "San Cristobal";
+            //Cards 
+            var cards = await _repo.GetCards(2039);
+            ViewBag.Cards = cards;
             //Cargar Contenido texto e imagenes
             List<GetContenidoVista> contendido = await _repo.GetContenidoPaginaWeb(idVista);
             List<GetContenidoMultimedia> contenidoMultimedia = await _repo.GetContenidoMultimedia(idVista);
@@ -252,10 +262,10 @@ namespace AndandoToursWeb.Controllers
             string price = num;
             return price;
         }
-        public IActionResult san_cristobal()
-        {
-            return View();
-        }
+        //public IActionResult san_cristobal()
+        //{
+        //    return View();
+        //}
         private readonly AndandoRepositorio _repo;
         public galapagos_daily_toursController(AndandoRepositorio repositorio)
         {

@@ -12,6 +12,9 @@ namespace AndandoToursWeb.Models
         public string ItinNombre { get; set; }
         public string ItinNombreCor { get; set; }
         public string NombreVista { get; set; }
+
+        public int numItiner { get; set; }
+
         public List<ItinEcuadorBtn> GetItinEcuadorBtn { get; set; }
     }
 }

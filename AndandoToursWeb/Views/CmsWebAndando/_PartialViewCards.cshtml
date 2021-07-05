@@ -1,0 +1,93 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Add Cards Page</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+            </div>
+            <div class="modal-body">
+                <form data-ajax="true" data-ajax-success="SuccessCreateCards" data-ajax-failure="FaildCreateCards" data-ajax-method="POST" 
+                      asp-controller="CmsWebAndando" asp-action="CrearCards" enctype="multipart/form-data">
+                  
+                    <div class="form-group row">
+                        <input hidden name="IdVista" />
+                        <label class="col-md-2 col-form-label">Card Categoria</label>
+                        <input class="form-control col-md-3" name="CardCategoria" />
+                        <div class="col-md-1"></div>
+                        <label class="col-md-2 col-form-label">CardDetalles</label>
+                        <input class="form-control col-md-3" name="CardDetalles" />
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">Card Precio</label>
+                        <input class="form-control col-md-3" name="CardPrecio" />
+                        <div class="col-md-1"></div>
+                        <label class="col-md-2 col-form-label">Card Duracion</label>
+                        <input class="form-control col-md-3" name="CardDuracion" />
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">Card Departures</label>
+                        <input class="form-control col-md-3" name="CardDepartures" />
+                        <div class="col-md-1"></div>
+                        <label class="col-md-2 col-form-label">Imagen</label>
+                        <input class="form-control col-md-3" name="CardImgNombre" />
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">Url</label>
+                        <input class="form-control col-md-3" name="CardImgUrl" />
+                        <div class="col-md-1"></div>
+                        <label class="col-md-2 col-form-label">Img Tamaño</label>
+                        <input class="form-control col-md-3" name="CardImgTamano" />
+                    </div>
+                   <br />
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label">Image</label>
+                        <div class="col-sm-8">
+                            <div class="custom-file">
+                                <input class="form-control custom-file-input" type="file" name="file" />
+                                <label class="custom-file-label">Browse.....</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                    </div>
+                    <img src="@ViewBag.filePath" width="200" height="180" />
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        console.log("ready!");
+    });
+    $(document).ready(function () {
+        $(".custom-file-input").on("change", function () {
+
+            var fileName = $(this).val().split("\\").pop();
+
+            $(this).next(".custom-file-label").html(fileName);
+
+        })
+    });
+
+    SuccessCreateCards = function (xhr) {
+        alert('Status: {xhr.status}, Status Text: {xhr.statusText}');
+    };
+
+    FaildCreateCards = function (xhr) {
+        alert(`Status: {xhr.status}, Status Text: {xhr.statusText}`);
+    };
+
+</script>
+

@@ -1,4 +1,5 @@
 ﻿using AndandoToursWeb.Data;
+using AndandoToursWeb.DataCMS;
 using AndandoToursWeb.Models;
 //using AndandoTour3_0Core.Models.ModelApiGoldenGalapagos;
 //using AndandoTour3_0Core.Models.ModelApiRoyal;
@@ -20,10 +21,12 @@ namespace AndandoToursWeb.Controllers
         public const string SessionKeyBarco = "_barco";
 
         private readonly AndandoRepositorio _repo;
+        
         //private readonly ApisRoyal_GoldenData _repoRoyal;
         public CruisesController(AndandoRepositorio repositorio)
         {
             this._repo = repositorio;
+            
             //this._repoRoyal = repositorioRoyal;
 
         }
@@ -113,59 +116,43 @@ namespace AndandoToursWeb.Controllers
         }
 
 
-
-        public async  Task<ActionResult> CruisesCategoria(int idbarco, string url)
+        [Route("galapagos-cruises/CruisesCategoria")]
+       
+        public async Task<ActionResult> CruisesCategoria()
         {
-
             var urlData = _repo.getUrlPage(HttpContext);
             string urlCanonica = urlData[0];
-            string[] words = urlData[1].Split('/');
-            var idVista = 0;
-            var cardsCruises= new List<BarcoWeb>();
-            if (idbarco != 0)
-            {
-                HttpContext.Session.SetInt32(SessionKeyBarco, idbarco);
-                return RedirectToRoute(url);
-            }
-           
-            var Breadcrumbitem="";
-            var cards = new List<int>();
-            if (words.Count() == 3)
-            {
-                switch (words[2])
-                {
-                    case "galapagos-catamarans":
-                        idVista = 1;
-                        cards = new List<int> { 111, 92, 70, 87, 96 };
-                        cardsCruises = await CruisesCardsOrden(cards);
-                        Breadcrumbitem = "Galapagos Catamarans";
-                        break;
-                    case "high-end":
-                        idVista = 3;
-                        cards = new List<int> { 73, 122, 125 };
-                        cardsCruises = await CruisesCardsOrden(cards);
-                        Breadcrumbitem = "High End";
-                        break;
-                    case "mid-range-cruises":
-                        idVista = 4;
-                        cards = new List<int> { 70, 88, 87, 96, 105 };
-                        cardsCruises = await CruisesCardsOrden(cards);
-                        Breadcrumbitem = "High End";
-                        break;
-                    case "budget":
-                        idVista = 6;
-                        cards = new List<int> { 90, 98, 93 };
-                        cardsCruises = await CruisesCardsOrden(cards);
-                        Breadcrumbitem = "High End";
-                        break;
-                    case "galapagos-yachts":
-                        idVista = 7;
-                        cards = new List<int> { 115, 73, 88 };
-                        cardsCruises = await CruisesCardsOrden(cards);
-                        Breadcrumbitem = "Galapagos Yachts";
-                        break;
-                }
-            }
+            //string[] words = urlData[1].Split('/');
+            var idVista = 2;
+            var cardsCruises = new List<BarcoWeb>();
+            var cards = new List<int> { 115, 92, 103, 111 };
+            cardsCruises = await CruisesCardsOrden(cards);
+            List<GetContenidoVista> contendido = await _repo.GetContenidoPaginaWeb(idVista);
+            List<GetContenidoMultimedia> contenidoMultimedia = await _repo.GetContenidoMultimedia(idVista);
+            //Imagenes Menu
+            List<GetContenidoMultimedia> ImgMenu = await _repo.GetImgMenu();
+            ViewBag.ImagenesMenu = ImgMenu;
+            var metadatos = await _repo.GetMetadata(idVista);
+            ViewBag.Title = metadatos[0].MetaTitulo;
+            ViewBag.MetaDescription = metadatos[0].MetaDescripcion;
+            ViewBag.CanonicalURL = urlCanonica + metadatos[0].MetaURL;
+            ViewBag.GetContenidoVista = contendido;
+            ViewBag.GetContenidoMult = contenidoMultimedia;
+            ViewBag.CardsCruises = cardsCruises;
+            return View();
+        }
+
+        [Route("galapagos-cruises/galapagos-yachts")]
+        public async Task<ActionResult> CruisesYachts()
+        {
+            var idVista = 7;
+            var urlData = _repo.getUrlPage(HttpContext);
+            string urlCanonica = urlData[0];
+            var cards = new List<int> { 115, 73, 88 };
+            var cardsCruises = await CruisesCardsOrden(cards);
+
+
+
 
             List<GetContenidoVista> contendido = await _repo.GetContenidoPaginaWeb(idVista);
             List<GetContenidoMultimedia> contenidoMultimedia = await _repo.GetContenidoMultimedia(idVista);
@@ -179,10 +166,91 @@ namespace AndandoToursWeb.Controllers
             ViewBag.GetContenidoVista = contendido;
             ViewBag.GetContenidoMult = contenidoMultimedia;
             ViewBag.CardsCruises = cardsCruises;
-            ViewBag.Breadcrumbitem = Breadcrumbitem;
+            //ViewBag.Breadcrumbitem = "High End";
             return View();
         }
-        
+
+        [Route("cruises/budget")]
+        public async Task<ActionResult> CruisesBudget()
+        {
+            var idVista = 6;
+            var urlData = _repo.getUrlPage(HttpContext);
+            string urlCanonica = urlData[0];
+            var cards = new List<int> { 90, 98, 93 };
+            var cardsCruises = await CruisesCardsOrden(cards);
+
+       
+           
+
+            List<GetContenidoVista> contendido = await _repo.GetContenidoPaginaWeb(idVista);
+            List<GetContenidoMultimedia> contenidoMultimedia = await _repo.GetContenidoMultimedia(idVista);
+            //Imagenes Menu
+            List<GetContenidoMultimedia> ImgMenu = await _repo.GetImgMenu();
+            ViewBag.ImagenesMenu = ImgMenu;
+            var metadatos = await _repo.GetMetadata(idVista);
+            ViewBag.Title = metadatos[0].MetaTitulo;
+            ViewBag.MetaDescription = metadatos[0].MetaDescripcion;
+            ViewBag.CanonicalURL = urlCanonica + metadatos[0].MetaURL;
+            ViewBag.GetContenidoVista = contendido;
+            ViewBag.GetContenidoMult = contenidoMultimedia;
+            ViewBag.CardsCruises = cardsCruises;
+            //ViewBag.Breadcrumbitem = "High End";
+            return View();
+        }
+
+
+        [Route("galapagos-cruises/mid-range-cruises")]
+        public async Task<ActionResult> CruisesMidRange()
+        {
+            var idVista = 4;
+            var urlData = _repo.getUrlPage(HttpContext);
+            string urlCanonica = urlData[0];
+            var cards = new List<int> { 70, 88, 87, 96, 105 };
+            var cardsCruises = await CruisesCardsOrden(cards);
+
+            List<GetContenidoVista> contendido = await _repo.GetContenidoPaginaWeb(idVista);
+            List<GetContenidoMultimedia> contenidoMultimedia = await _repo.GetContenidoMultimedia(idVista);
+            //Imagenes Menu
+            List<GetContenidoMultimedia> ImgMenu = await _repo.GetImgMenu();
+            ViewBag.ImagenesMenu = ImgMenu;
+            var metadatos = await _repo.GetMetadata(idVista);
+            ViewBag.Title = metadatos[0].MetaTitulo;
+            ViewBag.MetaDescription = metadatos[0].MetaDescripcion;
+            ViewBag.CanonicalURL = urlCanonica + metadatos[0].MetaURL;
+            ViewBag.GetContenidoVista = contendido;
+            ViewBag.GetContenidoMult = contenidoMultimedia;
+            ViewBag.CardsCruises = cardsCruises;
+            //ViewBag.Breadcrumbitem = "High End";
+            return View();
+        }
+
+        [Route("/galapagos-cruises/galapagos-catamarans")]
+        public async Task<ActionResult> CruisesCatamarans()
+        {
+            var idVista = 1;
+            var urlData = _repo.getUrlPage(HttpContext);
+            string urlCanonica = urlData[0];
+            var cards = new List<int> { 111, 92, 70, 87, 96 };
+            var cardsCruises = await CruisesCardsOrden(cards);
+
+
+            List<GetContenidoVista> contendido = await _repo.GetContenidoPaginaWeb(idVista);
+            List<GetContenidoMultimedia> contenidoMultimedia = await _repo.GetContenidoMultimedia(idVista);
+            //Imagenes Menu
+            List<GetContenidoMultimedia> ImgMenu = await _repo.GetImgMenu();
+            ViewBag.ImagenesMenu = ImgMenu;
+            var metadatos = await _repo.GetMetadata(idVista);
+            ViewBag.Title = metadatos[0].MetaTitulo;
+            ViewBag.MetaDescription = metadatos[0].MetaDescripcion;
+            ViewBag.CanonicalURL = urlCanonica + metadatos[0].MetaURL;
+            ViewBag.GetContenidoVista = contendido;
+            ViewBag.GetContenidoMult = contenidoMultimedia;
+            ViewBag.CardsCruises = cardsCruises;
+            ViewBag.Breadcrumbitem = "Galapagos Catamarans";
+            return View();
+        }
+
+
         [Route("/sailing-cruises")]
         public async Task<ActionResult> CruisesSailing_Cruises()
         {
@@ -235,16 +303,33 @@ namespace AndandoToursWeb.Controllers
             return View();
         }
 
+
+        [Route("galapagos-cruises/Cruises-Categoria")]
         [Route("galapagos-luxury-cruise")]
         public async Task<ActionResult> CruisesLuxury(int idbarco, string url)
         {
             var urlData = _repo.getUrlPage(HttpContext);
             string urlCanonica = urlData[0];
-            //string[] words = urlData[1].Split('/');
+            string[] words = urlData[1].Split('/');
             var idVista = 2;
             var cardsCruises = new List<BarcoWeb>();
             var cards = new List<int> { 115, 92, 103, 111 };
             cardsCruises = await CruisesCardsOrden(cards);
+
+            switch (words[1])
+            {
+                case "galapagos-luxury-cruise":
+                    idVista = 2;
+                   
+                   
+                    break;
+               
+                default:
+                    idVista = 4058;
+                   
+                    break;
+            }
+
             List<GetContenidoVista> contendido = await _repo.GetContenidoPaginaWeb(idVista);
             List<GetContenidoMultimedia> contenidoMultimedia = await _repo.GetContenidoMultimedia(idVista);
             //Imagenes Menu
@@ -398,147 +483,10 @@ namespace AndandoToursWeb.Controllers
             ViewBag.CardsCruises = cardsCruises;
             return View();
         }
-        [Route("/Cruises/CruisesProduct/{id?}/{idItinerario?}")]
-        [Route("/galapagos-cruises/tip-top-ii/{id?}/{idItinerario?}",Name = "/galapagos-cruises/tip-top-ii")]
-        [Route("/galapagos-cruises/archipel/{id?}/{idItinerario?}", Name = "/galapagos-cruises/archipel")]
-        [Route("/sailing-cruises/nemo-iii/{id?}/{idItinerario?}", Name = "/sailing-cruises/nemo-iii")]
-        [Route("/galapagos-cruises/odyssey/{id?}/{idItinerario?}", Name = "/galapagos-cruises/odyssey")]
-        [Route("/galapagos-cruises/treasure/{id?}/{idItinerario?}", Name = "/galapagos-cruises/treasure")]
-        public async Task<ActionResult> CruisesProduct(int? id, int? idItinerario)
-        {
-            int idBarco = 0;
-            var urlProducto = _repo.getUrlPage(HttpContext);
-            string[] words = urlProducto[1].Split('/');
-            string urlCanonica = urlProducto[0];
-            var cardsCruises = new List<BarcoWeb>();
-            var cards = new List<int>();
-            var idVista = 0;
-            if (words.Count() == 3)
-            {
-                switch (words[2])
-                {
-                    case "tip-top-ii":
-                        idVista = 8;
-                        idBarco = 70;
-                        cards = new List<int> { 88, 87, 96 };
-                        cardsCruises = await CruisesCardsOrden(cards);
-                        break;
-                    case "archipel":
-                        idVista = 11;
-                        idBarco = 96;
-                        cards = new List<int> { 70, 87, 88 };
-                        cardsCruises = await CruisesCardsOrden(cards);
-                        break;
-                    case "elite":
-                        idVista = 12;
-                        idBarco = 111;
-                        break;
-                    case "nemo-iii":
-                        idVista = 2017;
-                        idBarco = 105;
-                        cards = new List<int> { 85, 93, 96 };
-                        cardsCruises = await CruisesCardsOrden(cards);
-                        break;
-                    case "odyssey":
-                        idVista = 2019;
-                        idBarco = 88;
-                        cards = new List<int> { 70, 87, 96 };
-                        cardsCruises = await CruisesCardsOrden(cards);
-                        break;
-                    case "treasure":
-                        idVista = 2021;
-                        idBarco = 87;
-                        cards = new List<int> { 70, 88, 96 };
-                        cardsCruises = await CruisesCardsOrden(cards);
-                        break;
-                }
-            }
-            //=====ID es null
-            List<GetContenidoVista> contendido = await _repo.GetContenidoPaginaWeb(idVista);
-            List<GetContenidoMultimedia> contenidoMultimedia = await _repo.GetContenidoMultimedia(idVista);
-            List<ItinerarioBarco> filtroAm = new List<ItinerarioBarco>();
-            List<ItinerarioBarco> filtroPm = new List<ItinerarioBarco>();
-            List<ItinerarioBarco> dias = new List<ItinerarioBarco>();
-            List<BarcoWeb> barcos = new List<BarcoWeb>();
-            var features = await _repo.GetFeaturesProduct(idBarco);
-            var datosBarcos = await _repo.GetAll();
-            string[] incluye;
-            string[] excluye;
-
-            foreach (var dat in datosBarcos)
-            {
-                if (idBarco == dat.IdBarco)
-                {
-                    barcos.Add(dat);
-                    incluye = dat.BarcoIncluyeEn.Split('•');
-                    excluye = dat.BarcoNoincluyeEn.Split('•');
-                    ViewBag.Incluye = incluye;
-                    ViewBag.Excluye = excluye;
-                }
-            }
-            var getBtnItinerarios = await _repo.GetItinerBarcoBtn(idBarco);
-            if (idItinerario == null)
-            {
-                var datosItinerarios = await _repo.GetItinerBarco(getBtnItinerarios[0].IDBarco, getBtnItinerarios[0].IDBarcoItinerario);
-                ViewBag.GetItinerarios = datosItinerarios;
-                var cont = 0;
-                foreach (var dat in datosItinerarios)
-                {
-                    if (cont == 0)
-                    {
-                        dias.Add(dat);
-                        cont++;
-                    }
-                    else
-                    {
-                        if (cont == dat.DiaNumero)
-                        {
-                            dias.Add(dat);
-                            cont++;
-                        }
-                    }
-                    if (dat.DiaParte == "AM")
-                    {
-                        filtroAm.Add(dat);
-                    }
-                    else
-                    {
-                        if (dat.DiaParte == "PM")
-                        {
-                            filtroPm.Add(dat);
-                        }
-                    }
-
-                }
-            }
-            else
-            {
-                int idItinerario_1 = idItinerario.Value;
-                var datosItinerarios = await _repo.GetItinerBarco(idBarco, idItinerario_1);
-                ViewBag.GetItinerarios = datosItinerarios;
-            }
-            //Imagenes Menu
-            List<GetContenidoMultimedia> ImgMenu = await _repo.GetImgMenu();
-            ViewBag.ImagenesMenu = ImgMenu;
-            var metadatos = await _repo.GetMetadata(idVista);
-            ViewBag.Title = metadatos[0].MetaTitulo;
-            ViewBag.MetaDescription = metadatos[0].MetaDescripcion;
-            ViewBag.CanonicalURL = urlCanonica + metadatos[0].MetaURL;
-            ViewBag.GetContenidoVista = contendido;
-            ViewBag.GetFeatures = features;
-            ViewBag.GetBtnItinerarios = getBtnItinerarios;
-            ViewBag.GetFiltrosAm = filtroAm;
-            ViewBag.GetFiltrosPm = filtroPm;
-            ViewBag.GetDias = dias;
-            ViewBag.GetBarcos = barcos;
-            ViewBag.GetContenidoMult = contenidoMultimedia;
-            ViewBag.CardsCruises = cardsCruises;
-            return View();
-        }
 
         [Route("/galapagos-cruises/passion-yacht/{id?}/{idItinerario?}", Name = "/galapagos-cruises/passion-yacht")]
 
-        [OutputCache(Duration = 120, VaryByHeader = "User-Agent")]
+        //[OutputCache(Duration = 120, VaryByHeader = "User-Agent")]
         public async Task<ActionResult> CruisesProductPassion(int? id, int? idItinerario)
         {
             //var idBarcoTemp = HttpContext.Session.GetInt32(SessionKeyBarco);
@@ -737,10 +685,10 @@ namespace AndandoToursWeb.Controllers
             string urlCanonica = urlProducto[0];
             string[] words = urlProducto[1].Split('/');
             var idVista = 12;
-            int idBarco =111;
+            int idBarco = 111;
             //=====ID es null
             var cardsCruises = new List<BarcoWeb>();
-            var cards = new List<int>() {103, 115, 92 };
+            var cards = new List<int>() { 103, 115, 92 };
             cardsCruises = await CruisesCardsOrden(cards);
             List<GetContenidoVista> contendido = await _repo.GetContenidoPaginaWeb(idVista);
             List<GetContenidoMultimedia> contenidoMultimedia = await _repo.GetContenidoMultimedia(idVista);
@@ -849,7 +797,7 @@ namespace AndandoToursWeb.Controllers
                     case "fragata":
                         idVista = 2011;
                         idBarco = 98;
-                        cards = new List<int> { 93, 98 ,85};
+                        cards = new List<int> { 93, 98, 85 };
                         cardsCruises = await CruisesCardsOrden(cards);
                         break;
                     case "golondrina":
@@ -860,7 +808,7 @@ namespace AndandoToursWeb.Controllers
                         break;
                 }
             }
-            
+
             List<GetContenidoVista> contendido = await _repo.GetContenidoPaginaWeb(idVista);
             List<GetContenidoMultimedia> contenidoMultimedia = await _repo.GetContenidoMultimedia(idVista);
             List<ItinerarioBarco> filtroAm = new List<ItinerarioBarco>();
@@ -944,7 +892,148 @@ namespace AndandoToursWeb.Controllers
             return View();
         }
 
+        [Route("/galapagos-cruises/tip-top-ii/{id?}/{idItinerario?}",Name = "/galapagos-cruises/tip-top-ii")]
+        [Route("/galapagos-cruises/archipel/{id?}/{idItinerario?}", Name = "/galapagos-cruises/archipel")]
+        [Route("/sailing-cruises/nemo-iii/{id?}/{idItinerario?}", Name = "/sailing-cruises/nemo-iii")]
+        [Route("/galapagos-cruises/odyssey/{id?}/{idItinerario?}", Name = "/galapagos-cruises/odyssey")]
+        [Route("/galapagos-cruises/treasure/{id?}/{idItinerario?}", Name = "/galapagos-cruises/treasure")]
+        public async Task<ActionResult> CruisesProduct(int? id, int? idItinerario)
+        {
+            int idBarco = 0;
+            var urlProducto = _repo.getUrlPage(HttpContext);
+            string[] words = urlProducto[1].Split('/');
+            string urlCanonica = urlProducto[0];
+            var cardsCruises = new List<BarcoWeb>();
+            var cards = new List<int>();
+            var idVista = 0;
+            if (words.Count() == 3)
+            {
+                switch (words[2])
+                {
+                    case "tip-top-ii":
+                        idVista = 8;
+                        idBarco = 70;
+                        cards = new List<int> { 88, 87, 96 };
+                        cardsCruises = await CruisesCardsOrden(cards);
+                        break;
+                    case "archipel":
+                        idVista = 11;
+                        idBarco = 96;
+                        cards = new List<int> { 70, 87, 88 };
+                        cardsCruises = await CruisesCardsOrden(cards);
+                        break;
+                    case "elite":
+                        idVista = 12;
+                        idBarco = 111;
+                        break;
+                    case "nemo-iii":
+                        idVista = 2017;
+                        idBarco = 105;
+                        cards = new List<int> { 85, 93, 96 };
+                        cardsCruises = await CruisesCardsOrden(cards);
+                        break;
+                    case "odyssey":
+                        idVista = 2019;
+                        idBarco = 88;
+                        cards = new List<int> { 70, 87, 96 };
+                        cardsCruises = await CruisesCardsOrden(cards);
+                        break;
+                    case "treasure":
+                        idVista = 2021;
+                        idBarco = 87;
+                        cards = new List<int> { 70, 88, 96 };
+                        cardsCruises = await CruisesCardsOrden(cards);
+                        break;
+                }
+            }
+            //=====ID es null
+            List<GetContenidoVista> contendido = await _repo.GetContenidoPaginaWeb(idVista);
+            List<GetContenidoMultimedia> contenidoMultimedia = await _repo.GetContenidoMultimedia(idVista);
+            List<ItinerarioBarco> filtroAm = new List<ItinerarioBarco>();
+            List<ItinerarioBarco> filtroPm = new List<ItinerarioBarco>();
+            List<ItinerarioBarco> dias = new List<ItinerarioBarco>();
+            List<BarcoWeb> barcos = new List<BarcoWeb>();
+            var features = await _repo.GetFeaturesProduct(idBarco);
+            var datosBarcos = await _repo.GetAll();
+            string[] incluye;
+            string[] excluye;
 
+            foreach (var dat in datosBarcos)
+            {
+                if (idBarco == dat.IdBarco)
+                {
+                    barcos.Add(dat);
+                    incluye = dat.BarcoIncluyeEn.Split('•');
+                    excluye = dat.BarcoNoincluyeEn.Split('•');
+                    ViewBag.Incluye = incluye;
+                    ViewBag.Excluye = excluye;
+                }
+            }
+            var getBtnItinerarios = await _repo.GetItinerBarcoBtn(idBarco);
+            if (idItinerario == null)
+            {
+                var datosItinerarios = await _repo.GetItinerBarco(getBtnItinerarios[0].IDBarco, getBtnItinerarios[0].IDBarcoItinerario);
+                ViewBag.GetItinerarios = datosItinerarios;
+                var cont = 0;
+                foreach (var dat in datosItinerarios)
+                {
+                    if (cont == 0)
+                    {
+                        dias.Add(dat);
+                        cont++;
+                    }
+                    else
+                    {
+                        if (cont == dat.DiaNumero)
+                        {
+                            dias.Add(dat);
+                            cont++;
+                        }
+                    }
+                    if (dat.DiaParte == "AM")
+                    {
+                        filtroAm.Add(dat);
+                    }
+                    else
+                    {
+                        if (dat.DiaParte == "PM")
+                        {
+                            filtroPm.Add(dat);
+                        }
+                    }
+
+                }
+            }
+            else
+            {
+                int idItinerario_1 = idItinerario.Value;
+                var datosItinerarios = await _repo.GetItinerBarco(idBarco, idItinerario_1);
+                ViewBag.GetItinerarios = datosItinerarios;
+            }
+            //Imagenes Menu
+            List<GetContenidoMultimedia> ImgMenu = await _repo.GetImgMenu();
+            ViewBag.ImagenesMenu = ImgMenu;
+            var metadatos = await _repo.GetMetadata(idVista);
+            ViewBag.Title = metadatos[0].MetaTitulo;
+            ViewBag.MetaDescription = metadatos[0].MetaDescripcion;
+            ViewBag.CanonicalURL = urlCanonica + metadatos[0].MetaURL;
+            ViewBag.GetContenidoVista = contendido;
+            ViewBag.GetFeatures = features;
+            ViewBag.GetBtnItinerarios = getBtnItinerarios;
+            ViewBag.GetFiltrosAm = filtroAm;
+            ViewBag.GetFiltrosPm = filtroPm;
+            ViewBag.GetDias = dias;
+            ViewBag.GetBarcos = barcos;
+            ViewBag.GetContenidoMult = contenidoMultimedia;
+            ViewBag.CardsCruises = cardsCruises;
+            return View();
+        }
+
+       
+
+      
+
+        [Route("/Cruises/CruisesProduct/{id?}/{idItinerario?}")]
         [Route("/galapagos-cruises/grand-majestic/{id?}/{idItinerario?}", Name = "/galapagos-cruises/grand-majestic")]
         [Route("/galapagos-cruises/infinity/{id?}/{idItinerario?}", Name = "/galapagos-cruises/infinity")]
         [Route("/sailing-cruises/nemo-ii/{id?}/{idItinerario?}", Name = "/sailing-cruises/nemo-ii")]
@@ -997,6 +1086,13 @@ namespace AndandoToursWeb.Controllers
                         break;
                     case "alya-catamaran":
                         idVista = 10;
+                        idBarco = 103;
+                        cards = new List<int> { 115, 92, 70 };
+                        cardsCruises = await CruisesCardsOrden(cards);
+                        break;
+                    default:
+                        var ultVista = await _repo.GetVistaAndandoWebUltimoReg("galapagos-cruises");
+                        idVista = ultVista[0].IdVista;
                         idBarco = 103;
                         cards = new List<int> { 115, 92, 70 };
                         cardsCruises = await CruisesCardsOrden(cards);
@@ -1086,6 +1182,7 @@ namespace AndandoToursWeb.Controllers
             ViewBag.CardsCruises = cardsCruises;
             return View();
         }
+
         [Route("/cruises/yacht-charters/{id?}/{idItinerario?}")]
         public async Task<ActionResult> CruisesCharter()
         {

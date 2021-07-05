@@ -23,14 +23,26 @@
             titulo.Add(item.Titulo);
         }
     }
+
+
     var Breadcrumbitem = "";
+    var btntxtDeckPlan = new List<String>() { };
+
     if (barcos[0].IdBarco == 98)
     {
         Breadcrumbitem = "Fragata";
+        //Texo Para los BOTONES DECK PLAN Y MÁS CRUCEROS
+        btntxtDeckPlan.Add("GOLONDRINA´S DECK PLAN");
+        btntxtDeckPlan.Add("MORE BUDGET CRUISES");
+       
     }
     if (barcos[0].IdBarco == 90)
     {
         Breadcrumbitem = "Golondrina";
+        //Texo Para los BOTONES DECK PLAN Y MÁS CRUCEROS
+        btntxtDeckPlan.Add("FRAGATA´S DECK PLAN");
+        btntxtDeckPlan.Add("MORE BUDGET CRUISES");
+       
     }
 }
 <div style="overflow-x:hidden;font-family:Arial" id="itinerBarco">
@@ -194,7 +206,7 @@
                         <div class="categories-item">
                             <a href="" id="item_3" data-toggle="modal" data-target="#modal-deck">
                                 <img class="lazyload" data-src="@imagenItem[3].UrlImagen" alt="@imagenItem[3].NombreImagen" style="padding: 0 0 1px;margin-left: 5px;">
-                                <p style="font-size:13px;font-family:'BentonSans-Regular';"><b><span v-html="deckplan"></span></b></p>
+                                <p style="font-size:13px;font-family:'BentonSans-Regular';"><b><span >@btntxtDeckPlan[0]</span></b></p>
                             </a>
                         </div>
                     </div>
@@ -202,7 +214,7 @@
                         <div class="categories-item">
                             <a href="../cruises/budget" target="_blank" id="item_2">
                                 <img class="lazyload" data-src="@imagenItem[2].UrlImagen" alt="@imagenItem[2].NombreImagen">
-                                <p style="font-size:13px;font-family:'BentonSans-Regular';"><b>MORE BUDGET CRUISES</b></p>
+                                <p style="font-size:13px;font-family:'BentonSans-Regular';"><b>@btntxtDeckPlan[1]</b></p>
                             </a>
                         </div>
                     </div>
@@ -221,13 +233,13 @@
                                 <td class="filterIcon" style="width:auto;border:none">
                                     <a href="" data-toggle="modal" data-target="#modal-deck" id="item_2">
                                         <img class="lazyload" data-src="@imagenItem[3].UrlImagen" title="@imagenItem[3].NombreImagen" alt="@imagenItem[3].NombreImagen" style="border-radius:10px; width:120px;height:90px ;margin-left:-8px;text-align:right">
-                                        <p> <b><span v-html="deckplan"></span></b></p>
+                                        <p> <b><span>@btntxtDeckPlan[0]</span></b></p>
                                     </a>
                                 </td>
                                 <td class="filterIcon" style="width:auto;border:none">
                                     <a href="../cruises/budget" target="_blank" id="item_3">
                                         <img class="lazyload" data-src="@imagenItem[2].UrlImagen" title="@imagenItem[2].NombreImagen" alt="@imagenItem[2].NombreImagen" style="border-radius:10px; width:120px;height:90px ;margin-left:-8px;text-align:right">
-                                        <p><b><span>MORE BUDGET CRUISES</span></b></p>
+                                        <p><b><span>@btntxtDeckPlan[1]</span></b></p>
                                     </a>
                                 </td>
                             </tr>

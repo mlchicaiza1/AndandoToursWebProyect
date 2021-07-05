@@ -26,35 +26,56 @@
     var Breadcrumbitem = "";
     var breadItem2 = "";
     var breadLink2 = "";
+    var btntxtDeckPlan = new List<String>() { };
     if (barcos[0].IdBarco == 70)
     {
         Breadcrumbitem = "Tip-Top II";
         breadItem2 = "Mid-Range";
         breadLink2 = "/galapagos-cruises/mid-range-cruises";
+        //Texo Para los BOTONES DECK PLAN Y MÁS CRUCEROS
+        btntxtDeckPlan.Add("TIP TOP II - DECK PLAN");
+        btntxtDeckPlan.Add("TIP TOP II - AVAILABILITY");
+        btntxtDeckPlan.Add("MORE MID-RANGE CRUISES");
     }
     if (barcos[0].IdBarco == 88)
     {
         Breadcrumbitem = "Odyssey";
         breadItem2 = "Mid-Range";
         breadLink2 = "/galapagos-cruises/mid-range-cruises";
+        //Texo Para los BOTONES DECK PLAN Y MÁS CRUCEROS
+        btntxtDeckPlan.Add("ODYSSEY´S DECK PLAN");
+        btntxtDeckPlan.Add("ODYSSEY´S AVAILABILITY");
+        btntxtDeckPlan.Add("MORE MID-RANGE CRUISES");
     }
     if (barcos[0].IdBarco == 87)
     {
         Breadcrumbitem = "Treasure";
         breadItem2 = "Mid-Range";
         breadLink2 = "/galapagos-cruises/mid-range-cruises";
+        //Texo Para los BOTONES DECK PLAN Y MÁS CRUCEROS
+        btntxtDeckPlan.Add("TREASURE´S DECK PLAN");
+        btntxtDeckPlan.Add("TREASURE´S AVAILABILITY");
+        btntxtDeckPlan.Add("MORE MID-RANGE CRUISES");
     }
     if (barcos[0].IdBarco == 105)
     {
         Breadcrumbitem = "Nemo iii";
         breadItem2 = "Sailing";
         breadLink2 = "/sailing-cruises";
+        //Texo Para los BOTONES DECK PLAN Y MÁS CRUCEROS
+        btntxtDeckPlan.Add("S/C NEMO III DECK PLAN");
+        btntxtDeckPlan.Add("S/C NEMO III AVAILABILITY");
+        btntxtDeckPlan.Add("MORE MID-RANGE CRUISES");
     }
     if (barcos[0].IdBarco == 96)
     {
         Breadcrumbitem = "Archipel";
         breadItem2 = "Mid-Range";
         breadLink2 = "/galapagos-cruises/mid-range-cruises";
+        //Texo Para los BOTONES DECK PLAN Y MÁS CRUCEROS
+        btntxtDeckPlan.Add("ARCHIPEL´S DECK PLAN");
+        btntxtDeckPlan.Add("ARCHIPEL´S AVAILABILITY");
+        btntxtDeckPlan.Add("MORE MID-RANGE CRUISES");
     }
 }
 @* carousel*@
@@ -228,7 +249,7 @@
                             <div class="categories-item">
                                 <a href="#Disponibilidad1" id="item_2">
                                     <img class="lazyload" data-src="@imagenItem[1].UrlImagen" alt="@imagenItem[1].NombreImagen">
-                                    <p style="font-size:13px;font-family:'BentonSans-Regular';"><b><span v-html="availa"></span></b></p>
+                                    <p style="font-size:13px;font-family:'BentonSans-Regular';"><b><span >@btntxtDeckPlan[0]</span></b></p>
                                 </a>
                             </div>
                         </div>
@@ -236,7 +257,7 @@
                             <div class="categories-item">
                                 <a href="" id="item_3" data-toggle="modal" data-target="#modal-deck">
                                     <img class="lazyload" data-src="@imagenItem[3].UrlImagen" alt="@imagenItem[3].NombreImagen" style="padding: 0 0 1px;margin-left: 5px;">
-                                    <p style="font-size:13px;font-family:'BentonSans-Regular';"><b><span v-html="deckplan"></span></b></p>
+                                    <p style="font-size:13px;font-family:'BentonSans-Regular';"><b><span>@btntxtDeckPlan[1]</span></b></p>
                                 </a>
                             </div>
                         </div>
@@ -244,7 +265,7 @@
                             <div class="categories-item">
                                 <a href="../galapagos-cruises/mid-range-cruises" target="_blank" id="item_2">
                                     <img class="lazyload" data-src="@imagenItem[2].UrlImagen" alt="@imagenItem[2].NombreImagen">
-                                    <p style="font-size:13px;font-family:'BentonSans-Regular';"><b>MORE MID-RANGE CRUISES</b></p>
+                                    <p style="font-size:13px;font-family:'BentonSans-Regular';"><b>@btntxtDeckPlan[2]</b></p>
                                 </a>
                             </div>
                         </div>
@@ -263,19 +284,19 @@
                                     <td class="filterIcon" style="width:auto; border:none">
                                         <a href="#Disponibilidad1" id="item_1">
                                             <img class="lazyload" data-src="@imagenItem[1].UrlImagen" alt="@imagenItem[1].NombreImagen" style="border-radius:10px; width:120px;height:90px ;margin-left:-8px;text-align:right">
-                                            <p><span v-html="availa"></span></p>
+                                            <p><span>@btntxtDeckPlan[0]</span></p>
                                         </a>
                                     </td>
                                     <td class="filterIcon" style="width:auto;border:none">
                                         <a href="" data-toggle="modal" data-target="#modal-deck" id="item_2">
                                             <img class="lazyload" data-src="@imagenItem[3].UrlImagen" title="@imagenItem[3].NombreImagen" alt="@imagenItem[2].NombreImagen" style="border-radius:10px; width:120px;height:90px ;margin-left:-8px;text-align:right">
-                                            <p> <b><span v-html="deckplan"></span></b></p>
+                                            <p> <b><span>@btntxtDeckPlan[1]</span></b></p>
                                         </a>
                                     </td>
                                     <td class="filterIcon" style="width:auto;border:none">
                                         <a href="../galapagos-cruises/mid-range-cruises" target="_blank" id="item_3">
                                             <img class="lazyload" data-src="@imagenItem[2].UrlImagen" title="@imagenItem[2].NombreImagen" alt="@imagenItem[3].NombreImagen" style="border-radius:10px; width:120px;height:90px ;margin-left:-8px;text-align:right">
-                                            <p><b>MORE MID-RANGE CRUISES</b></p>
+                                            <p><b>@btntxtDeckPlan[2]</b></p>
                                         </a>
                                     </td>
                                 </tr>

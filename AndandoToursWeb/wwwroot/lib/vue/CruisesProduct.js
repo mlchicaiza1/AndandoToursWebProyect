@@ -62,78 +62,29 @@ var ItinerBarco = new Vue({
                 this.contReadMore = 1;
             }
         },
+        //Quitar Boton Video del header de los barcos
         CargarInformacionVista() {
             var vm = this;
             var vistaUrl = window.location;
             var res = vistaUrl.pathname.split("/");
             if (res.length == 3) {
                 switch (res[2]) {
-                    case "golondrina":
-                        vm.deckplan = "GOLONDRINA´S DECK PLAN";
-                        break;
-                    case "fragata":
-                        vm.deckplan = "FRAGATA´S DECK PLAN";
-                        break;
-                    case "grand-majestic":
-                        vm.availab = "GRAND MAJESTIC´S AVAILABILITY";
-                        vm.deckplan = "GRAND MAJESTIC´S DECK PLAN";
-                        vm.morecruises = "MORE HIGH-END CRUISES";
-                        break;
-                    case "infinity":
-                        vm.availab = "INFINITY´S AVAILABILITY";
-                        vm.deckplan = "INFINITY´S DECK PLAN";
-                        vm.morecruises = "MORE HIGH-END CRUISES";
-                        break;
-                    case "nemo-ii":
-                        vm.availab = "NEMO II - AVAILABILITY";
-                        vm.deckplan = "NEMO II - DECK PLAN";
-                        vm.morecruises = "MORE SAILING CRUISES";
-                        break;
-                    case "ocean-spray":
-                        vm.availab = "OCEAN SPRAY´S AVAILABILITY";
-                        vm.deckplan = "OCEAN SPRAY´S DECK PLAN";
-                        vm.morecruises = "MORE LUXURY CRUISES";
-                        break;
-                    case "theory":
-                        vm.availab = "THEORY´S AVAILABILITY";
-                        vm.deckplan = "THEORY´S DECK PLAN";
-                        vm.morecruises = "MORE LUXURY CRUISES";
-                        break;
-                    case "alya":
-                        vm.availab = "M/C ALYA AVAILABILITY";
-                        vm.deckplan = "ALYA´S DECK PLAN";
-                        vm.morecruises = "MORE LUXURY CRUISES";
-                        break;
-                    case "elite":
-                        vm.availab = "ELITE´S AVAILABILITY";
-                        vm.deckplan = "ELITE´S DECK PLAN";
-                        break;
                     case "tip-top-ii":
-                        vm.deckplan = "TIP TOP II - DECK PLAN ";
-                        vm.availa = "TIP TOP II - AVAILABILITY";
+                      
                         $('#btnVideoLinkProd').css('display', 'none');
                         break;
-                    case "odyssey":
-                        vm.deckplan = "ODYSSEY´S DECK PLAN";
-                        vm.availa = "ODYSSEY´S AVAILABILITY";
-                        break;
+                
                     case "nemo-iii":
-                        vm.deckplan = "S/C NEMO III DECK PLAN";
-                        vm.availa = "S/C NEMO III AVAILABILITY";
+                     
                         $('#btnVideoLinkProd').css('display', 'none');
                         break;
                     case "treasure":
-                        vm.deckplan = "TREASURE´S DECK PLAN";
-                        vm.availa = "TREASURE´S AVAILABILITY";
+                       
                         $('#btnVideoLinkProd').css('display', 'none');
                         break;
-                    case "mary-anne":
-                        vm.deckplan = "MARY ANNE DECK PLAN";
-                        vm.availa = "MARY ANNE AVAILABILITY";
-                        break;
+                 
                     case "archipel":
-                        vm.deckplan = "ARCHIPEL´S DECK PLAN";
-                        vm.availa = "ARCHIPEL´S AVAILABILITY";
+                     
                         $('#btnVideoLinkProd').css('display', 'none');
                         break;
                 }
@@ -164,9 +115,7 @@ var ItinerBarco = new Vue({
                 });
             }
         },
-        //getDispoMod: function () {
-        //    $('#avaiModal').modal('show');
-        //},
+
         getservicio: function (event) {
             $("#itineraryModal").modal('show');
             var idBarcoSalida = event.currentTarget.id;
@@ -508,10 +457,7 @@ var ItinerBarco = new Vue({
             $('#detailsCabOtrosBarcos').modal('hide');
         },
 
-        //closeModalcloseModalCabina: function () {
-        //    $('#itineraryModal').modal('hide');
-        //    document.querySelector('body').classList.remove('hiddenBody');
-        //},
+   
         modalDispoImg: function () {
             //========================= MODAL DISPO============================//
             $('#modalImgDispo').addClass("imgClick");

@@ -6,6 +6,10 @@
     <RootNamespace>AndandoToursWeb</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Remove="Data\Migrations\20200629095941_init.cs" />
     <Compile Remove="Data\Migrations\20200629095941_init.Designer.cs" />
@@ -34,7 +38,6 @@
 
   <ItemGroup>
     <Folder Include="Controllers\AndandoController\" />
-    <Folder Include="Models\ModelsAndandoTours\" />
   </ItemGroup>
 
 </Project>

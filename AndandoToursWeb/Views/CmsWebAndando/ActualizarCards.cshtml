@@ -1,0 +1,127 @@
+﻿@model AndandoToursWeb.Models.ModelsAndandoTours.CardsAndando
+
+@{
+    ViewData["Title"] = "CrearContenidoPagina";
+}
+
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container">
+            <h2>Crear Contenido Página</h2>
+            <hr />
+            <div class="row">
+                <div class="col-md-12">
+                    <form asp-controller="CmsWebAndando" asp-action="CrearContenidoPagina"
+                          data-ajax="true" data-ajax-success="SuccessCreate" data-ajax-failure="FaildCreate" data-ajax-method="POST" enctype="multipart/form-data" method="post">
+                        <div class="form-group row">
+                            <input hidden name="IdVista" />
+                            <label class="col-md-2 col-form-label">Card Categoria</label>
+                            <input class="form-control col-md-3" name="CardCategoria" />
+                            <div class="col-md-1"></div>
+                            <label class="col-md-2 col-form-label">CardDetalles</label>
+                            <input class="form-control col-md-3" name="CardDetalles" />
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">Card Precio</label>
+                            <input class="form-control col-md-3" name="CardPrecio" />
+                            <div class="col-md-1"></div>
+                            <label class="col-md-2 col-form-label">Card Duracion</label>
+                            <input class="form-control col-md-3" name="CardDuracion" />
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">Card Departures</label>
+                            <input class="form-control col-md-3" name="CardDepartures" />
+                            <div class="col-md-1"></div>
+                            <label class="col-md-2 col-form-label">Imagen</label>
+                            <input class="form-control col-md-3" name="CardImgNombre" />
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">Url</label>
+                            <input class="form-control col-md-3" name="CardImgUrl"  />
+                            <div class="col-md-1"></div>
+                            <label class="col-md-2 col-form-label">Img Tamaño</label>
+                            <input class="form-control col-md-3" name="CardImgTamano" />
+                        </div>
+                        <br />
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">Image</label>
+                            <div class="col-sm-8">
+                                <div class="custom-file">
+                                    <input class="form-control custom-file-input" type="file" name="file" />
+                                    <label class="custom-file-label">Browse.....</label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Upload</button>
+                        </div>
+                        <img src="@ViewBag.filePath" width="200" height="180" />
+                        <br />
+                        <div class="form-group row">
+                            <input type="submit" value="Create" class="btn btn-default col-md-1" />
+                            <div class="col-md-1"></div>
+                            <a asp-action="Index" class="btn btn-danger col-md-1">Cancel</a>
+                        </div>
+
+                    </form>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                        Add Cards
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>
+<partial name="_PartialViewCards" />
+
+@section Scripts {
+    <script src="~/lib/jquery-ajax-unobtrusive-master/dist/jquery.unobtrusive-ajax.min.js" async></script>
+    <script>
+
+
+        function callChangeCategoria(val) {
+
+            switch (val) {
+                case 'galapagos-cruises':
+                    document.getElementById("NumeroTitulo").value = 8
+                    document.getElementById("NumeroImagenes").value = 3
+                    break;
+                case 'barco':
+                    document.getElementById("NumeroTitulo").value = 24
+                    document.getElementById("NumeroImagenes").value = 32
+                    break;
+                case 'ecuador-tours':
+                    document.getElementById("NumeroTitulo").value = 15
+                    document.getElementById("NumeroImagenes").value = 38
+                    break;
+                case 'daily-tours':
+                    document.getElementById("NumeroTitulo").value = 6
+                    document.getElementById("NumeroImagenes").value = 7
+                    break;
+                case 'blog':
+                    document.getElementById("NumeroTitulo").value = 8
+                    document.getElementById("NumeroImagenes").value = 15
+                    break;
+                default:
+                // code block
+            }
+
+
+        }
+
+        SuccessCreate = function (xhr) {
+            console.log(xhr);
+            alert('Status: {xhr.status}, Status Text: {xhr.statusText}');
+        };
+
+        FaildCreate = function (xhr) {
+            alert(`Status: {xhr.status}, Status Text: {xhr.statusText}`);
+        };
+
+
+
+
+    </script>
+
+}

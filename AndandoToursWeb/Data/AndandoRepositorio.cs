@@ -1,4 +1,5 @@
 ﻿using AndandoToursWeb.Models;
+using AndandoToursWeb.Models.ModelsAndandoTours;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
@@ -10,6 +11,7 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -180,6 +182,48 @@ namespace AndandoToursWeb.Data
             };
         }
 
+        //======================Obtener ultimo regiatro vista ==================
+
+        public async Task<List<VistaAndando>> GetVistaAndandoWebUltimoReg(string categoria)
+        {
+            try
+            {
+                using (SqlConnection sql = new SqlConnection(_connnectionAndandoWeb))
+                {
+                    using (SqlCommand cmd = new SqlCommand("dbo.sp_GetUltimoRegistroVista", sql))
+                    {
+                        cmd.Parameters.Add("@Categoria", System.Data.SqlDbType.NChar).Value = categoria;
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        var vistaAndando = new List<VistaAndando>();
+                        await sql.OpenAsync();
+                        using (var reader = await cmd.ExecuteReaderAsync())
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                vistaAndando.Add(MapGetVistaAndando(reader));
+                            }
+                        }
+                        return vistaAndando;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return null ;
+            }
+            
+        }
+
+        public VistaAndando MapGetVistaAndando(SqlDataReader reader)
+        {
+            return new VistaAndando()
+            {
+                IdVista = (int)reader["IdVista"],
+                NombreVista = reader["NombreVista"].ToString(),
+                UrlVista = reader["UrlVista"].ToString(),
+                CategoriaVista = reader["CategoriaVista"].ToString(),
+            };
+        }
 
         //=================Cargar Imagenes al menu ========================
         public async Task<List<GetContenidoMultimedia>> GetImgMenu()
@@ -207,6 +251,7 @@ namespace AndandoToursWeb.Data
         {
             return new GetContenidoMultimedia()
             {
+                idImagen=(int)reader["IdImagen"],
                 idVista = (int)reader["IdVista"],
                 NombreImagen = reader["NombreImagen"].ToString(),
                 UrlImagen = reader["UrlImagen"].ToString(),
@@ -826,6 +871,50 @@ namespace AndandoToursWeb.Data
                 BarcoImagen = reader["BarcoFoto"].ToString(),
             };
         }
+
+
+        //=================Cargar contenido Cards========================
+        public async Task<List<CardsAndando>> GetCards(int idVista)
+        {
+            using (SqlConnection sql = new SqlConnection(_connnectionAndandoWeb))
+            {
+                using (SqlCommand cmd = new SqlCommand("dbo.sp_GetCard", sql))
+                {
+                    cmd.Parameters.Add("@IdVista", System.Data.SqlDbType.Int).Value = idVista;
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    var contenidoPagina = new List<CardsAndando>();
+                    await sql.OpenAsync();
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            contenidoPagina.Add(MapGetCards(reader));
+                        }
+                    }
+                    return contenidoPagina;
+                }
+            }
+        }
+        public CardsAndando MapGetCards(SqlDataReader reader)
+        {
+            return new CardsAndando()
+            {
+                IdVista = (int)reader["IdVista"],
+                CardCategoria = reader["CardCategoria"].ToString(),
+                CardDetalles = reader["CardDetalles"].ToString(),
+                
+                CardPrecio= (int)reader["CardPrecio"],
+                CardDuracion= reader["CardDuracion"].ToString(),
+                CardUrl= reader["CardUrl"].ToString(),
+                CardDepartures = reader["CardDepartures"].ToString(),
+
+                CardImgNombre = reader["CardImgNombre"].ToString(),
+                CardImgUrl = reader["CardImgUrl"].ToString(),
+                CardImgTamano = reader["CardImgTamano"].ToString(),
+
+            };
+        }
+
         //=================Obtener Islas ========================
         public async Task<List<Island>> GetIsland()
         {
@@ -1046,6 +1135,11 @@ namespace AndandoToursWeb.Data
 
         public async Task<List<Availability>> GetDispoCharter()
         {
+
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            ServicePointManager.ServerCertificateValidationCallback +=
+                (sender, cert, chain, sslPolicyErrors) => { return true; };
+
             string url = "https://api.galapagobookings.com/api/Availability/Charter";
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlBlZHJvQGdtYWlsLmNvbSIsIkpMQ29kZSI6IlR1RnV0dXJvU2VFbmN1ZW50cmEgQXF1aSIsImp0aSI6IjM5YWQ2Y2RmLTZjMGItNDNjZC04YjAxLTc5YjZlZDM0ZjY0ZiIsImV4cCI6MTYzNjIyMTI1Nn0.EvO7k48fbZXmxAMrERHROh3HAaszHppIu4ym90TVXBk");

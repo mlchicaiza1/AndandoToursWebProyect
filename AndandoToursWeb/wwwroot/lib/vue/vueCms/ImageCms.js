@@ -23,6 +23,8 @@ var imagen = new Vue({
         this.getImgVista();
     },
     methods: {
+
+       
         getImgVista: function () {
             var vm = this;
             //var idVista = localStorage.getItem('TextPag');
@@ -35,6 +37,7 @@ var imagen = new Vue({
             if (idVista == 'menu') {
                 $.ajax({ url: "../ImgMenu" , method: "GET" }).done(function (data) {
                     vm.imgGestion = data;
+                    console.log(vm.imgGestion)
 
                 });
             } else {
@@ -49,9 +52,18 @@ var imagen = new Vue({
         getNombre: function () {
             var vm = this;
             var idVista = document.getElementById('idImage').value;
-            $.ajax({ url: "../ContenidoImagenes/" + idVista, method: "GET" }).done(function (data) {
-                vm.imgGestion = data;
-            });
+            if (idVista == 'menu') {
+                $.ajax({ url: "../ImgMenu", method: "GET" }).done(function (data) {
+                    vm.imgGestion = data;
+                    console.log(vm.imgGestion)
+
+                });
+            } else {
+                $.ajax({ url: "../ContenidoImagenes/" + idVista, method: "GET" }).done(function (data) {
+                    vm.imgGestion = data;
+
+                });
+            }
         },
         subirImagen: function () {
             var files = $("#files").val();
@@ -78,14 +90,26 @@ var imagen = new Vue({
         },
         guardarCambioNombre(btnguardar, btncancelar, btnNombre, idImagen) {
             var nombreText = $("#" + idImagen).val();
-            console.log(nombreText);
-            console.log(idImagen);
-            $.post("../CmsWebAndando/UpdateNombreImg", { nombreImagen: nombreText, idImagen: idImagen },
-                function (returnedData) {
-                    //alert("Nombre cambiado correctamente");
-                }).fail(function () {
-                    console.log("error");
-                });
+            var idVista = $("#idImage").val();
+
+            if (idVista == "menu") {
+                $.post("../CmsWebAndando/UpdateNombreImgMenu", { nombreImagen: nombreText, idImagen: idImagen },
+                    function (returnedData) {
+
+                    }).fail(function () {
+                        console.log("error");
+                    });
+            } else {
+                $.post("../CmsWebAndando/UpdateNombreImg", { nombreImagen: nombreText, idImagen: idImagen },
+                    function (returnedData) {
+
+                    }).fail(function () {
+                        console.log("error");
+                    });
+            }
+
+            
+
             var URLactual = window.location.href;
             var RegActividad = new Object();
             RegActividad.UrlPagina = URLactual;
@@ -127,26 +151,54 @@ var imagen = new Vue({
             var imgSelect = event.target.id;
             vm.urlUnida = "";
             vm.urlCompleto.length = 0;
-            $.ajax({ url: "../ContenidoImagenes/" + idVista, method: "GET" }).done(function (data) {
-                datos = data;
-                for (let dat of datos) {
-                    if (dat.idImagen == imgSelect) {
-                        vm.nombreImg.push(dat);
-                        vm.nombre = dat.nombreImagen;
-                        vm.tamanoImg = dat.tamanoImagen;
-                        vm.idImg = dat.idImagen;
-                        var url = dat.urlImagen.split("/");
-                        console.log(url);
-                        for (var i = 0; i < url.length - 1; i++) {
-                            if (url[i] != "..") {
-                                vm.urlUnida = vm.urlUnida + "\\" + url[i];
+
+            if (idVista == "menu") {
+                $.ajax({ url: "../ImgMenu", method: "GET" }).done(function (data) {
+                    datos = data;
+                    for (let dat of datos) {
+                        if (dat.idImagen == imgSelect) {
+                            vm.nombreImg.push(dat);
+                            vm.nombre = dat.nombreImagen;
+                            vm.tamanoImg = dat.tamanoImagen;
+                            vm.idImg = dat.idImagen;
+                            var url = dat.urlImagen.split("/");
+                            console.log(url);
+                            for (var i = 0; i < url.length - 1; i++) {
+                                if (url[i] != "..") {
+                                    vm.urlUnida = vm.urlUnida + "\\" + url[i];
+                                }
                             }
+                            vm.urlCompleto.push(vm.urlUnida);
+                            
                         }
-                        vm.urlCompleto.push(vm.urlUnida);
-                        console.log(vm.urlCompleto);
                     }
-                }
-            });
+                });
+            } else {
+                $.ajax({ url: "../ContenidoImagenes/" + idVista, method: "GET" }).done(function (data) {
+                    datos = data;
+                    for (let dat of datos) {
+                        if (dat.idImagen == imgSelect) {
+                            vm.nombreImg.push(dat);
+                            vm.nombre = dat.nombreImagen;
+                            vm.tamanoImg = dat.tamanoImagen;
+                            vm.idImg = dat.idImagen;
+                            var url = dat.urlImagen.split("/");
+                            console.log(url);
+                            for (var i = 0; i < url.length - 1; i++) {
+                                if (url[i] != "..") {
+                                    vm.urlUnida = vm.urlUnida + "\\" + url[i];
+                                }
+                            }
+                            vm.urlCompleto.push(vm.urlUnida);
+                            console.log(vm.urlCompleto);
+                        }
+                    }
+                });
+            }
+
+           
+
+
             $('#imagenModal').modal('show');
         },
         fileChange(event) {

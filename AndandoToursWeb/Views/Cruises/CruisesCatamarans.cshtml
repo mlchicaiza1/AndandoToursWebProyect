@@ -21,9 +21,9 @@
     var barcos = ViewBag.CardsCruises;
 
     var txtMenu = new List<String>() { };
-      
-    txtMenu.Add("Sailing Boats");
-    txtMenu.Add("Private Charters");
+
+    txtMenu.Add("Top Catamarans");
+    txtMenu.Add("");
     txtMenu.Add("The Experience");
 
 
@@ -55,7 +55,7 @@
                         <a href="#CruisesCategari"><span>@txtMenu[0]</span> </a>
                     </li>
                     <li>
-                        <a href="#Experience"><span>@txtMenu[1]</span></a>
+                        @*<a href="#Experience"><span>@txtMenu[1]</span></a>*@
                     </li>
                     <li>
                         <a style="width: 300px" href="#luxuryComp"><span>@txtMenu[2]</span></a>
@@ -68,11 +68,8 @@
         <div class="limit" style="width:100%">
             <nav class="page-nav-anchors">
                 <ul style="width:100%">
-                    <li class="activities">
-                        <a href="#CruisesCategari"><span>@txtMenu[0]</span> </a>
-                    </li>
                     <li class="prepare" style="margin-left: 20px;">
-                        <a href="#Experience"><span>@txtMenu[1]</span></a>
+                        <a href="#Experience"><span>@txtMenu[0]</span></a>
                     </li>
                     <li class="itineraries" style="margin-left: 10px;">
                         <a href="#luxuryComp"><span>@txtMenu[2]</span></a>
@@ -97,7 +94,7 @@
                     <meta itemprop="position" content="2" />
                 </li>
                 <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span itemprop="name">Sailing Cruises</span>
+                    <span itemprop="name">Galapagos Catamarans</span>
                     <meta itemprop="position" content="3" />
                 </li>
             </ol>
@@ -116,7 +113,7 @@
                 }
             }
             <div>
-               
+
             </div>
         </div>
     </div>
@@ -193,7 +190,7 @@
                                     <a class="btn h5button cruceros-boton" href="../cruises/yacht-charters" style="margin-right:1px; font-size:15px">
                                         <span>Private Charters</span>
                                     </a>
-                                   
+
                                 </div>
                             </td>
                         </tr>
@@ -257,8 +254,47 @@
                 </div><div id="luxuryComp"></div>
             </div>
         </div>
+
+        <div class="row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em; background:white;margin-top: 0;margin-bottom:0">
+            <div class="col-md-6" style="padding: 0px 0;">
+                <div class="box" id="textoDerecha">
+                    @{
+                        <h3 class="formato-titulo" style="margin-top:0;margin-bottom: 30px;"> <b>@titulo[6]</b></h3>
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[6])
+                            {
+                                <p class="formato-parrafo">
+                                    <span>@Html.Raw(item.Parrafo)</span>
+                                </p>
+
+                            }
+                        }
+                    }
+                </div>
+            </div>
+            <div class="col-md-6" style="padding: 0px 0;">
+                <div class="box" id="textoIzquierda">
+
+                    @{
+                        <h3 class="formato-titulo" style="margin-top:0;margin-bottom: 30px;"> <b>@titulo[7]</b></h3>
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[7])
+                            {
+                                <p class="formato-parrafo">
+                                    <span>@Html.Raw(item.Parrafo)</span>
+                                </p>
+
+                            }
+                        }
+
+                    }
+                </div><div id="luxuryComp"></div>
+            </div>
+        </div>
     </div>
- 
+
 
 </div>
 

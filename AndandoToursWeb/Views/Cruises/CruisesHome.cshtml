@@ -49,13 +49,13 @@ var barcos = ViewBag.CardsCruises;
             <nav class="page-nav-anchors" style="text-transform:none; " id="sub-menu-cruises">
                 <ul>
                     <li>
-                        <a href="#ShipTypes"><span v-html="submenu[0]"></span> </a>
+                        <a href="#ShipTypes"><span >Ship Types</span> </a>
                     </li>
                     <li>
-                        <a href="#Availability"><span v-html="submenu[1]"></span> </a>
+                        <a href="#Availability"><span >9 Best Cruises</span> </a>
                     </li>
                     <li>
-                        <a style="width: 300px" href="#Cruise_Info"><span v-html="submenu[2]"></span> </a>
+                        <a style="width: 300px" href="#Cruise_Info"><span >Cruise Info</span> </a>
                     </li>
                 </ul>
             </nav>
@@ -66,13 +66,13 @@ var barcos = ViewBag.CardsCruises;
             <nav class="page-nav-anchors">
                 <ul style="width:100%">
                     <li class="activities">
-                        <a class="" href="#ShipTypesMov"><span v-html="submenu[0]"></span></a>
+                        <a class="" href="#ShipTypesMov"><span >Ship Types</span></a>
                     </li>
                     <li class="prepare" style="margin-left: 20px;">
-                        <a href="#cruisesbest"><span v-html="submenu[1]"></span></a>
+                        <a href="#cruisesbest"><span>9 Best Cruises</span></a>
                     </li>
                     <li class="itineraries" >
-                        <a href="#Cruise_Info"> <span v-html="submenu[2]"></span></a>
+                        <a href="#Cruise_Info"> <span v>Cruise Info</span></a>
                     </li>
                 </ul>
             </nav>
@@ -511,5 +511,5 @@ var barcos = ViewBag.CardsCruises;
     </div>
 </div>
 @section scripts {
-    <script src="~/lib/vue/CruisesHome-Category.js"></script>
+    @*<script src="~/lib/vue/CruisesHome-Category.js"></script>*@
 }

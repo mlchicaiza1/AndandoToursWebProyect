@@ -21,9 +21,9 @@
     var barcos = ViewBag.CardsCruises;
 
     var txtMenu = new List<String>() { };
-      
-    txtMenu.Add("Sailing Boats");
-    txtMenu.Add("Private Charters");
+
+    txtMenu.Add("Top 3 Yachts");
+    txtMenu.Add("Yacht Charters");
     txtMenu.Add("The Experience");
 
 
@@ -97,7 +97,7 @@
                     <meta itemprop="position" content="2" />
                 </li>
                 <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span itemprop="name">Sailing Cruises</span>
+                    <span itemprop="name">Galapagos Yachts</span>
                     <meta itemprop="position" content="3" />
                 </li>
             </ol>
@@ -116,7 +116,7 @@
                 }
             }
             <div>
-               
+
             </div>
         </div>
     </div>
@@ -193,7 +193,9 @@
                                     <a class="btn h5button cruceros-boton" href="../cruises/yacht-charters" style="margin-right:1px; font-size:15px">
                                         <span>Private Charters</span>
                                     </a>
-                                   
+                                    <a class="btn h5button cruceros-boton" href="../galapagos-luxury-cruise" style="color:#398AC9; background:#fff; border-color:#398AC9;border: 1px solid #398AC9;font-size:15px">
+                                        <span>Luxury Cruises</span>
+                                    </a>
                                 </div>
                             </td>
                         </tr>
@@ -219,48 +221,10 @@
                 }
             }
         </div>
-        <div class="row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em; background:white;margin-top: 0;margin-bottom:0">
-            <div class="col-md-6" style="padding: 0px 0;">
-                <div class="box" id="textoDerecha">
-                    @{
-                        <h3 class="formato-titulo" style="margin-top:0;margin-bottom: 30px;"> <b>@titulo[4]</b></h3>
-                        foreach (var item in ViewBag.GetContenidoVista)
-                        {
-                            if (item.Titulo == titulo[4])
-                            {
-                                <p class="formato-parrafo">
-                                    <span>@Html.Raw(item.Parrafo)</span>
-                                </p>
-
-                            }
-                        }
-                    }
-                </div>
-            </div>
-            <div class="col-md-6" style="padding: 0px 0;">
-                <div class="box" id="textoIzquierda">
-
-                    @{
-                        <h3 class="formato-titulo" style="margin-top:0;margin-bottom: 30px;"> <b>@titulo[5]</b></h3>
-                        foreach (var item in ViewBag.GetContenidoVista)
-                        {
-                            if (item.Titulo == titulo[5])
-                            {
-                                <p class="formato-parrafo">
-                                    <span>@Html.Raw(item.Parrafo)</span>
-                                </p>
-
-                            }
-                        }
-
-                    }
-                </div><div id="luxuryComp"></div>
-            </div>
-        </div>
+       
     </div>
- 
+  
 
 </div>
-
 
 

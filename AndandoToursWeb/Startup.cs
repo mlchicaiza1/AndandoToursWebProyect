@@ -721,47 +721,9 @@ namespace AndandoToursWeb
                     );
             });
             
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "CruisesCategoriaCatamarans",
-                    template: "galapagos-cruises/galapagos-catamarans",
-                    defaults: new { Controller = "Cruises", action = "CruisesCategoria" }
-                    );
-            });
+            
            
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "CruisesCategoriaMid-range-cruises",
-                    template: "galapagos-cruises/mid-range-cruises",
-                    defaults: new { Controller = "Cruises", action = "CruisesCategoria" }
-                    );
-            });
-            //app.UseMvc(routes =>
-            //{
-            //    routes.MapRoute(
-            //        name: "CruisesCategoriaSailing-cruises",
-            //        template: "sailing-cruises",
-            //        defaults: new { Controller = "Cruises", action = "CruisesCategoria" }
-            //        );
-            //});
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "CruisesCategoriaBudget",
-                    template: "cruises/budget",
-                    defaults: new { Controller = "Cruises", action = "CruisesCategoria" }
-                    );
-            });
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "CruisesCategoriaGalapagos-yachts",
-                    template: "galapagos-cruises/galapagos-yachts",
-                    defaults: new { Controller = "Cruises", action = "CruisesCategoria" }
-                    );
-            });
+          
 
             //====================yacht-charters=================
             app.UseMvc(routes =>

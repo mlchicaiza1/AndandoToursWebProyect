@@ -17,9 +17,15 @@
             titulo.Add(item.Titulo);
         }
     }
-    var comp = titulo[titulo.Count - 1];
-    var i = 0;
+
     var barcos = ViewBag.CardsCruises;
+
+    var txtMenu = new List<String>() { };
+
+    txtMenu.Add("Luxury Boats");
+    txtMenu.Add("Luxury Experience");
+    txtMenu.Add("Comparison");
+
 
 }
 <div class="container--full-width" style="overflow:hidden; width:100%" id="CruisesCategoria">
@@ -44,15 +50,15 @@
     <nav class="navbar  navbarsubmenu page-nav-home" data-toggle="sticky-onscroll" id="navpagina" style="border: 1px solid rgba(0,0,0,.1);">
         <div class="limit">
             <nav class="page-nav-anchors" style="text-transform:none; " id="sub-menu-cruises">
-                <ul v-bind:style="{marginLeft: marginleft + '%' }">
+                <ul style="margin-left:30%">
                     <li>
-                        <a href="#CruisesCategari"><span>{{submenu[0]}}</span> </a>
+                        <a href="#CruisesCategari"><span>@txtMenu[0]</span> </a>
                     </li>
                     <li>
-                        <a :href="'#'+linkExpe"><span>{{submenu[1]}}</span></a>
+                        <a href="#Experience"><span>@txtMenu[1]</span></a>
                     </li>
                     <li>
-                        <a style="width: 300px" :href="'#'+linkcomparison"><span>{{submenu[2]}}</span></a>
+                        <a style="width: 300px" href="#luxuryComp"><span>@txtMenu[2]</span></a>
                     </li>
                 </ul>
             </nav>
@@ -63,13 +69,13 @@
             <nav class="page-nav-anchors">
                 <ul style="width:100%">
                     <li class="activities">
-                        <a class="" href="#CruisesCategari">  <span>{{submenu[0]}}</span></a>
+                        <a href="#CruisesCategari"><span>@txtMenu[0]</span> </a>
                     </li>
                     <li class="prepare" style="margin-left: 20px;">
-                        <a :href="'#'+linkExpe"><span>{{submenu[1]}}</span></a>
+                        <a href="#Experience"><span>@txtMenu[1]</span></a>
                     </li>
                     <li class="itineraries" style="margin-left: 10px;">
-                        <a :href="'#'+linkcomparison"> <span>{{submenu[2]}}</span></a>
+                        <a href="#luxuryComp"><span>@txtMenu[2]</span></a>
                     </li>
                 </ul>
             </nav>
@@ -132,11 +138,11 @@
         <div class="mainland-wrapper ">
             <div class="mainland">
                 <div class="row  f-15 text-justify textoinfo parrafo" style="font-family:Arial; color: #656b6f !important; line-height:2; background:white">
-                    @{ i = 0;
+                    @{ 
                         foreach (var barco in barcos)
                         {
                             <div class="col-xs-12 col-sm-6  col-md-4 cardsAndando">
-                                <div class="contenido-app" id="@barco.IdBarco" v-on:click="select($event)">
+                                <div class="contenido-app" id="@barco.IdBarco">
                                     <a href="@barco.BarcoURL" target="_blank" style="text-decoration:none" class="anc-card">
                                         <div class="mainland-item @(@barco.BarcoEco == true ? "cardEco": "eco")" style="overflow:hidden;text-overflow:ellipsis">
                                             <div class="mainland-image">
@@ -154,14 +160,14 @@
                                                 <p>
                                                     @Regex.Replace(barco.BarcoDescripcionCortaEn, "<.*?>", String.Empty)
                                                 </p>
-                                                <div class="rest-info" :id="'ShipTypes-'+ @barco.IdBarco">
+                                                <div class="rest-info">
                                                     <span class="price" style="margin-left:10px; font-family:Arial">Price from: $@barco.BarcoPrecioMin  (@barco.BarcoDiasItinerario Days).</span>
                                                 </div>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
-                            </div> i++;
+                            </div> 
                         }
                     }
                 </div>
@@ -196,34 +202,63 @@
                         <tr>
                             <td style="border:none">
                                 <div class="boxdiv1 boxCruises">
-                                    <a class="btn h5button cruceros-boton" :href="urlBtnCategoria" style="margin-right:1px; font-size:15px">
-                                        <span v-html="privateChartersTex"></span>
+                                    <a class="btn h5button cruceros-boton" href="../cruises/yacht-charters" style="margin-right:1px; font-size:15px">
+                                        <span>Private Charters</span>
                                     </a>
-                                    <a class="btn h5button cruceros-boton" v-show="luxuryCruisesbtn" href="../galapagos-luxury-cruise" style="color:#398AC9; background:#fff; border-color:#398AC9;border: 1px solid #398AC9;font-size:15px">
-                                        <span v-html="luxuryCruisesText"></span>
+                                    <a class="btn h5button cruceros-boton" href="../galapagos-luxury-cruise" style="color:#398AC9; background:#fff; border-color:#398AC9;border: 1px solid #398AC9;font-size:15px">
+                                        <span>Luxury Cruises</span>
                                     </a>
-                                </div><div id="YachExperience"></div>
+                                </div>
                             </td>
                         </tr>
                     </table><div id="Experience"></div>
-                </div><div id="comparison"></div>
+                </div>
             </div>
         </div>
     </div>
     <!--================================INFO CRUCEROS =========================-->
-    @{
-        if (ViewBag.GetContenidoVista.Count > 4)
-        {
-            <div class="container">
-                @{
-                    if (titulo.Count > 4)
+    <div class="container">
+        <div class="row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em; background:white;margin-top:0;margin-bottom:0">
+            <h2 class="formato-titulo" style="margin-bottom: 30px;"> <b>@titulo[4]</b></h2><div id="comparisonbudget"></div>
+            @{
+                foreach (var item in ViewBag.GetContenidoVista)
+                {
+                    if (item.Titulo == titulo[4])
                     {
-                        <div class="row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em; background:white;margin-top:0;margin-bottom:0">
-                            <h2 class="formato-titulo" style="margin-bottom: 30px;"> <b>@titulo[4]</b></h2><div id="comparisonbudget"></div>
-                            @{
+                        <p class="formato-parrafo">
+                            <span>@Html.Raw(item.Parrafo)</span>
+                        </p>
+
+                    }
+                }
+            }
+        </div>
+        <div class="row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em; background:white;margin-top: 0;margin-bottom:0">
+            <div class="col-md-6" style="padding: 0px 0;">
+                <div class="box" id="textoDerecha">
+                    @{
+                        <h3 class="formato-titulo" style="margin-top:0;margin-bottom: 30px;"> <b>@titulo[5]</b></h3>
+                        foreach (var item in ViewBag.GetContenidoVista)
+                        {
+                            if (item.Titulo == titulo[5])
+                            {
+                                <p class="formato-parrafo">
+                                    <span>@Html.Raw(item.Parrafo)</span>
+                                </p>
+
+                            }
+                        }
+                    }
+                </div>
+            </div>
+                <div class="col-md-6" style="padding: 0px 0;">
+                    <div class="box" id="textoIzquierda">
+
+                        @{
+                             <h3 class="formato-titulo" style="margin-top:0;margin-bottom: 30px;"> <b>@titulo[6]</b></h3>
                                 foreach (var item in ViewBag.GetContenidoVista)
                                 {
-                                    if (item.Titulo == titulo[4])
+                                    if (item.Titulo == titulo[6])
                                     {
                                         <p class="formato-parrafo">
                                             <span>@Html.Raw(item.Parrafo)</span>
@@ -231,88 +266,21 @@
 
                                     }
                                 }
-                            }
-                        </div>
-                        <div class="row f-15 text-justify textoinfo parrafo" v-show="comparison" style="padding: .5em 1em; background:white;margin-top: 0;margin-bottom:0">
-                            <div class="col-md-6" style="padding: 0px 0;">
-                                <div class="box" id="textoDerecha">
-                                    @{
-                                        if (titulo.Count > 5)
-                                        {
-                                            <h3 class="formato-titulo" style="margin-top:0;margin-bottom: 30px;"> <b>@titulo[5]</b></h3>
-                                            foreach (var item in ViewBag.GetContenidoVista)
-                                            {
-                                                if (item.Titulo == titulo[5])
-                                                {
-                                                    <p class="formato-parrafo">
-                                                        <span>@Html.Raw(item.Parrafo)</span>
-                                                    </p>
 
-                                                }
-                                            }
-                                        }
-                                    }
-                                </div>
-                            </div>
-                            @{
-                                if (titulo.Count > 5)
-                                {
-                                    <div class="col-md-6" style="padding: 0px 0;">
-                                        <div class="box" id="textoIzquierda">
-
-                                            @{
-                                                if (titulo.Count > 6)
-                                                {
-                                                    <h3 class="formato-titulo" style="margin-top:0;margin-bottom: 30px;"> <b>@titulo[6]</b></h3>
-                                                    foreach (var item in ViewBag.GetContenidoVista)
-                                                    {
-                                                        if (item.Titulo == titulo[6])
-                                                        {
-                                                            <p class="formato-parrafo">
-                                                                <span>@Html.Raw(item.Parrafo)</span>
-                                                            </p>
-
-                                                        }
-                                                    }
-                                                }
-
-                                            }
-                                        </div><div id="luxuryComp"></div>
-                                    </div>
-                                }
-                            }
-                        </div>
-                    }
-                }
-            </div>
-        }
-    }
-    @{
-        if (imgItem.Count > 2)
-        {
-            <div class="container">
-                <div class="row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em 0; margin-top: 5px;background:white;">
-                    <h2 class="formato-titulo" style="padding-bottom:0;margin-bottom:0;"><b>@comp</b></h2>
-                    <div class="col-md-12 " style="padding-left: 0px">
-                        <img data-src="@imgItem[2].UrlImagen" alt="@imgItem[2].NombreImagen" class=" lazyload img-responsive" style="margin:0;width:100%;" />
-                    </div>
+                        }
+                    </div><div id="luxuryComp"></div>
                 </div>
-            </div>
-        }
-    }
-</div>
-<div class="bs-example">
-    <!-- Modal HTML -->
-    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
+        </div>
+    </div>
+    <div class="container">
+        <div class="row f-15 text-justify textoinfo parrafo" style="padding: .5em 1em 0; margin-top: 5px;background:white;">
+            <h2 class="formato-titulo" style="padding-bottom:0;margin-bottom:0;"><b>@titulo[7]</b></h2>
+            <div class="col-md-12 " style="padding-left: 0px">
+                <img data-src="@imgItem[2].UrlImagen" alt="@imgItem[2].NombreImagen" class=" lazyload img-responsive" style="margin:0;width:100%;" />
             </div>
         </div>
     </div>
-</div>
-@section scripts {
-    <script src="~/lib/vue/CruisesHome-Category.js"></script>
-}
 
+</div>
 
 

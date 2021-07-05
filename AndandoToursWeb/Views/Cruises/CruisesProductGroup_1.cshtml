@@ -27,6 +27,7 @@
     var urlItem = "";
     var Breadcrumbitem = "";
     var Breadcrumbitem_1 = "";
+    var btntxtDeckPlan= new List<String>(){ };
 
     switch (barcos[0].IdBarco)
     {
@@ -34,31 +35,57 @@
             urlItem = "../galapagos-cruises/high-end";
             Breadcrumbitem = "High-End";
             Breadcrumbitem_1 = "Grand Majestic";
+            //Texo Para los BOTONES DECK PLAN Y MÁS CRUCEROS
+            btntxtDeckPlan.Add("GRAND MAJESTIC´S AVAILABILITY");
+            btntxtDeckPlan.Add("GRAND MAJESTIC´S DECK PLAN");
+            btntxtDeckPlan.Add("MORE HIGH-END CRUISES");
             break;
         case 122:
             urlItem = "../galapagos-cruises/high-end";
             Breadcrumbitem = "High-End";
             Breadcrumbitem_1 = "Infinity";
+            //Texo Para los BOTONES DECK PLAN Y MÁS CRUCEROS
+            btntxtDeckPlan.Add("INFINITY´S AVAILABILITY");
+            btntxtDeckPlan.Add("INFINITY´S DECK PLAN");
+            btntxtDeckPlan.Add("MORE HIGH-END CRUISES");
             break;
         case 93:
             urlItem = "../sailing-cruises";
             Breadcrumbitem = "Sailing Cruises";
             Breadcrumbitem_1 = "Nemo II";
+            //Texo Para los BOTONES DECK PLAN Y MÁS CRUCEROS
+            btntxtDeckPlan.Add("NEMO II - AVAILABILITY");
+            btntxtDeckPlan.Add("NEMO II - DECK PLAN");
+            btntxtDeckPlan.Add("MORE SAILING CRUISES");
             break;
         case 92:
             urlItem = "../galapagos-luxury-cruise";
             Breadcrumbitem = "Luxury Cruises";
             Breadcrumbitem_1 = "Ocean Spray";
+            //Texo Para los BOTONES DECK PLAN Y MÁS CRUCEROS
+            btntxtDeckPlan.Add("OCEAN SPRAY´S AVAILABILITY");
+            btntxtDeckPlan.Add("OCEAN SPRAY´S DECK PLAN");
+            btntxtDeckPlan.Add("MORE LUXURY CRUISES");
             break;
         case 115:
             urlItem = "../galapagos-luxury-cruise";
             Breadcrumbitem = "Luxury Cruises";
             Breadcrumbitem_1 = "Theory";
+            //Texo Para los BOTONES DECK PLAN Y MÁS CRUCEROS
+            btntxtDeckPlan.Add("THEORY´S AVAILABILITY");
+            btntxtDeckPlan.Add("THEORY´S DECK PLAN");
+            btntxtDeckPlan.Add("MORE LUXURY CRUISES");
             break;
         case 103:
             urlItem = "../galapagos-luxury-cruise";
             Breadcrumbitem = "Luxury Cruises";
             Breadcrumbitem_1 = "Alya";
+
+            //Texo Para los BOTONES DECK PLAN Y MÁS CRUCEROS
+            btntxtDeckPlan.Add("M/C ALYA AVAILABILITY");
+            btntxtDeckPlan.Add("ALYA´S DECK PLAN");
+            btntxtDeckPlan.Add("MORE LUXURY CRUISE");
+
             break;
     }
 
@@ -249,7 +276,7 @@
                         <div class="categories-item">
                             <a href="#disponibilidad-pro" id="item_3">
                                 <img class="lazyload" data-src="@imagenItem[1].UrlImagen" alt="@imagenItem[1].NombreImagen">
-                                <p style="font-size:13px;font-family:'BentonSans-Regular';"><b><span v-html="availab"></span></b></p>
+                                <p style="font-size:13px;font-family:'BentonSans-Regular';"><b><span>@btntxtDeckPlan[0]</span></b></p>
                             </a>
                         </div>
                     </div>
@@ -257,7 +284,7 @@
                         <div class="categories-item">
                             <a href="" id="item_1" data-toggle="modal" data-target="#modal-deck">
                                 <img class="lazyload" data-src="@imagenItem[3].UrlImagen" alt="@imagenItem[3].NombreImagen" style="padding: 0 0 1px;margin-left: 5px;">
-                                <p style="font-size:13px;font-family:'BentonSans-Regular';"><b><span v-html="deckplan"></span></b></p>
+                                <p style="font-size:13px;font-family:'BentonSans-Regular';"><b><span>@btntxtDeckPlan[1]</span></b></p>
                             </a>
                         </div>
                     </div>
@@ -265,7 +292,7 @@
                         <div class="categories-item">
                             <a href="@urlItem" target="_blank" id="item_2">
                                 <img class="lazyload" data-src="@imagenItem[2].UrlImagen" alt="@imagenItem[2].NombreImagen">
-                                <p style="font-size:13px;font-family:'BentonSans-Regular';"><b><span v-html="morecruises"></span></b></p>
+                                <p style="font-size:13px;font-family:'BentonSans-Regular';"><b><span>@btntxtDeckPlan[2]</span></b></p>
                             </a>
                         </div>
                     </div>
@@ -284,19 +311,19 @@
                                 <td class="filterIcon" style="width:auto; border:none">
                                     <a href="#disponibilidad-pro" id="item_1">
                                         <img class="lazyload" data-src="@imagenItem[1].UrlImagen" alt="@imagenItem[1].NombreImagen" style="border-radius:10px; width:120px;height:90px ;margin-left:-8px;text-align:right">
-                                        <p><b><span v-html="availab"></span></b></p>
+                                        <p><b><span>@btntxtDeckPlan[0]</span></b></p>
                                     </a>
                                 </td>
                                 <td class="filterIcon" style="width:auto;border:none">
                                     <a href="" data-toggle="modal" data-target="#modal-deck" id="item_2">
                                         <img class="lazyload" data-src="@imagenItem[3].UrlImagen" title="@imagenItem[3].NombreImagen" alt="@imagenItem[3].NombreImagen" style="border-radius:10px; width:120px;height:90px ;margin-left:-8px;text-align:right">
-                                        <p> <b><span v-html="deckplan"></span></b></p>
+                                        <p> <b><span>@btntxtDeckPlan[1]</span></b></p>
                                     </a>
                                 </td>
                                 <td class="filterIcon" style="width:auto;border:none">
                                     <a href="@urlItem" target="_blank" id="item_3">
                                         <img class="lazyload" data-src="@imagenItem[2].UrlImagen" title="@imagenItem[2].NombreImagen" alt="@imagenItem[2].NombreImagen" style="border-radius:10px; width:120px;height:90px ;margin-left:-8px;text-align:right">
-                                        <p><b><span v-html="morecruises"></span></b></p>
+                                        <p><b><span>@btntxtDeckPlan[0]</span></b></p>
                                     </a>
                                 </td>
                             </tr>
@@ -839,12 +866,7 @@
             <br />
         </section>
     </div>
-    @*<div class="modal fade" id="visitorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            </div>
-        </div>
-    </div>*@
+
     @{
         if (barcos[0].IdBarco == 125)
         {
@@ -878,14 +900,7 @@
             <partial name="~/Views/Forms/Modals/Theory/galeria3_product.cshtml" />
             <partial name="~/Views/Forms/Modals/Theory/galeria4_product.cshtml" />
         }
-        if (barcos[0].IdBarco == 103)
-        {
 
-            <partial name="~/Views/Forms/Modals/Alya/galeria_product.cshtml" />
-            <partial name="~/Views/Forms/Modals/Alya/galeria2_product.cshtml" />
-            <partial name="~/Views/Forms/Modals/Alya/galeria3_product.cshtml" />
-            <partial name="~/Views/Forms/Modals/Alya/galeria4_product.cshtml" />
-        }
         if (barcos[0].IdBarco == 111)
         {
 
@@ -903,25 +918,19 @@
             <partial name="~/Views/Forms/Modals/Nemo-ii/galeria4_productNemo-ii.cshtml" />
 
         }
+
+        if (barcos[0].IdBarco == 103)
+        {
+
+            <partial name="~/Views/Forms/Modals/Alya/galeria_product.cshtml" />
+            <partial name="~/Views/Forms/Modals/Alya/galeria2_product.cshtml" />
+            <partial name="~/Views/Forms/Modals/Alya/galeria3_product.cshtml" />
+            <partial name="~/Views/Forms/Modals/Alya/galeria4_product.cshtml" />
+        }
     }
     <partial name="~/Views/Forms/Modals/servicesProductOtrosBarcos.cshtml" />
     <partial name="~/Views/Forms/Modals/deck_plan_modal.cshtml" />
-    @*<div class="bs-example" id="exampleModalScrollable">
-        <div class="modal fade" id="services-ModalScrollable" style="z-index:500000;overflow-y:hidden" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-            <div class="modal-dialog modal-full" style="width:100%;height:100%; margin:0" role="document">
-                <div class="modal-content" style="width:100%; height:100%">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="bs-example">
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                </div>
-            </div>
-        </div>
-    </div>*@
+
 </div>
 <partial name="~/Views/form_taylorMade/galeriaItiner.cshtml" />
 @section scripts {

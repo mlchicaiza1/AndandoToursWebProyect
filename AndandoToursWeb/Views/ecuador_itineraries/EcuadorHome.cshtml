@@ -25,52 +25,10 @@
         }
     }
 
-    //Quitar tags de los 3 Tours de cada Isla
-    var textoCms = contenido[9].Parrafo;
-    string[] textCards = textoCms.Split('*');
-    var cardsTours = new List<string>();
-    var cardsTours_1 = new List<string>();
-    var cardsTours_2 = new List<string>();
-    var cardsTours_3 = new List<string>();
-    var cardsTours_4 = new List<string>();
-    foreach (var item in textCards)
-    {
+   
 
-        cardsTours.Add(Regex.Replace(item, "<.*?>", String.Empty).Replace("\n", "").Replace("&nbsp;", "").Replace("&ndash;", ""));
-
-    }
-    textoCms = contenido[10].Parrafo;
-    textCards = textoCms.Split('*');
-    foreach (var item in textCards)
-    {
-
-        cardsTours_1.Add(Regex.Replace(item, "<.*?>", String.Empty).Replace("\n", "").Replace("&nbsp;", "").Replace("&ndash;", ""));
-
-    }
-    textoCms = contenido[11].Parrafo;
-    textCards = textoCms.Split('*');
-    foreach (var item in textCards)
-    {
-
-        cardsTours_2.Add(Regex.Replace(item, "<.*?>", String.Empty).Replace("\n", "").Replace("&nbsp;", "").Replace("&ndash;", ""));
-
-    }
-    textoCms = contenido[12].Parrafo;
-    textCards = textoCms.Split('*');
-    foreach (var item in textCards)
-    {
-
-        cardsTours_3.Add(Regex.Replace(item, "<.*?>", String.Empty).Replace("\n", "").Replace("&nbsp;", "").Replace("&ndash;", ""));
-
-    }
-    textoCms = contenido[13].Parrafo;
-    textCards = textoCms.Split('*');
-    foreach (var item in textCards)
-    {
-
-        cardsTours_4.Add(Regex.Replace(item, "<.*?>", String.Empty).Replace("\n", "").Replace("&nbsp;", "").Replace("&ndash;", ""));
-
-    }
+    var datoCards = ViewBag.CardsEcu;
+    int i = 7;
 }
 <div class="container--full-width" style="overflow-x:hidden;overflow:hidden; width:100%">
     <div class="item active imgen-carousel">
@@ -279,133 +237,38 @@
         <div class="mainland-wrapper ">
             <div class="mainland">
                 <div class="row  f-15 text-justify textoinfo parrafo" style="font-family:Arial; color: #656b6f !important; line-height:2; background:white;">
-                    <div class="col-xs-12 col-sm-6 col-md-4 cardsAndando">
-                        <!--ELEMENTO 1-->
-                        <div class="contenido-app">
-                            <a href="@cardsTours[4]" style="text-decoration:none" target="_blank" class="anc-card">
-                                <div class="mainland-item">
+
+                   
+                   @foreach (var ecu in datoCards)
+                    {
+                    <div class="col-xs-12 col-sm-6  col-md-4 cardsAndando">
+                        <div class="contenido-app" >
+                            <a href="@ecu.CardUrl" target="_blank" style="text-decoration:none" class="anc-card">
+                                <div class="mainland-item" style="overflow:hidden;text-overflow:ellipsis">
                                     <div class="mainland-image">
-                                        <img class="img-portada lazyload" data-src="@imagenItem[7].UrlImagen" alt="@imagenItem[7].NombreImagen">
+                                        <img class="lazyload img-portada " data-src="@ecu.CardImgUrl" alt="@ecu.CardImgNombre">
+                                       
                                         <div class="cruise-details">
-                                            <span>@cardsTours[1]</span>
+                                            <span>@ecu.CardDuracion</span>
                                         </div>
                                     </div>
                                     <div class="cruise-info tourDetailsIsabela">
-                                        <h3 style="font-family:'Berlin Sans FB'">@titulo[6]</h3>
+                                        <h3 style="font-family:'Berlin Sans FB'">@ecu.CardCategoria</h3>
                                         <p>
-                                            @cardsTours[2]
+                                           
+                                            @ecu.CardDetalles
                                         </p>
-                                        <div class="rest-info DailyCardPrice">
-                                            <span class="price">@cardsTours[3]</span>
+                                        <div class="rest-info">
+                                            <span class="price" style="margin-left:10px; font-family:Arial">Price from: $@ecu.CardPrecio </span>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         </div>
-                        <!--ELEMENTO 1-->
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 cardsAndando">
-                        <!--ELEMENTO 2-->
-                        <div class="contenido-app">
-                            <a href="@cardsTours_1[4]" style="text-decoration:none" target="_blank" class="anc-card">
-                                <div class="mainland-item">
-                                    <div class="mainland-image">
-                                        <img class="img-portada lazyload" data-src="@imagenItem[8].UrlImagen" alt="@imagenItem[8].NombreImagen">
-                                        <div class="cruise-details">
-                                            <span>@cardsTours_1[1]</span>
-                                        </div>
-                                    </div>
-                                    <div class="cruise-info tourDetailsIsabela">
-                                        <h3 style="font-family:'Berlin Sans FB'">@titulo[7]</h3>
-                                        <p>
-                                            @cardsTours_1[2]
-                                        </p>
-                                        <div class="rest-info DailyCardPrice">
-                                            <span class="price">@cardsTours_1[3]</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <!--ELEMENTO 2-->
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 cardsAndando">
-                        <!--ELEMENTO 3-->
-                        <div class="contenido-app">
-                            <a href="@cardsTours_2[4]" style="text-decoration:none" target="_blank" class="anc-card">
-                                <div class="mainland-item">
-                                    <div class="mainland-image">
-                                        <img class="img-portada lazyload" data-src="@imagenItem[9].UrlImagen" alt="@imagenItem[9].NombreImagen">
-                                        <div class="cruise-details">
-                                            <span>@cardsTours_2[1]</span>
-                                        </div>
-                                    </div>
-                                    <div class="cruise-info tourDetailsIsabela">
-                                        <h3 style="font-family:'Berlin Sans FB'">@titulo[8]</h3>
-                                        <p>
-                                            @cardsTours_2[2]
-                                        </p>
-                                        <div class="rest-info DailyCardPrice">
-                                            <span class="price">@cardsTours_2[3]</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <!--ELEMENTO 3-->
-                        <div></div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 cardsAndando">
-                        <!--ELEMENTO 2-->
-                        <div class="contenido-app">
-                            <a href="@cardsTours_3[4]" style="text-decoration:none" target="_blank" class="anc-card">
-                                <div class="mainland-item">
-                                    <div class="mainland-image">
-                                        <img class="img-portada lazyload" data-src="@imagenItem[10].UrlImagen" alt="@imagenItem[10].NombreImagen">
-                                        <div class="cruise-details">
-                                            <span>@cardsTours_3[1]</span>
-                                        </div>
-                                    </div>
-                                    <div class="cruise-info tourDetailsIsabela">
-                                        <h3 style="font-family:'Berlin Sans FB'">@titulo[9]</h3>
-                                        <p>
-                                            @cardsTours_3[2]
-                                        </p>
-                                        <div class="rest-info DailyCardPrice">
-                                            <span class="price">@cardsTours_3[3]</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <!--ELEMENTO 2-->
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 cardsAndando">
-                        <!--ELEMENTO 3-->
-                        <div class="contenido-app">
-                            <a href="@cardsTours_4[4]" style="text-decoration:none" target="_blank" class="anc-card">
-                                <div class="mainland-item">
-                                    <div class="mainland-image">
-                                        <img class="img-portada lazyload" data-src="@imagenItem[11].UrlImagen" alt="@imagenItem[11].NombreImagen">
-                                        <div class="cruise-details" id="Properties">
-                                            <span>@cardsTours_4[1]</span>
-                                        </div>
-                                    </div>
-                                    <div class="cruise-info tourDetailsIsabela">
-                                        <h3 style="font-family:'Berlin Sans FB'">@titulo[10]</h3>
-                                        <p>
-                                            @cardsTours_4[2]
-                                        </p>
-                                        <div class="rest-info DailyCardPrice">
-                                            <span class="price">@cardsTours_4[3]</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <!--ELEMENTO 3-->
-                        <div></div>
-                    </div>
+                    </div> i++;
+                    }
+
+                   
                 </div>
             </div>
         </div>

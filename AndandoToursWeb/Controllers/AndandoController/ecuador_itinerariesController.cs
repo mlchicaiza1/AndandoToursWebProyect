@@ -23,6 +23,8 @@ namespace AndandoToursWeb.Controllers
             var urlData = _repo.getUrlPage(HttpContext);
             string urlCanonica = urlData[0];
             var idVista = 2049;
+            //Cargar Cards
+            var cardsEcu = await _repo.GetCards(2049);
             //Cargar Mapa
             var mapa= await _repo.GetMapa();
             //Cargar Contenido texto e imagenes
@@ -40,6 +42,7 @@ namespace AndandoToursWeb.Controllers
             ViewBag.GetContenidoVista = contendido;
             ViewBag.GetContenidoMult = contenidoMultimedia;
             ViewBag.GetMapa = mapa;
+            ViewBag.CardsEcu = cardsEcu;
             return View();
         }
         [Route("/ecuador-itineraries/amazon-tours-ecuador")]
@@ -51,7 +54,9 @@ namespace AndandoToursWeb.Controllers
             var idVista = 0;
             var price = "";
             idVista = 2050;
-            price = await getPrice(2049, 0);
+            var cardsEcu = await _repo.GetCards(2049);
+            price =  cardsEcu[0].CardPrecio.ToString();
+
             //itinerarios 
             var getItinerariosBtnEc = await _repo.GetItinerEcuadorBtn(idVista);
             var datosItinerarios = await _repo.GetItinerEcuadorDeta(getItinerariosBtnEc[0].IdItinerarioBtn);
@@ -105,7 +110,9 @@ namespace AndandoToursWeb.Controllers
             string urlCanonica = urlData[0];
             var idVista = 2051;
             var price = "";
-            price = await getPrice(2049, 4);
+            var cardsEcu = await _repo.GetCards(2049);
+            price = cardsEcu[4].CardPrecio.ToString();
+            
             //form ipadrres
             var remoteIpAddress = HttpContext.Features.Get<IHttpConnectionFeature>()?.RemoteIpAddress;
 
@@ -133,7 +140,9 @@ namespace AndandoToursWeb.Controllers
             ViewBag.Price = price;
             return View();
         }
-        
+
+
+        [Route("/ecuador-itineraries/EcuadorProduct")]
         [Route("/ecuador-itineraries/austral-paths")]
         [Route("/ecuador-itineraries/avenue-of-volcanoes")]
         [Route("/ecuador-itineraries/magical-north")]
@@ -144,6 +153,8 @@ namespace AndandoToursWeb.Controllers
             string[] words = urlData[1].Split('/');
             var idVista = 0;
             var price = "";
+            
+            
             //form ipadrres
             var remoteIpAddress = HttpContext.Features.Get<IHttpConnectionFeature>()?.RemoteIpAddress;
 
@@ -151,25 +162,34 @@ namespace AndandoToursWeb.Controllers
             var ipAddress = heserver.AddressList.ToList().Where(p => p.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork).FirstOrDefault().ToString();
             ViewData["IP"] = ipAddress;
             //vista
+            var cardsEcu = await _repo.GetCards(2049);
             if (words.Count() == 3)
             {
                 switch (words[2])
                 {
                     case "avenue-of-volcanoes":
                         idVista = 3052;
-                        price = await getPrice(2049, 1);
+                       
+                        price = cardsEcu[1].CardPrecio.ToString();
                         break;
                     case "austral-paths":
                         idVista = 3053;
-                        price = await getPrice(2049, 3);
+                        price = cardsEcu[3].CardPrecio.ToString();
                         break;
                     case "magical-north":
                         idVista = 3054;
-                        price = await getPrice(2049, 2);
+                        price = cardsEcu[2].CardPrecio.ToString();
+                        break;
+
+                    default:
+                        var ultVista = await _repo.GetVistaAndandoWebUltimoReg("ecuador-tours");
+                        idVista = ultVista[0].IdVista;
+                        price = cardsEcu[3].CardPrecio.ToString();
                         break;
                 }
             }
-            //itinerarios 
+            //itinerarios
+          
             var getItinerariosBtnEc = await _repo.GetItinerEcuadorBtn(idVista);
             var datosItinerarios = await _repo.GetItinerEcuadorDeta(getItinerariosBtnEc[0].IdItinerarioBtn);
             List<GetContenidoVista> contendido = await _repo.GetContenidoPaginaWeb(idVista);
@@ -188,32 +208,7 @@ namespace AndandoToursWeb.Controllers
             return View();
         }
 
-        public async Task<string> getPrice(int idIslandTour, int positionTour)
-        {
-            //Cargar Contenido texto e imagenes
-            List<GetContenidoVista> contendido = await _repo.GetContenidoPaginaWeb(idIslandTour);
-            string[] textCards;
-            var cardsTours = new List<string>();
-            for (int i = 0; i < 5; i++)
-            {
-                var textoCms = contendido[9 + i].Parrafo;
-                textCards = textoCms.Split('*');
-
-
-                cardsTours.Add(Regex.Replace(textCards[3], "<.*?>", String.Empty).Replace("\n", "").Replace("&nbsp;", "").Replace("&ndash;", ""));
-            }
-
-            //Tomar solo los numeros de una cadena
-            Match m = Regex.Match(cardsTours[positionTour], "(\\d+)");
-            string num = string.Empty;
-
-            if (m.Success)
-            {
-                num = m.Value;
-            }
-            string price = num;
-            return price;
-        }
+        
         //Mapa modal
         [Route("/GetModalHotel/{idHotel ?}")]
         public async Task<IActionResult> GetModalHotel(int idHotel)

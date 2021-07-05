@@ -17,6 +17,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Caching.Memory;
 using AndandoToursWeb.Data;
+using AndandoToursWeb.Models.ModelsCMS;
+using AndandoToursWeb.Models.ModelsAndandoTours;
 
 namespace AndandoToursWeb.Controllers
 {
@@ -48,6 +50,163 @@ namespace AndandoToursWeb.Controllers
             }
 
         }
+
+        public IActionResult CrearContenidoPagina()
+        {
+
+            return View();
+        }
+
+
+        public IActionResult ActualizarCards(int id)
+        {
+           var cards= _repoAndando.GetCards(id);
+
+            return View(cards);
+        }
+
+        [HttpPost]
+        public JsonResult CrearContenidoPagina(CreateContenido nPagina)
+        {
+            
+            try
+            {
+               var idVista= _repo.NewContenidoPaginaWeb(nPagina);
+                return Json(idVista);
+            }
+            catch
+            {
+                return Json("Error");
+            }
+            
+
+        }
+
+
+        [HttpPost]
+
+        public JsonResult CrearItinerario(ItinEcuadorBtn model)
+        {
+            try
+            {
+                _repo.AddItinearioEcu(model);
+
+                return Json("Guardado");
+            }
+            catch (Exception ex)
+            {
+                return Json(ex);
+            }
+        }
+
+
+        public JsonResult CrearCards(CardsAndando model)
+        {
+           
+            try
+            {
+
+                if (model.file != null && model.file.Length > 0)
+                {
+                    var imagePath = @"\images\imageCards\";
+
+                    var uploadPath = _env.WebRootPath + imagePath;
+
+                    //Create Directory
+
+                    if (!Directory.Exists(uploadPath))
+                    {
+                        Directory.CreateDirectory(uploadPath);
+                    }
+                    //Create uniq file nmae
+
+                    var uiqFileName = Guid.NewGuid();
+
+                    var filename = Path.GetFileName(model.file.FileName);
+
+                    string fullPath = uploadPath + filename;
+
+                    imagePath = imagePath + @"\";
+
+                    var filePath = @".." + Path.Combine(imagePath, filename);
+
+                    using (var filestream = new FileStream(fullPath, FileMode.Create))
+                    {
+                        model.file.CopyToAsync(filestream);
+                    }
+
+                    ViewBag.filePath = filePath;
+
+                     _repo.CreateCards(model);
+                }
+
+
+               
+                return Json("Creado");
+            }
+            catch
+            {
+                return Json("Error");
+            }
+
+
+        }
+
+        public JsonResult ActualizarCards(CardsAndando model)
+        {
+
+            try
+            {
+                _repo.UpdateCards(model);
+                return Json("Creado");
+            }
+            catch
+            {
+                return Json("Error");
+            }
+
+
+        }
+
+        public async Task<IActionResult> ImageUpload(IFormFile file)
+        {
+            if (file != null && file.Length>0)
+            {
+                var imagePath = @"\images\imageCards\";
+
+                var uploadPath = _env.WebRootPath + imagePath;
+
+                //Create Directory
+
+                if (!Directory.Exists(uploadPath))
+                {
+                    Directory.CreateDirectory(uploadPath);
+                }
+                //Create uniq file nmae
+
+                var uiqFileName = Guid.NewGuid();
+
+                var filename = Path.GetFileName(file.FileName);
+
+                string fullPath = uploadPath + filename;
+
+                imagePath = imagePath + @"\";
+
+                var filePath = @".." + Path.Combine(imagePath, filename);
+
+                using(var filestream= new FileStream(fullPath, FileMode.Create))
+                {
+                    await file.CopyToAsync(filestream);
+                }
+
+                ViewBag.filePath = filePath;
+
+
+            }
+
+            return View("../CmsWebAndando/CrearContenidoPagina");
+        }
+
 
         [Route("/PaginasWeb")]
         public ActionResult PaginasAndandoWeb(string categoria)
@@ -232,6 +391,14 @@ namespace AndandoToursWeb.Controllers
 
             _repo.UpdateImagenes(idImagen, nombreImagen);
         }
+
+        [HttpPost]
+        public void UpdateNombreImgMenu(string nombreImagen, int idImagen)
+        {
+
+            _repo.UpdateImagenesMenu(idImagen, nombreImagen);
+        }
+
         public List<String> getUrlPage(Microsoft.AspNetCore.Http.HttpContext context)
         {
             var host = $"{context.Request.Scheme}://{context.Request.Host}";
